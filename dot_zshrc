@@ -67,7 +67,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
 # or set a custom format using the strftime function format specifications,
 # see 'man strftime' for details.
-# HIST_STAMPS="mm/dd/yyyy"
+HIST_STAMPS="dd.mm.yyyy"
 
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
@@ -94,6 +94,9 @@ if [[ -n $SSH_CONNECTION ]]; then
 else
    export EDITOR='nvim'
 fi
+
+export GO111MODULE=on
+export PATH=$PATH:$(go env GOPATH)/bin
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
