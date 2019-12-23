@@ -1,3 +1,4 @@
+ansible
 autoconf
 automake
 bash
@@ -13,6 +14,7 @@ device-mapper
 dhcpcd
 diffutils
 dmenu
+docker
 e2fsprogs
 fakeroot
 file
@@ -37,6 +39,7 @@ iproute2
 iputils
 jfsutils
 keepassxc
+kubectl
 less
 licenses
 lightdm
@@ -71,6 +74,7 @@ sysfsutils
 systemd-sysvcompat
 tar
 termite
+terraform
 texinfo
 usbutils
 util-linux
