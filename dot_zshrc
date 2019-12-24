@@ -77,7 +77,15 @@ HIST_STAMPS="dd.mm.yyyy"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git archlinux)
+plugins=(
+    archlinux
+    systemd
+    git
+    docker
+    jira
+    kubectl
+    web-search
+)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -109,6 +117,12 @@ export PATH=$PATH:$(go env GOPATH)/bin
 # Example aliases
 alias vi=nvim
 alias startx='ssh-agent startx'
+
+# Syntax highlighting
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# "Command not found" handler
+source /usr/share/doc/pkgfile/command-not-found.zsh
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
