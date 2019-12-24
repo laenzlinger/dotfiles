@@ -62,6 +62,7 @@ patch
 pciutils
 perl
 pkgconf
+pkgfile
 procps-ng
 psmisc
 python
@@ -90,3 +91,4 @@ xorg-xfontsel
 xorg-xinit
 yarn
 zsh-completions
+zsh-syntax-highlighting
