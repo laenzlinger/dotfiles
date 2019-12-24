@@ -81,7 +81,6 @@ plugins=(
     archlinux
     systemd
     git
-    docker
     jira
     kubectl
     web-search
