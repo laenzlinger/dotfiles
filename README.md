@@ -90,8 +90,20 @@ sudo systemctl enable vmtoolsd.service
 sudo systemctl enable vmware-vmblock-fuse.service
 ```
 
+### Xorg Keyboard
 
-## chezmoi apply
+```
+sudo cat /etc/X11/xorg.conf.d/00-keyboard.conf                    ─╯
+Section "InputClass"
+        Identifier "system-keyboard"
+        MatchIsKeyboard "on"
+        Option "XkbLayout" "ch"
+        Option "XkbModel" "macintosh"
+        Option "XkbVariant" "de"
+EndSection
+```
+
+### chezmoi apply
 
 ```
 chezmoi init https://github.com/laenzlinger/dotfiles.git
