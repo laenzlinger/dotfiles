@@ -56,9 +56,9 @@ arch-chroot /mnt
 ln -sf /usr/share/zoneinfo/Europe/Zurich /etc/localtime
 vi /etc/locale.gen     # uncomment en_US.UTF-8 and de-CH.UTF-8
 locale-gen
-vi /etc/locale.conf    # LANG=en_US.UTF-8
-vi /etc/vconsole.conf  # KEYMAP=de_CH-latin1
-vi /etc/hostname       # arch
+echo "LANG=en_US.UTF-8" > /etc/locale.conf
+echo "KEYMAP=de_CH-latin1" > /etc/vconsole.conf
+echo arch > /etc/hostname
 vi /etc/hosts          # see installation guid
 systemctl enable dhcpcd.service
 passwd
@@ -71,8 +71,39 @@ grub-install --target=x86_64-efi --efi-directory=/efi --bootloader-id=GRUB
 grub-mkconfig -o /boot/grub/grub.cfg
 ```
 
-### List of installed packages
-chezmoi apply creates list of installed packags in `.config/pacman/*.txt`
+### Create user
+
+```
+useradd -m laenzi
+passwd
+pacman -S git sudo
+visudo                  # laenzi   ALL=(ALL) ALL
+```
 
 ### Install all packages
-To install all the packages run `dot_config/pacman/executable_install.sh` or `.config/pacman/install.sh`
+To install all the packages `git clone` run `bash dot_config/pacman/executable_install.sh` or (once installed `.config/pacman/install.sh`
+
+
+```
+vi /etc/mkinitcpio.conf  # MODULES=(... vmhgfs,vmxnet)
+sudo systemctl enable vmtoolsd.service
+sudo systemctl enable vmware-vmblock-fuse.service
+```
+
+
+## chezmoi apply
+
+```
+chezmoi init https://github.com/laenzlinger/dotfiles.git
+
+# oh-my-zsh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+# powerlevel10k
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/themes/powerlevel10k
+
+chezmoi apply
+```
+
+### List of installed packages
+chezmoi apply creates list of installed packags in `.config/pacman/*.txt`
