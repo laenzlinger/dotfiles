@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-j4-make-config -r base16-tomorrow
+[ -f ~/.config/i3/config.base ] && j4-make-config -r base16-tomorrow
