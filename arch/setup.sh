@@ -34,7 +34,15 @@ mkdir /mnt/efi
 mount /dev/sda1 /mnt/efi
 
 echo "Unstall base system"
-#FIXME setup mirrors
+cat <<EOT > /etc/pacman.d/mirrorlist
+Server = https://mirror.puzzle.ch/archlinux/\$repo/os/\$arch
+Server = https://pkg.adfinis-sygroup.ch/archlinux/\$repo/os/\$arch
+Server = https://mirror.init7.net/archlinux/\$repo/os/\$arch
+Server = https://mirror.ungleich.ch/mirror/packages/archlinux/\$repo/os/\$arch
+Server = https://mirror.netcologne.de/archlinux/\$repo/os/\$arch
+Server = http://ftp.halifax.rwth-aachen.de/archlinux/\$repo/os/\$arch
+EOT
+
 pacstrap /mnt base linux linux-firmware vi dhcpcd grub efibootmgr open-vm-tools sudo
 
 echo "Generate fstab"
@@ -62,7 +70,7 @@ arch-chroot /mnt grub-install --target=x86_64-efi --efi-directory=/efi --bootloa
 arch-chroot /mnt grub-mkconfig -o /boot/grub/grub.cfg
 
 echo "Preload vmware modules"
-#FIXME vi /etc/mkinitcpio.conf  # MODULES=(... vmhgfs,vmxnet)
+arch-chroot /mnt sed -i 's/MODULES=.*/MODULES=(vmhgfs,vmxnet)/' /etc/mkinitcpio.conf
 
 echo "Enable Services"
 arch-chroot /mnt systemctl enable dhcpcd.service
@@ -70,6 +78,11 @@ arch-chroot /mnt systemctl enable vmtoolsd.service
 arch-chroot /mnt systemctl enable vmware-vmblock-fuse.service
 
 echo "Configure Xorg keyboard"
-#FIXME
-
+arch-chroot /mnt echo 'Section "InputClass"' > /etc/X11/xorg.conf.d/00-keyboard.conf
+arch-chroot /mnt echo 'e   Identifier "system-keyboard"' > /etc/X11/xorg.conf.d/00-keyboard.conf
+arch-chroot /mnt echo 'e   MatchIsKeyboard "on"' > /etc/X11/xorg.conf.d/00-keyboard.conf
+arch-chroot /mnt echo 'e   Option "XkbLayout" "ch"' > /etc/X11/xorg.conf.d/00-keyboard.conf
+arch-chroot /mnt echo 'e   Option "XkbModel" "macintosh"' > /etc/X11/xorg.conf.d/00-keyboard.conf
+arch-chroot /mnt echo 'e   Option "XkbVariant" "de"' > /etc/X11/xorg.conf.d/00-keyboard.conf
+arch-chroot /mnt echo 'endSection' > /etc/X11/xorg.conf.d/00-keyboard.conf
 

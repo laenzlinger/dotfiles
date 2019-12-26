@@ -19,7 +19,7 @@ VM Settings:
 ### Run the installation script
 ```bash
 loadkeys de_CH-latin1
-curl https://raw.githubusercontent.com/laenzlinger/dotfiles/master/arch/install.sh
+bash -c $(curl https://raw.githubusercontent.com/laenzlinger/dotfiles/master/arch/install.sh)
 ```
 
 ### Create user
