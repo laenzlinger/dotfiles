@@ -40,21 +40,8 @@ visudo                  # laenzi   ALL=(ALL) ALL
 ```bash
 chezmoi init https://github.com/laenzlinger/dotfiles.git
 chezmoi cd
-bash dot_config/pacman/executable_install.sh
+install.sh
 exit
-
-# oh-my-zsh
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-
-# powerlevel10k
-git clone --depth=1 https://github.com/romkatv/powerlevel10k.git $ZSH_CUSTOM/themes/powerlevel10k
-
-
-# Vim Plug (afterwards run :PlugInsall in nvim)
-curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-
-
 chezmoi apply
 ```
 
