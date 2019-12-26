@@ -48,42 +48,43 @@ pacstrap /mnt base linux linux-firmware vi dhcpcd grub efibootmgr open-vm-tools 
 echo "Generate fstab"
 genfstab -U /mnt >> /mnt/etc/fstab
 
+arch-chroot /mnt /bin/bash <<EOT
 echo "Set Time Zone"
-arch-chroot /mnt ln -sf /usr/share/zoneinfo/Europe/Zurich /etc/localtime
+ln -sf /usr/share/zoneinfo/Europe/Zurich /etc/localtime
 
 echo "Set Locale"
-arch-chroot /mnt echo "en_US.UTF-8" >> /etc/locale.gen
-arch-chroot /mnt echo "de_CH.UTF-8" >> /etc/locale.gen
-arch-chroot /mnt locale-gen
-arch-chroot /mnt echo "LANG=en_US.UTF-8" > /etc/locale.conf
+echo "en_US.UTF-8" >> /etc/locale.gen
+echo "de_CH.UTF-8" >> /etc/locale.gen
+locale-gen
+echo "LANG=en_US.UTF-8" > /etc/locale.conf
 
 echo "Set Keymap"
-arch-chroot /mnt echo "KEYMAP=de_CH-latin1" > /etc/vconsole.conf
+echo "KEYMAP=de_CH-latin1" > /etc/vconsole.conf
 
 echo "Set Hostname"
-arch-chroot /mnt echo "arch" > /etc/hostname
-arch-chroot /mnt echo "127.0.0.1	localhost" > /etc/hosts
-arch-chroot /mnt echo "::1		localhost" >> /etc/hosts
+echo "arch" > /etc/hostname
+echo "127.0.0.1	localhost" > /etc/hosts
+echo "::1		localhost" >> /etc/hosts
 
 echo "Install grub"
-arch-chroot /mnt grub-install --target=x86_64-efi --efi-directory=/efi --bootloader-id=GRUB
-arch-chroot /mnt grub-mkconfig -o /boot/grub/grub.cfg
+grub-install --target=x86_64-efi --efi-directory=/efi --bootloader-id=GRUB
+grub-mkconfig -o /boot/grub/grub.cfg
 
 echo "Preload vmware modules"
-arch-chroot /mnt sed -i 's/MODULES=.*/MODULES=(vmhgfs,vmxnet)/' /etc/mkinitcpio.conf
+sed -i 's/MODULES=.*/MODULES=(vmhgfs,vmxnet)/' /etc/mkinitcpio.conf
 
 echo "Enable Services"
-arch-chroot /mnt systemctl enable dhcpcd.service
-arch-chroot /mnt systemctl enable vmtoolsd.service
-arch-chroot /mnt systemctl enable vmware-vmblock-fuse.service
+systemctl enable dhcpcd.service
+systemctl enable vmtoolsd.service
+systemctl enable vmware-vmblock-fuse.service
 
 echo "Configure Xorg keyboard"
-arch-chroot /mnt mkdir -p /etc/X11/xorg.conf.d
-arch-chroot /mnt echo 'Section "InputClass"' > /etc/X11/xorg.conf.d/00-keyboard.conf
-arch-chroot /mnt echo '   Identifier "system-keyboard"' >> /etc/X11/xorg.conf.d/00-keyboard.conf
-arch-chroot /mnt echo '   MatchIsKeyboard "on"' >> /etc/X11/xorg.conf.d/00-keyboard.conf
-arch-chroot /mnt echo '   Option "XkbLayout" "ch"' >> /etc/X11/xorg.conf.d/00-keyboard.conf
-arch-chroot /mnt echo '   Option "XkbModel" "macintosh"' >> /etc/X11/xorg.conf.d/00-keyboard.conf
-arch-chroot /mnt echo '   Option "XkbVariant" "de"' >> /etc/X11/xorg.conf.d/00-keyboard.conf
-arch-chroot /mnt echo 'endSection' >> /etc/X11/xorg.conf.d/00-keyboard.conf
-
+mkdir -p /etc/X11/xorg.conf.d
+echo 'Section "InputClass"' > /etc/X11/xorg.conf.d/00-keyboard.conf
+echo '   Identifier "system-keyboard"' >> /etc/X11/xorg.conf.d/00-keyboard.conf
+echo '   MatchIsKeyboard "on"' >> /etc/X11/xorg.conf.d/00-keyboard.conf
+echo '   Option "XkbLayout" "ch"' >> /etc/X11/xorg.conf.d/00-keyboard.conf
+echo '   Option "XkbModel" "macintosh"' >> /etc/X11/xorg.conf.d/00-keyboard.conf
+echo '   Option "XkbVariant" "de"' >> /etc/X11/xorg.conf.d/00-keyboard.conf
+echo 'endSection' >> /etc/X11/xorg.conf.d/00-keyboard.conf
+EOT
