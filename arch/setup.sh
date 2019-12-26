@@ -78,11 +78,12 @@ arch-chroot /mnt systemctl enable vmtoolsd.service
 arch-chroot /mnt systemctl enable vmware-vmblock-fuse.service
 
 echo "Configure Xorg keyboard"
+arch-chroot /mnt mkdir -p /etc/X11/xorg.conf.d
 arch-chroot /mnt echo 'Section "InputClass"' > /etc/X11/xorg.conf.d/00-keyboard.conf
-arch-chroot /mnt echo 'e   Identifier "system-keyboard"' > /etc/X11/xorg.conf.d/00-keyboard.conf
-arch-chroot /mnt echo 'e   MatchIsKeyboard "on"' > /etc/X11/xorg.conf.d/00-keyboard.conf
-arch-chroot /mnt echo 'e   Option "XkbLayout" "ch"' > /etc/X11/xorg.conf.d/00-keyboard.conf
-arch-chroot /mnt echo 'e   Option "XkbModel" "macintosh"' > /etc/X11/xorg.conf.d/00-keyboard.conf
-arch-chroot /mnt echo 'e   Option "XkbVariant" "de"' > /etc/X11/xorg.conf.d/00-keyboard.conf
-arch-chroot /mnt echo 'endSection' > /etc/X11/xorg.conf.d/00-keyboard.conf
+arch-chroot /mnt echo '   Identifier "system-keyboard"' >> /etc/X11/xorg.conf.d/00-keyboard.conf
+arch-chroot /mnt echo '   MatchIsKeyboard "on"' >> /etc/X11/xorg.conf.d/00-keyboard.conf
+arch-chroot /mnt echo '   Option "XkbLayout" "ch"' >> /etc/X11/xorg.conf.d/00-keyboard.conf
+arch-chroot /mnt echo '   Option "XkbModel" "macintosh"' >> /etc/X11/xorg.conf.d/00-keyboard.conf
+arch-chroot /mnt echo '   Option "XkbVariant" "de"' >> /etc/X11/xorg.conf.d/00-keyboard.conf
+arch-chroot /mnt echo 'endSection' >> /etc/X11/xorg.conf.d/00-keyboard.conf
 
