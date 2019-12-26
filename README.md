@@ -2,7 +2,6 @@
 
 This repo contains the dotfiles managed by chezmoi
 
-
 ## Arch Linux (on VMWare Fusion)
 
 ### Manual steps
@@ -29,32 +28,20 @@ chmod u+x setup.sh
 ```bash
 arch-chroot /dev
 passwd
-useradd -m laenzi
-passwd
-pacman -S git sudo
+adduser -m laenzi
+passwd laenzi
 visudo                  # laenzi   ALL=(ALL) ALL
 ```
 
 ### Install all packages
-To install all the packages `git clone` run `bash dot_config/pacman/executable_install.sh` or (once installed `.config/pacman/install.sh`
-
-### Xorg Keyboard
-
-```bash
-sudo cat /etc/X11/xorg.conf.d/00-keyboard.conf                    ─╯
-Section "InputClass"
-        Identifier "system-keyboard"
-        MatchIsKeyboard "on"
-        Option "XkbLayout" "ch"
-        Option "XkbModel" "macintosh"
-        Option "XkbVariant" "de"
-EndSection
-```
 
 ### chezmoi apply
 
 ```bash
 chezmoi init https://github.com/laenzlinger/dotfiles.git
+chezmoi cd
+bash dot_config/pacman/executable_install.sh
+exit
 
 # oh-my-zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"

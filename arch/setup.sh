@@ -43,7 +43,7 @@ Server = https://mirror.netcologne.de/archlinux/\$repo/os/\$arch
 Server = http://ftp.halifax.rwth-aachen.de/archlinux/\$repo/os/\$arch
 EOT
 
-pacstrap /mnt base linux linux-firmware vi dhcpcd grub efibootmgr open-vm-tools sudo
+pacstrap /mnt base linux linux-firmware vi dhcpcd grub efibootmgr open-vm-tools sudo git chezmoi
 
 echo "Generate fstab"
 genfstab -U /mnt >> /mnt/etc/fstab
