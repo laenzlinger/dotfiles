@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 
-sudo pacman -S --needed - < $HOME/.config/pacman/pkglist.txt
+sudo pacman -S --needed - < $HOME/.local/chezmoi/dot_config/pacman/pkglist.txt
 
 # oh-my-zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
