@@ -32,9 +32,7 @@ passwd laenzi
 visudo                  # laenzi   ALL=(ALL) ALL
 ```
 
-### Install all packages
-
-### chezmoi apply
+### User setup 
 
 ```bash
 chezmoi init https://github.com/laenzlinger/dotfiles.git
