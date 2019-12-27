@@ -37,7 +37,7 @@ visudo                  # laenzi   ALL=(ALL) ALL
 ```bash
 chezmoi init https://github.com/laenzlinger/dotfiles.git
 chezmoi cd
-arch/install-user.sh
+arch/setup-user.sh
 exit
 chezmoi apply
 chezmoi apply
