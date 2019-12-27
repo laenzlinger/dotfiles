@@ -71,7 +71,7 @@ grub-install --target=x86_64-efi --efi-directory=/efi --bootloader-id=GRUB
 grub-mkconfig -o /boot/grub/grub.cfg
 
 echo "Preload vmware modules"
-sed -i 's/MODULES=.*/MODULES=(vmhgfs,vmxnet)/' /etc/mkinitcpio.conf
+sed -i 's/^MODULES=.*/MODULES=(vsock vmw_vsock_vmci_transport vmw_balloon vmw_vmci vmwgfx)/' /etc/mkinitcpio.conf
 
 echo "Enable Services"
 systemctl enable dhcpcd.service
