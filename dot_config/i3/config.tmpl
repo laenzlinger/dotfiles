@@ -23,6 +23,7 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id nm-applet
 
+{{- if eq .email "christof.laenzlinger@swisscom.com" }}
 exec --no-startup-id i3-msg 'workspace 1'
 exec chromium --class=chromium-ws1
 exec i3-sensible-terminal
@@ -32,6 +33,7 @@ for_window [class="^chromium-ws1$"] move right
 exec --no-startup-id i3-msg 'workspace 9'
 exec keepassxc
 for_window [class="KeePassXC"] move workspace number 9
+{{- end }}
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
