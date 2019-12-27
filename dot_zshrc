@@ -1,7 +1,7 @@
 
 # startx in login shell
 if [[ $0 == -* ]]; then
-  startx
+  ssh-agent startx
 fi
 
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
@@ -121,7 +121,6 @@ export PATH=$PATH:$(go env GOPATH)/bin
 #
 # Example aliases
 alias vi=nvim
-alias startx='ssh-agent startx'
 
 # Syntax highlighting
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
