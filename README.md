@@ -19,8 +19,7 @@ VM Settings:
 ```bash
 loadkeys de_CH-latin1
 curl https://raw.githubusercontent.com/laenzlinger/dotfiles/master/arch/setup.sh > setup.sh
-chmod u+x setup.sh
-./setup.sh
+bash setup.sh
 ```
 
 ### Create user
