@@ -39,8 +39,6 @@ chezmoi init https://github.com/laenzlinger/dotfiles.git
 chezmoi cd
 arch/setup-user.sh
 exit
-chezmoi apply
-chezmoi apply
 ```
 
 ### List of installed packages
