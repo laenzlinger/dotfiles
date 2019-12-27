@@ -18,11 +18,11 @@ mkdir -p $HOME/src/aur
 pushd $HOME/src/aur
 git clone https://aur.archlinux.org/j4-make-config-git.git
 cd j4-make-config-git
-makepkg -si
+makepkg -si --noconfirm
 cd $HOME/src/aur
 git clone https://aur.archlinux.org/nerd-fonts-meslo.git
 cd nerd-fonts-meslo
-makepkg -si
+makepkg -si --noconfirm
 popd
 
 echo nvim +'PlugInstall --sync' +qa
