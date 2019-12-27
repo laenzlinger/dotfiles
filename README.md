@@ -9,7 +9,7 @@ This repo contains the dotfiles managed by chezmoi
 Followed steps in Arch Linux [installation guide](https://wiki.archlinux.org/index.php/installation_guide)
 
 VM Settings:
-* UEFI boot mode (set firmware = "efi" in VMX file)
+* UEFI boot mode
 * Virtual Disk Size 50GB
 * 4 CPU
 * 4096 MB RAM
