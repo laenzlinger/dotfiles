@@ -27,7 +27,7 @@ bash setup.sh
 ```bash
 arch-chroot /dev
 passwd
-adduser -m laenzi
+useradd -m laenzi
 passwd laenzi
 visudo                  # laenzi   ALL=(ALL) ALL
 ```
