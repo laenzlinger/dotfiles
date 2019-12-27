@@ -87,4 +87,6 @@ echo '   Option "XkbLayout" "ch"' >> /etc/X11/xorg.conf.d/00-keyboard.conf
 echo '   Option "XkbModel" "macintosh"' >> /etc/X11/xorg.conf.d/00-keyboard.conf
 echo '   Option "XkbVariant" "de"' >> /etc/X11/xorg.conf.d/00-keyboard.conf
 echo 'endSection' >> /etc/X11/xorg.conf.d/00-keyboard.conf
+
+mkinitcpio -P
 EOT
