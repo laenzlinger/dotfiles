@@ -20,8 +20,8 @@ git clone https://aur.archlinux.org/j4-make-config-git.git
 cd j4-make-config-git
 makepkg -si
 cd $HOME/src/aur
-git clone https://aur.archlinux.org/nerd-fonts-terminus.git
-cd nerd-fonts-terminus
+git clone https://aur.archlinux.org/nerd-fonts-meslo.git
+cd nerd-fonts-meslo
 makepkg -si
 popd
 
