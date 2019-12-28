@@ -46,11 +46,6 @@ chezmoi apply creates list of installed packags in `.config/pacman/*.txt`
 
 ## OSX
 
-### Install Homebrew
-```
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-```
-
 ### User setup 
 
 ```bash
