@@ -1,3 +1,4 @@
+cloudfoundry-cli
 freetype2-cleartype
 j4-make-config-git
 nerd-fonts-complete

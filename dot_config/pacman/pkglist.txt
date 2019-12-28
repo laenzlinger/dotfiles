@@ -1,6 +1,7 @@
 ansible
 autoconf
 automake
+aws-cli
 bash
 binutils
 bison
@@ -57,6 +58,7 @@ neovim
 netctl
 open-vm-tools
 openssh
+openvpn
 pacman
 patch
 pciutils
