@@ -89,6 +89,9 @@ plugins=(
     archlinux
     systemd
 {{- end }}
+{{- if eq .chezmoi.os "darwin" }}
+    osx
+{{- end }}
     aws
     cloudfoundry
     git
@@ -133,7 +136,9 @@ source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # Autosuggestion
 source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-{{- else }}
+{{- end }}
+
+{{- if eq .chezmoi.os "linux" }}
 # Syntax highlighting
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
