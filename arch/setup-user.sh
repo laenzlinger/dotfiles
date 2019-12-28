@@ -1,15 +1,20 @@
 #!/usr/bin/env bash
 
+function install-aur {
+  pkg=$1
+  pushd $HOME/src/aur
+  git clone https://aur.archlinux.org/$pkg.git
+  cd $pkg
+  makepkg -si --noconfirm
+  popd
+}
+
 # install packages
 sudo pacman -S --needed - < $HOME/.local/share/chezmoi/dot_config/pacman/pkglist.txt
 
 # install aur packages
-mkdir -p $HOME/src/aur
-pushd $HOME/src/aur
-git clone https://aur.archlinux.org/nerd-fonts-meslo.git
-cd nerd-fonts-meslo
-makepkg -si --noconfirm
-popd
+install-aur nerd-fonts-meslo
+install-aur cloudfoundry-cli
 
 # oh-my-zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
