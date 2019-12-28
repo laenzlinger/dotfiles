@@ -87,6 +87,7 @@
       # time                  # current time
       # =========================[ Line #2 ]=========================
       newline
+      iterm
       # public_ip             # public IP address
       # proxy                 # system-wide http/https/ftp proxy
       # battery               # internal battery
@@ -878,12 +879,18 @@
   #   typeset -g POWERLEVEL9K_KUBECONTEXT_TEST_VISUAL_IDENTIFIER_EXPANSION='⭐'
   #   typeset -g POWERLEVEL9K_KUBECONTEXT_TEST_CONTENT_EXPANSION='> ${P9K_CONTENT} <'
   typeset -g POWERLEVEL9K_KUBECONTEXT_CLASSES=(
-      # '*prod*'  PROD    # These values are examples that are unlikely
-      # '*test*'  TEST    # to match your needs. Customize them as needed.
+      '*prod*'  PROD
+      '*test*'  TEST
       '*'       DEFAULT)
   typeset -g POWERLEVEL9K_KUBECONTEXT_DEFAULT_FOREGROUND=7
   typeset -g POWERLEVEL9K_KUBECONTEXT_DEFAULT_BACKGROUND=5
   typeset -g POWERLEVEL9K_KUBECONTEXT_DEFAULT_VISUAL_IDENTIFIER_EXPANSION='○'
+
+  typeset -g POWERLEVEL9K_KUBECONTEXT_TEST_BACKGROUND=4
+  typeset -g POWERLEVEL9K_KUBECONTEXT_TEST_VISUAL_IDENTIFIER_EXPANSION='TEST'
+
+  typeset -g POWERLEVEL9K_KUBECONTEXT_PROD_BACKGROUND=1
+  typeset -g POWERLEVEL9K_KUBECONTEXT_PROD_VISUAL_IDENTIFIER_EXPANSION='PROD'
 
   # Use POWERLEVEL9K_KUBECONTEXT_CONTENT_EXPANSION to specify the content displayed by kubecontext
   # segment. Parameter expansions are very flexible and fast, too. See reference:
@@ -1014,6 +1021,15 @@
     # instant_prompt_example. This will give us the same `example` prompt segment in the instant
     # and regular prompts.
     prompt_example
+  }
+
+ function prompt_iterm() {
+    local scheme='Solarized Light'
+    if [[ $P9K_KUBECONTEXT_NAME == *prod ]];
+    then
+        scheme='Afterglow'
+    fi
+    printf "\033]1337;SetColors=preset=${scheme}\a"
   }
 
   # User-defined prompt segments can be customized the same way as built-in segments.
