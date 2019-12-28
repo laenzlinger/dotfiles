@@ -85,8 +85,10 @@ HIST_STAMPS="dd.mm.yyyy"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
+{{- if eq .chezmoi.os "linux" }}
     archlinux
     systemd
+{{- end }}
     git
     jira
     kubectl
