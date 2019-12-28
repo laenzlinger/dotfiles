@@ -1,5 +1,6 @@
 README.md
 arch/
+darwin/
 
 {{- if eq .chezmoi.os "darwin" }}
 .config/i3
