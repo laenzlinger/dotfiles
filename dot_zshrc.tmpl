@@ -97,6 +97,7 @@ plugins=(
     git
     jira
     kubectl
+    maven
     web-search
 )
 
@@ -151,3 +152,6 @@ source /usr/share/doc/pkgfile/command-not-found.zsh
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# Integrrate legacy dotfiles (until migrated)
+[[ ! -f ~/dev/etc/dotzshrc ]] || source ~/dev/etc/dotzshrc
