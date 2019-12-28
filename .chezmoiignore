@@ -8,6 +8,6 @@ arch/
 {{- end }}
 
 {{- if eq .chezmoi.os "linux" }}
-.config.homebrew
+.config/homebrew
 {{- end }}
 
