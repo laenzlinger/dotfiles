@@ -1,2 +1,9 @@
 README.md
 arch/
+
+{{- if eq .chezmoi.os "darwin" }}
+.config/i3
+.config/i3status
+.config/pacman
+.config.pacman
+{{- end }}
