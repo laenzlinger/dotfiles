@@ -87,9 +87,7 @@
       # time                  # current time
       # =========================[ Line #2 ]=========================
       newline
-{{- if eq .chezmoi.os "darwin" }}
-      iterm
-{{- end }}
+      k8s_color
       # public_ip             # public IP address
       # proxy                 # system-wide http/https/ftp proxy
       # battery               # internal battery
@@ -1025,13 +1023,18 @@
     prompt_example
   }
 
- function prompt_iterm() {
-    local scheme='Solarized Light'
-    if [[ $P9K_KUBECONTEXT_NAME == *prod ]];
-    then
-        scheme='Afterglow'
+ function prompt_k8s_color() {
+    if [[ "$P9K_KUBECONTEXT_NAME" == "" ]]; then
+        return
     fi
-    printf "\033]1337;SetColors=preset=${scheme}\a"
+    local baseScheme='solarized'
+    local scheme="${baseScheme}-light"
+    if [[ $P9K_KUBECONTEXT_NAME == *prod ]]; then
+        scheme="${baseScheme}-dark"
+    fi
+    if [[ "${BASE16_THEME}" != "${scheme}" ]]; then
+        _base16 "$HOME/.config/base16-shell/scripts/base16-${scheme}.sh" ${scheme}
+    fi
   }
 
   # User-defined prompt segments can be customized the same way as built-in segments.
