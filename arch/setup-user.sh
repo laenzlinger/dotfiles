@@ -2,7 +2,7 @@
 
 function install-aur {
   pkg=$1
-  pushd $HOME/src/aur
+  pushd ~/src/aur
   git clone https://aur.archlinux.org/$pkg.git
   cd $pkg
   makepkg -si --noconfirm
@@ -10,7 +10,7 @@ function install-aur {
 }
 
 # install packages
-sudo pacman -S --needed - < $HOME/.local/share/chezmoi/dot_config/pacman/pkglist.txt
+sudo pacman -S --needed - < ~/.local/share/chezmoi/dot_config/pacman/pkglist.txt
 
 # install aur packages
 install-aur nerd-fonts-meslo
@@ -20,7 +20,10 @@ install-aur cloudfoundry-cli
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 # powerlevel10k
-git clone --depth=1 https://github.com/romkatv/powerlevel10k.git $HOME/.oh-my-zsh/custom/themes/powerlevel10k
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/.oh-my-zsh/custom/themes/powerlevel10k
+
+# Base 16 shell
+git clone https://github.com/chriskempson/base16-shell.git ~/.config/base16-shell
 
 # Vim Plug
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
