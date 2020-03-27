@@ -16,6 +16,7 @@ sudo pacman -S --needed - < ~/.local/share/chezmoi/dot_config/pacman/pkglist.txt
 install-aur nerd-fonts-meslo
 install-aur cloudfoundry-cli
 install-aur google-cloud-sdk
+install-aur velero-bin
 
 # oh-my-zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
