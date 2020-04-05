@@ -91,16 +91,23 @@ plugins=(
 {{- end }}
 {{- if eq .chezmoi.os "darwin" }}
     osx
-    docker
+    brew
 {{- end }}
     aws
     cloudfoundry
     common-aliases
+    docker
+    dmux
     git
     jira
+    jfrog
+    jenv
     kubectl
     mvn
+    golang
     web-search
+    swisscom-proxy
+    gcp-dos
 )
 
 source $ZSH/oh-my-zsh.sh
