@@ -1041,13 +1041,9 @@
   }
 
  function prompt_k8s_color() {
-    if [[ "$P9K_KUBECONTEXT_NAME" == "" ]]; then
-        return
-    fi
-    local baseScheme='solarized'
-    local scheme="${baseScheme}-light"
+    local scheme="${BASE16_LIGHT}"
     if [[ $P9K_KUBECONTEXT_NAME == *prod* ]]; then
-        scheme="${baseScheme}-dark"
+        scheme="${BASE16_DARK}"
     fi
     if [[ "${BASE16_THEME}" != "${scheme}" ]]; then
         _base16 "$HOME/.config/base16-shell/scripts/base16-${scheme}.sh" ${scheme}
