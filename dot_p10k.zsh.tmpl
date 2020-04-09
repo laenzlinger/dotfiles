@@ -88,6 +88,7 @@
       # =========================[ Line #2 ]=========================
       newline
       k8s_color
+      proxy_icon
       # public_ip             # public IP address
       # proxy                 # system-wide http/https/ftp proxy
       # battery               # internal battery
@@ -980,7 +981,7 @@
   # typeset -g POWERLEVEL9K_PROXY_FOREGROUND=4
   # typeset -g POWERLEVEL9K_PROXY_BACKGROUND=0
   # Custom icon.
-  # typeset -g POWERLEVEL9K_PROXY_VISUAL_IDENTIFIER_EXPANSION='⭐'
+  typeset -g POWERLEVEL9K_PROXY_VISUAL_IDENTIFIER_EXPANSION='⭐'
 
   ################################[ battery: internal battery ]#################################
   # Show battery in red when it's below this level and not connected to power supply.
@@ -1047,6 +1048,12 @@
     fi
     if [[ "${BASE16_THEME}" != "${scheme}" ]]; then
         _base16 "$HOME/.config/base16-shell/scripts/base16-${scheme}.sh" ${scheme}
+    fi
+  }
+
+  function prompt_proxy_icon() {
+    if [[ "$https_proxy" != "" ]]; then
+       p10k segment -b 0 -f 2 -i '↔'
     fi
   }
 
