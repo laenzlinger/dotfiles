@@ -3,6 +3,7 @@ autoconf
 automake
 aws-cli
 bash
+bind-tools
 binutils
 bison
 bzip2
@@ -28,6 +29,7 @@ gcc-libs
 gettext
 git
 glibc
+gnu-netcat
 go
 grep
 grub
@@ -39,8 +41,10 @@ inetutils
 iproute2
 iputils
 jfsutils
+jq
 keepassxc
 kubectl
+kubectx
 less
 licenses
 lightdm
@@ -53,6 +57,7 @@ make
 man-db
 man-pages
 mdadm
+mitmproxy
 nano
 neovim
 netctl
@@ -68,10 +73,12 @@ pkgfile
 procps-ng
 psmisc
 python
+python-pygments
 reiserfsprogs
 s-nail
 sed
 shadow
+sshuttle
 sudo
 sysfsutils
 systemd-sysvcompat
@@ -79,6 +86,7 @@ tar
 termite
 terraform
 texinfo
+tmux
 usbutils
 util-linux
 vi

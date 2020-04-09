@@ -1,4 +1,6 @@
 cloudfoundry-cli
 freetype2-cleartype
+google-cloud-sdk
 j4-make-config-git
 nerd-fonts-complete
+velero-bin
