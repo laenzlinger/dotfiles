@@ -126,11 +126,7 @@ else
    export EDITOR='nvim'
 fi
 
-export GO111MODULE=on
-export PATH=$PATH:$(go env GOPATH)/bin
 
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
@@ -146,8 +142,14 @@ source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # Autosuggestion
 source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-{{- end }}
 
+# iterm integration
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+# gnu tools
+export PATH="$(brew --prefix coreutils)/libexec/gnubin:/usr/local/bin:$PATH"
+
+{{- end }}
 {{- if eq .chezmoi.os "linux" }}
 # Syntax highlighting
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
@@ -159,7 +161,7 @@ source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /usr/share/doc/pkgfile/command-not-found.zsh
 {{- end }}
 
-# Base16 Shell
+# Base16 shell (colors)
 BASE16_SHELL="$HOME/.config/base16-shell/"
 [ -n "$PS1" ] && [ -s "$BASE16_SHELL/profile_helper.sh" ] && eval "$("$BASE16_SHELL/profile_helper.sh")"
 export BASE16_LIGHT=default-light
@@ -170,3 +172,22 @@ export BASE16_DARK=default-dark
 
 # Integrrate legacy dotfiles (until migrated)
 [[ ! -f ~/dev/etc/dotzshrc ]] || source ~/dev/etc/dotzshrc
+
+## Development Language Settings
+
+## C compilation environment
+# export ARCHFLAGS="-arch x86_64"
+
+## node environment
+# eval "$(nodenv init -)"
+
+## java environment
+# export PATH="$HOME/.jenv/bin:$PATH"
+# eval "$(jenv init -)"
+
+## ruby environment
+# export PATH=$PATH:/usr/local/lib/ruby/gems/2.5.0/bin
+
+## golang environment
+export GO111MODULE=on
+export PATH=$PATH:$(go env GOPATH)/bin
