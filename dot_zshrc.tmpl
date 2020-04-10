@@ -108,6 +108,7 @@ plugins=(
     web-search
     swisscom-proxy
     gcp-dos
+    dos
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -148,6 +149,9 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 
 # gnu tools
 export PATH="$(brew --prefix coreutils)/libexec/gnubin:/usr/local/bin:$PATH"
+
+# color ls on gnu ls
+alias ls='ls --color=tty'
 
 {{- end }}
 {{- if eq .chezmoi.os "linux" }}
