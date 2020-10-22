@@ -85,7 +85,7 @@ HIST_STAMPS="dd.mm.yyyy"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-{{- if eq .chezmoi.os "linux" }}
+{{- if eq .chezmoi.osRelease.id "arch" }}
     archlinux
     systemd
 {{- end }}
@@ -157,7 +157,7 @@ export CLOUDSDK_PYTHON=/usr/bin/python
 alias ls='ls --color=tty'
 
 {{- end }}
-{{- if eq .chezmoi.osRelease "arch" }}
+{{- if eq .chezmoi.osRelease.id "arch" }}
 # Syntax highlighting
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
@@ -167,7 +167,7 @@ source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 # "Command not found" handler
 source /usr/share/doc/pkgfile/command-not-found.zsh
 {{- end }}
-{{- if eq .chezmoi.osRelease "debian" }}
+{{- if eq .chezmoi.osRelease.id "debian" }}
 # Syntax highlighting
 source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
