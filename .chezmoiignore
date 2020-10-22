@@ -3,7 +3,7 @@ arch/
 darwin/
 debian/
 
-{{- if of (eq .chezmoi.os "darwin") (eq .chezmoi.osRelease.id "debian") }}
+{{- if or (eq .chezmoi.os "darwin") (eq .chezmoi.osRelease.id "debian") }}
 .config/i3
 .config/i3status
 .config/pacman
