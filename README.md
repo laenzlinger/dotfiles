@@ -57,6 +57,8 @@ exit
 
 ## Debian
 
+### User setup
+
 ```bash
 curl -sfL https://git.io/chezmoi | sh
 ./bin/chezmoi init https://github.com/laenzlinger/dotfiles.git

@@ -106,9 +106,11 @@ plugins=(
     mvn
     golang
     web-search
+{{- if eq .email "christof.laenzlinger@swisscom.com" }}
     swisscom-proxy
     gcp-dos
     dos
+{{- end }}
 )
 
 source $ZSH/oh-my-zsh.sh
