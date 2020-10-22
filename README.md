@@ -54,3 +54,10 @@ chezmoi cd
 darwin/setup-user.sh
 exit
 ```
+
+## Debian
+
+```bash
+curl -sfL https://git.io/chezmoi | sh
+./bin/chezmoi init https://github.com/laenzlinger/dotfiles.git
+```
