@@ -1,8 +1,14 @@
 {{- if eq .chezmoi.os "linux" }}
-# startx in login shell
-if [[ $0 == -* ]]; then
+{{- if eq .chezmoi.osRelease.id "arch" }}
+if [[ $0 == -* ]]; then # is login shell
   ssh-agent startx
 fi
+{{- end }}
+{{- if eq .chezmoi.osRelease.id "debian" }}
+if [[ $0 == -* ]]; then # is login shell
+  ssh-agent
+fi
+{{- end }}
 {{- end }}
 
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
