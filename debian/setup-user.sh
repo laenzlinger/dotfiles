@@ -13,6 +13,6 @@ git clone https://github.com/chriskempson/base16-shell.git ~/.config/base16-shel
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
-chezmoi apply
+~/bin/chezmoi apply
 
 nvim +'PlugInstall --sync' +qa
