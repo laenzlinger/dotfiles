@@ -61,5 +61,5 @@ exit
 curl -sfL https://git.io/chezmoi | sh
 ./bin/chezmoi init https://github.com/laenzlinger/dotfiles.git
 .local/share/chezmoi/debian/setup-user.sh
-exit
+source .zshrc
 ```
