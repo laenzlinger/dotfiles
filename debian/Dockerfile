@@ -1,12 +1,9 @@
 FROM debian:stretch
 
 RUN apt-get update \
- && apt-get install -y zsh git curl neovim
+ && apt-get install -y zsh git curl
 
-RUN useradd -ms /bin/zsh laenzi \
- && mkdir /home/laenzi/bin
-
+RUN useradd -ms /bin/bash laenzi
 WORKDIR /home/laenzi
-
 USER laenzi
 
