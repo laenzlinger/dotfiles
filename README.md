@@ -60,4 +60,7 @@ exit
 ```bash
 curl -sfL https://git.io/chezmoi | sh
 ./bin/chezmoi init https://github.com/laenzlinger/dotfiles.git
+chezmoi cd
+debian/setup-user.sh
+exit
 ```
