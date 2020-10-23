@@ -4,11 +4,6 @@ if [[ $0 == -* ]]; then # is login shell
   ssh-agent startx
 fi
 {{- end }}
-{{- if eq .chezmoi.osRelease.id "debian" }}
-if [[ $0 == -* ]]; then # is login shell
-  ssh-agent
-fi
-{{- end }}
 {{- end }}
 
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
@@ -134,7 +129,7 @@ export LANG=en_US.UTF-8
 if [[ -n $SSH_CONNECTION ]]; then
    export EDITOR='nvim'
 else
-   export EDITOR='nvim'
+   export EDITOR='vim'
 fi
 
 
@@ -145,7 +140,10 @@ fi
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
-alias vi=nvim
+if nvim -v COMMAND &> /dev/null
+then
+  alias vi=nvim
+fi
 
 {{- if eq .chezmoi.os "darwin" }}
 # Syntax highlighting
@@ -218,5 +216,8 @@ export BASE16_DARK=default-dark
 # export PATH=$PATH:/usr/local/lib/ruby/gems/2.5.0/bin
 
 ## golang environment
-export GO111MODULE=on
-export PATH=$PATH:$(go env GOPATH)/bin
+if command -v go &> /dev/null
+then
+  export GO111MODULE=on
+  export PATH=$PATH:$(go env GOPATH)/bin
+fi
