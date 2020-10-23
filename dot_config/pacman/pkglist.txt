@@ -86,6 +86,7 @@ tar
 termite
 terraform
 texinfo
+the_silver_searcher
 tmux
 usbutils
 util-linux

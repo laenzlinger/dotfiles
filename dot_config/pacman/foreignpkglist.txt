@@ -3,4 +3,6 @@ freetype2-cleartype
 google-cloud-sdk
 j4-make-config-git
 nerd-fonts-complete
+nodenv
+nodenv-node-build
 velero-bin
