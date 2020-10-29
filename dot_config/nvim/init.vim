@@ -1,16 +1,3 @@
-set number
-set tabstop=4
-set shiftwidth=4
-set expandtab
-
-" highligh LineNr ctermbg=7
-highlight SignColumn ctermbg=7
-highlight GitGutterAdd ctermfg=2
-highlight GitGutterChange ctermfg=3
-highlight GitGutterDelete ctermfg=1
-highlight GitGutterChangeDelete ctermfg=4
-
-
 " Plugins will be downloaded under the specified directory.
 call plug#begin('~/.vim/plugged')
 
@@ -21,9 +8,17 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-fugitive'
 Plug 'neomake/neomake'
+Plug 'chriskempson/base16-vim'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
+
+set number
+set tabstop=4
+set shiftwidth=4
+set expandtab
 
 " -------------------------------------------------------------------------------------------------
 " coc.nvim default settings
@@ -204,3 +199,11 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 
 " Neobuild config
 call neomake#configure#automake('nrwi', 500)
+
+" Airline config
+let g:airline_powerline_fonts = 1
+
+" base16-vim config
+set background=dark
+let base16colorspace=256
+colorscheme base16-default-dark
