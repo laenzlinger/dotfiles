@@ -11,6 +11,7 @@ Plug 'neomake/neomake'
 Plug 'chriskempson/base16-vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'farmergreg/vim-lastplace'
 
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
