@@ -17,7 +17,7 @@ call plug#begin('~/.vim/plugged')
 " Declare the list of plugins.
 Plug 'fatih/vim-go'
 Plug 'airblade/vim-gitgutter'
-Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-fugitive'
 Plug 'neomake/neomake'
