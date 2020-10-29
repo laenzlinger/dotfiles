@@ -3,7 +3,7 @@ autoconf
 automake
 aws-cli
 bash
-bind-tools
+bind
 binutils
 bison
 bzip2
@@ -17,6 +17,7 @@ dhcpcd
 diffutils
 dmenu
 docker
+docker-compose
 e2fsprogs
 fakeroot
 file
@@ -56,6 +57,7 @@ m4
 make
 man-db
 man-pages
+maven
 mdadm
 mitmproxy
 nano
@@ -67,12 +69,14 @@ openvpn
 pacman
 patch
 pciutils
+percona-server-clients
 perl
 pkgconf
 pkgfile
 procps-ng
 psmisc
 python
+python-pip
 python-pygments
 reiserfsprogs
 s-nail
@@ -91,6 +95,7 @@ tmux
 usbutils
 util-linux
 vi
+wget
 which
 xclip
 xf86-input-vmmouse
