@@ -12,6 +12,9 @@ Plug 'chriskempson/base16-vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'farmergreg/vim-lastplace'
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug '907th/vim-auto-save'
+Plug 'mileszs/ack.vim'
 
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
@@ -191,6 +194,7 @@ nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 " disable vim-go :GoDef short cut (gd)
 " this is handled by LanguageClient [LC]
 let g:go_def_mapping_enabled = 0
+let g:go_fmt_command = "goimports"
 
 "-----------------------------------------------------------
 " Open Nerdtree for directories (see REAMDE of NERDtree)
@@ -208,3 +212,8 @@ let g:airline_powerline_fonts = 1
 set background=dark
 let base16colorspace=256
 colorscheme base16-default-dark
+
+" Ack.vim config
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif
