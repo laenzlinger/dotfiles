@@ -1,3 +1,6 @@
+" laeder character is by default "\" which is difficult to reach on my keyboard
+let mapleader = "£"
+
 " Plugins will be downloaded under the specified directory.
 call plug#begin('~/.vim/plugged')
 
