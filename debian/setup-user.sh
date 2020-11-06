@@ -13,8 +13,8 @@ git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/.oh-my-zsh/cu
 git clone https://github.com/chriskempson/base16-shell.git ~/.config/base16-shell
 
 # No Vim Plug currently on debian
-#curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
-#    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
 ~/bin/chezmoi apply
 
