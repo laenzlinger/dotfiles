@@ -1,6 +1,7 @@
 " laeder character is by default "\" which is difficult to reach on my keyboard
 let mapleader = "£"
 
+" Install vim plug (if not already done)
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -12,8 +13,9 @@ call plug#begin('~/.vim/plugged')
 
 " Declare the list of plugins.
 Plug 'airblade/vim-gitgutter'
-Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-surround'
+Plug 'scrooloose/nerdtree'
 Plug 'neomake/neomake'
 Plug 'chriskempson/base16-vim'
 Plug 'vim-airline/vim-airline'
@@ -21,6 +23,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'farmergreg/vim-lastplace'
 Plug '907th/vim-auto-save'
 Plug 'mileszs/ack.vim'
+Plug 'scrooloose/syntastic'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
@@ -225,3 +228,13 @@ colorscheme base16-default-dark
 if executable('ag')
   let g:ackprg = 'ag --vimgrep'
 endif
+
+" Syntastics config
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0

@@ -32,7 +32,7 @@ passwd laenzi
 visudo                  # laenzi   ALL=(ALL) ALL
 ```
 
-### User setup 
+### User setup
 
 ```bash
 chezmoi init https://github.com/laenzlinger/dotfiles.git
@@ -46,7 +46,7 @@ chezmoi apply creates list of installed packags in `.config/pacman/*.txt`
 
 ## OSX
 
-### User setup 
+### User setup
 
 ```bash
 chezmoi init https://github.com/laenzlinger/dotfiles.git
