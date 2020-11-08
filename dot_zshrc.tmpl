@@ -91,10 +91,11 @@ plugins=(
     archlinux
     systemd
 {{- end }}
+{{- end }}
 {{- if eq .chezmoi.os "darwin" }}
     osx
     brew
-{{- end }}
+    iterm2
 {{- end }}
     aws
     gcloud
@@ -102,6 +103,7 @@ plugins=(
     colorize
     common-aliases
     docker
+    docker-compose
     tmux
     git
     jira
