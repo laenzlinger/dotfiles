@@ -1,6 +1,3 @@
-" laeder character is by default "\" which is difficult to reach on my keyboard
-let mapleader = "£"
-
 " Install vim plug (if not already done)
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
@@ -31,10 +28,15 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
 
+" Global Settings
 set number
 set tabstop=4
 set shiftwidth=4
 set expandtab
+set autowrite
+
+" laeder character is by default "\" which is difficult to reach on my keyboard
+let mapleader = ","
 
 " -------------------------------------------------------------------------------------------------
 " coc.nvim default settings
@@ -208,6 +210,22 @@ nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 let g:go_def_mapping_enabled = 0
 let g:go_fmt_command = "goimports"
 
+" Other go settings
+
+autocmd FileType go nmap <leader>r  <Plug>(go-run)
+autocmd FileType go nmap <leader>t  <Plug>(go-test)
+" run :GoBuild or :GoTestCompile based on the go file
+function! s:build_go_files()
+  let l:file = expand('%')
+  if l:file =~# '^\f\+_test\.go$'
+    call go#test#Test(0, 1)
+  elseif l:file =~# '^\f\+\.go$'
+    call go#cmd#Build(0)
+  endif
+endfunction
+autocmd FileType go nmap <leader>b :<C-u>call <SID>build_go_files()<CR>
+autocmd FileType go nmap <Leader>c <Plug>(go-coverage-toggle)
+
 "-----------------------------------------------------------
 " Open Nerdtree for directories (see REAMDE of NERDtree)
 nnoremap <F2> :NERDTreeToggle<CR>
@@ -235,7 +253,6 @@ endif
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
-
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
