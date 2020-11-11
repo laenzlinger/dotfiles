@@ -1,3 +1,6 @@
+"-----------------------------------------------------------
+" vim plug
+"-----------------------------------------------------------
 " Install vim plug (if not already done)
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
@@ -5,10 +8,8 @@ if empty(glob('~/.vim/autoload/plug.vim'))
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
-" Plugins will be downloaded under the specified directory.
 call plug#begin('~/.vim/plugged')
 
-" Declare the list of plugins.
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
@@ -28,10 +29,11 @@ Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'buoto/gotests-vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
-" List ends here. Plugins become visible to Vim after this call.
 call plug#end()
 
+"-----------------------------------------------------------
 " Global Settings
+"-----------------------------------------------------------
 set number
 set tabstop=4
 set shiftwidth=4
@@ -41,9 +43,9 @@ set autowrite
 " laeder character is by default "\" which is difficult to reach on my keyboard
 let mapleader = ","
 
-" -------------------------------------------------------------------------------------------------
+"-----------------------------------------------------------
 " coc.nvim default settings
-" -------------------------------------------------------------------------------------------------
+"-----------------------------------------------------------
 
 " TextEdit might fail if hidden is not set.
 set hidden
@@ -204,16 +206,13 @@ nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 
-" -------------------------------------------------------------------------------------------------
-" END coc.nvim default settings
-" -------------------------------------------------------------------------------------------------
-
-" disable vim-go :GoDef short cut (gd)
+"-----------------------------------------------------------
+" vim-go
+"-----------------------------------------------------------
+" disable :GoDef short cut (gd)
 " this is handled by LanguageClient [LC]
 let g:go_def_mapping_enabled = 0
 let g:go_fmt_command = "goimports"
-
-" Other go settings
 
 autocmd FileType go nmap <leader>r  <Plug>(go-run)
 autocmd FileType go nmap <leader>t  <Plug>(go-test)
@@ -230,32 +229,58 @@ autocmd FileType go nmap <leader>b :<C-u>call <SID>build_go_files()<CR>
 autocmd FileType go nmap <Leader>c <Plug>(go-coverage-toggle)
 
 "-----------------------------------------------------------
-" Open Nerdtree for directories (see REAMDE of NERDtree)
+" Nerdtree
+"-----------------------------------------------------------
+" Open for directories
 nnoremap <F2> :NERDTreeToggle<CR>
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | wincmd p | endif
+
+" Close if its the only window left
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
-" VimDevIcons config
-let g:WebDevIconsNerdTreeAfterGlyphPadding = ' '
+" Hide / for directories
+augroup nerdtreehidecwd
+  autocmd!
+  autocmd FileType nerdtree setlocal conceallevel=3 | syntax match NERDTreeDirSlash #/$# containedin=NERDTreeDir conceal contained
+augroup end
 
-" Neobuild config
+let g:NERDTreeDirArrowExpandable = ''
+let g:NERDTreeDirArrowCollapsible = ''
+
+"-----------------------------------------------------------
+" VimDevIcons
+"-----------------------------------------------------------
+let g:WebDevIconsNerdTreeAfterGlyphPadding = ' '
+let g:DevIconsEnableFoldersOpenClose = 1
+
+"-----------------------------------------------------------
+" Neobuild
+"-----------------------------------------------------------
 call neomake#configure#automake('nrwi', 500)
 
-" Airline config
+"-----------------------------------------------------------
+" Airline
+"-----------------------------------------------------------
 let g:airline_powerline_fonts = 1
 
-" base16-vim config
+"-----------------------------------------------------------
+" base16-vim
+"-----------------------------------------------------------
 set background=dark
 let base16colorspace=256
 colorscheme base16-default-dark
 
-" Ack.vim config
+"-----------------------------------------------------------
+" Ack.vim
+"-----------------------------------------------------------
 if executable('ag')
   let g:ackprg = 'ag --vimgrep'
 endif
 
-" Syntastics config
+"-----------------------------------------------------------
+" Syntastics
+"-----------------------------------------------------------
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
