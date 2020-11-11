@@ -19,6 +19,7 @@ Plug 'neomake/neomake'
 Plug 'chriskempson/base16-vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'ryanoasis/vim-devicons'
 Plug 'farmergreg/vim-lastplace'
 Plug '907th/vim-auto-save'
 Plug 'mileszs/ack.vim'
@@ -234,6 +235,9 @@ nnoremap <F2> :NERDTreeToggle<CR>
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | wincmd p | endif
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+
+" VimDevIcons config
+let g:WebDevIconsNerdTreeAfterGlyphPadding = ' '
 
 " Neobuild config
 call neomake#configure#automake('nrwi', 500)
