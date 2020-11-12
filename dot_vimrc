@@ -11,9 +11,10 @@ endif
 call plug#begin('~/.vim/plugged')
 
 Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
-"Plug 'tpope/vim-unimpaired'
+Plug 'tpope/vim-unimpaired'
 Plug 'preservim/nerdtree' |
             \ Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'neomake/neomake'
@@ -40,7 +41,7 @@ set shiftwidth=4
 set expandtab
 set autowrite
 
-" laeder character is by default "\" which is difficult to reach on my keyboard
+" leader character is by default "\" which is difficult to reach on my keyboard
 let mapleader = ","
 
 "-----------------------------------------------------------
