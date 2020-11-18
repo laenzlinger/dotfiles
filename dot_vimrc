@@ -26,6 +26,7 @@ Plug 'farmergreg/vim-lastplace'
 Plug '907th/vim-auto-save'
 Plug 'mileszs/ack.vim'
 Plug 'vim-syntastic/syntastic'
+Plug 'itspriddle/vim-marked'
 if executable('go')
   Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
   Plug 'buoto/gotests-vim'
@@ -33,6 +34,7 @@ endif
 if executable('node')
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
 endif
+
 call plug#end()
 
 "-----------------------------------------------------------
