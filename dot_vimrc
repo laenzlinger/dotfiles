@@ -94,11 +94,6 @@ function! s:check_back_space() abort
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
-
-if executable('node')
-    call s:map_coc_nvim()
-endif
-
 function! s:map_coc_nvim()
 
   " Use tab for trigger completion with characters ahead and navigate.
@@ -220,6 +215,10 @@ function! s:map_coc_nvim()
   nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 
 endfunction
+
+if executable('node')
+    call s:map_coc_nvim()
+endif
 
 "-----------------------------------------------------------
 " vim-go
