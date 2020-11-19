@@ -27,6 +27,7 @@ brew "dep"
 brew "diffutils"
 brew "ed", link: true
 brew "findutils"
+brew "fzf"
 brew "gawk"
 brew "gdb"
 brew "geckodriver"

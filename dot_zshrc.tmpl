@@ -118,6 +118,7 @@ plugins=(
     safe-paste
     terraform
     vi-mode
+    fzf
     web-search
     zsh_reload
 {{- if eq .email "christof.laenzlinger@swisscom.com" }}
@@ -207,9 +208,6 @@ export BASE16_DARK=solarized-light
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
-# Integrrate legacy dotfiles (until migrated)
-[[ ! -f ~/dev/etc/dotzshrc ]] || source ~/dev/etc/dotzshrc
 
 ## Development Language Settings
 

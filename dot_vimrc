@@ -25,6 +25,8 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'farmergreg/vim-lastplace'
 Plug '907th/vim-auto-save'
 Plug 'mileszs/ack.vim'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 Plug 'vim-syntastic/syntastic'
 Plug 'itspriddle/vim-marked'
 if executable('go')
