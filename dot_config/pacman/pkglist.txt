@@ -71,7 +71,6 @@ openvpn
 pacman
 patch
 pciutils
-percona-server-clients
 perl
 pkgconf
 pkgfile
