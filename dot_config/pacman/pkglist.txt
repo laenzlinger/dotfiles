@@ -78,6 +78,7 @@ procps-ng
 psmisc
 python
 python-pip
+redis
 reiserfsprogs
 s-nail
 sed
