@@ -64,6 +64,7 @@ brew "p7zip"
 brew "packer"
 brew "perl"
 brew "postgresql"
+brew "redis", restart_service: true
 brew "restic"
 brew "rsync"
 brew "selenium-server-standalone"

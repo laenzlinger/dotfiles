@@ -67,7 +67,7 @@ set cmdheight=2
 
 " Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
 " delays and poor user experience.
-set updatetime=300
+set updatetime=1000
 
 " Don't pass messages to |ins-completion-menu|.
 set shortmess+=c
@@ -255,7 +255,8 @@ autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in
 " Close if its the only window left
 autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
-autocmd BufEnter * if bufname('#') =~ 'NERD_tree' && bufname('%') !~ 'NERD_tree' && winnr('$') > 1 | b# | exe "normal! \<c-w>\<c-w>" | :blast | endif
+" Avoid opening files in nerdtree
+"autocmd BufEnter * if bufname('#') =~ 'NERD_tree' && bufname('%') !~ 'NERD_tree' && winnr('$') > 1 | b# | exe "normal! \<c-w>\<c-w>" | :blast | endif
 
 " Hide / for directories
 augroup nerdtreehidecwd
@@ -331,6 +332,7 @@ let g:syntastic_check_on_wq = 0
 " AutoSave
 "-----------------------------------------------------------
 let g:auto_save = 1  " enable AutoSave on Vim startup
+let g:auto_save_events = ["InsertLeave"]
 
 "-----------------------------------------------------------
 " vim-unimpaired
