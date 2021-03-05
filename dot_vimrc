@@ -32,6 +32,7 @@ Plug 'itspriddle/vim-marked'
 if executable('go')
   Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
   Plug 'buoto/gotests-vim'
+  Plug 'sebdah/vim-delve'
 endif
 if executable('node')
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -221,6 +222,8 @@ endfunction
 if executable('node')
     call s:map_coc_nvim()
 endif
+
+au BufNewFile,BufRead Jenkinsfile setf groovy
 
 "-----------------------------------------------------------
 " vim-go
