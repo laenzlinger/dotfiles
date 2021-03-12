@@ -62,9 +62,11 @@ man-pages
 maven
 mdadm
 mitmproxy
+mplayer
 nano
 neovim
 netctl
+npm
 open-vm-tools
 openssh
 openvpn
