@@ -149,12 +149,12 @@ fi
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
-#
-# Example aliases
-if nvim -v COMMAND &> /dev/null
+
+if command -v nvim &> /dev/null
 then
   alias vi=nvim
 fi
+
 
 {{- if eq .chezmoi.os "darwin" }}
 # Syntax highlighting
@@ -173,10 +173,22 @@ export PATH="$(brew --prefix coreutils)/libexec/gnubin:/usr/local/bin:$PATH"
 export CLOUDSDK_PYTHON=/usr/bin/python
 
 # color ls on gnu ls
-alias ls='ls --color=tty'
+if command -v lsd &> /dev/null
+then
+  alias ls='lsd'
+else
+  alias ls='ls --color=tty'
+fi
 
 {{- end }}
+
 {{- if eq .chezmoi.os "linux" }}
+
+if command -v lsd &> /dev/null
+then
+  alias ls='lsd'
+fi
+
 {{- if eq .chezmoi.osRelease.id "arch" }}
 # Syntax highlighting
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

@@ -40,12 +40,14 @@ gtkmm3
 gzip
 i3-wm
 i3status
+imagemagick
 inetutils
 iproute2
 iputils
 jfsutils
 jq
 keepassxc
+kitty
 kubectl
 kubectx
 less
@@ -54,11 +56,13 @@ lightdm
 linux
 linux-firmware
 logrotate
+lsd
 lvm2
 m4
 make
 man-db
 man-pages
+mariadb
 maven
 mdadm
 mitmproxy
@@ -74,6 +78,7 @@ pacman
 patch
 pciutils
 perl
+perl-anyevent-i3
 pkgconf
 pkgfile
 procps-ng

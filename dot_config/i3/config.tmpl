@@ -50,7 +50,6 @@ bindsym $mod+Return exec i3-sensible-terminal
 
 # kill focused window
 bindsym $mod+Shift+q kill
-
 # start dmenu (a program launcher)
 bindsym $mod+d exec dmenu_run
 # There also is the (new) i3-dmenu-desktop which only displays applications
@@ -199,3 +198,7 @@ client.focused #81a2be #81a2be #1d1f21 #282a2e
 client.focused_inactive #373b41 #373b41 #969896 #282a2e
 client.unfocused #282a2e #282a2e #969896 #282a2e
 client.urgent #373b41 #cc6666 #ffffff #cc6666
+
+
+# Assign Workspace
+assign [class=".*Cypress.*"] $ws2
