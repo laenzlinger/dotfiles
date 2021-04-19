@@ -37,6 +37,7 @@ endif
 if executable('node')
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
 endif
+Plug 'vim-test/vim-test'
 
 call plug#end()
 
@@ -217,11 +218,18 @@ function! s:map_coc_nvim()
   " Resume latest coc list.
   nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 
+  " custom settings not taken over from default
+  command! -nargs=0 Prettier :CocCommand prettier.formatFile
+  vmap <leader>f  <Plug>(coc-format-selected)
+  nmap <leader>f  <Plug>(coc-format-selected)
+
 endfunction
 
 if executable('node')
     call s:map_coc_nvim()
 endif
+
+
 
 au BufNewFile,BufRead Jenkinsfile setf groovy
 
@@ -346,3 +354,13 @@ omap ö [
 omap ä ]
 xmap ö [
 xmap ä ]
+
+"-----------------------------------------------------------
+" vim-test
+"-----------------------------------------------------------
+" these "Ctrl mappings" work well when Caps Lock is mapped to Ctrl
+nmap <silent> t<C-n> :TestNearest<CR>
+nmap <silent> t<C-f> :TestFile<CR>
+nmap <silent> t<C-s> :TestSuite<CR>
+nmap <silent> t<C-l> :TestLast<CR>
+nmap <silent> t<C-g> :TestVisit<CR>

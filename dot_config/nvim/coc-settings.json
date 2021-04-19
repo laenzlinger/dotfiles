@@ -8,5 +8,8 @@
         "usePlaceholders": true
       }
     }
-  }
+  },
+
+  "coc.preferences.formatOnSaveFiletypes": ["css", "markdown", "typescript", "typescriptreact", "html", "javascript", "yaml"]
 }
+
