@@ -75,6 +75,7 @@ open-vm-tools
 openssh
 openvpn
 pacman
+parted
 patch
 pciutils
 perl

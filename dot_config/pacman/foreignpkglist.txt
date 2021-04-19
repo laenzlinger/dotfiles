@@ -1,9 +1,10 @@
+aura-bin
 cloudfoundry-cli
 freetype2-cleartype
 google-chrome
 google-cloud-sdk
 j4-make-config-git
-nerd-fonts-complete
+nerd-fonts-meslo
 nodenv
 nodenv-node-build
 velero-bin
