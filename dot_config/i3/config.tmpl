@@ -23,18 +23,6 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id nm-applet
 
-{{- if eq .email "christof.laenzlinger@swisscom.com" }}
-exec --no-startup-id i3-msg 'workspace 1'
-exec chromium --class=chromium-ws1
-exec i3-sensible-terminal
-exec i3-sensible-terminal
-for_window [class="^chromium-ws1$"] move workspace number 1
-for_window [class="^chromium-ws1$"] move right
-exec --no-startup-id i3-msg 'workspace 9'
-exec keepassxc
-for_window [class="KeePassXC"] move workspace number 9
-{{- end }}
-
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
@@ -46,7 +34,7 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec --no-startup-id alacritty
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -202,3 +190,20 @@ client.urgent #373b41 #cc6666 #ffffff #cc6666
 
 # Assign Workspace
 assign [class=".*Cypress.*"] $ws8
+
+{{- if eq .email "christof.laenzlinger@swisscom.com" }}
+exec --no-startup-id alacritty --working-directory ~/dev/src/dop/swisscom_application_register --class sar-run
+exec --no-startup-id alacritty --working-directory ~/dev/src/dop/swisscom_application_register --class sar-edit
+exec --no-startup-id alacritty --working-directory ~/dev/src/dop/dop_service --class service-run
+exec --no-startup-id alacritty --working-directory ~/dev/src/dop/dop_service --class service-edit
+exec --no-startup-id alacritty --working-directory ~/dev/src/dop/dop_frontend --class frontend-run
+exec --no-startup-id alacritty --working-directory ~/dev/src/dop/dop_frontend --class frontend-edit
+exec --no-startup-id alacritty --working-directory ~/dev/src/dop/dop_integration_blueprint --class blueprint-run
+exec --no-startup-id alacritty --working-directory ~/dev/src/dop/dop_integration_blueprint --class blueprint-edit
+exec --no-startup-id keepassxc
+for_window [class="KeePassXC"] move workspace number $ws9
+assign [class="Alacritty" instance="sar"] $ws1
+assign [class="Alacritty" instance="service"] $ws2
+assign [class="Alacritty" instance="frontend"] $ws3
+assign [class="Alacritty" instance="blueprint"] $ws4
+{{- end }}

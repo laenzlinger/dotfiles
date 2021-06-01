@@ -49,6 +49,7 @@ set tabstop=4
 set shiftwidth=4
 set expandtab
 set autowrite
+set mouse=a
 
 " leader character is by default "\" which is difficult to reach on my keyboard
 let mapleader = ","

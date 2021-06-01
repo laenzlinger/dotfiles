@@ -1,3 +1,4 @@
+alacritty
 ansible
 autoconf
 automake
@@ -96,11 +97,11 @@ sudo
 sysfsutils
 systemd-sysvcompat
 tar
-termite
 terraform
 texinfo
 the_silver_searcher
 tmux
+unzip
 usbutils
 util-linux
 vi
@@ -115,6 +116,7 @@ xorg-server
 xorg-xfontsel
 xorg-xinit
 yarn
+zip
 zsh-autosuggestions
 zsh-completions
 zsh-syntax-highlighting
