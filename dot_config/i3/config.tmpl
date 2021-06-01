@@ -109,15 +109,15 @@ bindsym $mod+a focus parent
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
-set $ws1 "1"
-set $ws2 "2"
-set $ws3 "3"
-set $ws4 "4"
+set $ws1 "1:sar"
+set $ws2 "2:service"
+set $ws3 "3:frontend"
+set $ws4 "4:blueprint"
 set $ws5 "5"
 set $ws6 "6"
 set $ws7 "7"
-set $ws8 "8"
-set $ws9 "9"
+set $ws8 "8:cypress"
+set $ws9 "9:secrets"
 set $ws10 "10"
 
 # switch to workspace
@@ -201,4 +201,4 @@ client.urgent #373b41 #cc6666 #ffffff #cc6666
 
 
 # Assign Workspace
-assign [class=".*Cypress.*"] $ws2
+assign [class=".*Cypress.*"] $ws8
