@@ -192,18 +192,22 @@ client.urgent #373b41 #cc6666 #ffffff #cc6666
 assign [class=".*Cypress.*"] $ws8
 
 {{- if eq .email "christof.laenzlinger@swisscom.com" }}
-exec --no-startup-id alacritty --working-directory ~/dev/src/dop/swisscom_application_register --class sar-run
-exec --no-startup-id alacritty --working-directory ~/dev/src/dop/swisscom_application_register --class sar-edit
-exec --no-startup-id alacritty --working-directory ~/dev/src/dop/dop_service --class service-run
-exec --no-startup-id alacritty --working-directory ~/dev/src/dop/dop_service --class service-edit
-exec --no-startup-id alacritty --working-directory ~/dev/src/dop/dop_frontend --class frontend-run
-exec --no-startup-id alacritty --working-directory ~/dev/src/dop/dop_frontend --class frontend-edit
-exec --no-startup-id alacritty --working-directory ~/dev/src/dop/dop_integration_blueprint --class blueprint-run
-exec --no-startup-id alacritty --working-directory ~/dev/src/dop/dop_integration_blueprint --class blueprint-edit
-exec --no-startup-id keepassxc
 for_window [class="KeePassXC"] move workspace number $ws9
+for_window [class="Alacritty" instance="edit"] border pixel 3; move right
+for_window [class="Alacritty" instance="run"] move left; focus
+
 assign [class="Alacritty" instance="sar"] $ws1
 assign [class="Alacritty" instance="service"] $ws2
 assign [class="Alacritty" instance="frontend"] $ws3
 assign [class="Alacritty" instance="blueprint"] $ws4
+
+exec alacritty --working-directory ~/dev/src/dop/swisscom_application_register --class sar-run
+exec alacritty --working-directory ~/dev/src/dop/swisscom_application_register --class sar-edit --command sh -c ". ~/.base16_theme; sleep 1 ;exec nvim ."
+exec alacritty --working-directory ~/dev/src/dop/dop_service --class service-run
+exec alacritty --working-directory ~/dev/src/dop/dop_service --class service-edit --command sh -c ". ~/.base16_theme; sleep 1 ;exec nvim ."
+exec alacritty --working-directory ~/dev/src/dop/dop_frontend --class frontend-run
+exec alacritty --working-directory ~/dev/src/dop/dop_frontend --class frontend-edit --command sh -c ". ~/.base16_theme; sleep 1; exec nvim ."
+exec alacritty --working-directory ~/dev/src/dop/dop_integration_blueprint --class blueprint-run
+exec alacritty --working-directory ~/dev/src/dop/dop_integration_blueprint --class blueprint-edit --command sh -c ". ~/.base16_theme; sleep 1; exec nvim ."
+exec keepassxc
 {{- end }}
