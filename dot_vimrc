@@ -38,6 +38,7 @@ if executable('node')
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
 endif
 Plug 'vim-test/vim-test'
+Plug 'editorconfig/editorconfig-vim'
 
 call plug#end()
 
