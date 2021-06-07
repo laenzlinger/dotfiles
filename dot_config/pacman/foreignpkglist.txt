@@ -7,4 +7,5 @@ j4-make-config-git
 nerd-fonts-meslo
 nodenv
 nodenv-node-build
+nvm
 velero-bin
