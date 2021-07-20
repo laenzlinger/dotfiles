@@ -55,6 +55,8 @@ set mouse=a
 " leader character is by default "\" which is difficult to reach on my keyboard
 let mapleader = ","
 
+nnoremap <F3> :bufdo e<CR>
+
 "-----------------------------------------------------------
 " coc.nvim settings
 "-----------------------------------------------------------
