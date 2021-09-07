@@ -244,6 +244,7 @@ au BufNewFile,BufRead Jenkinsfile setf groovy
 " this is handled by LanguageClient [LC]
 let g:go_def_mapping_enabled = 0
 let g:go_fmt_command = "goimports"
+let g:go_build_tags = "unitTests"
 
 autocmd FileType go nmap <leader>r  <Plug>(go-run)
 autocmd FileType go nmap <leader>t  <Plug>(go-test)

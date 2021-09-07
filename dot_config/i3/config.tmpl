@@ -202,12 +202,12 @@ assign [class="Alacritty" instance="frontend"] $ws3
 assign [class="Alacritty" instance="blueprint"] $ws4
 
 exec alacritty --working-directory ~/dev/src/dop/swisscom_application_register --class sar-run
-exec alacritty --working-directory ~/dev/src/dop/swisscom_application_register --class sar-edit --command sh -c ". ~/.base16_theme; sleep 1 ;exec nvim ."
+exec alacritty --working-directory ~/dev/src/dop/swisscom_application_register --class sar-edit 
 exec alacritty --working-directory ~/dev/src/dop/dop_service --class service-run
-exec alacritty --working-directory ~/dev/src/dop/dop_service --class service-edit --command sh -c ". ~/.base16_theme; sleep 1 ;exec nvim ."
+exec alacritty --working-directory ~/dev/src/dop/dop_service --class service-edit
 exec alacritty --working-directory ~/dev/src/dop/dop_frontend --class frontend-run
-exec alacritty --working-directory ~/dev/src/dop/dop_frontend --class frontend-edit --command sh -c ". ~/.base16_theme; sleep 1; exec nvim ."
+exec alacritty --working-directory ~/dev/src/dop/dop_frontend --class frontend-edit
 exec alacritty --working-directory ~/dev/src/dop/dop_integration_blueprint --class blueprint-run
-exec alacritty --working-directory ~/dev/src/dop/dop_integration_blueprint --class blueprint-edit --command sh -c ". ~/.base16_theme; sleep 1; exec nvim ."
+exec alacritty --working-directory ~/dev/src/dop/dop_integration_blueprint --class blueprint-edit
 exec keepassxc
 {{- end }}
