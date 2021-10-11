@@ -33,6 +33,7 @@ gcc-libs
 gettext
 git
 glibc
+gnome-keyring
 gnu-netcat
 go
 grep
@@ -68,6 +69,7 @@ maven
 mdadm
 mitmproxy
 mplayer
+mysql-workbench
 nano
 neovim
 netctl
