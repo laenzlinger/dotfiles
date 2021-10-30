@@ -189,14 +189,17 @@ client.urgent #373b41 #cc6666 #ffffff #cc6666
 
 
 # Assign Workspace
-assign [class="Google Chrome"] $ws1
+assign [class="Google-chrome"] $ws1
 exec google-chrome-stable
 
 {{- if eq .email "christof.laenzlinger@swisscom.com" }}
-for_window [class="KeePassXC"] move workspace number $ws9
-for_window [class="Alacritty" instance="edit"] border pixel 3; move right
-for_window [class="Alacritty" instance="run"] move left; focus
 
+exec --no-startup-id "i3-msg 'workspace 3:sar; append_layout ~/.config/i3/layout/coding.json'"
+exec --no-startup-id "i3-msg 'workspace 4:service; append_layout ~/.config/i3/layout/coding.json'"
+exec --no-startup-id "i3-msg 'workspace 5:frontend; append_layout ~/.config/i3/layout/coding.json'"
+exec --no-startup-id "i3-msg 'workspace 6:blueprint; append_layout ~/.config/i3/layout/coding.json'"
+
+assign [class="KeePassXC"] $ws9
 assign [class=".*Cypress.*"] $ws8
 assign [class="Alacritty" instance="sar"] $ws3
 assign [class="Alacritty" instance="service"] $ws4
@@ -204,12 +207,14 @@ assign [class="Alacritty" instance="frontend"] $ws5
 assign [class="Alacritty" instance="blueprint"] $ws6
 
 exec alacritty --working-directory ~/dev/src/dop/swisscom_application_register --class sar-run
-exec alacritty --working-directory ~/dev/src/dop/swisscom_application_register --class sar-edit 
 exec alacritty --working-directory ~/dev/src/dop/dop_service --class service-run
-exec alacritty --working-directory ~/dev/src/dop/dop_service --class service-edit
 exec alacritty --working-directory ~/dev/src/dop/dop_frontend --class frontend-run
-exec alacritty --working-directory ~/dev/src/dop/dop_frontend --class frontend-edit
 exec alacritty --working-directory ~/dev/src/dop/dop_integration_blueprint --class blueprint-run
+
+exec alacritty --working-directory ~/dev/src/dop/dop_service --class service-edit
+exec alacritty --working-directory ~/dev/src/dop/swisscom_application_register --class sar-edit
 exec alacritty --working-directory ~/dev/src/dop/dop_integration_blueprint --class blueprint-edit
+exec alacritty --working-directory ~/dev/src/dop/dop_frontend --class frontend-edit
+
 exec keepassxc
 {{- end }}
