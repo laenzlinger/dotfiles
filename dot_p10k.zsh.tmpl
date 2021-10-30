@@ -1042,9 +1042,9 @@
   }
 
  function prompt_k8s_color() {
-    local scheme="${BASE16_LIGHT}"
+    local scheme="${BASE16_DARK}"
     if [[ $P9K_KUBECONTEXT_NAME == *prod* ]]; then
-        scheme="${BASE16_DARK}"
+        scheme="${BASE16_LIGHT}"
     fi
     if [[ "${BASE16_THEME}" != "${scheme}" ]]; then
         _base16 "$HOME/.config/base16-shell/scripts/base16-${scheme}.sh" ${scheme}

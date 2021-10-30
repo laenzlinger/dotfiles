@@ -92,6 +92,7 @@ python
 python-pip
 redis
 reiserfsprogs
+rust
 s-nail
 sed
 shadow

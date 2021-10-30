@@ -1,0 +1,24 @@
+user: grey
+group: dark_grey
+permission:
+  read: dark_green
+  write: dark_yellow
+  exec: dark_red
+  exec-sticky: red
+  no-access: 16
+date:
+  hour-old: 21
+  day-old: 20
+  older: 19
+size:
+  none: white
+  small: grey
+  medium: 16
+  large: red
+inode:
+  valid: 13
+  invalid: red
+links:
+  valid: 13
+  invalid: red
+tree-edge: 17
