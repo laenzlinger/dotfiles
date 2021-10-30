@@ -97,12 +97,12 @@ bindsym $mod+a focus parent
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
-set $ws1 "1:sar"
-set $ws2 "2:service"
-set $ws3 "3:frontend"
-set $ws4 "4:blueprint"
-set $ws5 "5"
-set $ws6 "6"
+set $ws1 "1:browser"
+set $ws2 "2:terminal"
+set $ws3 "3:sar"
+set $ws4 "4:service"
+set $ws5 "5:frontend"
+set $ws6 "6:blueprint"
 set $ws7 "7"
 set $ws8 "8:cypress"
 set $ws9 "9:secrets"
@@ -189,17 +189,19 @@ client.urgent #373b41 #cc6666 #ffffff #cc6666
 
 
 # Assign Workspace
-assign [class=".*Cypress.*"] $ws8
+assign [class="Google Chrome"] $ws1
+exec google-chrome-stable
 
 {{- if eq .email "christof.laenzlinger@swisscom.com" }}
 for_window [class="KeePassXC"] move workspace number $ws9
 for_window [class="Alacritty" instance="edit"] border pixel 3; move right
 for_window [class="Alacritty" instance="run"] move left; focus
 
-assign [class="Alacritty" instance="sar"] $ws1
-assign [class="Alacritty" instance="service"] $ws2
-assign [class="Alacritty" instance="frontend"] $ws3
-assign [class="Alacritty" instance="blueprint"] $ws4
+assign [class=".*Cypress.*"] $ws8
+assign [class="Alacritty" instance="sar"] $ws3
+assign [class="Alacritty" instance="service"] $ws4
+assign [class="Alacritty" instance="frontend"] $ws5
+assign [class="Alacritty" instance="blueprint"] $ws6
 
 exec alacritty --working-directory ~/dev/src/dop/swisscom_application_register --class sar-run
 exec alacritty --working-directory ~/dev/src/dop/swisscom_application_register --class sar-edit 
