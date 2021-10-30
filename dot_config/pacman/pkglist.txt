@@ -85,6 +85,7 @@ perl
 perl-anyevent-i3
 pkgconf
 pkgfile
+plantuml
 procps-ng
 psmisc
 python

@@ -39,6 +39,7 @@ if executable('node')
 endif
 Plug 'vim-test/vim-test'
 Plug 'editorconfig/editorconfig-vim'
+Plug 'stsewd/fzf-checkout.vim'
 
 call plug#end()
 
@@ -245,6 +246,11 @@ au BufNewFile,BufRead Jenkinsfile setf groovy
 let g:go_def_mapping_enabled = 0
 let g:go_fmt_command = "goimports"
 let g:go_build_tags = "unitTests"
+let g:go_term_enabled = 0
+let g:go_term_reuse = 1
+let g:go_term_close_on_exit = 0
+let g:go_list_height = 20
+
 
 autocmd FileType go nmap <leader>r  <Plug>(go-run)
 autocmd FileType go nmap <leader>t  <Plug>(go-test)
