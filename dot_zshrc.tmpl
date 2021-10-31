@@ -231,7 +231,14 @@ export BASE16_LIGHT=solarized-light
 # source <(npm completion)
 
 # nvm
-source /usr/share/nvm/init-nvm.sh
+{{- if eq .chezmoi.os "linux" }}
+[ -s "/usr/share/nvm/init-nvm.sh" ] &&  source "/usr/share/nvm/init-nvm.sh"
+{{- end }}
+
+{{- if eq .chezmoi.os "darwin" }}
+[ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"
+[ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"
+{{- end }}
 
 ## java environment
 # export PATH="$HOME/.jenv/bin:$PATH"
