@@ -42,4 +42,10 @@
        branch = false
 
 [credential "https://github.com"]
+
+{{- if eq .chezmoi.os "linux" }}
        helper = !/usr/bin/gh auth git-credential
+{{- end }}
+{{- if eq .chezmoi.os "darwin" }}
+       helper = !/usr/local/bin/gh auth git-credential
+{{- end }}
