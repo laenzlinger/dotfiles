@@ -190,7 +190,11 @@ client.urgent #373b41 #cc6666 #ffffff #cc6666
 
 # Assign Workspace
 assign [class="Google-chrome"] $ws1
+assign [class="Alacritty" instance="^main\-terminal$"] $ws2
+
 exec google-chrome-stable
+exec alacritty --class main-terminal
+
 
 {{- if eq .email "christof.laenzlinger@swisscom.com" }}
 
