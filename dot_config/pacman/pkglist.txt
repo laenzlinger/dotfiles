@@ -32,6 +32,7 @@ gcc
 gcc-libs
 gettext
 git
+github-cli
 glibc
 gnome-keyring
 gnu-netcat
