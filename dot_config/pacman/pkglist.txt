@@ -93,6 +93,7 @@ python
 python-pip
 redis
 reiserfsprogs
+rsync
 rust
 s-nail
 sed

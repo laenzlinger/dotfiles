@@ -4,6 +4,7 @@ freetype2-cleartype
 google-chrome
 google-cloud-sdk
 j4-make-config-git
+jwt-cli-bin
 nerd-fonts-meslo
 nodenv
 nodenv-node-build
