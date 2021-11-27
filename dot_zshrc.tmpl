@@ -1,8 +1,8 @@
-{{- if and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.id "arch") }}
+{{- if eq .chezmoi.os "linux" }} {{- if eq .chezmoi.osRelease.id "arch" }}
 if [[ $0 == -* ]]; then # is login shell
   ssh-agent startx
 fi
-{{- end }}
+{{- end }} {{- end }}
 
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
@@ -213,11 +213,11 @@ export BASE16_DARK=darktooth
 export BASE16_LIGHT=solarized-light
 
 # Powerlevel10k
-{{- if and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.id "arch") }}
+{{- if eq .chezmoi.os "linux" }} {{- if eq .chezmoi.osRelease.id "arch" }}
 if [[ $0 != -* ]]; then # not login shell
   source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
 fi
-{{- end }}
+{{- end }} {{- end }}
 {{- if eq .chezmoi.os "darwin" }}
   source $(brew --prefix)/opt/powerlevel10k/powerlevel10k.zsh-theme
 {{- end }}
