@@ -1,0 +1,38 @@
+{
+    "layout": "splitv",
+    "percent": 0.3,
+    "type": "con",
+    "name": "terminals",
+    "nodes": [
+        {
+            "border": "normal",
+            "current_border_width": 2,
+            "floating": "auto_off",
+            "marks": [],
+            "percent": 0.5,
+            "swallows": [
+               {
+                "class": "^Alacritty$",
+                "instance": "sar-run"
+               }
+            ],
+            "type": "con"
+        }
+    ]
+}
+
+{
+    "border": "pixel",
+    "current_border_width": 3,
+    "floating": "auto_off",
+    "marks": [],
+    "percent": 0.7,
+    "swallows": [
+       {
+        "class": "^Alacritty$",
+        "instance": "sar-edit"
+       }
+    ],
+    "type": "con"
+}
+
