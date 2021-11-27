@@ -1,16 +1,15 @@
-{{- if eq .chezmoi.os "linux" }}
-{{- if eq .chezmoi.osRelease.id "arch" }}
+{{- if and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.id "arch") }}
 if [[ $0 == -* ]]; then # is login shell
   ssh-agent startx
-else
-  source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
 fi
 {{- end }}
-{{- end }}
 
-{{- if eq .chezmoi.os "darwin" }}
-  source $(brew --prefix)/opt/powerlevel10k/powerlevel10k.zsh-theme
-{{- end }}
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block, everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
@@ -213,6 +212,15 @@ BASE16_SHELL="$HOME/.config/base16-shell/"
 export BASE16_DARK=darktooth
 export BASE16_LIGHT=solarized-light
 
+# Powerlevel10k
+{{- if and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.id "arch") }}
+if [[ $0 != -* ]]; then # not login shell
+  source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
+fi
+{{- end }}
+{{- if eq .chezmoi.os "darwin" }}
+  source $(brew --prefix)/opt/powerlevel10k/powerlevel10k.zsh-theme
+{{- end }}
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
