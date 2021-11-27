@@ -8,6 +8,10 @@ fi
 {{- end }}
 {{- end }}
 
+{{- if eq .chezmoi.os "darwin" }}
+  source $(brew --prefix)/opt/powerlevel10k/powerlevel10k.zsh-theme
+{{- end }}
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
