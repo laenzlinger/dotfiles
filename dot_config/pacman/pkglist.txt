@@ -20,6 +20,7 @@ diffutils
 dmenu
 docker
 docker-compose
+dos2unix
 e2fsprogs
 fakeroot
 file
