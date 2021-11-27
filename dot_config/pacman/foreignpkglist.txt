@@ -10,3 +10,4 @@ nodenv
 nodenv-node-build
 nvm
 velero-bin
+yay
