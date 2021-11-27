@@ -54,9 +54,9 @@ set autowrite
 set mouse=a
 
 " leader character is by default "\" which is difficult to reach on my keyboard
-let mapleader = ","
+let mapleader = "-"
 
-nnoremap <F3> :bufdo e<CR>
+nnoremap <F2> :bufdo e<CR>
 
 "-----------------------------------------------------------
 " coc.nvim settings
@@ -269,8 +269,9 @@ autocmd FileType go nmap <Leader>c <Plug>(go-coverage-toggle)
 "-----------------------------------------------------------
 " NERDTree
 "-----------------------------------------------------------
-" Open for directories
-nnoremap <F2> :NERDTreeToggle<CR>
+nnoremap <Leader>d :NERDTreeToggle<CR>
+nnoremap <silent> <Leader>v :NERDTreeFind<CR>
+
 autocmd StdinReadPre * let s:std_in=1
 " load NERDTree on startup (in case a directory is opend)
 " autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | wincmd p | endif
@@ -340,7 +341,9 @@ endfunction
 
 command! -bang -nargs=+ -complete=dir AgIn call s:ag_in(<bang>0, <f-args>)
 
-nnoremap <F3> :Files<CR>
+nnoremap <leader>f :GFiles<CR>
+
+let g:fzf_checkout_git_options = '--sort=-committerdate'
 
 "-----------------------------------------------------------
 " Syntastics
