@@ -10,3 +10,4 @@ nodenv-node-build
 nvm
 velero-bin
 yay
+zsh-theme-powerlevel10k-git
