@@ -119,7 +119,7 @@ plugins=(
     vi-mode
     fzf
     web-search
-{{- if eq .email "christof.laenzlinger@swisscom.com" }}
+{{- if hasSuffix "com.com" .email }}
     swisscom-proxy
     gcp-dos
     dos

@@ -195,7 +195,7 @@ assign [class="Alacritty" instance="^main\-terminal$"] $ws2
 exec --no-startup-id "i3-msg 'workspace 1:browser; exec google-chrome-stable'"
 exec --no-startup-id "i3-msg 'workspace 2:terminal; exec alacritty --class main-terminal'"
 
-{{- if eq .email "christof.laenzlinger@swisscom.com" }}
+{{- if hasSuffix "com.com" .email }}
 
 assign [class="KeePassXC"] $ws9
 assign [class=".*Cypress.*"] $ws8
