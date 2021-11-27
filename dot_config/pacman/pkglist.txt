@@ -27,6 +27,7 @@ file
 filesystem
 findutils
 flex
+freetype2
 fzf
 gawk
 gcc
