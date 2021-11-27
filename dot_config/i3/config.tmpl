@@ -205,13 +205,13 @@ exec --no-startup-id "i3-msg 'workspace 4:service; append_layout ~/.config/i3/la
 exec --no-startup-id "i3-msg 'workspace 5:frontend; append_layout ~/.config/i3/layout/coding-frontend.json'"
 exec --no-startup-id "i3-msg 'workspace 6:blueprint; append_layout ~/.config/i3/layout/coding-blueprint.json'"
 
-exec --no-startup-id alacritty --working-directory ~/dev/src/dop/swisscom_application_register --class sar-run
+exec --no-startup-id alacritty --working-directory ~/dev/src/dop/sar --class sar-run
 exec --no-startup-id alacritty --working-directory ~/dev/src/dop/dop_service --class service-run
 exec --no-startup-id alacritty --working-directory ~/dev/src/dop/dop_frontend --class frontend-run
 exec --no-startup-id alacritty --working-directory ~/dev/src/dop/dop_integration_blueprint --class blueprint-run
 
 exec --no-startup-id alacritty --working-directory ~/dev/src/dop/dop_service --class service-edit
-exec --no-startup-id alacritty --working-directory ~/dev/src/dop/swisscom_application_register --class sar-edit
+exec --no-startup-id alacritty --working-directory ~/dev/src/dop/sar --class sar-edit
 exec --no-startup-id alacritty --working-directory ~/dev/src/dop/dop_integration_blueprint --class blueprint-edit
 exec --no-startup-id alacritty --working-directory ~/dev/src/dop/dop_frontend --class frontend-edit
 
