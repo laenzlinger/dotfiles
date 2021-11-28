@@ -38,8 +38,12 @@
 [user]
         name = Christof Laenzlinger
         email = "{{ .email }}"
+        signingKey = {{ .gitSigningKey }}
 [pager]
        branch = false
+
+[commit]
+    gpgSign = true
 
 [credential "https://github.com"]
 
