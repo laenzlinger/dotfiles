@@ -32,6 +32,7 @@ fzf
 gawk
 gcc
 gcc-libs
+gcr
 gettext
 git
 github-cli

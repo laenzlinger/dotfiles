@@ -1,0 +1,8 @@
+{{- if eq .chezmoi.os "linux" }}
+pinentry-program /usr/bin/pinentry-gnome3
+{{- end }}
+{{- if eq .chezmoi.os "darwin" }}
+pinentry-program /usr/local/bin/pinentry-mac
+{{- end }}
+pinentry-timeout 120
+enable-ssh-support
