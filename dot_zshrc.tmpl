@@ -258,3 +258,9 @@ then
   export PATH=$PATH:$(go env GOPATH)/bin
   export GOTESTS_TEMPLATE=testify
 fi
+
+## docker
+{{- if eq .chezmoi.os "darwin" }}
+alias docker=podman
+export DOCKER=podman
+{{- end }}
