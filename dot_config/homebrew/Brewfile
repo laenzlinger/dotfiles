@@ -57,7 +57,7 @@ brew "lsd"
 brew "make"
 brew "maven"
 brew "protobuf"
-brew "mysql"
+brew "mysql", restart_service: true
 brew "neovim"
 brew "node-build"
 brew "nodenv"
@@ -70,15 +70,15 @@ brew "paperkey"
 brew "perl"
 brew "pinentry-mac"
 brew "podman"
-brew "postgresql"
+brew "postgresql", restart_service: true
 brew "pstree"
 brew "redis", restart_service: true
 brew "restic"
 brew "rsync"
-brew "selenium-server"
+brew "selenium-server", restart_service: true
 brew "sphinx-doc"
 brew "sshuttle"
-brew "stunnel"
+brew "stunnel", restart_service: true
 brew "terraform"
 brew "the_silver_searcher"
 brew "tmux"
