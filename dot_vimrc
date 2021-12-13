@@ -12,9 +12,10 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-sensible'
-Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
+Plug 'tpope/vim-fugitive'
+Plug 'tommcdo/vim-fubitive'
 Plug 'preservim/nerdtree' |
             \ Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'neomake/neomake'
@@ -371,6 +372,11 @@ omap ö [
 omap ä ]
 xmap ö [
 xmap ä ]
+
+"-----------------------------------------------------------
+" fugitive
+"-----------------------------------------------------------
+let g:fubitive_domain_pattern = 'git\.swisscom\.com'
 
 "-----------------------------------------------------------
 " vim-test
