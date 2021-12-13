@@ -41,6 +41,7 @@ endif
 Plug 'vim-test/vim-test'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'stsewd/fzf-checkout.vim'
+Plug 'jeffkreeftmeijer/vim-numbertoggle'
 
 call plug#end()
 
