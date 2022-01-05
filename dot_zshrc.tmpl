@@ -116,7 +116,6 @@ plugins=(
     gpg-agent
 {{- if hasSuffix "com.com" .email }}
     swisscom-proxy
-    gcp-dos
     dos
 {{- end }}
 )
@@ -152,10 +151,10 @@ fi
 
 {{- if eq .chezmoi.os "darwin" }}
 # Syntax highlighting
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # Autosuggestion
-source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # iterm integration
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
@@ -240,8 +239,8 @@ fi
 {{- end }}
 
 {{- if eq .chezmoi.os "darwin" }}
-[ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"
-[ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"
+[ -s "$(brew --prefix)/opt/nvm/nvm.sh" ] && . "$(brew --prefix)/opt/nvm/nvm.sh"
+[ -s "$(brew --prefix)/opt/nvm/etc/bash_completion.d/nvm" ] && . "$(brew --prefix)/opt/nvm/etc/bash_completion.d/nvm"
 {{- end }}
 
 ## java environment
@@ -249,7 +248,7 @@ fi
 # eval "$(jenv init -)"
 
 ## ruby environment
-# export PATH=$PATH:/usr/local/lib/ruby/gems/2.5.0/bin
+# export PATH=$PATH:$(brew --prefix)/lib/ruby/gems/2.5.0/bin
 
 ## golang environment
 if command -v go &> /dev/null
