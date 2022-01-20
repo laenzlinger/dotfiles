@@ -261,5 +261,5 @@ fi
 ## docker
 {{- if eq .chezmoi.os "darwin" }}
 alias docker=podman
-export DOCKER=podman
+export CONTAINER_ENGINE=podman
 {{- end }}
