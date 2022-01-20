@@ -48,6 +48,14 @@ call plug#end()
 "-----------------------------------------------------------
 " Global Settings
 "-----------------------------------------------------------
+
+" determine if running with swiss keyboard
+function! s:ch_keybaord()
+  let l:keysource = system('defaults read ~/Library/Preferences/com.apple.HIToolbox.plist AppleSelectedInputSources')
+  return l:keysource !~ "\.U\.S"
+endfunction
+
+
 set number
 set tabstop=4
 set shiftwidth=4
@@ -55,8 +63,10 @@ set expandtab
 set autowrite
 set mouse=a
 
-" leader character is by default "\" which is difficult to reach on my keyboard
-let mapleader = "-"
+if s:ch_keybaord()
+  " leader character is by default "\" which is difficult to reach on my keyboard
+  let mapleader = "$"
+endif
 
 nnoremap <F2> :bufdo e<CR>
 
@@ -367,12 +377,14 @@ let g:auto_save_events = ["InsertLeave"]
 "-----------------------------------------------------------
 " vim-unimpaired
 "-----------------------------------------------------------
-nmap ö [
-nmap ä ]
-omap ö [
-omap ä ]
-xmap ö [
-xmap ä ]
+if s:ch_keybaord()
+  nmap ü [
+  nmap ¨ ]
+  omap ü [
+  omap ¨ ]
+  xmap ü [
+  xmap ¨ ]
+endif
 
 "-----------------------------------------------------------
 " fugitive
