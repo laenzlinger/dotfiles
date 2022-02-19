@@ -1,5 +1,7 @@
 {{ $email := promptString "email" -}}
 {{ $gitsigningkey := promptString "Git Signing Key ID" -}}
+{{ $brewprefix := promptString "Value of brew --prefix" -}}
 [data]
     email = "{{ $email }}"
     gitsigningkey = "{{ $gitsigningkey }}"
+    brewprefix = "{{ $brewprefix }}"

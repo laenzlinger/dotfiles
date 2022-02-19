@@ -2,7 +2,7 @@
 pinentry-program /usr/bin/pinentry-gnome3
 {{- end }}
 {{- if eq .chezmoi.os "darwin" }}
-    pinentry-program {{ env "HOMEBREW_PREFIX" }}/bin/pinentry-mac
+    pinentry-program {{ .brewprefix }}/bin/pinentry-mac
 {{- end }}
 pinentry-timeout 120
 enable-ssh-support
