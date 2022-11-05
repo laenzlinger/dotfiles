@@ -1,49 +1,49 @@
 [core]
-        autocrlf = input
-        excludesfile = ~/.config/git/gitignore.global
+    autocrlf = input
+    excludesfile = ~/.config/git/gitignore.global
 [color]
-        ui = auto
+    ui = auto
 [alias]
-        co = checkout
-        br = branch --verbose --sort=committerdate
-        ci = commit
-        st = status
-        sh = show -M
-        df = diff -M
-        lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --name-only
-        lgp = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit -p -M
-        # tree (mauro) with branches, author, time
-        t = log --graph --pretty=format:'%Cblue%h%Creset %s %Creset%Cgreen(%an %cr)%Creset%Cred%d' --abbrev-commit
-        history = log --oneline --graph --decorate --all
-        last = diff-tree --no-commit-id --name-only -r HEAD
-        ll = log --pretty=format:\"%C(yellow)%h%Cred%d %Creset%s%Cblue [%cn]\" --decorate --numstat
-        lo = log --oneline
-        ls = log --pretty=format:\"%C(yellow)%h%Cred%d %Creset%s%Cblue [%cn]\" --decorate
-        po = !git push --set-upstream origin $(git symbolic-ref --short HEAD)
-        pullall = "!f() { git pull && git submodule update --init --recursive; }; f"
-        pr = "!f() { git fetch -fu ${2:-upstream} refs/pull/$1/head:pr/$1 && git checkout pr/$1; }; f"
-        pr-clean = "!git checkout master ; git for-each-ref refs/heads/pr/* --format=\"%(refname)\" | while read ref ; do branch=${ref#refs/heads/} ; git branch -D $branch ; done"
+    co = checkout
+    br = branch --verbose --sort=committerdate
+    ci = commit
+    st = status
+    sh = show -M
+    df = diff -M
+    lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --name-only
+    lgp = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit -p -M
+    # tree (mauro) with branches, author, time
+    t = log --graph --pretty=format:'%Cblue%h%Creset %s %Creset%Cgreen(%an %cr)%Creset%Cred%d' --abbrev-commit
+    history = log --oneline --graph --decorate --all
+    last = diff-tree --no-commit-id --name-only -r HEAD
+    ll = log --pretty=format:\"%C(yellow)%h%Cred%d %Creset%s%Cblue [%cn]\" --decorate --numstat
+    lo = log --oneline
+    ls = log --pretty=format:\"%C(yellow)%h%Cred%d %Creset%s%Cblue [%cn]\" --decorate
+    po = !git push --set-upstream origin $(git symbolic-ref --short HEAD)
+    pullall = "!f() { git pull && git submodule update --init --recursive; }; f"
+    pr = "!f() { git fetch -fu ${2:-upstream} refs/pull/$1/head:pr/$1 && git checkout pr/$1; }; f"
+    pr-clean = "!git checkout master ; git for-each-ref refs/heads/pr/* --format=\"%(refname)\" | while read ref ; do branch=${ref#refs/heads/} ; git branch -D $branch ; done"
 [branch]
-        # always rebase, very handy for git-svn but not only
-        autosetuprebase = always
+    # always rebase, very handy for git-svn but not only
+    autosetuprebase = always
 
 [push]
-        # only push current branch
-        default = simple
+    # only push current branch
+    default = simple
 [pull]
-        rebase = true
+    rebase = true
 [init]
-        templatedir = ~/.config/git/template
+    templatedir = ~/.config/git/template
 
 [user]
-        name = Christof Laenzlinger
-        email = "{{ .email }}"
-        signingKey = {{ .gitsigningkey }}
+    name = Christof Laenzlinger
+    email = "{{ .email }}"
+    signingKey = {{ .gitsigningkey }}
 [pager]
-       branch = false
+    branch = false
 
 [commit]
-    gpgSign = true
+   gpgSign = true
 
 [credential "https://github.com"]
 
