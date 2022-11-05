@@ -114,6 +114,7 @@ plugins=(
     fzf
     web-search
     gpg-agent
+    dotenv
 {{- if hasSuffix "com.com" .email }}
     swisscom-proxy
     dos
@@ -260,6 +261,7 @@ fi
 
 ## docker
 {{- if eq .chezmoi.os "darwin" }}
-alias docker=podman
-export CONTAINER_ENGINE=podman
+### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
+export PATH="/Users/tzhlach2/.rd/bin:$PATH"
+### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
 {{- end }}
