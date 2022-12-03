@@ -115,6 +115,7 @@ plugins=(
     web-search
     gpg-agent
     dotenv
+    z
 {{- if hasSuffix "com.com" .email }}
     swisscom-proxy
     dos
@@ -162,9 +163,6 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 
 # gnu tools
 # export PATH="$(brew --prefix coreutils)/libexec/gnubin:/usr/local/bin:$PATH"
-
-# make sure gcloud is using the system install python
-export CLOUDSDK_PYTHON=/usr/bin/python
 
 # color ls on gnu ls
 if command -v lsd &> /dev/null
