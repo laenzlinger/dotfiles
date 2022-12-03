@@ -35,6 +35,10 @@ if executable('go')
   Plug 'buoto/gotests-vim'
   Plug 'sebdah/vim-delve'
 endif
+if executable('rustc')
+  Plug 'rust-lang/rust.vim'
+  Plug 'timonv/vim-cargo'
+endif
 if executable('node')
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
 endif
@@ -378,3 +382,8 @@ nmap <silent> t<C-f> :TestFile<CR>
 nmap <silent> t<C-s> :TestSuite<CR>
 nmap <silent> t<C-l> :TestLast<CR>
 nmap <silent> t<C-g> :TestVisit<CR>
+
+"-----------------------------------------------------------
+" rust
+"-----------------------------------------------------------
+let g:rustfmt_autosave = 1
