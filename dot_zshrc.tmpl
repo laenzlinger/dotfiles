@@ -257,6 +257,8 @@ then
   export GOTESTS_TEMPLATE=testify
 fi
 
+export PATH=/opt/homebrew/opt/python@3.11/libexec/bin:$PATH
+
 ## docker
 {{- if eq .chezmoi.os "darwin" }}
 ### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
