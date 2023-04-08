@@ -57,7 +57,7 @@ call plug#end()
 " determine if running with swiss keyboard
 function! s:ch_keybaord()
   let l:keysource = system('defaults read ~/Library/Preferences/com.apple.HIToolbox.plist AppleSelectedInputSources')
-  return l:keysource !~ "\.U\.S"
+  return l:keysource =~ "Swiss German"
 endfunction
 
 
