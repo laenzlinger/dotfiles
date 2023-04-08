@@ -34,15 +34,19 @@
     rebase = true
 [init]
     templatedir = ~/.config/git/template
-
 [user]
     name = Christof Laenzlinger
+{{if .gitsigningkey }}
     signingKey = {{ .gitsigningkey }}
+{{- end }}
+
 [pager]
     branch = false
 
 [commit]
+{{if .gitsigningkey }}
    gpgSign = true
+{{- end }}
 
 [credential "https://github.com"]
 
