@@ -120,6 +120,7 @@ plugins=(
     web-search
     gpg-agent
     dotenv
+    nvm
     z
 {{- if hasSuffix "com.com" .email }}
     swisscom-proxy
@@ -236,11 +237,6 @@ fi
 # nodenv
 # eval "$(nodenv init -)"
 # source <(npm completion)
-
-# nvm
-{{- if eq .chezmoi.os "linux" }}
-[ -s "/usr/share/nvm/init-nvm.sh" ] &&  source "/usr/share/nvm/init-nvm.sh"
-{{- end }}
 
 {{- if eq .chezmoi.os "darwin" }}
 [ -s "$(brew --prefix)/opt/nvm/nvm.sh" ] && . "$(brew --prefix)/opt/nvm/nvm.sh"
