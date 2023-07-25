@@ -113,6 +113,8 @@ plugins=(
     jfrog
     kubectl
     mvn
+    ruby
+    rbenv
     safe-paste
     terraform
     vi-mode
@@ -248,7 +250,7 @@ fi
 # eval "$(jenv init -)"
 
 ## ruby environment
-# export PATH=$PATH:$(brew --prefix)/lib/ruby/gems/2.5.0/bin
+eval "$(rbenv init - zsh)"
 
 ## golang environment
 if command -v go &> /dev/null
@@ -258,11 +260,6 @@ then
   export GOTESTS_TEMPLATE=testify
 fi
 
+## Python
 export PATH=/opt/homebrew/opt/python@3.11/libexec/bin:$PATH
 
-## docker
-{{- if eq .chezmoi.os "darwin" }}
-### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
-export PATH="/Users/tzhlach2/.rd/bin:$PATH"
-### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
-{{- end }}
