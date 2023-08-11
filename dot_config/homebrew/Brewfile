@@ -145,7 +145,6 @@ brew "pv"
 brew "python@3.8"
 brew "qemu"
 brew "qjackctl"
-brew "rbenv"
 brew "redis", restart_service: true
 brew "repo"
 brew "restic"
