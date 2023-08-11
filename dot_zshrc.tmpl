@@ -97,6 +97,7 @@ plugins=(
     iterm2
     marked2
 {{- end }}
+    asdf
     aws
     gcloud
     cloudfoundry
@@ -114,7 +115,6 @@ plugins=(
     kubectl
     mvn
     ruby
-    rbenv
     safe-paste
     terraform
     vi-mode
@@ -122,7 +122,6 @@ plugins=(
     web-search
     gpg-agent
     dotenv
-    nvm
     z
 {{- if hasSuffix "com.com" .email }}
     swisscom-proxy
@@ -203,9 +202,6 @@ source /usr/share/doc/pkgfile/command-not-found.zsh
 # Syntax highlighting
 source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-# Autosuggestion (only availabe on buster)
-# source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-
 # "Command not found" handler
 # source /usr/share/doc/pkgfile/command-not-found.zsh
 {{- end }}
@@ -236,30 +232,13 @@ fi
 
 ## node environment
 
-# nodenv
-# eval "$(nodenv init -)"
-# source <(npm completion)
-
-{{- if eq .chezmoi.os "darwin" }}
-[ -s "$(brew --prefix)/opt/nvm/nvm.sh" ] && . "$(brew --prefix)/opt/nvm/nvm.sh"
-[ -s "$(brew --prefix)/opt/nvm/etc/bash_completion.d/nvm" ] && . "$(brew --prefix)/opt/nvm/etc/bash_completion.d/nvm"
-{{- end }}
-
 ## java environment
-# export PATH="$HOME/.jenv/bin:$PATH"
-# eval "$(jenv init -)"
 
 ## ruby environment
 eval "$(rbenv init - zsh)"
 
 ## golang environment
-if command -v go &> /dev/null
-then
-  export GO111MODULE=on
-  export PATH=$PATH:$(go env GOPATH)/bin
-  export GOTESTS_TEMPLATE=testify
-fi
-
-## Python
-export PATH=/opt/homebrew/opt/python@3.11/libexec/bin:$PATH
+export GO111MODULE=on
+export PATH=$PATH:$(go env GOPATH)/bin
+export GOTESTS_TEMPLATE=testify
 

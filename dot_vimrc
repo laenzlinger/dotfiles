@@ -28,7 +28,6 @@ Plug '907th/vim-auto-save'
 Plug 'mileszs/ack.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-Plug 'vim-syntastic/syntastic'
 Plug 'itspriddle/vim-marked'
 if executable('go')
   Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
@@ -55,7 +54,7 @@ call plug#end()
 "-----------------------------------------------------------
 
 " determine if running with swiss keyboard
-function! s:ch_keybaord()
+function! s:ch_keyboard()
   let l:keysource = system('defaults read ~/Library/Preferences/com.apple.HIToolbox.plist AppleSelectedInputSources')
   return l:keysource =~ "Swiss German"
 endfunction
@@ -68,7 +67,7 @@ set expandtab
 set autowrite
 set mouse=a
 
-if s:ch_keybaord()
+if s:ch_keyboard()
   " leader character is by default "\" which is difficult to reach on my keyboard
   let mapleader = "$"
 endif
@@ -316,7 +315,7 @@ let g:airline_powerline_fonts = 1
 "-----------------------------------------------------------
 " base16-vim
 "-----------------------------------------------------------
-set background=dark
+"set background=dark
 let base16colorspace=256
 colorscheme base16-default-dark
 
@@ -352,17 +351,6 @@ nnoremap <leader>f :GFiles<CR>
 let g:fzf_checkout_git_options = '--sort=-committerdate'
 
 "-----------------------------------------------------------
-" Syntastics
-"-----------------------------------------------------------
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-
-"-----------------------------------------------------------
 " AutoSave
 "-----------------------------------------------------------
 let g:auto_save = 1  " enable AutoSave on Vim startup
@@ -371,7 +359,7 @@ let g:auto_save_events = ["InsertLeave"]
 "-----------------------------------------------------------
 " vim-unimpaired
 "-----------------------------------------------------------
-if s:ch_keybaord()
+if s:ch_keyboard()
   nmap ü [
   nmap ¨ ]
   omap ü [
