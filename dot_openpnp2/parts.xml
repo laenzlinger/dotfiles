@@ -3,4 +3,40 @@
    <part id="SK6812" height-units="Millimeters" height="0.65" package-id="FIDUCIAL-1X2" speed="1.0" pick-retry-count="1"/>
    <part id="1uF_0402" height-units="Millimeters" height="0.5" package-id="FIDUCIAL-1X2" speed="1.0" pick-retry-count="1"/>
    <part id="330R_0402" height-units="Millimeters" height="0.3" package-id="FIDUCIAL-1X2" speed="1.0" pick-retry-count="1"/>
+   <part id="C_0805_2012Metric-100n" height-units="Millimeters" height="0.0" package-id="C_0805" speed="1.0" pick-retry-count="0"/>
+   <part id="C_0805_2012Metric-22u" height-units="Millimeters" height="0.0" package-id="C_0805" speed="1.0" pick-retry-count="0"/>
+   <part id="CP_Elec_10x10-270u" height-units="Millimeters" height="0.0" package-id="CP_Elec_10x10" speed="1.0" pick-retry-count="0"/>
+   <part id="C_0805_2012Metric-27p" height-units="Millimeters" height="0.0" package-id="C_0805" speed="1.0" pick-retry-count="0"/>
+   <part id="C_0805_2012Metric-1u" height-units="Millimeters" height="0.0" package-id="C_0805" speed="1.0" pick-retry-count="0"/>
+   <part id="C_0805_2012Metric-22p" height-units="Millimeters" height="0.0" package-id="C_0805" speed="1.0" pick-retry-count="0"/>
+   <part id="C_0805_2012Metric-2n2" height-units="Millimeters" height="0.0" package-id="C_0805" speed="1.0" pick-retry-count="0"/>
+   <part id="C_0805_2012Metric-10n" height-units="Millimeters" height="0.0" package-id="C_0805" speed="1.0" pick-retry-count="0"/>
+   <part id="Raspberry-Pi-4-Compute-Module-CM4" height-units="Millimeters" height="0.0" package-id="Raspberry-Pi-4-Compute-Module" speed="1.0" pick-retry-count="0"/>
+   <part id="D_SOD-123F-SM4007" height-units="Millimeters" height="0.0" package-id="D_SOD-123F" speed="1.0" pick-retry-count="0"/>
+   <part id="LED_SK6812_PLCC4_5.0x5.0mm_P3.2mm-SK6812" height-units="Millimeters" height="0.0" package-id="LED_SK6812_PLCC4_5.0x5.0mm_P3.2mm" speed="1.0" pick-retry-count="0"/>
+   <part id="D_SMA-SS34HF" height-units="Millimeters" height="0.0" package-id="D_SMA" speed="1.0" pick-retry-count="0"/>
+   <part id="Y                     LED_0805_2012Metric-LED" height-units="Millimeters" height="0.0" package-id="LED_0805" speed="1.0" pick-retry-count="0"/>
+   <part id="G                     LED_0805_2012Metric-LED" height-units="Millimeters" height="0.0" package-id="LED_0805" speed="1.0" pick-retry-count="0"/>
+   <part id="1.8A             Fuse_1812_4532Metric-Polyfuse" height-units="Millimeters" height="0.0" package-id="1.8A             Fuse_1812_4532Metric" speed="1.0" pick-retry-count="0"/>
+   <part id="Fiducial_1.5mm_Mask3mm-Fiducial" height-units="Millimeters" height="0.0" package-id="Fiducial_1.5mm_Mask3mm" speed="1.0" pick-retry-count="0"/>
+   <part id="L_0603_1608Metric-120_100MHz" height-units="Millimeters" height="0.0" package-id="L_0603" speed="1.0" pick-retry-count="0"/>
+   <part id="L_Coilcraft_XAL6030-XXX-12u" height-units="Millimeters" height="0.0" package-id="L_Coilcraft_XAL6030-XXX" speed="1.0" pick-retry-count="0"/>
+   <part id="SO08-E3-FDS4435BZ" height-units="Millimeters" height="0.0" package-id="SO08-E3" speed="1.0" pick-retry-count="0"/>
+   <part id="R_0805_2012Metric-33" height-units="Millimeters" height="0.0" package-id="R_0805" speed="1.0" pick-retry-count="0"/>
+   <part id="R_0805_2012Metric-10" height-units="Millimeters" height="0.0" package-id="R_0805" speed="1.0" pick-retry-count="0"/>
+   <part id="R_0805_2012Metric-220" height-units="Millimeters" height="0.0" package-id="R_0805" speed="1.0" pick-retry-count="0"/>
+   <part id="R_0805_2012Metric-1K" height-units="Millimeters" height="0.0" package-id="R_0805" speed="1.0" pick-retry-count="0"/>
+   <part id="R_0805_2012Metric-27" height-units="Millimeters" height="0.0" package-id="R_0805" speed="1.0" pick-retry-count="0"/>
+   <part id="R_0805_2012Metric-DNF" height-units="Millimeters" height="0.0" package-id="R_0805" speed="1.0" pick-retry-count="0"/>
+   <part id="R_0805_2012Metric-12k1" height-units="Millimeters" height="0.0" package-id="R_0805" speed="1.0" pick-retry-count="0"/>
+   <part id="R_0805_2012Metric-10k" height-units="Millimeters" height="0.0" package-id="R_0805" speed="1.0" pick-retry-count="0"/>
+   <part id="R_0805_2012Metric-1k91" height-units="Millimeters" height="0.0" package-id="R_0805" speed="1.0" pick-retry-count="0"/>
+   <part id="SW_PUSH-12mm_Wuerth-Tactile" height-units="Millimeters" height="0.0" package-id="SW_PUSH-12mm_Wuerth" speed="1.0" pick-retry-count="0"/>
+   <part id="SO-6L_10x3.84mm_P1.27mm-TLP2761" height-units="Millimeters" height="0.0" package-id="SO-6L_10x3.84mm_P1.27mm" speed="1.0" pick-retry-count="0"/>
+   <part id="SOT-353_SC-70-5-74AHCT1G32SE-7" height-units="Millimeters" height="0.0" package-id="SOT-353_SC-70-5" speed="1.0" pick-retry-count="0"/>
+   <part id="SOIC-8_5.23x5.23mm_P1.27mm-W25Q128JVS" height-units="Millimeters" height="0.0" package-id="SOIC-8_5.23x5.23mm_P1.27mm" speed="1.0" pick-retry-count="0"/>
+   <part id="RP2040-QFN-56-RP2040" height-units="Millimeters" height="0.0" package-id="RP2040-QFN-56" speed="1.0" pick-retry-count="0"/>
+   <part id="SOT-223-3_TabPin2-NCP1117-3.3_SOT223" height-units="Millimeters" height="0.0" package-id="SOT-223-3_TabPin2" speed="1.0" pick-retry-count="0"/>
+   <part id="SOIC-8_3.9x4.9mm_P1.27mm-TPS54331" height-units="Millimeters" height="0.0" package-id="SOIC-8_3.9x4.9mm_P1.27mm" speed="1.0" pick-retry-count="0"/>
+   <part id="Crystal_SMD_HC49-US-ABLS-12.000MHZ-B4-T" height-units="Millimeters" height="0.0" package-id="Crystal_SMD_HC49-US" speed="1.0" pick-retry-count="0"/>
 </openpnp-parts>

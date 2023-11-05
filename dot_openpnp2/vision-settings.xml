@@ -53,7 +53,7 @@
             <cv-stage class="org.openpnp.vision.pipeline.stages.MaskCircle" name="2" enabled="true" diameter="200" property-name="MaskCircle"/>
             <cv-stage class="org.openpnp.vision.pipeline.stages.Threshold" name="3" enabled="true" threshold="200" auto="false" invert="false"/>
             <cv-stage class="org.openpnp.vision.pipeline.stages.MatchTemplate" name="match_template" enabled="false" template-stage-name="template_gray" threshold="0.699999988079071" corr="0.8500000238418579" normalize="true"/>
-            <cv-stage class="org.openpnp.vision.pipeline.stages.DetectCirclesHough" name="0" enabled="true" min-distance="50" min-diameter="60" max-diameter="80" dp="1.0" param-1="80.0" param-2="10.0"/>
+            <cv-stage class="org.openpnp.vision.pipeline.stages.DetectCirclesHough" name="0" enabled="true" min-distance="50" min-diameter="100" max-diameter="120" dp="1.0" param-1="80.0" param-2="10.0"/>
             <cv-stage class="org.openpnp.vision.pipeline.stages.ImageRecall" name="recall_image" enabled="true" image-stage-name="image"/>
             <cv-stage class="org.openpnp.vision.pipeline.stages.DrawTemplateMatches" name="draw_matches" enabled="false" template-matches-stage-name="match_template"/>
             <cv-stage class="org.openpnp.vision.pipeline.stages.DrawCircles" name="1" enabled="true" circles-stage-name="0" thickness="2"/>
