@@ -1,3 +1,6 @@
 <openpnp-parts>
    <part fiducial-vision-id="FVS_Default" id="FIDUCIAL-HOME" name="Homing Fiducial - Do Not Delete" height-units="Millimeters" height="0.0" package-id="FIDUCIAL-1X2" speed="1.0" pick-retry-count="0"/>
+   <part id="SK6812" height-units="Millimeters" height="0.65" package-id="FIDUCIAL-1X2" speed="1.0" pick-retry-count="1"/>
+   <part id="1uF_0402" height-units="Millimeters" height="0.5" package-id="FIDUCIAL-1X2" speed="1.0" pick-retry-count="1"/>
+   <part id="330R_0402" height-units="Millimeters" height="0.3" package-id="FIDUCIAL-1X2" speed="1.0" pick-retry-count="1"/>
 </openpnp-parts>
