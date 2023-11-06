@@ -28,7 +28,9 @@
       <vision-compositing compositing-method="Restricted" min-leverage-factor="0.2" extra-shots="0" allow-inside="true">
          <max-pick-tolerance value="0.0" units="Millimeters"/>
       </vision-compositing>
-      <compatible-nozzle-tip-ids class="java.util.ArrayList"/>
+      <compatible-nozzle-tip-ids class="java.util.ArrayList">
+         <string>NT1</string>
+      </compatible-nozzle-tip-ids>
    </package>
    <package version="1.1" id="SO08-E3" tape-specification="12mm" pick-vacuum-level="0.0" place-blow-off-level="0.0">
       <footprint units="Millimeters" body-width="4.0" body-height="5.0" outer-dimension="7.38" inner-dimension="3.0" pad-count="8" pad-pitch="1.27" pad-across="0.58" pad-roundness="0.0">
@@ -44,7 +46,9 @@
       <vision-compositing compositing-method="Restricted" min-leverage-factor="0.2" extra-shots="0" allow-inside="true">
          <max-pick-tolerance value="0.0" units="Millimeters"/>
       </vision-compositing>
-      <compatible-nozzle-tip-ids class="java.util.ArrayList"/>
+      <compatible-nozzle-tip-ids class="java.util.ArrayList">
+         <string>TIP16cbc9505c3e1916</string>
+      </compatible-nozzle-tip-ids>
    </package>
    <package version="1.1" id="SW_PUSH-12mm_Wuerth" pick-vacuum-level="0.0" place-blow-off-level="0.0">
       <footprint units="Millimeters" body-width="12.0" body-height="12.0" outer-dimension="16.0" inner-dimension="12.0" pad-count="4" pad-pitch="5.0" pad-across="1.8" pad-roundness="0.0">
@@ -70,7 +74,9 @@
       <vision-compositing compositing-method="Restricted" min-leverage-factor="0.2" extra-shots="0" allow-inside="true">
          <max-pick-tolerance value="0.0" units="Millimeters"/>
       </vision-compositing>
-      <compatible-nozzle-tip-ids class="java.util.ArrayList"/>
+      <compatible-nozzle-tip-ids class="java.util.ArrayList">
+         <string>TIP16cbc9505c3e1916</string>
+      </compatible-nozzle-tip-ids>
    </package>
    <package version="1.1" id="SOIC-8_5.23x5.23mm_P1.27mm" tape-specification="12mm" pick-vacuum-level="0.0" place-blow-off-level="0.0">
       <footprint units="Millimeters" body-width="5.23" body-height="5.23" outer-dimension="8.8" inner-dimension="5.6" pad-count="8" pad-pitch="1.27" pad-across="0.6" pad-roundness="1.0">
@@ -86,7 +92,9 @@
       <vision-compositing compositing-method="Restricted" min-leverage-factor="0.2" extra-shots="0" allow-inside="true">
          <max-pick-tolerance value="0.0" units="Millimeters"/>
       </vision-compositing>
-      <compatible-nozzle-tip-ids class="java.util.ArrayList"/>
+      <compatible-nozzle-tip-ids class="java.util.ArrayList">
+         <string>TIP16cbc9505c3e1916</string>
+      </compatible-nozzle-tip-ids>
    </package>
    <package version="1.1" id="SOIC-8_3.9x4.9mm_P1.27mm" tape-specification="12mm" pick-vacuum-level="0.0" place-blow-off-level="0.0">
       <footprint units="Millimeters" body-width="4.0" body-height="5.0" outer-dimension="6.9" inner-dimension="3.0" pad-count="8" pad-pitch="1.27" pad-across="0.6" pad-roundness="1.0">
@@ -102,7 +110,9 @@
       <vision-compositing compositing-method="Restricted" min-leverage-factor="0.2" extra-shots="0" allow-inside="true">
          <max-pick-tolerance value="0.0" units="Millimeters"/>
       </vision-compositing>
-      <compatible-nozzle-tip-ids class="java.util.ArrayList"/>
+      <compatible-nozzle-tip-ids class="java.util.ArrayList">
+         <string>TIP16cbc9505c3e1916</string>
+      </compatible-nozzle-tip-ids>
    </package>
    <package version="1.1" id="R_0805" description="Resistor0805" tape-specification="8mm" pick-vacuum-level="0.0" place-blow-off-level="0.0">
       <footprint units="Millimeters" body-width="2.0" body-height="1.2" outer-dimension="0.0" inner-dimension="0.0" pad-count="0" pad-pitch="0.0" pad-across="0.0" pad-roundness="0.0">
@@ -113,7 +123,6 @@
          <max-pick-tolerance value="0.0" units="Millimeters"/>
       </vision-compositing>
       <compatible-nozzle-tip-ids class="java.util.ArrayList">
-         <string>TIP16b1a61b09e0c660</string>
          <string>NT1</string>
       </compatible-nozzle-tip-ids>
    </package>
@@ -125,7 +134,9 @@
       <vision-compositing compositing-method="Restricted" min-leverage-factor="0.2" extra-shots="0" allow-inside="true">
          <max-pick-tolerance value="0.0" units="Millimeters"/>
       </vision-compositing>
-      <compatible-nozzle-tip-ids class="java.util.ArrayList"/>
+      <compatible-nozzle-tip-ids class="java.util.ArrayList">
+         <string>NT1</string>
+      </compatible-nozzle-tip-ids>
    </package>
    <package version="1.1" id="LED_0805" description="LED  0805" tape-specification="8mm" pick-vacuum-level="0.0" place-blow-off-level="0.0">
       <footprint units="Millimeters" body-width="2.0" body-height="1.2" outer-dimension="0.0" inner-dimension="0.0" pad-count="0" pad-pitch="0.0" pad-across="0.0" pad-roundness="0.0">
@@ -135,7 +146,9 @@
       <vision-compositing compositing-method="Restricted" min-leverage-factor="0.2" extra-shots="0" allow-inside="true">
          <max-pick-tolerance value="0.0" units="Millimeters"/>
       </vision-compositing>
-      <compatible-nozzle-tip-ids class="java.util.ArrayList"/>
+      <compatible-nozzle-tip-ids class="java.util.ArrayList">
+         <string>NT1</string>
+      </compatible-nozzle-tip-ids>
    </package>
    <package version="1.1" id="L_0603" description="Inductor 0603" tape-specification="8mm" pick-vacuum-level="0.0" place-blow-off-level="0.0">
       <footprint units="Millimeters" body-width="1.55" body-height="0.85" outer-dimension="0.0" inner-dimension="0.0" pad-count="0" pad-pitch="0.0" pad-across="0.0" pad-roundness="0.0">
@@ -145,7 +158,9 @@
       <vision-compositing compositing-method="Restricted" min-leverage-factor="0.2" extra-shots="0" allow-inside="true">
          <max-pick-tolerance value="0.0" units="Millimeters"/>
       </vision-compositing>
-      <compatible-nozzle-tip-ids class="java.util.ArrayList"/>
+      <compatible-nozzle-tip-ids class="java.util.ArrayList">
+         <string>NT1</string>
+      </compatible-nozzle-tip-ids>
    </package>
    <package version="1.1" id="DF40C_100DS_04V" description="Hirose 100 pin connector CM4" pick-vacuum-level="0.0" place-blow-off-level="0.0">
       <footprint units="Millimeters" body-width="2.88" body-height="22.6" outer-dimension="3.78" inner-dimension="2.38" pad-count="100" pad-pitch="0.4" pad-across="0.2" pad-roundness="0.0">
@@ -253,7 +268,9 @@
       <vision-compositing compositing-method="Restricted" min-leverage-factor="0.2" extra-shots="0" allow-inside="true">
          <max-pick-tolerance value="0.0" units="Millimeters"/>
       </vision-compositing>
-      <compatible-nozzle-tip-ids class="java.util.ArrayList"/>
+      <compatible-nozzle-tip-ids class="java.util.ArrayList">
+         <string>TIP16cbc9505c3e1916</string>
+      </compatible-nozzle-tip-ids>
    </package>
    <package version="1.1" id="LED_RGB_0505" description="LED RGB 5mm" tape-specification="12mm" pick-vacuum-level="0.0" place-blow-off-level="0.0">
       <footprint units="Millimeters" body-width="5.0" body-height="5.0" outer-dimension="6.41" inner-dimension="3.43" pad-count="4" pad-pitch="3.21" pad-across="1.0" pad-roundness="0.0">
@@ -265,7 +282,9 @@
       <vision-compositing compositing-method="Restricted" min-leverage-factor="0.2" extra-shots="0" allow-inside="true">
          <max-pick-tolerance value="0.0" units="Millimeters"/>
       </vision-compositing>
-      <compatible-nozzle-tip-ids class="java.util.ArrayList"/>
+      <compatible-nozzle-tip-ids class="java.util.ArrayList">
+         <string>TIP16cbc9505c3e1916</string>
+      </compatible-nozzle-tip-ids>
    </package>
    <package version="1.1" id="QFN-56" description="Quad Flat Pack 56 pin" pick-vacuum-level="0.0" place-blow-off-level="0.0">
       <footprint units="Millimeters" body-width="7.0" body-height="7.0" outer-dimension="7.75" inner-dimension="6.0" pad-count="56" pad-pitch="0.4" pad-across="0.2" pad-roundness="1.0">
@@ -358,7 +377,9 @@
       <vision-compositing compositing-method="Restricted" min-leverage-factor="0.2" extra-shots="0" allow-inside="true">
          <max-pick-tolerance value="0.0" units="Millimeters"/>
       </vision-compositing>
-      <compatible-nozzle-tip-ids class="java.util.ArrayList"/>
+      <compatible-nozzle-tip-ids class="java.util.ArrayList">
+         <string>TIP16cbc9505c3e1916</string>
+      </compatible-nozzle-tip-ids>
    </package>
    <package version="1.1" id="D_SOD123" description="Small Outline Diode" tape-specification="8mm" pick-vacuum-level="0.0" place-blow-off-level="0.0">
       <footprint units="Millimeters" body-width="2.5" body-height="1.4" outer-dimension="3.89" inner-dimension="1.71" pad-count="2" pad-pitch="1.0" pad-across="1.1" pad-roundness="10.0">
@@ -368,7 +389,9 @@
       <vision-compositing compositing-method="Restricted" min-leverage-factor="0.2" extra-shots="0" allow-inside="true">
          <max-pick-tolerance value="0.0" units="Millimeters"/>
       </vision-compositing>
-      <compatible-nozzle-tip-ids class="java.util.ArrayList"/>
+      <compatible-nozzle-tip-ids class="java.util.ArrayList">
+         <string>NT1</string>
+      </compatible-nozzle-tip-ids>
    </package>
    <package version="1.1" id="FIDUCIAL-1.5X3" description="Fiducial 1.5mm" pick-vacuum-level="0.0" place-blow-off-level="0.0">
       <footprint units="Millimeters" body-width="0.0" body-height="0.0" outer-dimension="0.0" inner-dimension="0.0" pad-count="0" pad-pitch="0.0" pad-across="0.0" pad-roundness="0.0">
@@ -387,7 +410,9 @@
       <vision-compositing compositing-method="Restricted" min-leverage-factor="0.2" extra-shots="0" allow-inside="true">
          <max-pick-tolerance value="0.0" units="Millimeters"/>
       </vision-compositing>
-      <compatible-nozzle-tip-ids class="java.util.ArrayList"/>
+      <compatible-nozzle-tip-ids class="java.util.ArrayList">
+         <string>NT1</string>
+      </compatible-nozzle-tip-ids>
    </package>
    <package version="1.1" id="L_Coilcraft_XAL6030" description="Coilcraft non standard package" pick-vacuum-level="0.0" place-blow-off-level="0.0">
       <footprint units="Millimeters" body-width="6.0" body-height="6.0" outer-dimension="5.5" inner-dimension="2.66" pad-count="2" pad-pitch="1.0" pad-across="5.5" pad-roundness="0.0">
@@ -397,7 +422,9 @@
       <vision-compositing compositing-method="Restricted" min-leverage-factor="0.2" extra-shots="0" allow-inside="true">
          <max-pick-tolerance value="0.0" units="Millimeters"/>
       </vision-compositing>
-      <compatible-nozzle-tip-ids class="java.util.ArrayList"/>
+      <compatible-nozzle-tip-ids class="java.util.ArrayList">
+         <string>TIP16cbc9505c3e1916</string>
+      </compatible-nozzle-tip-ids>
    </package>
    <package version="1.1" id="X_HC49_US" description="SMD Crystal" pick-vacuum-level="0.0" place-blow-off-level="0.0">
       <footprint units="Millimeters" body-width="4.7" body-height="11.4" outer-dimension="14.2" inner-dimension="3.36" pad-count="2" pad-pitch="1.0" pad-across="2.0" pad-roundness="0.0">
@@ -407,6 +434,8 @@
       <vision-compositing compositing-method="Restricted" min-leverage-factor="0.2" extra-shots="0" allow-inside="true">
          <max-pick-tolerance value="0.0" units="Millimeters"/>
       </vision-compositing>
-      <compatible-nozzle-tip-ids class="java.util.ArrayList"/>
+      <compatible-nozzle-tip-ids class="java.util.ArrayList">
+         <string>TIP16cbc9505c3e1916</string>
+      </compatible-nozzle-tip-ids>
    </package>
 </openpnp-packages>
