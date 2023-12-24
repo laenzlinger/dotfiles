@@ -18,10 +18,12 @@
       <vision-compositing compositing-method="Restricted" min-leverage-factor="0.2" extra-shots="0" allow-inside="true">
          <max-pick-tolerance value="0.0" units="Millimeters"/>
       </vision-compositing>
-      <compatible-nozzle-tip-ids class="java.util.ArrayList"/>
+      <compatible-nozzle-tip-ids class="java.util.ArrayList">
+         <string>TIP16cbc9505c3e1916</string>
+      </compatible-nozzle-tip-ids>
    </package>
-   <package version="1.1" id="D_SMA" description="Diode Outline 214AC" tape-specification="12mm" pick-vacuum-level="0.0" place-blow-off-level="0.0">
-      <footprint units="Millimeters" body-width="4.0" body-height="2.29" outer-dimension="6.45" inner-dimension="1.47" pad-count="2" pad-pitch="1.0" pad-across="1.8" pad-roundness="5.0">
+   <package version="1.1" bottom-vision-id="BVS17a3c51b992772c5" id="D_SMA" description="Diode Outline 214AC" tape-specification="12mm" pick-vacuum-level="0.0" place-blow-off-level="0.0">
+      <footprint units="Millimeters" body-width="2.29" body-height="4.0" outer-dimension="6.45" inner-dimension="1.47" pad-count="2" pad-pitch="1.0" pad-across="1.8" pad-roundness="5.0">
          <pad name="1" x="-1.98" y="0.0" width="2.49" height="1.8" rotation="180.0" roundness="5.0"/>
          <pad name="2" x="1.98" y="0.0" width="2.49" height="1.8" rotation="0.0" roundness="5.0"/>
       </footprint>
@@ -32,8 +34,8 @@
          <string>TIP16cbc9505c3e1916</string>
       </compatible-nozzle-tip-ids>
    </package>
-   <package version="1.1" id="SO08-E3" tape-specification="12mm" pick-vacuum-level="0.0" place-blow-off-level="0.0">
-      <footprint units="Millimeters" body-width="4.0" body-height="5.0" outer-dimension="7.38" inner-dimension="3.0" pad-count="8" pad-pitch="1.27" pad-across="0.58" pad-roundness="0.0">
+   <package version="1.1" bottom-vision-id="BVS17a3c4dcc6dc7519" id="SO08-E3" tape-specification="12mm" pick-vacuum-level="0.0" place-blow-off-level="0.0">
+      <footprint units="Millimeters" body-width="6.8" body-height="5.5" outer-dimension="7.38" inner-dimension="3.0" pad-count="8" pad-pitch="1.27" pad-across="0.58" pad-roundness="0.0">
          <pad name="1" x="-2.5949999999999998" y="1.905" width="2.19" height="0.58" rotation="180.0" roundness="0.0"/>
          <pad name="2" x="-2.5949999999999998" y="0.635" width="2.19" height="0.58" rotation="180.0" roundness="0.0"/>
          <pad name="3" x="-2.5949999999999998" y="-0.635" width="2.19" height="0.58" rotation="180.0" roundness="0.0"/>
@@ -127,7 +129,7 @@
       </compatible-nozzle-tip-ids>
    </package>
    <package version="1.1" bottom-vision-id="BVS17a3ba00cbd5fe6b" id="C_0805" description="Capacitor 0805" tape-specification="8mm" pick-vacuum-level="0.0" place-blow-off-level="0.0">
-      <footprint units="Millimeters" body-width="1.25" body-height="1.6" outer-dimension="0.0" inner-dimension="0.0" pad-count="0" pad-pitch="0.0" pad-across="0.0" pad-roundness="0.0">
+      <footprint units="Millimeters" body-width="1.6" body-height="1.2" outer-dimension="0.0" inner-dimension="0.0" pad-count="0" pad-pitch="0.0" pad-across="0.0" pad-roundness="0.0">
          <pad name="1" x="-1.0" y="0.0" width="1.2" height="1.5" rotation="0.0" roundness="0.0"/>
          <pad name="2" x="1.0" y="0.0" width="1.2" height="1.5" rotation="0.0" roundness="0.0"/>
       </footprint>
@@ -438,12 +440,17 @@
          <string>TIP16cbc9505c3e1916</string>
       </compatible-nozzle-tip-ids>
    </package>
-   <package version="1.1" id="CP_EIA-7343-31_Kemet-D" pick-vacuum-level="0.0" place-blow-off-level="0.0">
-      <footprint units="Millimeters" body-width="0.0" body-height="0.0" outer-dimension="0.0" inner-dimension="0.0" pad-count="0" pad-pitch="0.0" pad-across="0.0" pad-roundness="0.0"/>
+   <package version="1.1" bottom-vision-id="BVS17a3c674d36e51bb" id="CP_EIA-7343-31_Kemet-D" description="Capacitor Polarized" tape-specification="12mm" pick-vacuum-level="0.0" place-blow-off-level="0.0">
+      <footprint units="Millimeters" body-width="4.4" body-height="7.3" outer-dimension="7.3" inner-dimension="4.4" pad-count="2" pad-pitch="0.0" pad-across="2.4" pad-roundness="0.0">
+         <pad name="1" x="-2.925" y="0.0" width="1.4499999999999997" height="2.4" rotation="180.0" roundness="0.0"/>
+         <pad name="2" x="2.925" y="0.0" width="1.4499999999999997" height="2.4" rotation="0.0" roundness="0.0"/>
+      </footprint>
       <vision-compositing compositing-method="Restricted" min-leverage-factor="0.2" extra-shots="0" allow-inside="true">
          <max-pick-tolerance value="0.0" units="Millimeters"/>
       </vision-compositing>
-      <compatible-nozzle-tip-ids class="java.util.ArrayList"/>
+      <compatible-nozzle-tip-ids class="java.util.ArrayList">
+         <string>TIP16cbc9505c3e1916</string>
+      </compatible-nozzle-tip-ids>
    </package>
    <package version="1.1" id="LED_SK6812_PLCC4_5.0x5.0mm_P3.2mm" pick-vacuum-level="0.0" place-blow-off-level="0.0">
       <footprint units="Millimeters" body-width="0.0" body-height="0.0" outer-dimension="0.0" inner-dimension="0.0" pad-count="0" pad-pitch="0.0" pad-across="0.0" pad-roundness="0.0"/>
@@ -452,12 +459,14 @@
       </vision-compositing>
       <compatible-nozzle-tip-ids class="java.util.ArrayList"/>
    </package>
-   <package version="1.1" id="CP-2350" pick-vacuum-level="0.0" place-blow-off-level="0.0">
+   <package version="1.1" id="CP-2350" description="Capacitor Polarized" pick-vacuum-level="0.0" place-blow-off-level="0.0">
       <footprint units="Millimeters" body-width="0.0" body-height="0.0" outer-dimension="0.0" inner-dimension="0.0" pad-count="0" pad-pitch="0.0" pad-across="0.0" pad-roundness="0.0"/>
       <vision-compositing compositing-method="Restricted" min-leverage-factor="0.2" extra-shots="0" allow-inside="true">
          <max-pick-tolerance value="0.0" units="Millimeters"/>
       </vision-compositing>
-      <compatible-nozzle-tip-ids class="java.util.ArrayList"/>
+      <compatible-nozzle-tip-ids class="java.util.ArrayList">
+         <string>TIP16cbc9505c3e1916</string>
+      </compatible-nozzle-tip-ids>
    </package>
    <package version="1.1" id="PH 4                  JST_PH_B4B-PH-SM4-TB_1x04-1MP_P2.00mm_Vertical" pick-vacuum-level="0.0" place-blow-off-level="0.0">
       <footprint units="Millimeters" body-width="0.0" body-height="0.0" outer-dimension="0.0" inner-dimension="0.0" pad-count="0" pad-pitch="0.0" pad-across="0.0" pad-roundness="0.0"/>
@@ -466,13 +475,16 @@
       </vision-compositing>
       <compatible-nozzle-tip-ids class="java.util.ArrayList"/>
    </package>
-   <package version="1.1" id="L_Bourns_SRN6045TA" pick-vacuum-level="0.0" place-blow-off-level="0.0">
-      <footprint units="Millimeters" body-width="0.0" body-height="0.0" outer-dimension="0.0" inner-dimension="0.0" pad-count="0" pad-pitch="0.0" pad-across="0.0" pad-roundness="0.0"/>
+   <package version="1.1" bottom-vision-id="BVS17a3c352742f3ca8" id="L_Bourns_SRN6045TA" pick-vacuum-level="0.0" place-blow-off-level="0.0">
+      <footprint units="Millimeters" body-width="6.1" body-height="6.1" outer-dimension="6.4" inner-dimension="1.8" pad-count="2" pad-pitch="0.0" pad-across="5.1" pad-roundness="0.0">
+         <pad name="1" x="-2.0500000000000003" y="0.0" width="2.3000000000000003" height="5.1" rotation="180.0" roundness="0.0"/>
+         <pad name="2" x="2.0500000000000003" y="0.0" width="2.3000000000000003" height="5.1" rotation="0.0" roundness="0.0"/>
+      </footprint>
       <vision-compositing compositing-method="Restricted" min-leverage-factor="0.2" extra-shots="0" allow-inside="true">
          <max-pick-tolerance value="0.0" units="Millimeters"/>
       </vision-compositing>
       <compatible-nozzle-tip-ids class="java.util.ArrayList">
-         <string>TIP16b1a61b09e0c660</string>
+         <string>TIP16cbc9505c3e1916</string>
       </compatible-nozzle-tip-ids>
    </package>
    <package version="1.1" id="Button              SW_SPST_B3U-1000P" pick-vacuum-level="0.0" place-blow-off-level="0.0">
@@ -490,10 +502,21 @@
       <compatible-nozzle-tip-ids class="java.util.ArrayList"/>
    </package>
    <package version="1.1" id="SOIC-8-1EP_3.9x4.9mm_P1.27mm_EP2.95x4.9mm_Mask2.71x3.4mm_ThermalVias" pick-vacuum-level="0.0" place-blow-off-level="0.0">
-      <footprint units="Millimeters" body-width="0.0" body-height="0.0" outer-dimension="0.0" inner-dimension="0.0" pad-count="0" pad-pitch="0.0" pad-across="0.0" pad-roundness="0.0"/>
+      <footprint units="Millimeters" body-width="3.5" body-height="3.81" outer-dimension="6.5" inner-dimension="3.5" pad-count="8" pad-pitch="1.27" pad-across="0.8" pad-roundness="0.0">
+         <pad name="1" x="-2.5" y="1.905" width="1.5" height="0.8" rotation="180.0" roundness="0.0"/>
+         <pad name="2" x="-2.5" y="0.635" width="1.5" height="0.8" rotation="180.0" roundness="0.0"/>
+         <pad name="3" x="-2.5" y="-0.635" width="1.5" height="0.8" rotation="180.0" roundness="0.0"/>
+         <pad name="4" x="-2.5" y="-1.905" width="1.5" height="0.8" rotation="180.0" roundness="0.0"/>
+         <pad name="5" x="2.5" y="-1.905" width="1.5" height="0.8" rotation="0.0" roundness="0.0"/>
+         <pad name="6" x="2.5" y="-0.635" width="1.5" height="0.8" rotation="0.0" roundness="0.0"/>
+         <pad name="7" x="2.5" y="0.635" width="1.5" height="0.8" rotation="0.0" roundness="0.0"/>
+         <pad name="8" x="2.5" y="1.905" width="1.5" height="0.8" rotation="0.0" roundness="0.0"/>
+      </footprint>
       <vision-compositing compositing-method="Restricted" min-leverage-factor="0.2" extra-shots="0" allow-inside="true">
          <max-pick-tolerance value="0.0" units="Millimeters"/>
       </vision-compositing>
-      <compatible-nozzle-tip-ids class="java.util.ArrayList"/>
+      <compatible-nozzle-tip-ids class="java.util.ArrayList">
+         <string>TIP16cbc9505c3e1916</string>
+      </compatible-nozzle-tip-ids>
    </package>
 </openpnp-packages>
