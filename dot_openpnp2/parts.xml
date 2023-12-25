@@ -32,7 +32,7 @@
    <part id="LED_0805-yellow" height-units="Millimeters" height="0.9" package-id="LED_0805" speed="1.0" pick-retry-count="0"/>
    <part id="LED_0805-green" height-units="Millimeters" height="0.9" package-id="LED_0805" speed="1.0" pick-retry-count="0"/>
    <part id="DF40C-100DS-04V" height-units="Millimeters" height="1.4" package-id="DF40C_100DS_04V" speed="0.25" pick-retry-count="0"/>
-   <part id="LED_5050-SK6812" height-units="Millimeters" height="1.6" package-id="LED_RGB_0505" speed="0.75" pick-retry-count="0"/>
+   <part id="LED_5050-SK6812" height-units="Millimeters" height="1.6" package-id="LED_RGB_0505" speed="1.0" pick-retry-count="0"/>
    <part id="F_1812-1.8A" height-units="Millimeters" height="1.5" package-id="F_1812" speed="1.0" pick-retry-count="0"/>
    <part id="QFN_56-RP2040" height-units="Millimeters" height="0.9" package-id="QFN-56" speed="0.5" pick-retry-count="0"/>
    <part id="C_0805_2012Metric-10u" height-units="Millimeters" height="0.0" package-id="C_0805" speed="1.0" pick-retry-count="0"/>
@@ -46,4 +46,5 @@
    <part id="R_0805_2012Metric-2K2" height-units="Millimeters" height="0.0" package-id="R_0805" speed="1.0" pick-retry-count="0"/>
    <part id="Button              SW_SPST_B3U-1000P-Micro" height-units="Millimeters" height="0.0" package-id="Button              SW_SPST_B3U-1000P" speed="1.0" pick-retry-count="0"/>
    <part id="SOIC-8-1EP_3.9x4.9mm_P1.27mm_EP2.95x4.9mm_Mask2.71x3.4mm_ThermalVias-AP64501SP-13" height-units="Millimeters" height="0.65" package-id="SOIC-8-1EP_3.9x4.9mm_P1.27mm_EP2.95x4.9mm_Mask2.71x3.4mm_ThermalVias" speed="1.0" pick-retry-count="0"/>
+   <part id="TEST-OBJECT" height-units="Millimeters" height="0.02" package-id="FIDUCIAL-1X2" speed="1.0" pick-retry-count="0"/>
 </openpnp-parts>
