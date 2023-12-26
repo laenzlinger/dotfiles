@@ -649,8 +649,8 @@
          </feeder>
          <feeder class="org.openpnp.machine.reference.feeder.ReferenceStripFeeder" version="1.1" id="FDR179513df1c674872" name="LV8-6" enabled="true" part-id="R_0805_2012Metric-1K" retry-count="3" feed-retry-count="3" pick-retry-count="1" tape-type="WhitePaper" standard-eia-481="true" vision-enabled="true" feed-count="3" max-feed-count="0">
             <location units="Millimeters" x="0.0" y="0.0" z="0.0" rotation="90.0"/>
-            <reference-hole-location units="Millimeters" x="148.20644364063747" y="199.0616053811176" z="9.9" rotation="0.0"/>
-            <last-hole-location units="Millimeters" x="148.07212050957258" y="195.1003646008617" z="0.0" rotation="0.0"/>
+            <reference-hole-location units="Millimeters" x="149.085" y="199.034" z="9.9" rotation="0.0"/>
+            <last-hole-location units="Millimeters" x="149.085" y="195.034" z="0.0" rotation="0.0"/>
             <part-pitch value="4.0" units="Millimeters"/>
             <tape-width value="8.0" units="Millimeters"/>
             <pipeline>
