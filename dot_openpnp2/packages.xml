@@ -354,7 +354,7 @@
          <string>TIP16cbc9505c3e1916</string>
       </compatible-nozzle-tip-ids>
    </package>
-   <package version="1.1" id="SOT-223" description="Small Outline Transistor" pick-vacuum-level="0.0" place-blow-off-level="0.0">
+   <package version="1.1" bottom-vision-id="BVS17a4332093fb0f60" id="SOT-223" description="Small Outline Transistor" tape-specification="12mm" pick-vacuum-level="0.0" place-blow-off-level="0.0">
       <footprint units="Millimeters" body-width="3.5" body-height="6.5" outer-dimension="8.3" inner-dimension="4.3" pad-count="6" pad-pitch="2.25" pad-across="1.47" pad-roundness="1.0">
          <pad name="1" x="-3.1500000000000004" y="2.25" width="2.0000000000000004" height="1.47" rotation="180.0" roundness="1.0"/>
          <pad name="2" x="-3.1500000000000004" y="0.0" width="2.0000000000000004" height="1.47" rotation="180.0" roundness="1.0"/>
@@ -404,7 +404,7 @@
       </vision-compositing>
       <compatible-nozzle-tip-ids class="java.util.ArrayList"/>
    </package>
-   <package version="1.1" id="F_1812" description="Polyfuse 1812" tape-specification="12mm" pick-vacuum-level="0.0" place-blow-off-level="0.0">
+   <package version="1.1" bottom-vision-id="BVS17a431d47412b526" id="F_1812" description="Polyfuse 1812" tape-specification="12mm" pick-vacuum-level="0.0" place-blow-off-level="0.0">
       <footprint units="Millimeters" body-width="4.7" body-height="3.4" outer-dimension="5.4" inner-dimension="3.18" pad-count="2" pad-pitch="1.0" pad-across="3.4" pad-roundness="5.0">
          <pad name="1" x="-2.145" y="0.0" width="1.11" height="3.4" rotation="180.0" roundness="5.0"/>
          <pad name="2" x="2.145" y="0.0" width="1.11" height="3.4" rotation="0.0" roundness="5.0"/>
@@ -428,10 +428,10 @@
          <string>TIP16cbc9505c3e1916</string>
       </compatible-nozzle-tip-ids>
    </package>
-   <package version="1.1" id="X_HC49_US" description="SMD Crystal" pick-vacuum-level="0.0" place-blow-off-level="0.0">
-      <footprint units="Millimeters" body-width="4.7" body-height="11.4" outer-dimension="14.2" inner-dimension="3.36" pad-count="2" pad-pitch="1.0" pad-across="2.0" pad-roundness="0.0">
-         <pad name="1" x="-4.39" y="0.0" width="5.42" height="2.0" rotation="180.0" roundness="0.0"/>
-         <pad name="2" x="4.39" y="0.0" width="5.42" height="2.0" rotation="0.0" roundness="0.0"/>
+   <package version="1.1" bottom-vision-id="BVS17a43603935012fc" id="X_HC49_US" description="SMD Crystal" pick-vacuum-level="0.0" place-blow-off-level="0.0">
+      <footprint units="Millimeters" body-width="14.0" body-height="4.7" outer-dimension="14.2" inner-dimension="3.36" pad-count="2" pad-pitch="1.0" pad-across="0.5" pad-roundness="0.0">
+         <pad name="1" x="-4.39" y="0.0" width="5.42" height="0.5" rotation="180.0" roundness="0.0"/>
+         <pad name="2" x="4.39" y="0.0" width="5.42" height="0.5" rotation="0.0" roundness="0.0"/>
       </footprint>
       <vision-compositing compositing-method="Restricted" min-leverage-factor="0.2" extra-shots="0" allow-inside="true">
          <max-pick-tolerance value="0.0" units="Millimeters"/>
@@ -487,12 +487,17 @@
          <string>TIP16cbc9505c3e1916</string>
       </compatible-nozzle-tip-ids>
    </package>
-   <package version="1.1" id="Button              SW_SPST_B3U-1000P" pick-vacuum-level="0.0" place-blow-off-level="0.0">
-      <footprint units="Millimeters" body-width="0.0" body-height="0.0" outer-dimension="0.0" inner-dimension="0.0" pad-count="0" pad-pitch="0.0" pad-across="0.0" pad-roundness="0.0"/>
+   <package version="1.1" bottom-vision-id="BVS17a43891228053ef" id="Button              SW_SPST_B3U-1000P" description="Micro Button" tape-specification="8mm" pick-vacuum-level="0.0" place-blow-off-level="0.0">
+      <footprint units="Millimeters" body-width="2.5" body-height="1.0" outer-dimension="4.2" inner-dimension="2.5" pad-count="2" pad-pitch="0.0" pad-across="1.7" pad-roundness="0.0">
+         <pad name="1" x="-1.675" y="0.0" width="0.8500000000000001" height="1.7" rotation="180.0" roundness="0.0"/>
+         <pad name="2" x="1.675" y="0.0" width="0.8500000000000001" height="1.7" rotation="0.0" roundness="0.0"/>
+      </footprint>
       <vision-compositing compositing-method="Restricted" min-leverage-factor="0.2" extra-shots="0" allow-inside="true">
          <max-pick-tolerance value="0.0" units="Millimeters"/>
       </vision-compositing>
-      <compatible-nozzle-tip-ids class="java.util.ArrayList"/>
+      <compatible-nozzle-tip-ids class="java.util.ArrayList">
+         <string>NT1</string>
+      </compatible-nozzle-tip-ids>
    </package>
    <package version="1.1" id="RP2040-QFN-56" pick-vacuum-level="0.0" place-blow-off-level="0.0">
       <footprint units="Millimeters" body-width="0.0" body-height="0.0" outer-dimension="0.0" inner-dimension="0.0" pad-count="0" pad-pitch="0.0" pad-across="0.0" pad-roundness="0.0"/>
