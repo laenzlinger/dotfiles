@@ -524,7 +524,7 @@
       </cv-pipeline>
       <vision-offset units="Millimeters" x="0.0" y="0.0" z="0.0" rotation="0.0"/>
    </vision-settings>
-   <vision-settings class="org.openpnp.model.BottomVisionSettings" id="BVS17a43891228053ef" name="SW_SPST_B3U-1000P" enabled="true" pre-rotate-usage="Default" check-part-size-method="PadExtents" check-size-tolerance-percent="20" max-rotation="Full" asymmetric="false">
+   <vision-settings class="org.openpnp.model.BottomVisionSettings" id="BVS17a43891228053ef" name="SW_SPST_B3U-1000P" enabled="true" pre-rotate-usage="Default" check-part-size-method="PadExtents" check-size-tolerance-percent="55" max-rotation="Full" asymmetric="false">
       <cv-pipeline>
          <stages>
             <cv-stage class="org.openpnp.vision.pipeline.stages.ImageCapture" name="0" enabled="true" default-light="false" settle-option="SettleFullArea" count="5">
