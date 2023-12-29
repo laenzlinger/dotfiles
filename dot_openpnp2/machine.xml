@@ -361,7 +361,7 @@
       </heads>
       <signalers/>
       <feeders>
-         <feeder class="org.openpnp.machine.reference.feeder.ReferenceStripFeeder" version="1.1" id="FDR17950f970e7eae6f" name="RV8-1" enabled="true" part-id="C_0805_2012Metric-100n" retry-count="3" feed-retry-count="3" pick-retry-count="1" tape-type="WhitePaper" standard-eia-481="true" vision-enabled="true" feed-count="0" max-feed-count="0">
+         <feeder class="org.openpnp.machine.reference.feeder.ReferenceStripFeeder" version="1.1" id="FDR17950f970e7eae6f" name="RV8-1" enabled="true" part-id="C_0805_2012Metric-100n" retry-count="3" feed-retry-count="3" pick-retry-count="1" tape-type="WhitePaper" standard-eia-481="true" vision-enabled="true" feed-count="1" max-feed-count="0">
             <location units="Millimeters" x="0.0" y="0.0" z="0.0" rotation="90.0"/>
             <reference-hole-location units="Millimeters" x="273.09974333866484" y="198.985274458404" z="10.0" rotation="0.0"/>
             <last-hole-location units="Millimeters" x="272.9465563500386" y="195.12457122864495" z="0.0" rotation="0.0"/>
@@ -693,8 +693,8 @@
          </feeder>
          <feeder class="org.openpnp.machine.reference.feeder.ReferenceStripFeeder" version="1.1" id="FDR17951439e7cd6f58" name="LV8-8" enabled="true" part-id="R_0805_2012Metric-220" retry-count="3" feed-retry-count="3" pick-retry-count="1" tape-type="WhitePaper" standard-eia-481="true" vision-enabled="true" feed-count="0" max-feed-count="0">
             <location units="Millimeters" x="0.0" y="0.0" z="0.0" rotation="90.0"/>
-            <reference-hole-location units="Millimeters" x="170.8043151267503" y="199.77358645871647" z="9.1" rotation="0.0"/>
-            <last-hole-location units="Millimeters" x="170.78946708580088" y="195.76564800756566" z="0.0" rotation="0.0"/>
+            <reference-hole-location units="Millimeters" x="170.73498334849566" y="199.59104626259708" z="9.1" rotation="0.0"/>
+            <last-hole-location units="Millimeters" x="170.8145264105984" y="195.50866947924914" z="0.0" rotation="0.0"/>
             <part-pitch value="4.0" units="Millimeters"/>
             <tape-width value="8.0" units="Millimeters"/>
             <pipeline>
