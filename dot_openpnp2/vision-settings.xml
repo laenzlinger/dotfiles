@@ -113,7 +113,7 @@
       </cv-pipeline>
       <vision-offset units="Millimeters" x="0.0" y="0.0" z="0.0" rotation="0.0"/>
    </vision-settings>
-   <vision-settings class="org.openpnp.model.BottomVisionSettings" id="BVS_Default" name="- Default Machine Bottom Vision -" enabled="true" pre-rotate-usage="Default" check-part-size-method="PadExtents" check-size-tolerance-percent="10" max-rotation="Full" asymmetric="false">
+   <vision-settings class="org.openpnp.model.BottomVisionSettings" id="BVS_Default" name="- Default Machine Bottom Vision -" enabled="true" pre-rotate-usage="Default" check-part-size-method="BodySize" check-size-tolerance-percent="20" max-rotation="Full" asymmetric="false">
       <cv-pipeline>
          <stages>
             <cv-stage class="org.openpnp.vision.pipeline.stages.ImageCapture" name="0" enabled="true" default-light="false" settle-option="SettleFullArea" count="5">
