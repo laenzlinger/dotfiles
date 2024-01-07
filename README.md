@@ -2,7 +2,7 @@
 
 This repo contains the dotfiles managed by chezmoi
 
-## Arch Linux (on VMWare Fusion)
+## Arch Linux (on VMWare)
 
 ### Manual steps
 
