@@ -46,6 +46,7 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'stsewd/fzf-checkout.vim'
 Plug 'jeffkreeftmeijer/vim-numbertoggle'
 Plug 'habamax/vim-asciidoctor'
+Plug 'mfussenegger/nvim-dap'
 
 call plug#end()
 
