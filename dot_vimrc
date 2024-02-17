@@ -77,6 +77,20 @@ nnoremap <F2> :bufdo e<CR>
 
 au BufNewFile,BufRead Jenkinsfile setf groovy
 
+" Spell-check Markdown files and Git Commit Messages
+autocmd FileType markdown setlocal spell
+autocmd FileType gitcommit setlocal spell
+autocmd FileType asciidoctor setlocal spell
+
+
+" Enable dictionary auto-completion in Markdown files and Git Commit Messages
+autocmd FileType markdown setlocal complete+=kspell
+autocmd FileType gitcommit setlocal complete+=kspell
+autocmd FileType asciidoctor setlocal complete+=kspell
+
+
+
+
 "-----------------------------------------------------------
 " coc.nvim settings
 "-----------------------------------------------------------
