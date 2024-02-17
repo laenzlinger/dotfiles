@@ -1,0 +1,33 @@
+# based on https://www.redhat.com/sysadmin/mutt-email-oauth2
+#
+# and https://gitlab.com/muttmua/mutt/-/blob/master/contrib/mutt_oauth2.py
+
+set realname = "Christof Laenzlinger"
+set from = "christof@laenzlinger.net"
+set use_from = yes
+set envelope_from = yes
+
+set smtp_url = "smtps://christof@laenzlinger.net@smtp.gmail.com:465/"
+set imap_user = "christof@laenzlinger.net"
+set folder = "imaps://imap.gmail.com:993"
+set spoolfile = "+INBOX"
+set ssl_force_tls = yes
+set delete = yes
+
+alternative_order text/plain text text/html #prefer plaintext over dumped html
+auto_view text/html #load html emails with links (config in ~/.mailcap)
+
+# G to get mail
+bind index G imap-fetch-mail
+set charset = "utf-8"
+set record = ''
+
+set imap_authenticators="oauthbearer:xoauth2"
+set imap_oauth_refresh_command="~/.config/mutt/mutt_oauth2.py ~/.config/mutt/.christof@laenzlinger.net.token"
+set smtp_authenticators=${imap_authenticators}
+set smtp_oauth_refresh_command=${imap_oauth_refresh_command}
+
+macro index,pager \cb "<pipe-message> urlscan<Enter>" "call urlscan to extract URLs out of a message"
+macro attach,compose \cb "<pipe-entry> urlscan<Enter>" "call urlscan to extract URLs out of a message"
+
+source base16-mutt/base16.muttrc
