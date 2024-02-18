@@ -1,13 +1,4 @@
-aura-bin
-cloudfoundry-cli
 google-chrome
-google-cloud-sdk
 j4-make-config-git
-jwt-cli-bin
 nerd-fonts-meslo
-nodenv
-nodenv-node-build
-nvm
-velero-bin
 yay
-zsh-theme-powerlevel10k-git
