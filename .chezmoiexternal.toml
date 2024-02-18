@@ -6,3 +6,7 @@
     type = "git-repo"
     url = "https://github.com/josephholsten/base16-mutt.git"
     refreshPeriod = "168h"
+[".oh-my-zsh"]
+    type = "git-repo"
+    url = "https://github.com/ohmyzsh/ohmyzsh.git"
+    refreshPeriod = "168h"
