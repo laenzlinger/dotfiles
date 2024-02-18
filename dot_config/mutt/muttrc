@@ -30,4 +30,4 @@ set smtp_oauth_refresh_command=${imap_oauth_refresh_command}
 macro index,pager \cb "<pipe-message> urlscan<Enter>" "call urlscan to extract URLs out of a message"
 macro attach,compose \cb "<pipe-entry> urlscan<Enter>" "call urlscan to extract URLs out of a message"
 
-source base16-mutt/base16.muttrc
+source ~/.config/mutt/base16-mutt/base16.muttrc
