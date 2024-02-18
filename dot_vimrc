@@ -47,6 +47,7 @@ Plug 'stsewd/fzf-checkout.vim'
 Plug 'jeffkreeftmeijer/vim-numbertoggle'
 Plug 'habamax/vim-asciidoctor'
 Plug 'mfussenegger/nvim-dap'
+Plug 'tibabit/vim-templates'
 
 call plug#end()
 
@@ -404,3 +405,8 @@ nmap <silent> t<C-g> :TestVisit<CR>
 " rust
 "-----------------------------------------------------------
 let g:rustfmt_autosave = 1
+
+"-----------------------------------------------------------
+" vim-templates
+"-----------------------------------------------------------
+let g:tmpl_search_paths = ['~/.config/nvim/templates']
