@@ -1,5 +1,8 @@
 {{ $email := promptString "email" -}}
 {{ $brewprefix := promptString "Value of brew --prefix" -}}
+{{ $keepassdb := promptString "keepass db file" -}}
 [data]
     email = "{{ $email }}"
     brewprefix = "{{ $brewprefix }}"
+[keepassxc]
+    database = "{{ $keepassdb }}"
