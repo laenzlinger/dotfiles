@@ -21,8 +21,6 @@
     ls = log --pretty=format:\"%C(yellow)%h%Cred%d %Creset%s%Cblue [%cn]\" --decorate
     po = !git push --set-upstream origin $(git symbolic-ref --short HEAD)
     pullall = "!f() { git pull && git submodule update --init --recursive; }; f"
-    pr = "!f() { git fetch -fu ${2:-upstream} refs/pull/$1/head:pr/$1 && git checkout pr/$1; }; f"
-    pr-clean = "!git checkout master ; git for-each-ref refs/heads/pr/* --format=\"%(refname)\" | while read ref ; do branch=${ref#refs/heads/} ; git branch -D $branch ; done"
 [branch]
     # always rebase, very handy for git-svn but not only
     autosetuprebase = always
@@ -36,20 +34,15 @@
     templatedir = ~/.config/git/template
 [user]
     name = Christof Laenzlinger
-{{if .gitsigningkey }}
-    signingKey = {{ .gitsigningkey }}
-{{- end }}
+    signingKey = {{ (keepassxc "git.sign.key.id").Password }}
 
 [pager]
     branch = false
 
 [commit]
-{{if .gitsigningkey }}
    gpgSign = true
-{{- end }}
 
 [credential "https://github.com"]
-
 {{- if eq .chezmoi.os "linux" }}
        helper = !/usr/bin/gh auth git-credential
 {{- end }}
@@ -61,3 +54,5 @@
     path = ~/.config/git/gh.config
 [includeIf "gitdir/i:src/"]
     path = ~/.config/git/work.config
+[includeIf "gitdir/i:gl/"]
+    path = ~/.config/git/gl.config
