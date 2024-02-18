@@ -18,8 +18,8 @@ VM Settings:
 ### Run the installation script
 ```bash
 loadkeys de_CH-latin1
-curl https://raw.githubusercontent.com/laenzlinger/dotfiles/master/arch/setup.sh > setup.sh
-bash setup.sh
+curl https://raw.githubusercontent.com/laenzlinger/dotfiles/master/arch/setup-vmware.sh > setup-vmware.sh
+bash setup-vmware.sh
 ```
 
 ### Create user
