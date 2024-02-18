@@ -45,7 +45,7 @@ import readline
 # encryption and decryption pipes you prefer. They should read from standard
 # input and write to standard output. The example values here invoke GPG,
 # although won't work until an appropriate identity appears in the first line.
-ENCRYPTION_PIPE = ['gpg', '--encrypt', '--recipient', '{{ .email }}']
+ENCRYPTION_PIPE = ['gpg', '--encrypt', '--recipient', '{{ (keepassxc "mutt.oauth.email").UserName }}']
 DECRYPTION_PIPE = ['gpg', '--decrypt']
 
 registrations = {
@@ -59,8 +59,8 @@ registrations = {
         'smtp_endpoint': 'smtp.gmail.com',
         'sasl_method': 'OAUTHBEARER',
         'scope': 'https://mail.google.com/',
-        'client_id': '{{ (keepassxc "mutt.oauth.{{ .email}}").UserName }}',
-        'client_secret': '{{ (keepassxc "mutt.oauth.{{ .email }}").Password }}',
+        'client_id': '{{ (keepassxc "mutt.oauth.gmail").UserName }}',
+        'client_secret': '{{ (keepassxc "mutt.oauth.gmail").Password }}',
     },
     'microsoft': {
         'authorize_endpoint': 'https://login.microsoftonline.com/common/oauth2/v2.0/authorize',
