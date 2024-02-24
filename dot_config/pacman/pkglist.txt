@@ -1,10 +1,12 @@
 alacritty
+alsa-utils
 autoconf
 automake
 base
 bat
 bind
 bison
+bolt
 chezmoi
 chromium
 code
@@ -17,6 +19,7 @@ efibootmgr
 fakeroot
 flex
 foot
+fprintd
 freetype2
 fzf
 gcc
@@ -71,9 +74,13 @@ qt5-wayland
 reiserfsprogs
 rsync
 rust
+sof-firmware
 sshuttle
 sudo
 sway
+swaybg
+swayidle
+swaylock
 sysfsutils
 terminus-font
 terraform
@@ -85,6 +92,8 @@ unzip
 usbutils
 vi
 vim
+vlc
+wev
 wget
 which
 wmenu
@@ -97,3 +106,4 @@ zsh-autosuggestions
 zsh-completions
 zsh-syntax-highlighting
 zsh-theme-powerlevel10k
+zvbi
