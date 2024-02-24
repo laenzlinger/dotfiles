@@ -22,6 +22,7 @@ flex
 foot
 fprintd
 freetype2
+fwupd
 fzf
 gcc
 gcr
