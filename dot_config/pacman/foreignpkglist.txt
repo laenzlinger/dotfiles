@@ -1,4 +1,2 @@
-google-chrome
-j4-make-config-git
-nerd-fonts-meslo
 yay
+yay-debug
