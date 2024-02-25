@@ -30,6 +30,7 @@ github-cli
 gnu-netcat
 go
 grub
+gtk2
 gtkmm3
 i3-wm
 i3status
@@ -54,6 +55,7 @@ make
 man-db
 man-pages
 mariadb
+materia-gtk-theme
 maven
 mdadm
 mitmproxy
@@ -98,6 +100,7 @@ texinfo
 the_silver_searcher
 tmux
 ttf-meslo-nerd
+ttf-roboto
 unzip
 usbutils
 vi

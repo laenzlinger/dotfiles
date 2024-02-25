@@ -11,6 +11,8 @@ debian/
 
 {{- if eq .chezmoi.os "linux" }}
 .config/homebrew
+.config/iterm2
+darwin
 {{- if eq .chezmoi.osRelease.id "debian" }}
 .config/pacman
 {{- end }}
