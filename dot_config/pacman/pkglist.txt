@@ -39,6 +39,9 @@ inetutils
 jfsutils
 jq
 keepassxc
+kicad
+kicad-library
+kicad-library-3d
 kitty
 less
 lightdm
@@ -59,6 +62,7 @@ mplayer
 nano
 neovim
 netctl
+network-manager-applet
 networkmanager
 npm
 open-vm-tools
@@ -70,12 +74,14 @@ perl-anyevent-i3
 pkgconf
 pkgfile
 plantuml
+polkit-gnome
 python
 python-pip
 qt5-wayland
 reiserfsprogs
 rsync
 rust
+screenfetch
 sof-firmware
 sshuttle
 sudo
@@ -84,6 +90,7 @@ swaybg
 swayidle
 swaylock
 sysfsutils
+telegram-desktop
 terminus-font
 terraform
 texinfo
@@ -95,6 +102,7 @@ usbutils
 vi
 vim
 vlc
+waybar
 wev
 wget
 which
