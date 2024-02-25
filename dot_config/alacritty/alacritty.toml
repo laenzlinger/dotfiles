@@ -7,3 +7,6 @@ style = "Regular"
 
 [scrolling]
 history = 10000
+
+[cursor]
+style = "Beam"
