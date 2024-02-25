@@ -16,9 +16,7 @@ exec swayidle -w \
     resume 'swaymsg "output * dpms on"' before-sleep $lock
 
 
-# NetworkManager is the most popular way to manage wireless networks on Linux,
-# and nm-applet is a desktop environment-independent system tray GUI for it.
-exec nm-applet
+exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
 set $refresh_i3status killall -SIGUSR1 i3status
 
@@ -187,7 +185,8 @@ input type:touchpad {
 
 output eDP-1 scale 1.25
 
-output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
+# <a href="https://www.freepik.com/free-photo/painting-mountain-lake-with-mountain-background_40965130.htm">Image by vecstock</a> on Freepik
+output * bg ~/.config/sway/resources/background.jpg fill
 
 # class        border  backgr. text    indicator
 client.focused #81a2be #81a2be #1d1f21 #282a2e
