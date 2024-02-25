@@ -55,14 +55,14 @@
 	padding: 0;
 	box-shadow: none;
 	text-shadow: none;
-	icon-shadow: none;
+	-gtk-icon-shadow: none;
 }
 
 /* The whole bar */
 #waybar {
 	background: rgba(40, 40, 40, 0.8784313725); /* #282828e0 */
 	color: @white;
-	font-family: JetBrains Mono, Siji;
+	font-family: MesloLGS Nerd FontJet;
 	font-size: 10pt;
 	/*font-weight: bold;*/
 }
@@ -213,7 +213,7 @@
 #custom-arrow2 {
 	font-size: 11pt;
 	color: @date;
-	background: @layout;
+	background: @battery;
 }
 
 #custom-arrow3 {
@@ -249,7 +249,7 @@
 #custom-arrow8 {
 	font-size: 11pt;
 	color: @network;
-	background: @sound;
+	background: transparent;
 }
 
 #custom-arrow9 {

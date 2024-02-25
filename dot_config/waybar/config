@@ -10,8 +10,6 @@
 	],
 
 	"modules-right": [
-		"custom/arrow9",
-		"pulseaudio",
 		"custom/arrow8",
 		"network",
 		"custom/arrow7",
@@ -22,8 +20,6 @@
 		"temperature",
 		"custom/arrow4",
 		"battery",
-		"custom/arrow3",
-		"sway/language",
 		"custom/arrow2",
 		"tray",
 		"clock#date",
@@ -34,7 +30,7 @@
 	// Modules
 
 	"battery": {
-		"interval": 10,
+		"interval": 30,
 		"states": {
 			"warning": 30,
 			"critical": 15
@@ -88,7 +84,7 @@
 
 	"memory": {
 		"interval": 5,
-		"format": " {used:0.1f}G/{total:0.1f}G",
+		"format": "󰍛 {used:0.1f}G/{total:0.1f}G",
 		"states": {
 			"warning": 70,
 			"critical": 90
