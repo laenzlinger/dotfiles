@@ -18,12 +18,17 @@ set $mod Mod4
 set $background-image ~/.config/sway/resources/background.jpg
 set $lock swaylock --image $background-image
 
+# idle
 exec swayidle -w \
     timeout 600 $lock \
     timeout 570 'swaymsg "output * dpms off"' \
     resume 'swaymsg "output * dpms on"' before-sleep $lock
 
+# polkit confirmations
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+
+# desktop noficiations
+exec mako
 
 bindsym XF86AudioRaiseVolume exec amixer set Master 1+ unmute
 bindsym XF86AudioLowerVolume exec amixer set Master 1- unmute
