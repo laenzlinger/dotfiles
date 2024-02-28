@@ -185,7 +185,7 @@ input type:touchpad {
     natural_scroll enabled
 }
 
-output eDP-1 scale 1.25
+output eDP-1 scale 1
 
 # <a href="https://www.freepik.com/free-photo/painting-mountain-lake-with-mountain-background_40965130.htm">Image by vecstock</a> on Freepik
 output * bg $background-image fill
