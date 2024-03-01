@@ -197,3 +197,5 @@ assign [class="Alacritty" instance="^main\-terminal$"] $ws2
 exec "i3-msg 'workspace 1:browser; exec chromium'"
 exec "i3-msg 'workspace 2:terminal; exec alacritty --class main-terminal'"
 exec "i3-msg 'workspace 9:secrets; exec keepassxc'"
+
+include ./config.d/*
