@@ -1,2 +1,6 @@
+aura-bin
+clipman
+clipman-debug
+nodejs-neovim
 yay
 yay-debug

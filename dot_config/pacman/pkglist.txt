@@ -19,6 +19,7 @@ efibootmgr
 fakeroot
 flex
 fprintd
+fractal
 freetype2
 fuzzel
 fwupd
@@ -36,6 +37,7 @@ i3-wm
 i3status
 imagemagick
 inetutils
+irssi
 jfsutils
 jq
 keepassxc
@@ -52,6 +54,7 @@ lsd
 lvm2
 m4
 make
+mako
 man-db
 man-pages
 mariadb
@@ -66,6 +69,7 @@ neovim
 netctl
 network-manager-applet
 networkmanager
+noto-fonts-emoji
 npm
 open-vm-tools
 openssh
@@ -79,11 +83,13 @@ plantuml
 polkit-gnome
 python
 python-pip
+python-pynvim
 qt5-wayland
 reaper
 reiserfsprogs
 rsync
-rust
+ruby
+rustup
 screenfetch
 sof-firmware
 sshuttle
@@ -105,13 +111,17 @@ unzip
 usbutils
 vi
 vim
+virtualbox
 vlc
 waybar
 wev
 wget
 which
+wl-clipboard
 wmenu
+wtype
 xclip
+xdg-user-dirs
 xfsprogs
 xorg-xwayland
 yarn

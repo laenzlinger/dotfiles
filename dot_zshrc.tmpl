@@ -241,6 +241,7 @@ fi
 ## ruby environment
 
 ## golang environment
+go env -w GOPATH=$HOME/.go
 export GO111MODULE=on
 export PATH=$PATH:$(go env GOPATH)/bin
 export GOTESTS_TEMPLATE=testify
