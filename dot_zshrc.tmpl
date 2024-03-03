@@ -117,6 +117,7 @@ plugins=(
     kubectl
     mvn
     ruby
+    rust
     safe-paste
     terraform
     vi-mode
@@ -229,6 +230,12 @@ fi
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
+{{- if eq .chezmoi.os "linux" }} {{- if eq .chezmoi.osRelease.id "arch" }}
+# workaround for mutt colors see https://github.com/neomutt/neomutt/issues/518
+alias neomutt="TERM=screen-256color neomutt"
+alias mutt="TERM=screen-256color neomutt"
+{{- end }} {{- end }}
+
 ## Development Language Settings
 
 ## C compilation environment
@@ -241,7 +248,7 @@ fi
 ## ruby environment
 
 ## golang environment
-go env -w GOPATH=$HOME/.go
+go env -w GOPATH=$HOME/.local/share/go
 export GO111MODULE=on
 export PATH=$PATH:$(go env GOPATH)/bin
 export GOTESTS_TEMPLATE=testify

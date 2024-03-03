@@ -153,10 +153,6 @@ bindgesture swipe:left workspace next
 mode "resize" {
         # These bindings trigger as soon as you enter the resize mode
 
-        # Pressing left will shrink the window’s width.
-        # Pressing right will grow the window’s width.
-        # Pressing up will shrink the window’s height.
-        # Pressing down will grow the window’s height.
         bindsym h resize shrink width 10 px or 10 ppt
         bindsym j resize grow height 10 px or 10 ppt
         bindsym k resize shrink height 10 px or 10 ppt
@@ -187,7 +183,6 @@ input type:touchpad {
 
 output eDP-1 scale 1
 
-# <a href="https://www.freepik.com/free-photo/painting-mountain-lake-with-mountain-background_40965130.htm">Image by vecstock</a> on Freepik
 output * bg $background-image fill
 
 # Assign Workspace

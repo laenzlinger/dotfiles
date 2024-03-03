@@ -65,6 +65,7 @@ mitmproxy
 mplayer
 mutt
 nano
+neomutt
 neovim
 netctl
 network-manager-applet
@@ -72,6 +73,7 @@ networkmanager
 noto-fonts-emoji
 npm
 open-vm-tools
+openscad
 openssh
 openvpn
 parted
@@ -104,6 +106,7 @@ terminus-font
 terraform
 texinfo
 the_silver_searcher
+thunderbird
 tmux
 ttf-meslo-nerd
 ttf-roboto
