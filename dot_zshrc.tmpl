@@ -248,7 +248,10 @@ alias mutt="TERM=screen-256color neomutt"
 ## ruby environment
 
 ## golang environment
+
+{{- if eq .chezmoi.os "linux" }} {{- if eq .chezmoi.osRelease.id "arch" }}
 go env -w GOPATH=$HOME/.local/share/go
+{{- end }} {{- end }}
 export GO111MODULE=on
 export PATH=$PATH:$(go env GOPATH)/bin
 export GOTESTS_TEMPLATE=testify
