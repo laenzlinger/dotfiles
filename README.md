@@ -2,25 +2,32 @@
 
 This repo contains the dotfiles managed by chezmoi
 
-## Arch Linux (on VMWare)
+It's a very of course a very opinionated and personal setup.
+Together with my learning of all these great FOSS software,
+also the configuration grows and evolves over time.
 
-### Manual steps
+## Arch Linux
 
 Followed steps in Arch Linux [installation guide](https://wiki.archlinux.org/index.php/installation_guide)
 
-VM Settings:
+### VM: Manual steps
+
 * UEFI boot mode
 * Virtual Disk Size 50GB
 * 4 CPU
 * 4096 MB RAM
 
 
-### Run the installation script
+#### VM: Run the installation script
 ```bash
 loadkeys de_CH-latin1
 curl https://raw.githubusercontent.com/laenzlinger/dotfiles/master/arch/setup-vmware.sh > setup-vmware.sh
 bash setup-vmware.sh
 ```
+
+### Bare Metal steps
+
+See Obsidian Note
 
 ### Create user
 
@@ -41,8 +48,12 @@ arch/setup-user.sh
 exit
 ```
 
+### Testing in Docker
+
+See [./arch/Makefile]
+
 ### List of installed packages
-chezmoi apply creates list of installed packags in `.config/pacman/*.txt`
+chezmoi apply creates list of installed packages in `.config/pacman/*.txt`
 
 ## OSX
 
