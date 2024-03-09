@@ -7,7 +7,7 @@ build: ## build docker container
 		-t chezmoi-arch:latest \
 		--platform=linux/amd64
  
-run: 
+run: ## run with docker
 	docker run -i -t --rm --name arch chezmoi-arch /bin/zsh
 
 help: ## show this help for targets

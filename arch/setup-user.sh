@@ -5,12 +5,15 @@ set -e
 # install packages
 sudo pacman -S --noconfirm --needed - < ~/.local/share/chezmoi/dot_config/pacman/pkglist.txt
 
-# install yay
+# install aura
 cd ~
-git clone https://aur.archlinux.org/yay.git
-cd yay
-makepkg -si
-rm -rf ~/yay
+
+git clone https://aur.archlinux.org/aura-bin.git
+cd aura-bin
+makepkg
+sudo pacman -U aura
+cd ~
+rm ~/aura-bin
 
 chezmoi apply
 
