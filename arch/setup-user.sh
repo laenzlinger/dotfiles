@@ -11,9 +11,9 @@ cd ~
 git clone https://aur.archlinux.org/aura-bin.git
 cd aura-bin
 makepkg
-sudo pacman -U aura-bin-*.pkg.tar.zst
+sudo pacman -U --noconfirm aura-bin-*.pkg.tar.zst
 cd ~
-rm ~/aura-bin
+rm -rf ~/aura-bin
 
 chezmoi apply
 
