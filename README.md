@@ -50,10 +50,10 @@ exit
 
 ### Testing in Docker
 
-See [./arch/Makefile]
+See [Makefile](arch/Makefile)
 
 ### List of installed packages
-chezmoi apply creates list of installed packages in `.config/pacman/*.txt`
+chezmoi apply creates list of installed packages in [.config/pacman/*.txt](dot_config/pacman)
 
 ## OSX
 
