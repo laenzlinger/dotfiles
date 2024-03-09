@@ -18,7 +18,6 @@ cd ~
 rm -rf ~/aura-bin
 
 # install AUR packages
-sudo grep -v '\-debug$' ${PKG_LIST}/foreignpkglist.txt
- | xargs aura --noconfirm -A
+sudo grep -v '\-debug$' ${PKG_LIST}/foreignpkglist.txt | xargs aura --noconfirm -A
 chezmoi apply
 
