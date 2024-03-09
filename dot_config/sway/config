@@ -16,12 +16,12 @@ set $mod Mod4
 # <a href="https://www.freepik.com/free-photo/painting-mountain-lake-with-mountain-background_40965130.htm">
 # Image by vecstock</a> on Freepik
 set $background-image ~/.config/sway/resources/background.jpg
-set $lock "swaylock --image $background-image"
+set $lock "swaylock -k -l -F -f --image $background-image"
 
 # idle
 exec swayidle -w \
-    timeout 600 $lock \
-    timeout 570 'swaymsg "output * dpms off"' \
+    timeout 150 $lock \
+    timeout 120 'swaymsg "output * dpms off"' \
     resume 'swaymsg "output * dpms on"' before-sleep $lock
 
 # polkit confirmations
