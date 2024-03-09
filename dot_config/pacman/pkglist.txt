@@ -1,5 +1,6 @@
 alacritty
 alsa-utils
+asciidoctor
 autoconf
 automake
 base
@@ -65,6 +66,7 @@ mitmproxy
 mplayer
 mutt
 nano
+neofetch
 neomutt
 neovim
 netctl
@@ -72,6 +74,7 @@ network-manager-applet
 networkmanager
 noto-fonts-emoji
 npm
+obsidian
 open-vm-tools
 openscad
 openssh
@@ -100,8 +103,8 @@ sway
 swaybg
 swayidle
 swaylock
+syncthing
 sysfsutils
-telegram-desktop
 terminus-font
 terraform
 texinfo

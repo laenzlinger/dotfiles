@@ -1,6 +1,9 @@
 aura-bin
 clipman
 clipman-debug
+gomuks-bin
+gomuks-bin-debug
+mkinitcpio-firmware
 nodejs-neovim
 yay
 yay-debug
