@@ -7,8 +7,10 @@ base
 bat
 bind
 bison
+bluez-utils
 bolt
 brightnessctl
+calc
 chezmoi
 chromium
 dhcpcd
@@ -27,6 +29,7 @@ fwupd
 fzf
 gcc
 gcr
+gimp
 git
 github-cli
 gnu-netcat
@@ -34,6 +37,8 @@ go
 grub
 gtk2
 gtkmm3
+hyphen-de
+hyphen-en
 i3-wm
 i3status
 imagemagick
@@ -47,6 +52,7 @@ kicad-library
 kicad-library-3d
 kitty
 less
+libreoffice-fresh
 lightdm
 linux
 linux-firmware
@@ -64,6 +70,8 @@ maven
 mdadm
 mitmproxy
 mplayer
+mupdf
+mupdf-tools
 mutt
 nano
 neofetch
@@ -82,11 +90,13 @@ openvpn
 parted
 patch
 perl-anyevent-i3
+perl-image-exiftool
 pkgconf
 pkgfile
 plantuml
 polkit-gnome
 python
+python-kikit
 python-pip
 python-pynvim
 qt5-wayland
@@ -136,5 +146,4 @@ zip
 zsh-autosuggestions
 zsh-completions
 zsh-syntax-highlighting
-zsh-theme-powerlevel10k
 zvbi

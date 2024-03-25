@@ -6,3 +6,4 @@ gomuks-bin
 gomuks-bin-debug
 mkinitcpio-firmware
 nodejs-neovim
+zsh-theme-powerlevel10k
