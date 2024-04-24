@@ -2,8 +2,13 @@ aura-bin
 aura-bin-debug
 clipman
 clipman-debug
+epson-inkjet-printer-escpr2
+epson-inkjet-printer-escpr2-debug
 gomuks-bin
 gomuks-bin-debug
+mise
+mise-debug
 mkinitcpio-firmware
 nodejs-neovim
 zsh-theme-powerlevel10k
+zsh-theme-powerlevel10k-debug

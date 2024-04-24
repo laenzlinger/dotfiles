@@ -13,6 +13,9 @@ brightnessctl
 calc
 chezmoi
 chromium
+cups
+cups-pdf
+debugedit
 dhcpcd
 dmenu
 docker
@@ -53,6 +56,7 @@ kicad-library
 kicad-library-3d
 kitty
 less
+lesspipe
 libreoffice-fresh
 lightdm
 linux
@@ -83,13 +87,17 @@ network-manager-applet
 networkmanager
 noto-fonts-emoji
 npm
+nss-mdns
+nyx
 obsidian
+odt2txt
 open-vm-tools
 openscad
 openssh
 openvpn
 parted
 patch
+pdftk
 perl-anyevent-i3
 perl-image-exiftool
 pkgconf
@@ -121,8 +129,11 @@ terraform
 texinfo
 the_silver_searcher
 tmux
+torbrowser-launcher
 ttf-meslo-nerd
 ttf-roboto
+udiskie
+udisks2
 unzip
 urlscan
 usbutils
