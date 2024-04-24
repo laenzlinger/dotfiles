@@ -20,8 +20,8 @@ set $lock "swaylock -k -l -F -f --image $background-image"
 
 # idle
 exec swayidle -w \
-    timeout 150 $lock \
-    timeout 120 'swaymsg "output * dpms off"' \
+    timeout 1500 $lock \
+    timeout 1200 'swaymsg "output * dpms off"' \
     resume 'swaymsg "output * dpms on"' before-sleep $lock
 
 # polkit confirmations
@@ -29,6 +29,9 @@ exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
 # desktop noficiations
 exec mako
+
+# usb disks automounter
+exec udiskie --appindicator -t
 
 bindsym XF86AudioRaiseVolume exec amixer set Master 1+ unmute
 bindsym XF86AudioLowerVolume exec amixer set Master 1- unmute

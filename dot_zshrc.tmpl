@@ -98,7 +98,6 @@ plugins=(
     marked2
 {{- end }}
     ag
-    asdf
     aws
     gcloud
     cloudfoundry
@@ -116,6 +115,7 @@ plugins=(
     jfrog
     kubectl
     mvn
+    mise
     ruby
     rust
     safe-paste
@@ -235,6 +235,12 @@ fi
 alias neomutt="TERM=screen-256color neomutt"
 alias mutt="TERM=screen-256color neomutt"
 {{- end }} {{- end }}
+
+# Activate mise
+eval "$(mise activate zsh)"
+
+# LESS
+LESSOPEN="|lesspipe.sh %s"; export LESSOPEN
 
 ## Development Language Settings
 

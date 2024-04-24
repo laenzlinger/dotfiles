@@ -16,6 +16,7 @@ chromium
 dhcpcd
 dmenu
 docker
+docker-buildx
 docker-compose
 dos2unix
 efibootmgr
