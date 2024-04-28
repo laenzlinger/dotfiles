@@ -7,5 +7,5 @@
 # @description : set base16 shell to light mode (called by darkman)
 ######################################################################
 
-~/.cargo/bin/tinty -c ~/.config/tinty/config.toml apply base16-unikitty-light
+~/.cargo/bin/tinty apply base16-unikitty-light
 

@@ -8,5 +8,5 @@
 ######################################################################
 
 
-~/.cargo/bin/tinty -c ~/.config/tinty/config.toml apply base16-darktooth
+~/.cargo/bin/tinty apply base16-darktooth
 
