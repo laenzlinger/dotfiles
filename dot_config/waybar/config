@@ -5,7 +5,6 @@
 	"modules-left": [
 		"sway/mode",
 		"sway/workspaces",
-		"custom/arrow10",
 		"sway/window"
 	],
 
@@ -199,10 +198,6 @@
 	"custom/arrow9": {
 		"format": "",
 		"tooltip": false
-	},
-
-	"custom/arrow10": {
-		"format": "",
-		"tooltip": false
 	}
+
 }
