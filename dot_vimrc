@@ -334,6 +334,7 @@ let g:airline_powerline_fonts = 1
 if exists('$BASE16_THEME')
       \ && (!exists('g:colors_name') || g:colors_name != 'base16-$BASE16_THEME')
     let base16colorspace=256
+    let base16_background_transparent=1 " Make vim background transparent to work alongside transparent terminal backgrounds
     colorscheme base16-$BASE16_THEME
 endif
 
