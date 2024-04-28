@@ -32,3 +32,9 @@ name = "tinted-fzf"
 themes-dir = "sh"
 hook = "source %f"
 
+[[items]]
+path = "https://git.sr.ht/~knezi/base16-wofi"
+name = "base16-wofi"
+themes-dir = "themes"
+hook = "cp -f %f ~/.config/wofi/style.css"
+
