@@ -1,0 +1,22 @@
+# Global settings
+shell = "zsh -c '{}'"
+default_scheme = "base16-darktooth"
+
+[[items]]
+name = "base16-shell"
+path = "https://github.com/tinted-theming/base16-shell"
+themes-dir = "scripts"
+hook = "source %f"
+
+[[items]]
+name = "base16-sway"
+path = "https://github.com/rkubosz/base16-sway"
+themes-dir = "themes"
+hook = "cp -f %f ~/.config/sway/base16.config && /usr/bin/swaymsg reload"
+
+[[items]]
+path = "https://github.com/aarowill/base16-alacritty"
+name = "base16-alacritty"
+themes-dir = "colors"
+hook = "cp -f %f ~/.config/alacritty/colors.toml"
+

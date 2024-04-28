@@ -19,7 +19,7 @@ Plug 'tommcdo/vim-fubitive'
 Plug 'preservim/nerdtree' |
             \ Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'neomake/neomake'
-Plug 'chriskempson/base16-vim'
+Plug 'tinted-theming/base16-vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'ryanoasis/vim-devicons'

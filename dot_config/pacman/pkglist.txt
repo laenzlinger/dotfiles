@@ -15,6 +15,7 @@ chezmoi
 chromium
 cups
 cups-pdf
+darkman
 debugedit
 dhcpcd
 dmenu
@@ -152,6 +153,8 @@ wtype
 xclip
 xdg-user-dirs
 xfsprogs
+xorg-xeyes
+xorg-xlsclients
 xorg-xwayland
 yarn
 zip

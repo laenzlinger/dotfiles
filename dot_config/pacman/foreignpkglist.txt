@@ -1,5 +1,7 @@
 aura-bin
 aura-bin-debug
+awf-gtk4
+awf-gtk4-debug
 clipman
 clipman-debug
 epson-inkjet-printer-escpr2

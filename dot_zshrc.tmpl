@@ -1,6 +1,6 @@
 {{- if eq .chezmoi.os "linux" }} {{- if eq .chezmoi.osRelease.id "arch" }}
 if [ -z "${WAYLAND_DISPLAY}" ] && [ "${XDG_VTNR}" -eq 1 ]; then
-  exec sway
+exec sway
 fi
 {{- end }} {{- end }}
 
@@ -148,7 +148,7 @@ else
    export EDITOR='nvim'
 fi
 
-
+source $HOME/.local/share/tinted-theming/tinty/base16-shell-scripts-file.sh
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
@@ -210,12 +210,6 @@ source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 {{- end }}
 {{- end }}
 
-# Base16 shell (colors)
-BASE16_SHELL="$HOME/.config/base16-shell"
-[ -n "$PS1" ] && \
-    [ -s "$BASE16_SHELL/profile_helper.sh" ] && \
-        source "$BASE16_SHELL/profile_helper.sh"
-
 # Powerlevel10k
 {{- if eq .chezmoi.os "linux" }} {{- if eq .chezmoi.osRelease.id "arch" }}
 if [[ $0 != -* ]]; then # not login shell
@@ -259,4 +253,9 @@ go env -w GOPATH=$HOME/.local/share/go
 export GO111MODULE=on
 export PATH=$PATH:$(go env GOPATH)/bin
 export GOTESTS_TEMPLATE=testify
+
+# rust environment
+
+export PATH=$PATH:$HOME/.cargo/bin
+
 
