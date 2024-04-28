@@ -1,6 +1,6 @@
 # Global settings
 shell = "zsh -c '{}'"
-default_scheme = "base16-darktooth"
+default-scheme = "base16-darktooth"
 
 [[items]]
 name = "base16-shell"
@@ -25,4 +25,10 @@ path = "https://github.com/mnussbaum/base16-waybar"
 name = "base16-waybar"
 themes-dir = "colors"
 hook = "cp -f %f ~/.config/waybar/colors.css"
+
+[[items]]
+path = "https://github.com/tinted-theming/tinted-fzf"
+name = "tinted-fzf"
+themes-dir = "sh"
+hook = "source %f"
 
