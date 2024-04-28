@@ -62,7 +62,7 @@
 #waybar {
 	background: rgba(40, 40, 40, 0.8784313725); /* #282828e0 */
 	color: @white;
-	font-family: MesloLGS Nerd FontJet;
+	font-family: MesloLGS Nerd Font Propo;
 	font-size: 13pt;
 	/*font-weight: bold;*/
 }

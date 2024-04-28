@@ -41,6 +41,7 @@ gnu-netcat
 go
 grub
 gtk2
+gtk2fontsel
 gtkmm3
 hyphen-de
 hyphen-en
