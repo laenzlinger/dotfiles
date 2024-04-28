@@ -29,7 +29,6 @@ flex
 fprintd
 fractal
 freetype2
-fuzzel
 fwupd
 fzf
 gcc
@@ -150,6 +149,7 @@ wget
 which
 wl-clipboard
 wmenu
+wofi
 wtype
 xclip
 xdg-user-dirs

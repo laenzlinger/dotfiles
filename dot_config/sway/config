@@ -52,8 +52,8 @@ bindsym $mod+Return exec alacritty
 # kill focused window
 bindsym $mod+Shift+q kill
 
-#bindsym $mod+d exec dmenu_run
-bindsym $mod+space exec fuzzel
+#bindsym $mod+d desktop app launcher
+bindsym $mod+space exec wofi --show=drun --prompt='' --allow-images
 
 # change focus
 bindsym $mod+h focus left
