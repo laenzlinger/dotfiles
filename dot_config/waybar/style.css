@@ -1,3 +1,6 @@
+@import "colors.css";
+
+
 /* Keyframes */
 
 @keyframes blink-critical {
@@ -11,40 +14,40 @@
 /* Styles */
 
 /* Colors (gruvbox) */
-@define-color black	#282828;
-@define-color red	#cc241d;
-@define-color green	#98971a;
-@define-color yellow	#d79921;
-@define-color blue	#458588;
-@define-color purple	#b16286;
-@define-color aqua	#689d6a;
-@define-color gray	#a89984;
-@define-color brgray	#928374;
-@define-color brred	#fb4934;
-@define-color brgreen	#b8bb26;
-@define-color bryellow	#fabd2f;
-@define-color brblue	#83a598;
-@define-color brpurple	#d3869b;
-@define-color braqua	#8ec07c;
-@define-color white	#ebdbb2;
-@define-color bg2	#504945;
+@define-color black	@base00;
+@define-color red	@base08;
+@define-color green	@base0B;
+@define-color yellow	@base0A;
+@define-color blue	@base0D;
+@define-color magenta	@base0E;
+@define-color cyan	@base0C;
+@define-color white	@base05;
+@define-color brblack	@base03;
+@define-color brred	@base08;
+@define-color brgreen	@base0B;
+@define-color bryellow	@base0A;
+@define-color brblue	@base0D;
+@define-color brmagenta	@base0E;
+@define-color brcyan	@base0C;
+@define-color brwhite	@base07;
 
 
 @define-color warning 	@bryellow;
 @define-color critical	@red;
 @define-color mode	@black;
-@define-color unfocused	@bg2;
-@define-color focused	@braqua;
-@define-color inactive	@purple;
-@define-color sound	@brpurple;
-@define-color network	@purple;
-@define-color memory	@braqua;
-@define-color cpu	@green;
-@define-color temp	@brgreen;
+@define-color unfocused	@base00;
+@define-color focused	@base03;
+@define-color inactive	@magenta;
 @define-color layout	@bryellow;
-@define-color battery	@aqua;
-@define-color date	@black;
+@define-color sound	@green;
+@define-color network	@yellow;
+@define-color memory	@blue;
+@define-color cpu	@magenta;
+@define-color temp	@cyan;
+@define-color battery	@white;
+@define-color date	@brblack;
 @define-color time	@white;
+
 
 /* Reset all styles */
 * {
@@ -60,7 +63,7 @@
 
 /* The whole bar */
 #waybar {
-	background: rgba(40, 40, 40, 0.8784313725); /* #282828e0 */
+	background: @black;
 	color: @white;
 	font-family: MesloLGS Nerd Font Propo;
 	font-size: 13pt;
@@ -119,23 +122,32 @@
 
 /* Workspaces stuff */
 #workspaces button {
-	/*font-weight: bold;*/
-	padding-left: 2pt;
-	padding-right: 2pt;
-	color: @white;
+	color: @base05;
 	background: @unfocused;
+    padding: 0px 5px 0px 5px;
+    margin: 2px 2px 2px 2px;
+    border-color: @base04;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 7px;
 }
 
 /* Inactive (on unfocused output) */
 #workspaces button.visible {
-	color: @white;
+	color: @brblack;
 	background: @inactive;
 }
 
 /* Active (on focused output) */
 #workspaces button.focused {
-	color: @black;
+	color: @base06;
 	background: @focused;
+    padding: 0px 5px 0px 5px;
+    margin: 2px 2px 2px 2px;
+    border-color: @base05;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 7px;
 }
 
 /* Contains an urgent window */
@@ -146,13 +158,13 @@
 
 /* Style when cursor is on the button */
 #workspaces button:hover {
-	background: @black;
-	color: @white;
+	background: @brblack;
+	color: @brwhite;
 }
 
 #window {
-	margin-right: 35pt;
-	margin-left: 35pt;
+	margin-right: 10pt;
+	margin-left: 10pt;
 }
 
 #pulseaudio {
@@ -162,7 +174,7 @@
 
 #network {
 	background: @network;
-	color: @white;
+	color: @black;
 }
 
 #memory {
@@ -172,7 +184,7 @@
 
 #cpu {
 	background: @cpu;
-	color: @white;
+	color: @black;
 }
 
 #temperature {
@@ -187,7 +199,7 @@
 
 #battery {
 	background: @battery;
-	color: @white;
+	color: @black;
 }
 
 #tray {
@@ -196,7 +208,7 @@
 
 #clock.date {
 	background: @date;
-	color: @white;
+	color: @black;
 }
 
 #clock.time {
@@ -205,61 +217,61 @@
 }
 
 #custom-arrow1 {
-	font-size: 11pt;
+	font-size: 16pt;
 	color: @time;
 	background: @date;
 }
 
 #custom-arrow2 {
-	font-size: 11pt;
+	font-size: 16pt;
 	color: @date;
 	background: @battery;
 }
 
 #custom-arrow3 {
-	font-size: 11pt;
+	font-size: 16pt;
 	color: @layout;
 	background: @battery;
 }
 
 #custom-arrow4 {
-	font-size: 11pt;
+	font-size: 16pt;
 	color: @battery;
 	background: @temp;
 }
 
 #custom-arrow5 {
-	font-size: 11pt;
+	font-size: 16pt;
 	color: @temp;
 	background: @cpu;
 }
 
 #custom-arrow6 {
-	font-size: 11pt;
+	font-size: 16pt;
 	color: @cpu;
 	background: @memory;
 }
 
 #custom-arrow7 {
-	font-size: 11pt;
+	font-size: 16pt;
 	color: @memory;
 	background: @network;
 }
 
 #custom-arrow8 {
-	font-size: 11pt;
+	font-size: 16pt;
 	color: @network;
 	background: transparent;
 }
 
 #custom-arrow9 {
-	font-size: 11pt;
+	font-size: 16pt;
 	color: @sound;
 	background: transparent;
 }
 
 #custom-arrow10 {
-	font-size: 11pt;
+	font-size: 16pt;
 	color: @unfocused;
 	background: transparent;
 }
