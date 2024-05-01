@@ -118,7 +118,6 @@ plugins=(
     rust
     safe-paste
     terraform
-    vi-mode
     fzf
     web-search
     gpg-agent
@@ -145,6 +144,18 @@ if [[ -n $SSH_CONNECTION ]]; then
 else
    export EDITOR='nvim'
 fi
+
+# Key bindings
+bindkey -v
+
+## switched away from vi-mode plugin, since it seems to be buggy
+## for more vi-mode keybindings see https://github.com/ohmyzsh/ohmyzsh/blob/8a6fc5c16d49368dc8f9ddd965a9e25ef652e129/plugins/vi-mode/vi-mode.plugin.zsh#L97-L119)
+
+
+## allow vv to edit the command line (standard behaviour)
+autoload -Uz edit-command-line
+zle -N edit-command-line
+bindkey -M vicmd 'vv' edit-command-line
 
 # tinted theming
 source $HOME/.local/share/tinted-theming/tinty/base16-shell-scripts-file.sh
