@@ -24,9 +24,7 @@ export ZSH="{{ .chezmoi.homeDir }}/.oh-my-zsh"
 #ZSH_THEME="agnoster"
 
 
-{{- if eq .chezmoi.os "linux" }} {{- if eq .chezmoi.osRelease.id "debian" "ubuntu" }}
 ZSH_THEME="powerlevel10k/powerlevel10k"
-{{- end }} {{- end }}
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -212,15 +210,6 @@ source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 {{- end }}
 {{- end }}
 
-# Powerlevel10k
-{{- if eq .chezmoi.os "linux" }} {{- if eq .chezmoi.osRelease.id "arch" }}
-if [[ $0 != -* ]]; then # not login shell
-  source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
-fi
-{{- end }} {{- end }}
-{{- if eq .chezmoi.os "darwin" }}
-  source $(brew --prefix)/share/powerlevel10k/powerlevel10k.zsh-theme
-{{- end }}
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 

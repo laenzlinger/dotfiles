@@ -12,5 +12,4 @@ mise
 mise-debug
 mkinitcpio-firmware
 nodejs-neovim
-zsh-theme-powerlevel10k
 zsh-theme-powerlevel10k-debug

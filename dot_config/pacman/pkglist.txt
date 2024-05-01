@@ -49,6 +49,8 @@ i3status
 imagemagick
 inetutils
 irssi
+jack2-dbus
+jack2-docs
 jfsutils
 jq
 keepassxc
@@ -123,6 +125,7 @@ sway
 swaybg
 swayidle
 swaylock
+swaync
 syncthing
 sysfsutils
 terminus-font
