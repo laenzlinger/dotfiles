@@ -331,12 +331,25 @@ let g:airline_powerline_fonts = 1
 "-----------------------------------------------------------
 " base16-vim
 "-----------------------------------------------------------
-if exists('$BASE16_THEME')
-      \ && (!exists('g:colors_name') || g:colors_name != 'base16-$BASE16_THEME')
-    let base16colorspace=256
-    let base16_background_transparent=1 " Make vim background transparent to work alongside transparent terminal backgrounds
-    colorscheme base16-$BASE16_THEME
-endif
+
+function! s:tinty_scheme()
+  let l:scheme = trim(system('tinty current'))
+  return l:scheme
+endfunction
+
+function! s:handle_focus_gained()
+    let l:scheme = s:tinty_scheme()
+    let l:current = g:colors_name
+    if  string(l:current) != string(l:scheme)
+        execute 'colorscheme ' .. l:scheme
+    endif
+endfunction
+
+let base16colorspace = 256
+" Make vim background transparent to work alongside transparent terminal backgrounds
+let base16_background_transparent = 1
+execute 'colorscheme ' .. s:tinty_scheme()
+autocmd FocusGained * call s:handle_focus_gained()
 
 "-----------------------------------------------------------
 " Ack.vim

@@ -15,9 +15,9 @@ themes-dir = "themes"
 hook = "cp -f %f ~/.config/sway/base16.config && /usr/bin/swaymsg reload"
 
 [[items]]
-path = "https://github.com/aarowill/base16-alacritty"
+path = "https://github.com/tinted-theming/base16-alacritty"
 name = "base16-alacritty"
-themes-dir = "colors"
+themes-dir = "colors-256"
 hook = "cp -f %f ~/.config/alacritty/colors.toml"
 
 [[items]]
