@@ -48,7 +48,7 @@ hook = "cp -f %f ~/.config/wofi/style.css"
 path = "https://github.com/tinted-theming/base16-iterm2"
 name = "base16-iterm2"
 themes-dir = "itermcolors-256"
-hook = "cp -f %f ~/.config/iterm2/base16.itermcolors"
+hook = "cp -f %f ~/.config/iterm2/tinty-managed.itermcolors && ~/.config/iterm2/apply-tinty-theme.sh"
 
 {{- end }}
 
