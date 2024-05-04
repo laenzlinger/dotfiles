@@ -998,7 +998,7 @@ Maximize Active Pane</string>
 				<key>Color Space</key>
 				<string>sRGB</string>
 				<key>Green Component</key>
-				<real>0.1491314172744751</real>
+				<real>0.14910030364990234</real>
 				<key>Red Component</key>
 				<real>1</real>
 			</dict>
@@ -1049,13 +1049,13 @@ Maximize Active Pane</string>
 				<key>Alpha Component</key>
 				<real>0.25</real>
 				<key>Blue Component</key>
-				<real>0.82208251953125</real>
+				<real>1</real>
 				<key>Color Space</key>
 				<string>sRGB</string>
 				<key>Green Component</key>
-				<real>0.81417578897560328</real>
+				<real>0.92681378126144409</real>
 				<key>Red Component</key>
-				<real>0.78989465720951557</real>
+				<real>0.70214027166366577</real>
 			</dict>
 			<key>Cursor Text Color</key>
 			<dict>
@@ -1398,11 +1398,11 @@ Maximize Active Pane</string>
 				<key>Alpha Component</key>
 				<real>1</real>
 				<key>Blue Component</key>
-				<real>0.73423302173614502</real>
+				<real>0.73422706127166748</real>
 				<key>Color Space</key>
 				<string>sRGB</string>
 				<key>Green Component</key>
-				<real>0.35916060209274292</real>
+				<real>0.35915294289588928</real>
 				<key>Red Component</key>
 				<real>0.0</real>
 			</dict>
