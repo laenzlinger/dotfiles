@@ -9,16 +9,24 @@ themes-dir = "scripts"
 hook = "source %f"
 
 [[items]]
-name = "base16-sway"
-path = "https://github.com/rkubosz/base16-sway"
-themes-dir = "themes"
-hook = "cp -f %f ~/.config/sway/base16.config && /usr/bin/swaymsg reload"
+path = "https://github.com/tinted-theming/tinted-fzf"
+name = "tinted-fzf"
+themes-dir = "sh"
+hook = "source %f"
 
 [[items]]
 path = "https://github.com/tinted-theming/base16-alacritty"
 name = "base16-alacritty"
 themes-dir = "colors-256"
 hook = "cp -f %f ~/.config/alacritty/colors.toml"
+
+{{- if eq .chezmoi.os "linux" }} {{- if eq .chezmoi.osRelease.id "arch" }}
+
+[[items]]
+name = "base16-sway"
+path = "https://github.com/rkubosz/base16-sway"
+themes-dir = "themes"
+hook = "cp -f %f ~/.config/sway/base16.config && /usr/bin/swaymsg reload"
 
 [[items]]
 path = "https://github.com/tinted-theming/base16-waybar"
@@ -27,14 +35,21 @@ themes-dir = "colors"
 hook = "cp -f %f ~/.config/waybar/colors.css"
 
 [[items]]
-path = "https://github.com/tinted-theming/tinted-fzf"
-name = "tinted-fzf"
-themes-dir = "sh"
-hook = "source %f"
-
-[[items]]
 path = "https://git.sr.ht/~knezi/base16-wofi"
 name = "base16-wofi"
 themes-dir = "themes"
 hook = "cp -f %f ~/.config/wofi/style.css"
+
+{{- end }} {{- end }}
+
+{{- if eq .chezmoi.os "darwin" }}
+
+[[items]]
+path = "https://github.com/tinted-theming/base16-iterm2"
+name = "base16-iterm2"
+themes-dir = "itermcolors"
+hook = "cp -f %f ~/.config/iterm2/base16.itermcolors"
+
+{{- end }}
+
 

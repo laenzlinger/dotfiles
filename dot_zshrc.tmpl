@@ -173,6 +173,10 @@ fi
 
 
 {{- if eq .chezmoi.os "darwin" }}
+
+# tinted theming by default respects OSX dirs
+alias tinty='tinty --config=~/.config/tinted-theming/tinty/config.toml --data-dir=~/.local/share/tinted-theming/tinty'
+
 # Syntax highlighting
 source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
