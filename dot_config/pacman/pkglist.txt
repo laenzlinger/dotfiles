@@ -1,4 +1,5 @@
 alacritty
+alsa-scarlett-gui
 alsa-utils
 asciidoctor
 autoconf
@@ -24,10 +25,10 @@ docker-buildx
 docker-compose
 dos2unix
 efibootmgr
+element-desktop
 fakeroot
 flex
 fprintd
-fractal
 freetype2
 fwupd
 fzf
@@ -37,7 +38,9 @@ gimp
 git
 github-cli
 gnu-netcat
+gnucash
 go
+grim
 grub
 gtk2
 gtk2fontsel
@@ -118,6 +121,7 @@ rsync
 ruby
 rustup
 screenfetch
+slurp
 sof-firmware
 sshuttle
 sudo
