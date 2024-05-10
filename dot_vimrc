@@ -16,13 +16,10 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-fugitive'
 Plug 'tommcdo/vim-fubitive'
-Plug 'preservim/nerdtree' |
-            \ Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'neomake/neomake'
 Plug 'tinted-theming/base16-vim'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'ryanoasis/vim-devicons'
+Plug 'nvim-tree/nvim-tree.lua'
+Plug 'nvim-tree/nvim-web-devicons'
+Plug 'nvim-lualine/lualine.nvim'
 Plug 'farmergreg/vim-lastplace'
 Plug '907th/vim-auto-save'
 Plug 'mileszs/ack.vim'
@@ -54,6 +51,10 @@ call plug#end()
 "-----------------------------------------------------------
 " Global Settings
 "-----------------------------------------------------------
+
+" disable netrw (becuase we are using luatree)
+let g:loaded_netrw = 1
+let g:loaded_netrwPlugin = 1
 
 " determine if running with swiss keyboard
 function! s:ch_keyboard()
@@ -88,6 +89,7 @@ autocmd FileType asciidoctor setlocal spell
 autocmd FileType markdown setlocal complete+=kspell
 autocmd FileType gitcommit setlocal complete+=kspell
 autocmd FileType asciidoctor setlocal complete+=kspell
+
 
 
 
@@ -288,45 +290,10 @@ autocmd FileType go nmap <leader>b :<C-u>call <SID>build_go_files()<CR>
 autocmd FileType go nmap <Leader>c <Plug>(go-coverage-toggle)
 
 "-----------------------------------------------------------
-" NERDTree
+" NvimTree
 "-----------------------------------------------------------
-nnoremap <Leader>d :NERDTreeToggle<CR>
-nnoremap <silent> <Leader>v :NERDTreeFind<CR>
-
-autocmd StdinReadPre * let s:std_in=1
-" load NERDTree on startup (in case a directory is opend)
-" autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | wincmd p | endif
-
-" Close if its the only window left
-autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-
-" Avoid opening files in nerdtree
-"autocmd BufEnter * if bufname('#') =~ 'NERD_tree' && bufname('%') !~ 'NERD_tree' && winnr('$') > 1 | b# | exe "normal! \<c-w>\<c-w>" | :blast | endif
-
-" Hide / for directories
-augroup nerdtreehidecwd
-  autocmd!
-  autocmd FileType nerdtree setlocal conceallevel=3 | syntax match NERDTreeDirSlash #/$# containedin=NERDTreeDir conceal contained
-augroup end
-
-let g:NERDTreeDirArrowExpandable = ''
-let g:NERDTreeDirArrowCollapsible = ''
-
-"-----------------------------------------------------------
-" VimDevIcons
-"-----------------------------------------------------------
-let g:WebDevIconsNerdTreeAfterGlyphPadding = ' '
-let g:DevIconsEnableFoldersOpenClose = 1
-
-"-----------------------------------------------------------
-" Neobuild
-"-----------------------------------------------------------
-call neomake#configure#automake('nrwi', 500)
-
-"-----------------------------------------------------------
-" Airline
-"-----------------------------------------------------------
-let g:airline_powerline_fonts = 1
+nnoremap <Leader>d :NvimTreeToggle<CR>
+nnoremap <silent> <Leader>v :NvimTreeFindFile<CR>
 
 "-----------------------------------------------------------
 " base16-vim
@@ -424,3 +391,22 @@ let g:rustfmt_autosave = 1
 " vim-templates
 "-----------------------------------------------------------
 let g:tmpl_search_paths = ['~/.config/nvim/templates']
+
+lua << END
+require("nvim-tree").setup({
+    sort = {
+      sorter = "case_sensitive",
+    },
+    view = {
+      width = 30,
+    },
+    renderer = {
+      group_empty = true,
+    },
+    filters = {
+      dotfiles = true,
+    },
+})
+
+require('lualine').setup()
+END
