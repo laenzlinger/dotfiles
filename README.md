@@ -1,6 +1,6 @@
-# Configuration of my devbox
+# Configuration Repository
 
-This repo contains the dotfiles managed by chezmoi
+This repo contains the dotfiles managed by `chezmoi`
 
 It's a very of course a very opinionated and personal setup.
 Together with my learning of all these great FOSS software,
@@ -17,8 +17,8 @@ Followed steps in Arch Linux [installation guide](https://wiki.archlinux.org/ind
 * 4 CPU
 * 4096 MB RAM
 
-
 #### VM: Run the installation script
+
 ```bash
 loadkeys de_CH-latin1
 curl https://raw.githubusercontent.com/laenzlinger/dotfiles/master/arch/setup-vmware.sh > setup-vmware.sh
@@ -53,11 +53,12 @@ exit
 See [Makefile](arch/Makefile)
 
 ### List of installed packages
+
 chezmoi apply creates list of installed packages in [.config/pacman/*.txt](dot_config/pacman)
 
 ## OSX
 
-### User setup
+### User setup in OSX
 
 ```bash
 chezmoi init https://github.com/laenzlinger/dotfiles.git
@@ -68,7 +69,7 @@ exit
 
 ## Debian
 
-### User setup
+### User setup in Debian
 
 ```bash
 curl -sfL https://git.io/chezmoi | sh
