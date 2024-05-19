@@ -4,3 +4,4 @@
 local opt = vim.opt
 
 opt.spelllang = { "en", "de" }
+opt.spellfile = { vim.fn.stdpath("config") .. "/spell/laenzi.utf8.add" }
