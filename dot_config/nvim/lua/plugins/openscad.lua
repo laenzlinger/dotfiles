@@ -1,8 +1,10 @@
 return {
   {
     "neovim/nvim-lspconfig",
-    servers = {
-      openscad_lsp = {},
+    opts = {
+      servers = {
+        openscad_lsp = {},
+      },
     },
   },
   {
