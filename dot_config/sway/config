@@ -184,6 +184,10 @@ input type:touchpad {
     natural_scroll enabled
 }
 
+input * {
+    xkb_layout "us(altgr-intl)"
+}
+
 output eDP-1 scale 1
 
 output * bg $background-image fill
