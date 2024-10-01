@@ -1,0 +1,15 @@
+data.local/ghost/**
+**/*.pyc
+**/__pycache__/**
+**/node_modules/**
+.cache/**
+.cargo/**
+.local/lib/python*/site-packages/**
+.local/share/go/**
+.local/share/mise/**
+.local/share/nvim/**
+.local/share/fractal/**
+.local/share/torbrowser/**
+.mozilla/firefox/*/Cache/**
+.config/chromium
+.rustup/**
