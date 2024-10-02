@@ -44,6 +44,8 @@ bindsym XF86AudioMute exec wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
 bindsym XF86AudioMicMute exec wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
 bindsym XF86MonBrightnessDown exec brightnessctl set 10%- && $brightness
 bindsym XF86MonBrightnessUp exec brightnessctl set 10%+ && $brightness
+bindsym XF86Go exec nmcli connection up Laenzis
+bindsym Cancel exec nmcli connection down Laenzis
 
 
 # Use Mouse+$mod to drag floating windows to their wanted position
