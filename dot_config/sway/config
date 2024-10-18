@@ -58,7 +58,7 @@ bindsym $mod+Return exec alacritty
 bindsym $mod+Shift+q kill
 
 #bindsym $mod+d desktop app launcher
-bindsym $mod+space exec wofi --show=drun --prompt='' --allow-images
+bindsym $mod+space exec wofi --show=drun --prompt='' --allow-images --insensitive
 
 # change focus
 bindsym $mod+h focus left
