@@ -40,6 +40,13 @@ name = "base16-wofi"
 themes-dir = "themes"
 hook = "cp -f %f ~/.config/wofi/style.css"
 
+[[items]]
+path = "https://github.com/tinted-theming/base16-wob"
+name = "base16-wob"
+themes-dir = "colors"
+hook = "cp -f %f ~/.config/wob/wob.ini && /usr/bin/systemctl --user restart wob"
+
+
 {{- end }} {{- end }}
 
 {{- if eq .chezmoi.os "darwin" }}
