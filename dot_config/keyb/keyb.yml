@@ -1,0 +1,4 @@
+- name: nvim
+  keybinds:
+    - name: Outline
+      key: gO
