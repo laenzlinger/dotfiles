@@ -152,7 +152,7 @@ bindsym $mod+Shift+c reload
 # restart sway inplace (preserves your layout/session, can be used to upgrade sway)
 bindsym $mod+Shift+r restart
 # exit sway
-bindsym $mod+Shift+e exec "swaynag -t warning -m 'Do you really want to exit sway?' -B 'Yes, exit sway' 'waymsg exit'"
+bindsym $mod+Shift+e exec "swaynag -t warning -m 'Do you really want to exit sway?' -B 'Yes, exit sway' 'swaymsg exit'"
 # lock the screen
 bindsym $mod+Shift+Escape exec $lock
 
@@ -204,9 +204,9 @@ output * bg $background-image fill
 assign [class="Chromium"] $ws1
 assign [class="Alacritty" instance="^main\-terminal$"] $ws2
 
-exec "waymsg 'workspace 1:browser; exec chromium'"
-exec "waymsg 'workspace 2:terminal; exec alacritty --class main-terminal'"
-exec "waymsg 'workspace 9:secrets; exec QT_WAYLAND_FORCE_DPI=140 keepassxc'"
+exec "swaymsg 'workspace 1:browser; exec chromium'"
+exec "swaymsg 'workspace 2:terminal; exec alacritty --class main-terminal'"
+exec "swaymsg 'workspace 9:secrets; exec QT_WAYLAND_FORCE_DPI=140 keepassxc'"
 
 for_window [title=".* — PCB Editor"] resize set width 80 ppt
 for_window [title=".* — Schematic Editor"] resize set width 80 ppt
