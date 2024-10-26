@@ -149,10 +149,10 @@ bindsym $mod+Shift+0 move container to workspace number $ws10
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
-# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+# restart sway inplace (preserves your layout/session, can be used to upgrade sway)
 bindsym $mod+Shift+r restart
-# exit i3
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Do you really want to exit i3?' -B 'Yes, exit i3' 'i3-msg exit'"
+# exit sway
+bindsym $mod+Shift+e exec "swaynag -t warning -m 'Do you really want to exit sway?' -B 'Yes, exit sway' 'waymsg exit'"
 # lock the screen
 bindsym $mod+Shift+Escape exec $lock
 
@@ -204,9 +204,9 @@ output * bg $background-image fill
 assign [class="Chromium"] $ws1
 assign [class="Alacritty" instance="^main\-terminal$"] $ws2
 
-exec "i3-msg 'workspace 1:browser; exec chromium'"
-exec "i3-msg 'workspace 2:terminal; exec alacritty --class main-terminal'"
-exec "i3-msg 'workspace 9:secrets; exec QT_WAYLAND_FORCE_DPI=140 keepassxc'"
+exec "waymsg 'workspace 1:browser; exec chromium'"
+exec "waymsg 'workspace 2:terminal; exec alacritty --class main-terminal'"
+exec "waymsg 'workspace 9:secrets; exec QT_WAYLAND_FORCE_DPI=140 keepassxc'"
 
 for_window [title=".* — PCB Editor"] resize set width 80 ppt
 for_window [title=".* — Schematic Editor"] resize set width 80 ppt
