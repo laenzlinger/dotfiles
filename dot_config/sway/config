@@ -201,12 +201,13 @@ output eDP-1 scale 1.2
 output * bg $background-image fill
 
 # Assign Workspace
-assign [class="Chromium"] $ws1
-assign [class="Alacritty" instance="^main\-terminal$"] $ws2
+assign [app_id="chromium"] $ws1
+assign [app_id="org.keepassxc.KeePassXC"] $ws9
+assign [app_id="main-terminal"] $ws2
 
-exec "swaymsg 'workspace 1:browser; exec chromium'"
-exec "swaymsg 'workspace 2:terminal; exec alacritty --class main-terminal'"
-exec "swaymsg 'workspace 9:secrets; exec QT_WAYLAND_FORCE_DPI=140 keepassxc'"
+exec "chromium"
+exec "exec alacritty --class main-terminal"
+exec "QT_WAYLAND_FORCE_DPI=140 keepassxc"
 
 for_window [title=".* — PCB Editor"] resize set width 80 ppt
 for_window [title=".* — Schematic Editor"] resize set width 80 ppt
