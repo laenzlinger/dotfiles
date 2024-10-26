@@ -1,4 +1,4 @@
-{{- if eq .chezmoi.os "linux" }} {{- if eq .chezmoi.osRelease.id "arch" }}
+{{- if eq .chezmoi.os "linux" }} {{- if eq (printf "%.4s" .chezmoi.osRelease.id) "arch" }}
 if [ -z "${WAYLAND_DISPLAY}" ] && [ "${XDG_VTNR}" -eq 1 ]; then
 exec sway
 fi
@@ -85,7 +85,7 @@ HIST_STAMPS="dd.mm.yyyy"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-{{- if eq .chezmoi.os "linux" }} {{- if eq .chezmoi.osRelease.id "arch" }}
+{{- if eq .chezmoi.os "linux" }} {{- if eq (printf "%.4s" .chezmoi.osRelease.id) "arch" }}
     archlinux
     systemd
 {{- end }} {{- end }}
@@ -208,7 +208,7 @@ then
   alias ls='lsd'
 fi
 
-{{- if eq .chezmoi.osRelease.id "arch" }}
+{{- if eq (printf "%.4s" .chezmoi.osRelease.id) "arch" }}
 # Syntax highlighting
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
@@ -230,7 +230,7 @@ source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-{{- if eq .chezmoi.os "linux" }} {{- if eq .chezmoi.osRelease.id "arch" }}
+{{- if eq .chezmoi.os "linux" }} {{- if eq (printf "%.4s" .chezmoi.osRelease.id) "arch" }}
 # workaround for mutt colors see https://github.com/neomutt/neomutt/issues/518
 alias neomutt="TERM=screen-256color neomutt"
 alias mutt="TERM=screen-256color neomutt"
@@ -255,7 +255,7 @@ LESSOPEN="|lesspipe.sh %s"; export LESSOPEN
 
 ## golang environment
 
-{{- if eq .chezmoi.os "linux" }} {{- if eq .chezmoi.osRelease.id "arch" }}
+{{- if eq .chezmoi.os "linux" }} {{- if eq (printf "%.4s" .chezmoi.osRelease.id) "arch" }}
 go env -w GOPATH=$HOME/.local/share/go
 {{- end }} {{- end }}
 export GO111MODULE=on

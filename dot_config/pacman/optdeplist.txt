@@ -1,9 +1,13 @@
 #optional dependencies
-tree-sitter-bash
-tree-sitter-c
-tree-sitter-lua
-tree-sitter-markdown
-tree-sitter-python
-tree-sitter-query
-tree-sitter-vimdoc
+base-devel
+cmake
+gdb
+gnome-themes-extra
+python-hypothesis
+python-inflect
+python-pandas
+python-tabulate
+python-xlwt
+qt5-tools
+ruby-stdlib
 usbmuxd
