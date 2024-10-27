@@ -98,3 +98,4 @@ image/vnd.zbrush.pcx=imv.desktop
 image/heif=imv.desktop
 image/x-portable-anymap=imv.desktop
 image/gif=imv.desktop
+text/html=chromium.desktop
