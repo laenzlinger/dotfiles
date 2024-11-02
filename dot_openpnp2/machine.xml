@@ -1206,6 +1206,7 @@
                <text><![CDATA[G21 ; Set millimeters mode]]></text>
                <text><![CDATA[G90 ; Set absolute positioning mode]]></text>
                <text><![CDATA[M82 ; Set absolute mode for extruder]]></text>
+               <text><![CDATA[M914 X35 ; Sensitivity of X axis sensorless homing]]></text>
             </command>
             <command head-mountable-id="ACT170524c73c5ed540" type="ACTUATOR_READ_COMMAND">
                <text><![CDATA[M271 S0x{Value}]]></text>
@@ -1435,7 +1436,7 @@
                <runout-compensation-lookup class="java.util.HashMap">
                   <entry>
                      <string>N1</string>
-                     <runout-compensation class="org.openpnp.machine.reference.ReferenceNozzleTipCalibration$ModelBasedRunoutCameraOffsetCompensation" center-x="0.13051885302992391" center-y="0.00585862011399714" radius="0.18811682880217703" phase-shift="160.59086137332756" units="Millimeters" peak-error="0.024247078406710754" rms-error="0.017192798062167187"/>
+                     <runout-compensation class="org.openpnp.machine.reference.ReferenceNozzleTipCalibration$ModelBasedRunoutCameraOffsetCompensation" center-x="0.1497372447474009" center-y="-0.050991297407689026" radius="0.17995916889385022" phase-shift="-141.20806287301636" units="Millimeters" peak-error="0.02590266795834455" rms-error="0.014411092711283923"/>
                   </entry>
                </runout-compensation-lookup>
                <minimum-detail-size value="0.2" units="Millimeters"/>
@@ -1542,7 +1543,7 @@
                      <cv-stage class="org.openpnp.vision.pipeline.stages.ImageCapture" name="0" enabled="true" default-light="true" settle-option="Settle" count="1"/>
                      <cv-stage class="org.openpnp.vision.pipeline.stages.MaskCircle" name="1" enabled="true" diameter="200" property-name="MaskCircle"/>
                      <cv-stage class="org.openpnp.vision.pipeline.stages.ConvertColor" name="2" enabled="true" conversion="Bgr2Gray"/>
-                     <cv-stage class="org.openpnp.vision.pipeline.stages.Threshold" name="3" enabled="true" threshold="43" auto="false" invert="true"/>
+                     <cv-stage class="org.openpnp.vision.pipeline.stages.Threshold" name="3" enabled="true" threshold="150" auto="false" invert="true"/>
                      <cv-stage class="org.openpnp.vision.pipeline.stages.BlurMedian" name="4" enabled="true" kernel-size="3"/>
                      <cv-stage class="org.openpnp.vision.pipeline.stages.DetectCirclesHough" name="results" enabled="true" min-distance="200" min-diameter="35" max-diameter="45" dp="1.0" param-1="120.0" param-2="2.0"/>
                      <cv-stage class="org.openpnp.vision.pipeline.stages.ImageRecall" name="5" enabled="true" image-stage-name="0"/>
@@ -1553,12 +1554,7 @@
                      <cv-stage class="org.openpnp.vision.pipeline.stages.ImageWriteDebug" name="7" enabled="false" prefix="runoutCalibration" suffix=".png"/>
                   </stages>
                </pipeline>
-               <runout-compensation-lookup class="java.util.HashMap">
-                  <entry>
-                     <string>NOZ1710829fd33a0170</string>
-                     <runout-compensation class="org.openpnp.machine.reference.ReferenceNozzleTipCalibration$ModelBasedRunoutCameraOffsetCompensation" center-x="-0.01977401416666666" center-y="-0.011494253333333327" radius="0.14173225165090728" phase-shift="168.33724550661017" units="Millimeters" peak-error="0.08381854654292793" rms-error="0.04483431714678769"/>
-                  </entry>
-               </runout-compensation-lookup>
+               <runout-compensation-lookup class="java.util.HashMap"/>
                <minimum-detail-size value="0.2" units="Millimeters"/>
                <offset-threshold-length value="0.5" units="Millimeters"/>
                <calibration-Z-offset value="0.0" units="Millimeters"/>
