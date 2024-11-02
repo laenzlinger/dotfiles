@@ -47,4 +47,8 @@
    <part id="Button              SW_SPST_B3U-1000P-Micro" height-units="Millimeters" height="2.6" package-id="Button              SW_SPST_B3U-1000P" speed="1.0" pick-retry-count="0"/>
    <part id="SOIC-8-1EP_3.9x4.9mm_P1.27mm_EP2.95x4.9mm_Mask2.71x3.4mm_ThermalVias-AP64501SP-13" height-units="Millimeters" height="0.65" package-id="SOIC-8-1EP_3.9x4.9mm_P1.27mm_EP2.95x4.9mm_Mask2.71x3.4mm_ThermalVias" speed="1.0" pick-retry-count="0"/>
    <part id="TEST-OBJECT" height-units="Millimeters" height="0.02" package-id="FIDUCIAL-1X2" speed="1.0" pick-retry-count="0"/>
+   <part id="C_0402_1005Metric-1uF" height-units="Millimeters" height="0.0" package-id="C_0402_1005Metric" speed="1.0" pick-retry-count="0"/>
+   <part id="LED_SK6812_EC15_1.5x1.5mm-SK6812_EC15" height-units="Millimeters" height="0.0" package-id="LED_SK6812_EC15_1.5x1.5mm" speed="1.0" pick-retry-count="0"/>
+   <part id="Fiducial_1mm_Mask2mm-Fiducial" height-units="Millimeters" height="0.0" package-id="FIDUCIAL-1X2" speed="1.0" pick-retry-count="0"/>
+   <part id="R_0402_1005Metric-330" height-units="Millimeters" height="0.0" package-id="R_0402_1005Metric" speed="1.0" pick-retry-count="0"/>
 </openpnp-parts>
