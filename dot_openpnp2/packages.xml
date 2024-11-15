@@ -572,7 +572,7 @@
          <string>TIP16cbc9505c3e1916</string>
       </compatible-nozzle-tip-ids>
    </package>
-   <package version="1.1" id="SOT-23-6" description="Small Outline Transistor 7 Pin" tape-specification="8mm" pick-vacuum-level="0.0" place-blow-off-level="0.0">
+   <package version="1.1" id="SOT-23-6" description="Small Outline Transistor 6 Pin" tape-specification="8mm" pick-vacuum-level="0.0" place-blow-off-level="0.0">
       <footprint units="Millimeters" body-width="0.0" body-height="0.0" outer-dimension="0.0" inner-dimension="0.0" pad-count="0" pad-pitch="0.0" pad-across="0.0" pad-roundness="0.0"/>
       <vision-compositing compositing-method="Restricted" min-leverage-factor="0.2" extra-shots="0" allow-inside="true">
          <max-pick-tolerance value="0.0" units="Millimeters"/>
@@ -587,7 +587,7 @@
          <max-pick-tolerance value="0.0" units="Millimeters"/>
       </vision-compositing>
       <compatible-nozzle-tip-ids class="java.util.ArrayList">
-         <string>TIP16cbc9505c3e1916</string>
+         <string>NT1</string>
       </compatible-nozzle-tip-ids>
    </package>
    <package version="1.1" id="SOT-23-5" description="Small Outline Transistor 5 Pin" tape-specification="8mm" pick-vacuum-level="0.0" place-blow-off-level="0.0">
