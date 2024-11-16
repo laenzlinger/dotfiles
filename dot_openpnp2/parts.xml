@@ -46,7 +46,7 @@
    <part id="LED_0805_2012Metric-LED_Y" height-units="Millimeters" height="0.9" package-id="LED_0805" speed="1.0" pick-retry-count="0"/>
    <part id="LED_0805_2012Metric-LED_R" height-units="Millimeters" height="0.9" package-id="LED_0805" speed="1.0" pick-retry-count="0"/>
    <part id="Fuse_1812_4532Metric-Polyfuse_1.8A" height-units="Millimeters" height="1.5" package-id="F_1812" speed="1.0" pick-retry-count="0"/>
-   <part id="USB_Micro-B_Amphenol_10103594-0001LF_Horizontal-USB_OTG" height-units="Millimeters" height="3.08" package-id="USB_Micro-B_Amphenol_10103594-0001LF_Horizontal" speed="1.0" pick-retry-count="0"/>
+   <part id="USB_Micro-B_Amphenol_10103594-0001LF_Horizontal-USB_OTG" height-units="Millimeters" height="3.08" package-id="USB_Micro-B_Amphenol_10103594-0001LF_Horizontal" speed="0.25" pick-retry-count="0"/>
    <part id="JST_PH_B4B-PH-SM4-TB_1x04-1MP_P2.00mm_Vertical-JST_PH_4" height-units="Millimeters" height="0.0" package-id="JST_PH_B4B-PH-SM4-TB_1x04-1MP_P2.00mm_Vertical" speed="1.0" pick-retry-count="0"/>
    <part id="JST_PH_B3B-PH-SM4-TB_1x03-1MP_P2.00mm_Vertical-JST_PH_3" height-units="Millimeters" height="0.0" package-id="JST_PH_B3B-PH-SM4-TB_1x03-1MP_P2.00mm_Vertical" speed="1.0" pick-retry-count="0"/>
    <part id="R_0805_2012Metric-220R" height-units="Millimeters" height="0.5" package-id="R_0805" speed="1.0" pick-retry-count="0"/>
