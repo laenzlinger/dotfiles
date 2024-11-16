@@ -955,10 +955,10 @@
                </stages>
             </pipeline>
          </feeder>
-         <feeder class="org.openpnp.machine.reference.feeder.ReferenceStripFeeder" version="1.1" id="FDR17951d0d90312d6a" name="RV16-1" enabled="true" part-id="L_Bourns_SRN6045TA-SRN6045TA-3R3Y" retry-count="3" feed-retry-count="3" pick-retry-count="1" tape-type="BlackPlastic" standard-eia-481="true" vision-enabled="true" feed-count="2" max-feed-count="0">
+         <feeder class="org.openpnp.machine.reference.feeder.ReferenceStripFeeder" version="1.1" id="FDR17951d0d90312d6a" name="RV16-4" enabled="true" part-id="L_Bourns_SRN6045TA-SRN6045TA-3R3Y" retry-count="3" feed-retry-count="3" pick-retry-count="1" tape-type="BlackPlastic" standard-eia-481="true" vision-enabled="true" feed-count="2" max-feed-count="0">
             <location units="Millimeters" x="0.0" y="0.0" z="0.0" rotation="90.0"/>
-            <reference-hole-location units="Millimeters" x="366.506" y="164.125" z="8.2" rotation="0.0"/>
-            <last-hole-location units="Millimeters" x="370.506" y="164.125" z="0.0" rotation="0.0"/>
+            <reference-hole-location units="Millimeters" x="367.106" y="142.0" z="8.2" rotation="0.0"/>
+            <last-hole-location units="Millimeters" x="379.106" y="142.0" z="0.0" rotation="0.0"/>
             <part-pitch value="12.0" units="Millimeters"/>
             <tape-width value="16.0" units="Millimeters"/>
             <pipeline>
@@ -977,10 +977,10 @@
                </stages>
             </pipeline>
          </feeder>
-         <feeder class="org.openpnp.machine.reference.feeder.ReferenceStripFeeder" version="1.1" id="FDR17951d7beb9bdf4d" name="RV16-2" enabled="true" part-id="SO-6L_10x3.84mm_P1.27mm-TLP2761" retry-count="3" feed-retry-count="3" pick-retry-count="1" tape-type="BlackPlastic" standard-eia-481="true" vision-enabled="true" feed-count="3" max-feed-count="0">
+         <feeder class="org.openpnp.machine.reference.feeder.ReferenceStripFeeder" version="1.1" id="FDR17951d7beb9bdf4d" name="RV16-3" enabled="true" part-id="SO-6L_10x3.84mm_P1.27mm-TLP2761" retry-count="3" feed-retry-count="3" pick-retry-count="1" tape-type="BlackPlastic" standard-eia-481="true" vision-enabled="true" feed-count="3" max-feed-count="0">
             <location units="Millimeters" x="0.0" y="0.0" z="0.0" rotation="0.0"/>
-            <reference-hole-location units="Millimeters" x="366.762" y="145.345" z="8.2" rotation="0.0"/>
-            <last-hole-location units="Millimeters" x="378.762" y="145.345" z="0.0" rotation="0.0"/>
+            <reference-hole-location units="Millimeters" x="365.662" y="123.445" z="8.2" rotation="0.0"/>
+            <last-hole-location units="Millimeters" x="377.662" y="123.445" z="0.0" rotation="0.0"/>
             <part-pitch value="12.0" units="Millimeters"/>
             <tape-width value="16.0" units="Millimeters"/>
             <pipeline>
@@ -999,10 +999,10 @@
                </stages>
             </pipeline>
          </feeder>
-         <feeder class="org.openpnp.machine.reference.feeder.ReferenceStripFeeder" version="1.1" id="FDR17951db83b250735" name="RV16-3" enabled="true" part-id="RP2040-QFN-56-RP2040" retry-count="3" feed-retry-count="3" pick-retry-count="1" tape-type="BlackPlastic" standard-eia-481="true" vision-enabled="true" feed-count="3" max-feed-count="0">
+         <feeder class="org.openpnp.machine.reference.feeder.ReferenceStripFeeder" version="1.1" id="FDR17951db83b250735" name="RV16-2" enabled="true" part-id="RP2040-QFN-56-RP2040" retry-count="3" feed-retry-count="3" pick-retry-count="1" tape-type="BlackPlastic" standard-eia-481="true" vision-enabled="true" feed-count="4" max-feed-count="0">
             <location units="Millimeters" x="0.0" y="0.0" z="0.0" rotation="0.0"/>
-            <reference-hole-location units="Millimeters" x="366.806" y="127.125" z="9.0" rotation="0.0"/>
-            <last-hole-location units="Millimeters" x="378.806" y="127.125" z="0.0" rotation="0.0"/>
+            <reference-hole-location units="Millimeters" x="366.606" y="104.925" z="9.0" rotation="0.0"/>
+            <last-hole-location units="Millimeters" x="378.606" y="104.925" z="0.0" rotation="0.0"/>
             <part-pitch value="12.0" units="Millimeters"/>
             <tape-width value="16.0" units="Millimeters"/>
             <pipeline>
@@ -1201,10 +1201,10 @@
                </stages>
             </pipeline>
          </feeder>
-         <feeder class="org.openpnp.machine.reference.feeder.ReferenceStripFeeder" version="1.1" id="FDR1808305a407516ed" name="RV16-4" enabled="true" part-id="QFN-36-1EP_6x6mm_P0.5mm_EP3.7x3.7mm-USB2514B_Bi" retry-count="3" feed-retry-count="3" pick-retry-count="0" tape-type="WhitePaper" standard-eia-481="true" vision-enabled="true" feed-count="0" max-feed-count="0">
+         <feeder class="org.openpnp.machine.reference.feeder.ReferenceStripFeeder" version="1.1" id="FDR1808305a407516ed" name="RV16-1" enabled="true" part-id="QFN-36-1EP_6x6mm_P0.5mm_EP3.7x3.7mm-USB2514B_Bi" retry-count="3" feed-retry-count="3" pick-retry-count="1" tape-type="WhitePaper" standard-eia-481="true" vision-enabled="true" feed-count="0" max-feed-count="0">
             <location units="Millimeters" x="0.0" y="0.0" z="0.0" rotation="0.0"/>
-            <reference-hole-location units="Millimeters" x="368.006" y="108.925" z="9.0" rotation="0.0"/>
-            <last-hole-location units="Millimeters" x="372.006" y="108.925" z="0.0" rotation="0.0"/>
+            <reference-hole-location units="Millimeters" x="365.806" y="86.9" z="9.0" rotation="0.0"/>
+            <last-hole-location units="Millimeters" x="377.806" y="86.9" z="0.0" rotation="0.0"/>
             <part-pitch value="12.0" units="Millimeters"/>
             <tape-width value="16.0" units="Millimeters"/>
             <pipeline>
@@ -1251,6 +1251,28 @@
             <last-hole-location units="Millimeters" x="59.57719195086827" y="194.3357250631943" z="0.0" rotation="0.0"/>
             <part-pitch value="4.0" units="Millimeters"/>
             <tape-width value="8.0" units="Millimeters"/>
+            <pipeline>
+               <stages>
+                  <cv-stage class="org.openpnp.vision.pipeline.stages.ImageCapture" name="original" enabled="true" default-light="true" settle-option="Settle" count="1"/>
+                  <cv-stage class="org.openpnp.vision.pipeline.stages.BlurMedian" name="cleanup-original" enabled="true" kernel-size="5"/>
+                  <cv-stage class="org.openpnp.vision.pipeline.stages.ConvertColor" name="gray" enabled="true" conversion="Bgr2Gray"/>
+                  <cv-stage class="org.openpnp.vision.pipeline.stages.DetectEdgesCanny" name="find-edges" enabled="true" threshold-1="150.0" threshold-2="250.0"/>
+                  <cv-stage class="org.openpnp.vision.pipeline.stages.BlurGaussian" name="predetect-1" enabled="true" kernel-size="5" property-name="BlurGaussian"/>
+                  <cv-stage class="org.openpnp.vision.pipeline.stages.BlurMedian" name="predetect-2" enabled="false" kernel-size="7"/>
+                  <cv-stage class="org.openpnp.vision.pipeline.stages.DetectFixedCirclesHough" name="results" enabled="true" dp="1.0" param-1="25.0" param-2="20.0"/>
+                  <cv-stage class="org.openpnp.vision.pipeline.stages.ImageRecall" name="recalled" enabled="true" image-stage-name="original"/>
+                  <cv-stage class="org.openpnp.vision.pipeline.stages.DrawCircles" name="display" enabled="true" circles-stage-name="results" thickness="1">
+                     <color r="255" g="0" b="0" a="255"/>
+                  </cv-stage>
+               </stages>
+            </pipeline>
+         </feeder>
+         <feeder class="org.openpnp.machine.reference.feeder.ReferenceStripFeeder" version="1.1" id="FDR18087958a8d0138c" name="RV16-5" enabled="true" part-id="USB_Micro-B_Amphenol_10103594-0001LF_Horizontal-USB_OTG" feed-retry-count="3" pick-retry-count="1" tape-type="WhitePaper" standard-eia-481="true" vision-enabled="true" feed-count="0" max-feed-count="0">
+            <location units="Millimeters" x="0.0" y="0.0" z="0.0" rotation="0.0"/>
+            <reference-hole-location units="Millimeters" x="365.806" y="160.3" z="9.0" rotation="0.0"/>
+            <last-hole-location units="Millimeters" x="377.806" y="160.3" z="0.0" rotation="0.0"/>
+            <part-pitch value="12.0" units="Millimeters"/>
+            <tape-width value="16.0" units="Millimeters"/>
             <pipeline>
                <stages>
                   <cv-stage class="org.openpnp.vision.pipeline.stages.ImageCapture" name="original" enabled="true" default-light="true" settle-option="Settle" count="1"/>
@@ -1590,7 +1612,7 @@
                <runout-compensation-lookup class="java.util.HashMap">
                   <entry>
                      <string>N1</string>
-                     <runout-compensation class="org.openpnp.machine.reference.ReferenceNozzleTipCalibration$ModelBasedRunoutCameraOffsetCompensation" center-x="0.11334044670196965" center-y="-0.09432904802339889" radius="0.1762794295666947" phase-shift="-172.09446754382353" units="Millimeters" peak-error="0.02788260946253672" rms-error="0.01782626283280057"/>
+                     <runout-compensation class="org.openpnp.machine.reference.ReferenceNozzleTipCalibration$ModelBasedRunoutCameraOffsetCompensation" center-x="0.21209181966036617" center-y="-0.022977900845168802" radius="0.18315082704132613" phase-shift="-6.8423992763833414" units="Millimeters" peak-error="0.01840634860538423" rms-error="0.012454098446977674"/>
                   </entry>
                </runout-compensation-lookup>
                <minimum-detail-size value="0.2" units="Millimeters"/>
@@ -1711,7 +1733,7 @@
                <runout-compensation-lookup class="java.util.HashMap">
                   <entry>
                      <string>NOZ1710829fd33a0170</string>
-                     <runout-compensation class="org.openpnp.machine.reference.ReferenceNozzleTipCalibration$ModelBasedRunoutCameraOffsetCompensation" center-x="0.06779661999999999" center-y="-0.09770115333333336" radius="0.18128247806915382" phase-shift="-14.595495472683249" units="Millimeters" peak-error="0.0323423919582643" rms-error="0.019789566066839917"/>
+                     <runout-compensation class="org.openpnp.machine.reference.ReferenceNozzleTipCalibration$ModelBasedRunoutCameraOffsetCompensation" center-x="0.09039549333333334" center-y="-0.05747126666666666" radius="0.184626664622367" phase-shift="166.18849709249443" units="Millimeters" peak-error="0.02642753615032739" rms-error="0.015078216715296631"/>
                   </entry>
                </runout-compensation-lookup>
                <minimum-detail-size value="0.2" units="Millimeters"/>

@@ -518,7 +518,7 @@
          <string>NT1</string>
       </compatible-nozzle-tip-ids>
    </package>
-   <package version="1.1" id="USB_Micro-B_Amphenol_10103594-0001LF_Horizontal" description="Micro USB connector" pick-vacuum-level="0.0" place-blow-off-level="0.0">
+   <package version="1.1" id="USB_Micro-B_Amphenol_10103594-0001LF_Horizontal" description="Micro USB connector" tape-specification="16mm" pick-vacuum-level="0.0" place-blow-off-level="0.0">
       <footprint units="Millimeters" body-width="0.0" body-height="0.0" outer-dimension="0.0" inner-dimension="0.0" pad-count="0" pad-pitch="0.0" pad-across="0.0" pad-roundness="0.0"/>
       <vision-compositing compositing-method="Restricted" min-leverage-factor="0.2" extra-shots="0" allow-inside="true">
          <max-pick-tolerance value="0.0" units="Millimeters"/>
