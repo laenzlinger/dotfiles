@@ -538,7 +538,7 @@
             </pipeline>
          </feeder>
          <feeder class="org.openpnp.machine.reference.feeder.ReferenceStripFeeder" version="1.1" id="FDR1795130d1cbdbcd5" name="LV8-08" enabled="true" part-id="LED_0805_2012Metric-LED_R" retry-count="3" feed-retry-count="3" pick-retry-count="1" tape-type="BlackPlastic" standard-eia-481="true" vision-enabled="true" feed-count="8" max-feed-count="0">
-            <location units="Millimeters" x="0.0" y="0.0" z="0.0" rotation="90.0"/>
+            <location units="Millimeters" x="0.0" y="0.0" z="0.0" rotation="-90.0"/>
             <reference-hole-location units="Millimeters" x="93.5" y="197.95690891012902" z="10.3" rotation="0.0"/>
             <last-hole-location units="Millimeters" x="93.5" y="193.98709801188625" z="0.0" rotation="0.0"/>
             <part-pitch value="4.0" units="Millimeters"/>
@@ -560,7 +560,7 @@
             </pipeline>
          </feeder>
          <feeder class="org.openpnp.machine.reference.feeder.ReferenceStripFeeder" version="1.1" id="FDR17951323d2df8c9b" name="LV8-07" enabled="true" part-id="LED_0805_2012Metric-LED_Y" retry-count="3" feed-retry-count="3" pick-retry-count="1" tape-type="WhitePaper" standard-eia-481="true" vision-enabled="true" feed-count="4" max-feed-count="0">
-            <location units="Millimeters" x="0.0" y="0.0" z="0.0" rotation="90.0"/>
+            <location units="Millimeters" x="0.0" y="0.0" z="0.0" rotation="-90.0"/>
             <reference-hole-location units="Millimeters" x="104.45090654068419" y="157.5101739104271" z="10.3" rotation="0.0"/>
             <last-hole-location units="Millimeters" x="104.44068322315901" y="153.55413478902918" z="0.0" rotation="0.0"/>
             <part-pitch value="4.0" units="Millimeters"/>
@@ -1612,7 +1612,7 @@
                <runout-compensation-lookup class="java.util.HashMap">
                   <entry>
                      <string>N1</string>
-                     <runout-compensation class="org.openpnp.machine.reference.ReferenceNozzleTipCalibration$ModelBasedRunoutCameraOffsetCompensation" center-x="0.131172141435285" center-y="-0.021527491158051054" radius="0.18715609661097213" phase-shift="-9.622696689983002" units="Millimeters" peak-error="0.02875624797074965" rms-error="0.014175476324690465"/>
+                     <runout-compensation class="org.openpnp.machine.reference.ReferenceNozzleTipCalibration$ModelBasedRunoutCameraOffsetCompensation" center-x="0.43207467887868906" center-y="-0.09686989938491737" radius="0.1926037600589908" phase-shift="-7.33219925310439" units="Millimeters" peak-error="0.03344821418446197" rms-error="0.019216152341481628"/>
                   </entry>
                </runout-compensation-lookup>
                <minimum-detail-size value="0.2" units="Millimeters"/>
@@ -1733,7 +1733,7 @@
                <runout-compensation-lookup class="java.util.HashMap">
                   <entry>
                      <string>NOZ1710829fd33a0170</string>
-                     <runout-compensation class="org.openpnp.machine.reference.ReferenceNozzleTipCalibration$ModelBasedRunoutCameraOffsetCompensation" center-x="0.02259887333333334" center-y="-0.06321839333333334" radius="0.18426595508139354" phase-shift="166.41215519923534" units="Millimeters" peak-error="0.03135355423736015" rms-error="0.020907008836862737"/>
+                     <runout-compensation class="org.openpnp.machine.reference.ReferenceNozzleTipCalibration$ModelBasedRunoutCameraOffsetCompensation" center-x="0.28838190298637634" center-y="-0.1591687996293301" radius="0.1810656040704474" phase-shift="164.70924569112364" units="Millimeters" peak-error="0.034255524764604084" rms-error="0.01735739051875573"/>
                   </entry>
                </runout-compensation-lookup>
                <minimum-detail-size value="0.2" units="Millimeters"/>
