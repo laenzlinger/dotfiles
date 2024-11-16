@@ -361,7 +361,7 @@
       </heads>
       <signalers/>
       <feeders>
-         <feeder class="org.openpnp.machine.reference.feeder.ReferenceStripFeeder" version="1.1" id="FDR17950f970e7eae6f" name="RV8-1" enabled="true" part-id="C_0805_2012Metric-100n" retry-count="3" feed-retry-count="3" pick-retry-count="1" tape-type="WhitePaper" standard-eia-481="true" vision-enabled="true" feed-count="14" max-feed-count="0">
+         <feeder class="org.openpnp.machine.reference.feeder.ReferenceStripFeeder" version="1.1" id="FDR17950f970e7eae6f" name="RV8-1" enabled="true" part-id="C_0805_2012Metric-100n" retry-count="3" feed-retry-count="3" pick-retry-count="1" tape-type="WhitePaper" standard-eia-481="true" vision-enabled="true" feed-count="15" max-feed-count="0">
             <location units="Millimeters" x="0.0" y="0.0" z="0.0" rotation="90.0"/>
             <reference-hole-location units="Millimeters" x="272.8328286288101" y="198.30383262073067" z="10.0" rotation="0.0"/>
             <last-hole-location units="Millimeters" x="272.83065395799" y="194.3172465207665" z="0.0" rotation="0.0"/>
@@ -408,7 +408,7 @@
          <feeder class="org.openpnp.machine.reference.feeder.ReferenceStripFeeder" version="1.1" id="FDR1795114ae91f5aa0" name="RV8-3" enabled="true" part-id="C_0805_2012Metric-1u" retry-count="3" feed-retry-count="3" pick-retry-count="1" tape-type="ClearPlastic" standard-eia-481="true" vision-enabled="true" feed-count="5" max-feed-count="0">
             <location units="Millimeters" x="0.0" y="0.0" z="0.0" rotation="90.0"/>
             <reference-hole-location units="Millimeters" x="295.274179520165" y="198.23969424035937" z="9.1" rotation="0.0"/>
-            <last-hole-location units="Millimeters" x="295.23716766833763" y="194.1865316729754" z="0.0" rotation="0.0"/>
+            <last-hole-location units="Millimeters" x="295.23716766833763" y="194.24" z="0.0" rotation="0.0"/>
             <part-pitch value="4.0" units="Millimeters"/>
             <tape-width value="8.0" units="Millimeters"/>
             <pipeline>
@@ -427,7 +427,7 @@
                </stages>
             </pipeline>
          </feeder>
-         <feeder class="org.openpnp.machine.reference.feeder.ReferenceStripFeeder" version="1.1" id="FDR17951187bdd2d904" name="RV8-4" enabled="true" part-id="C_0805_2012Metric-10u" retry-count="3" feed-retry-count="3" pick-retry-count="1" tape-type="ClearPlastic" standard-eia-481="true" vision-enabled="true" feed-count="17" max-feed-count="0">
+         <feeder class="org.openpnp.machine.reference.feeder.ReferenceStripFeeder" version="1.1" id="FDR17951187bdd2d904" name="RV8-4" enabled="true" part-id="C_0805_2012Metric-10u" retry-count="3" feed-retry-count="3" pick-retry-count="1" tape-type="ClearPlastic" standard-eia-481="true" vision-enabled="true" feed-count="0" max-feed-count="0">
             <location units="Millimeters" x="0.0" y="0.0" z="0.0" rotation="90.0"/>
             <reference-hole-location units="Millimeters" x="306.667" y="199.249" z="9.5" rotation="0.0"/>
             <last-hole-location units="Millimeters" x="306.667" y="195.249" z="0.0" rotation="0.0"/>
@@ -517,8 +517,8 @@
          </feeder>
          <feeder class="org.openpnp.machine.reference.feeder.ReferenceStripFeeder" version="1.1" id="FDR179512b906d66956" name="RV8-8" enabled="true" part-id="C_0805_2012Metric-18p" retry-count="3" feed-retry-count="3" pick-retry-count="1" tape-type="ClearPlastic" standard-eia-481="true" vision-enabled="true" feed-count="0" max-feed-count="0">
             <location units="Millimeters" x="0.0" y="0.0" z="0.0" rotation="-90.0"/>
-            <reference-hole-location units="Millimeters" x="350.528" y="195.4" z="8.0" rotation="0.0"/>
-            <last-hole-location units="Millimeters" x="350.528" y="191.4" z="0.0" rotation="0.0"/>
+            <reference-hole-location units="Millimeters" x="350.60918832995316" y="199.78541258994318" z="8.0" rotation="0.0"/>
+            <last-hole-location units="Millimeters" x="350.58627960896797" y="195.7519832776713" z="0.0" rotation="0.0"/>
             <part-pitch value="4.0" units="Millimeters"/>
             <tape-width value="8.0" units="Millimeters"/>
             <pipeline>
@@ -539,8 +539,8 @@
          </feeder>
          <feeder class="org.openpnp.machine.reference.feeder.ReferenceStripFeeder" version="1.1" id="FDR1795130d1cbdbcd5" name="LV8-08" enabled="true" part-id="LED_0805_2012Metric-LED_R" retry-count="3" feed-retry-count="3" pick-retry-count="1" tape-type="BlackPlastic" standard-eia-481="true" vision-enabled="true" feed-count="8" max-feed-count="0">
             <location units="Millimeters" x="0.0" y="0.0" z="0.0" rotation="-90.0"/>
-            <reference-hole-location units="Millimeters" x="93.5" y="197.95690891012902" z="10.3" rotation="0.0"/>
-            <last-hole-location units="Millimeters" x="93.5" y="193.98709801188625" z="0.0" rotation="0.0"/>
+            <reference-hole-location units="Millimeters" x="93.5" y="200.0" z="10.3" rotation="0.0"/>
+            <last-hole-location units="Millimeters" x="93.5" y="196.0" z="0.0" rotation="0.0"/>
             <part-pitch value="4.0" units="Millimeters"/>
             <tape-width value="8.0" units="Millimeters"/>
             <pipeline>
@@ -559,10 +559,10 @@
                </stages>
             </pipeline>
          </feeder>
-         <feeder class="org.openpnp.machine.reference.feeder.ReferenceStripFeeder" version="1.1" id="FDR17951323d2df8c9b" name="LV8-07" enabled="true" part-id="LED_0805_2012Metric-LED_Y" retry-count="3" feed-retry-count="3" pick-retry-count="1" tape-type="WhitePaper" standard-eia-481="true" vision-enabled="true" feed-count="4" max-feed-count="0">
+         <feeder class="org.openpnp.machine.reference.feeder.ReferenceStripFeeder" version="1.1" id="FDR17951323d2df8c9b" name="LV8-07" enabled="true" part-id="LED_0805_2012Metric-LED_Y" retry-count="3" feed-retry-count="3" pick-retry-count="1" tape-type="WhitePaper" standard-eia-481="true" vision-enabled="true" feed-count="6" max-feed-count="0">
             <location units="Millimeters" x="0.0" y="0.0" z="0.0" rotation="-90.0"/>
-            <reference-hole-location units="Millimeters" x="104.45090654068419" y="157.5101739104271" z="10.3" rotation="0.0"/>
-            <last-hole-location units="Millimeters" x="104.44068322315901" y="153.55413478902918" z="0.0" rotation="0.0"/>
+            <reference-hole-location units="Millimeters" x="104.607" y="200.18449314351474" z="10.3" rotation="0.0"/>
+            <last-hole-location units="Millimeters" x="104.60722063709466" y="196.184" z="0.0" rotation="0.0"/>
             <part-pitch value="4.0" units="Millimeters"/>
             <tape-width value="8.0" units="Millimeters"/>
             <pipeline>
@@ -583,8 +583,8 @@
          </feeder>
          <feeder class="org.openpnp.machine.reference.feeder.ReferenceStripFeeder" version="1.1" id="FDR179513683397cca0" name="LV8-06" enabled="true" part-id="R_0805_2012Metric-10R" retry-count="3" feed-retry-count="3" pick-retry-count="1" tape-type="WhitePaper" standard-eia-481="true" vision-enabled="true" feed-count="4" max-feed-count="0">
             <location units="Millimeters" x="0.0" y="0.0" z="0.0" rotation="90.0"/>
-            <reference-hole-location units="Millimeters" x="115.59512887935169" y="199.8016068215789" z="10.3" rotation="0.0"/>
-            <last-hole-location units="Millimeters" x="115.43266579849374" y="196.0145282361635" z="0.0" rotation="0.0"/>
+            <reference-hole-location units="Millimeters" x="115.70879634650166" y="200.1810745231162" z="10.3" rotation="0.0"/>
+            <last-hole-location units="Millimeters" x="115.709" y="196.250579686088" z="0.0" rotation="0.0"/>
             <part-pitch value="4.0" units="Millimeters"/>
             <tape-width value="8.0" units="Millimeters"/>
             <pipeline>
@@ -627,8 +627,8 @@
          </feeder>
          <feeder class="org.openpnp.machine.reference.feeder.ReferenceStripFeeder" version="1.1" id="FDR179513bd4cfa865e" name="LV8-04" enabled="true" part-id="R_0805_2012Metric-12K" retry-count="3" feed-retry-count="3" pick-retry-count="1" tape-type="WhitePaper" standard-eia-481="true" vision-enabled="true" feed-count="2" max-feed-count="0">
             <location units="Millimeters" x="0.0" y="0.0" z="0.0" rotation="90.0"/>
-            <reference-hole-location units="Millimeters" x="137.79892528913894" y="199.24396713873188" z="9.6" rotation="0.0"/>
-            <last-hole-location units="Millimeters" x="137.767463790532" y="195.28199698403606" z="0.0" rotation="0.0"/>
+            <reference-hole-location units="Millimeters" x="137.90968726656226" y="199.91083591998907" z="9.6" rotation="0.0"/>
+            <last-hole-location units="Millimeters" x="137.89778417674296" y="195.91549756542238" z="0.0" rotation="0.0"/>
             <part-pitch value="4.0" units="Millimeters"/>
             <tape-width value="8.0" units="Millimeters"/>
             <pipeline>
@@ -713,10 +713,10 @@
                </stages>
             </pipeline>
          </feeder>
-         <feeder class="org.openpnp.machine.reference.feeder.ReferenceStripFeeder" version="1.1" id="FDR17951497949b69ea" name="LH8-01" enabled="true" part-id="R_0805_2012Metric-27R" retry-count="3" feed-retry-count="3" pick-retry-count="1" tape-type="WhitePaper" standard-eia-481="true" vision-enabled="true" feed-count="7" max-feed-count="0">
+         <feeder class="org.openpnp.machine.reference.feeder.ReferenceStripFeeder" version="1.1" id="FDR17951497949b69ea" name="LH8-01" enabled="true" part-id="R_0805_2012Metric-27R" retry-count="3" feed-retry-count="3" pick-retry-count="1" tape-type="WhitePaper" standard-eia-481="true" vision-enabled="true" feed-count="9" max-feed-count="0">
             <location units="Millimeters" x="0.0" y="0.0" z="0.0" rotation="90.0"/>
-            <reference-hole-location units="Millimeters" x="119.34591135412165" y="210.539" z="9.0" rotation="0.0"/>
-            <last-hole-location units="Millimeters" x="119.32380609297867" y="214.541" z="0.0" rotation="0.0"/>
+            <reference-hole-location units="Millimeters" x="119.46230086379413" y="204.8505642346346" z="9.0" rotation="0.0"/>
+            <last-hole-location units="Millimeters" x="119.39396901574763" y="212.8435345192834" z="0.0" rotation="0.0"/>
             <part-pitch value="4.0" units="Millimeters"/>
             <tape-width value="8.0" units="Millimeters"/>
             <pipeline>
@@ -757,7 +757,7 @@
                </stages>
             </pipeline>
          </feeder>
-         <feeder class="org.openpnp.machine.reference.feeder.ReferenceStripFeeder" version="1.1" id="FDR1795152113f78569" name="LH8-03" enabled="true" part-id="L_0603_1608Metric-120_100MHz" retry-count="3" feed-retry-count="3" pick-retry-count="1" tape-type="WhitePaper" standard-eia-481="true" vision-enabled="true" feed-count="14" max-feed-count="0">
+         <feeder class="org.openpnp.machine.reference.feeder.ReferenceStripFeeder" version="1.1" id="FDR1795152113f78569" name="LH8-03" enabled="true" part-id="L_0603_1608Metric-120_100MHz" retry-count="3" feed-retry-count="3" pick-retry-count="1" tape-type="WhitePaper" standard-eia-481="true" vision-enabled="true" feed-count="15" max-feed-count="0">
             <location units="Millimeters" x="0.0" y="0.0" z="0.0" rotation="90.0"/>
             <reference-hole-location units="Millimeters" x="97.26819910470284" y="209.78760990018137" z="9.0" rotation="0.0"/>
             <last-hole-location units="Millimeters" x="97.25880615104947" y="213.8075921542923" z="0.0" rotation="0.0"/>
@@ -802,7 +802,7 @@
             </pipeline>
          </feeder>
          <feeder class="org.openpnp.machine.reference.feeder.ReferenceStripFeeder" version="1.1" id="FDR1795165a4c5adb67" name="RH12-1" enabled="true" part-id="TSSOP-10_3x3mm_P0.5mm-FSUSB42MUX" retry-count="3" feed-retry-count="3" pick-retry-count="1" tape-type="BlackPlastic" standard-eia-481="true" vision-enabled="true" feed-count="0" max-feed-count="0">
-            <location units="Millimeters" x="0.0" y="0.0" z="0.0" rotation="90.0"/>
+            <location units="Millimeters" x="0.0" y="0.0" z="0.0" rotation="0.0"/>
             <reference-hole-location units="Millimeters" x="347.4547715721307" y="211.72710631698857" z="8.2" rotation="0.0"/>
             <last-hole-location units="Millimeters" x="347.32926922316256" y="219.71751020980315" z="0.0" rotation="0.0"/>
             <part-pitch value="8.0" units="Millimeters"/>
@@ -933,28 +933,6 @@
                </stages>
             </pipeline>
          </feeder>
-         <feeder class="org.openpnp.machine.reference.feeder.ReferenceStripFeeder" version="1.1" id="FDR17951a700e99677f" name="RH12-4-C" enabled="true" part-id="D_SMA-SS34HF" retry-count="3" feed-retry-count="3" pick-retry-count="1" tape-type="WhitePaper" standard-eia-481="true" vision-enabled="true" feed-count="8" max-feed-count="0">
-            <location units="Millimeters" x="0.0" y="0.0" z="0.0" rotation="-90.0"/>
-            <reference-hole-location units="Millimeters" x="390.15936704612335" y="294.12541607227433" z="8.0" rotation="0.0"/>
-            <last-hole-location units="Millimeters" x="390.0352413657084" y="298.11821423075975" z="0.0" rotation="0.0"/>
-            <part-pitch value="4.0" units="Millimeters"/>
-            <tape-width value="12.0" units="Millimeters"/>
-            <pipeline>
-               <stages>
-                  <cv-stage class="org.openpnp.vision.pipeline.stages.ImageCapture" name="original" enabled="true" default-light="true" settle-option="Settle" count="1"/>
-                  <cv-stage class="org.openpnp.vision.pipeline.stages.BlurMedian" name="cleanup-original" enabled="true" kernel-size="5"/>
-                  <cv-stage class="org.openpnp.vision.pipeline.stages.ConvertColor" name="gray" enabled="true" conversion="Bgr2Gray"/>
-                  <cv-stage class="org.openpnp.vision.pipeline.stages.DetectEdgesCanny" name="find-edges" enabled="true" threshold-1="40.0" threshold-2="120.0"/>
-                  <cv-stage class="org.openpnp.vision.pipeline.stages.BlurGaussian" name="predetect-1" enabled="true" kernel-size="5" property-name="BlurGaussian"/>
-                  <cv-stage class="org.openpnp.vision.pipeline.stages.BlurMedian" name="predetect-2" enabled="false" kernel-size="7"/>
-                  <cv-stage class="org.openpnp.vision.pipeline.stages.DetectFixedCirclesHough" name="results" enabled="true" dp="1.0" param-1="25.0" param-2="20.0"/>
-                  <cv-stage class="org.openpnp.vision.pipeline.stages.ImageRecall" name="recalled" enabled="true" image-stage-name="original"/>
-                  <cv-stage class="org.openpnp.vision.pipeline.stages.DrawCircles" name="display" enabled="true" circles-stage-name="results" thickness="1">
-                     <color r="255" g="0" b="0" a="255"/>
-                  </cv-stage>
-               </stages>
-            </pipeline>
-         </feeder>
          <feeder class="org.openpnp.machine.reference.feeder.ReferenceStripFeeder" version="1.1" id="FDR17951d0d90312d6a" name="RV16-4" enabled="true" part-id="L_Bourns_SRN6045TA-SRN6045TA-3R3Y" retry-count="3" feed-retry-count="3" pick-retry-count="1" tape-type="BlackPlastic" standard-eia-481="true" vision-enabled="true" feed-count="2" max-feed-count="0">
             <location units="Millimeters" x="0.0" y="0.0" z="0.0" rotation="90.0"/>
             <reference-hole-location units="Millimeters" x="367.106" y="142.0" z="8.2" rotation="0.0"/>
@@ -999,7 +977,7 @@
                </stages>
             </pipeline>
          </feeder>
-         <feeder class="org.openpnp.machine.reference.feeder.ReferenceStripFeeder" version="1.1" id="FDR17951db83b250735" name="RV16-2" enabled="true" part-id="RP2040-QFN-56-RP2040" retry-count="3" feed-retry-count="3" pick-retry-count="1" tape-type="BlackPlastic" standard-eia-481="true" vision-enabled="true" feed-count="4" max-feed-count="0">
+         <feeder class="org.openpnp.machine.reference.feeder.ReferenceStripFeeder" version="1.1" id="FDR17951db83b250735" name="RV16-2" enabled="true" part-id="RP2040-QFN-56-RP2040" retry-count="3" feed-retry-count="3" pick-retry-count="1" tape-type="BlackPlastic" standard-eia-481="true" vision-enabled="true" feed-count="3" max-feed-count="0">
             <location units="Millimeters" x="0.0" y="0.0" z="0.0" rotation="0.0"/>
             <reference-hole-location units="Millimeters" x="366.606" y="104.925" z="9.0" rotation="0.0"/>
             <last-hole-location units="Millimeters" x="378.606" y="104.925" z="0.0" rotation="0.0"/>
@@ -1070,7 +1048,7 @@
             <offsets units="Millimeters" x="0.0" y="0.0" z="0.0" rotation="0.0"/>
          </feeder>
          <feeder class="org.openpnp.machine.reference.feeder.ReferenceStripFeeder" version="1.1" id="FDR18082b7f90ff6d45" name="LH8-05" enabled="true" part-id="D_SOD-123F-SM4007" retry-count="3" feed-retry-count="3" pick-retry-count="0" tape-type="BlackPlastic" standard-eia-481="true" vision-enabled="true" feed-count="0" max-feed-count="0">
-            <location units="Millimeters" x="0.0" y="0.0" z="0.0" rotation="90.0"/>
+            <location units="Millimeters" x="0.0" y="0.0" z="0.0" rotation="-90.0"/>
             <reference-hole-location units="Millimeters" x="75.12488408017319" y="209.4495268902429" z="8.4" rotation="0.0"/>
             <last-hole-location units="Millimeters" x="75.16198012240062" y="213.36197697005875" z="0.0" rotation="0.0"/>
             <part-pitch value="4.0" units="Millimeters"/>
@@ -1093,8 +1071,8 @@
          </feeder>
          <feeder class="org.openpnp.machine.reference.feeder.ReferenceStripFeeder" version="1.1" id="FDR18082c3ad540eca3" name="LV8-09" enabled="true" part-id="R_0805_2012Metric-3K9" retry-count="3" feed-retry-count="3" pick-retry-count="0" tape-type="WhitePaper" standard-eia-481="true" vision-enabled="true" feed-count="0" max-feed-count="0">
             <location units="Millimeters" x="0.0" y="0.0" z="0.0" rotation="90.0"/>
-            <reference-hole-location units="Millimeters" x="81.60065626655759" y="198.33352909353" z="10.0" rotation="0.0"/>
-            <last-hole-location units="Millimeters" x="81.62350367694391" y="194.36039156808195" z="0.0" rotation="0.0"/>
+            <reference-hole-location units="Millimeters" x="81.60065626655759" y="199.334" z="10.0" rotation="0.0"/>
+            <last-hole-location units="Millimeters" x="81.601" y="195.334" z="0.0" rotation="0.0"/>
             <part-pitch value="4.0" units="Millimeters"/>
             <tape-width value="8.0" units="Millimeters"/>
             <pipeline>
@@ -1115,8 +1093,8 @@
          </feeder>
          <feeder class="org.openpnp.machine.reference.feeder.ReferenceStripFeeder" version="1.1" id="FDR18082cc1a0da80a9" name="LV8-10" enabled="true" part-id="R_0805_2012Metric-36K" retry-count="3" feed-retry-count="3" pick-retry-count="0" tape-type="WhitePaper" standard-eia-481="true" vision-enabled="true" feed-count="0" max-feed-count="0">
             <location units="Millimeters" x="0.0" y="0.0" z="0.0" rotation="90.0"/>
-            <reference-hole-location units="Millimeters" x="70.6586927540822" y="198.54246622197684" z="10.0" rotation="0.0"/>
-            <last-hole-location units="Millimeters" x="70.56987427306528" y="194.504902916224" z="0.0" rotation="0.0"/>
+            <reference-hole-location units="Millimeters" x="70.6586927540822" y="200.0" z="10.0" rotation="0.0"/>
+            <last-hole-location units="Millimeters" x="70.659" y="196.0" z="0.0" rotation="0.0"/>
             <part-pitch value="4.0" units="Millimeters"/>
             <tape-width value="8.0" units="Millimeters"/>
             <pipeline>
@@ -1179,10 +1157,10 @@
                </stages>
             </pipeline>
          </feeder>
-         <feeder class="org.openpnp.machine.reference.feeder.ReferenceStripFeeder" version="1.1" id="FDR18082fce2e1989f6" name="LH8-08" enabled="true" part-id="USON-10_2.5x1.0mm_P0.5mm-TPD4EUSB30" retry-count="3" feed-retry-count="3" pick-retry-count="0" tape-type="WhitePaper" standard-eia-481="true" vision-enabled="true" feed-count="0" max-feed-count="0">
-            <location units="Millimeters" x="0.0" y="0.0" z="0.0" rotation="90.0"/>
-            <reference-hole-location units="Millimeters" x="41.72119426618733" y="208.48603057700825" z="8.2" rotation="0.0"/>
-            <last-hole-location units="Millimeters" x="41.72075029357839" y="212.4388913628721" z="0.0" rotation="0.0"/>
+         <feeder class="org.openpnp.machine.reference.feeder.ReferenceStripFeeder" version="1.1" id="FDR18082fce2e1989f6" name="LH8-08" enabled="true" part-id="USON-10_2.5x1.0mm_P0.5mm-TPD4EUSB30" retry-count="3" feed-retry-count="3" pick-retry-count="1" tape-type="WhitePaper" standard-eia-481="true" vision-enabled="true" feed-count="0" max-feed-count="0">
+            <location units="Millimeters" x="0.0" y="0.0" z="0.0" rotation="0.0"/>
+            <reference-hole-location units="Millimeters" x="41.83545209313826" y="210.4758646661595" z="8.1" rotation="0.0"/>
+            <last-hole-location units="Millimeters" x="41.873991978230684" y="214.44040402588993" z="0.0" rotation="0.0"/>
             <part-pitch value="4.0" units="Millimeters"/>
             <tape-width value="8.0" units="Millimeters"/>
             <pipeline>
@@ -1224,7 +1202,7 @@
             </pipeline>
          </feeder>
          <feeder class="org.openpnp.machine.reference.feeder.ReferenceStripFeeder" version="1.1" id="FDR1808320845f7b6bf" name="RH12-1-B" enabled="true" part-id="Crystal_SMD_5032-2Pin_5.0x3.2mm-Crystal_Small" retry-count="3" feed-retry-count="3" pick-retry-count="1" tape-type="BlackPlastic" standard-eia-481="true" vision-enabled="true" feed-count="0" max-feed-count="0">
-            <location units="Millimeters" x="0.0" y="0.0" z="0.0" rotation="90.0"/>
+            <location units="Millimeters" x="0.0" y="0.0" z="0.0" rotation="-90.0"/>
             <reference-hole-location units="Millimeters" x="346.85515192651894" y="280.0916792429506" z="8.2" rotation="0.0"/>
             <last-hole-location units="Millimeters" x="346.8334318800725" y="288.08373427940484" z="0.0" rotation="0.0"/>
             <part-pitch value="8.0" units="Millimeters"/>
@@ -1246,7 +1224,7 @@
             </pipeline>
          </feeder>
          <feeder class="org.openpnp.machine.reference.feeder.ReferenceStripFeeder" version="1.1" id="FDR180832722f60cc80" name="LV8-11" enabled="true" part-id="ABM8-272-T3_ABR-ABM8-272-T3" retry-count="3" feed-retry-count="3" pick-retry-count="0" tape-type="WhitePaper" standard-eia-481="true" vision-enabled="true" feed-count="0" max-feed-count="0">
-            <location units="Millimeters" x="0.0" y="0.0" z="0.0" rotation="90.0"/>
+            <location units="Millimeters" x="0.0" y="0.0" z="0.0" rotation="0.0"/>
             <reference-hole-location units="Millimeters" x="59.663333701160084" y="198.26808675748225" z="9.3" rotation="0.0"/>
             <last-hole-location units="Millimeters" x="59.57719195086827" y="194.3357250631943" z="0.0" rotation="0.0"/>
             <part-pitch value="4.0" units="Millimeters"/>
