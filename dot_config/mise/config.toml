@@ -1,3 +1,8 @@
 [tools]
 usage = "latest"
 golang = "system"
+
+[settings]
+
+[settings.python]
+compile = true
