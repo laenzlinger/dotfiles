@@ -66,4 +66,15 @@
    <part id="SOT-23-5-AT24CS01-STUM" height-units="Millimeters" height="1.3" package-id="SOT-23-5" speed="1.0" pick-retry-count="0"/>
    <part id="Crystal_SMD_5032-2Pin_5.0x3.2mm-Crystal_Small" height-units="Millimeters" height="1.35" package-id="Crystal_SMD_5032-2Pin_5.0x3.2mm" speed="1.0" pick-retry-count="0"/>
    <part id="ABM8-272-T3_ABR-ABM8-272-T3" height-units="Millimeters" height="0.8" package-id="ABM8-272-T3_ABR" speed="1.0" pick-retry-count="0"/>
+   <part id="C_0805_2012Metric-10n_film" height-units="Millimeters" height="0.0" package-id="C_0805" speed="1.0" pick-retry-count="0"/>
+   <part id="LED_0805_2012Metric-red" height-units="Millimeters" height="0.0" package-id="LED_0805" speed="1.0" pick-retry-count="0"/>
+   <part id="Fiducial_0.75mm_Mask1.5mm-Fiducial" height-units="Millimeters" height="0.0" package-id="Fiducial_0.75mm_Mask1.5mm" speed="1.0" pick-retry-count="0"/>
+   <part id="R_0805_2012Metric-100R" height-units="Millimeters" height="0.0" package-id="R_0805" speed="1.0" pick-retry-count="0"/>
+   <part id="R_0805_2012Metric-100K" height-units="Millimeters" height="0.0" package-id="R_0805" speed="1.0" pick-retry-count="0"/>
+   <part id="R_0805_2012Metric-470R" height-units="Millimeters" height="0.0" package-id="R_0805" speed="1.0" pick-retry-count="0"/>
+   <part id="SOT-23-5-NCP163" height-units="Millimeters" height="0.0" package-id="SOT-23-5" speed="1.0" pick-retry-count="0"/>
+   <part id="TSSOP-30_4.4x7.8mm_P0.5mm-PCM1863DBT" height-units="Millimeters" height="0.0" package-id="TSSOP-30_4.4x7.8mm_P0.5mm" speed="1.0" pick-retry-count="0"/>
+   <part id="HVQFN-32-1EP_5x5mm_P0.5mm_EP3.1x3.1mm_ThermalVias-PCM5242RHBR" height-units="Millimeters" height="0.0" package-id="HVQFN-32-1EP_5x5mm_P0.5mm_EP3.1x3.1mm_ThermalVias" speed="1.0" pick-retry-count="0"/>
+   <part id="Oscillator_SMD_Abracon_ASDMB-4Pin_2.5x2.0mm-22.5792M" height-units="Millimeters" height="0.0" package-id="Oscillator_SMD_Abracon_ASDMB-4Pin_2.5x2.0mm" speed="1.0" pick-retry-count="0"/>
+   <part id="Oscillator_SMD_Abracon_ASDMB-4Pin_2.5x2.0mm-24.576M" height-units="Millimeters" height="0.0" package-id="Oscillator_SMD_Abracon_ASDMB-4Pin_2.5x2.0mm" speed="1.0" pick-retry-count="0"/>
 </openpnp-parts>
