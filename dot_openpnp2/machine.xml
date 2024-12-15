@@ -784,8 +784,8 @@
          </feeder>
          <feeder class="org.openpnp.machine.reference.feeder.ReferenceStripFeeder" version="1.1" id="FDR1795158f29d4fcb3" name="LH8-04" enabled="true" part-id="SOT-353_SC-70-5-74AHCT1G32SE-7" retry-count="3" feed-retry-count="3" pick-retry-count="1" tape-type="BlackPlastic" standard-eia-481="true" vision-enabled="true" feed-count="0" max-feed-count="0">
             <location units="Millimeters" x="0.0" y="0.0" z="0.0" rotation="90.0"/>
-            <reference-hole-location units="Millimeters" x="86.17463285956207" y="208.8769054935297" z="8.4" rotation="0.0"/>
-            <last-hole-location units="Millimeters" x="86.1883021935551" y="212.89385600473193" z="0.0" rotation="0.0"/>
+            <reference-hole-location units="Millimeters" x="86.2205444532431" y="210.37763623265477" z="8.4" rotation="0.0"/>
+            <last-hole-location units="Millimeters" x="86.24517932386509" y="214.3862306579226" z="0.0" rotation="0.0"/>
             <part-pitch value="4.0" units="Millimeters"/>
             <tape-width value="8.0" units="Millimeters"/>
             <pipeline>
@@ -914,7 +914,7 @@
                </stages>
             </pipeline>
          </feeder>
-         <feeder class="org.openpnp.machine.reference.feeder.ReferenceStripFeeder" version="1.1" id="FDR179519f77466417c" name="RH12-5" enabled="true" part-id="SOT-223-3_TabPin2-NCP1117-3.3_SOT223" retry-count="3" feed-retry-count="3" pick-retry-count="1" tape-type="BlackPlastic" standard-eia-481="true" vision-enabled="true" feed-count="0" max-feed-count="0">
+         <feeder class="org.openpnp.machine.reference.feeder.ReferenceStripFeeder" version="1.1" id="FDR179519f77466417c" name="RH12-5" enabled="true" part-id="SOT-223-3_TabPin2-NCP1117-3.3_SOT223" retry-count="3" feed-retry-count="3" pick-retry-count="1" tape-type="BlackPlastic" standard-eia-481="true" vision-enabled="true" feed-count="1" max-feed-count="0">
             <location units="Millimeters" x="0.0" y="0.0" z="0.0" rotation="90.0"/>
             <reference-hole-location units="Millimeters" x="404.9329428368036" y="210.51397343036396" z="8.5" rotation="0.0"/>
             <last-hole-location units="Millimeters" x="404.8934486043766" y="218.5118497510315" z="0.0" rotation="0.0"/>
@@ -1629,12 +1629,7 @@
                      <cv-stage class="org.openpnp.vision.pipeline.stages.ImageWriteDebug" name="7" enabled="true" prefix="runoutCalibration" suffix=".png"/>
                   </stages>
                </pipeline>
-               <runout-compensation-lookup class="java.util.HashMap">
-                  <entry>
-                     <string>N1</string>
-                     <runout-compensation class="org.openpnp.machine.reference.ReferenceNozzleTipCalibration$ModelBasedRunoutCameraOffsetCompensation" center-x="0.6026696808504101" center-y="0.12068408021094333" radius="0.19371014445862508" phase-shift="-172.68887274022524" units="Millimeters" peak-error="0.018506059365373067" rms-error="0.012553636262822736"/>
-                  </entry>
-               </runout-compensation-lookup>
+               <runout-compensation-lookup class="java.util.HashMap"/>
                <minimum-detail-size value="0.2" units="Millimeters"/>
                <offset-threshold-length value="1.0" units="Millimeters"/>
                <calibration-Z-offset value="0.0" units="Millimeters"/>
@@ -1753,7 +1748,7 @@
                <runout-compensation-lookup class="java.util.HashMap">
                   <entry>
                      <string>NOZ1710829fd33a0170</string>
-                     <runout-compensation class="org.openpnp.machine.reference.ReferenceNozzleTipCalibration$ModelBasedRunoutCameraOffsetCompensation" center-x="0.8456525743791674" center-y="0.12028482307690004" radius="0.14321089167978912" phase-shift="-4.884780717939553" units="Millimeters" peak-error="0.10757784697761917" rms-error="0.04957375603479927"/>
+                     <runout-compensation class="org.openpnp.machine.reference.ReferenceNozzleTipCalibration$ModelBasedRunoutCameraOffsetCompensation" center-x="0.6355933125000001" center-y="0.17241379999999998" radius="0.1527510827076206" phase-shift="2.7750274432645914" units="Millimeters" peak-error="0.07444336423902817" rms-error="0.04905738476888628"/>
                   </entry>
                </runout-compensation-lookup>
                <minimum-detail-size value="0.2" units="Millimeters"/>
