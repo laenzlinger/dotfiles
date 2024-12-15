@@ -564,7 +564,7 @@
       </compatible-nozzle-tip-ids>
    </package>
    <package version="1.1" id="QFN-36-1EP_6x6mm_P0.5mm_EP3.7x3.7mm" description="quad flat no leads 36 pin" tape-specification="16mm" pick-vacuum-level="0.0" place-blow-off-level="0.0">
-      <footprint units="Millimeters" body-width="5.8" body-height="5.8" outer-dimension="6.2" inner-dimension="5.5" pad-count="36" pad-pitch="0.5" pad-across="0.25" pad-roundness="0.0">
+      <footprint units="Millimeters" body-width="6.0" body-height="6.0" outer-dimension="6.2" inner-dimension="5.5" pad-count="36" pad-pitch="0.5" pad-across="0.25" pad-roundness="0.0">
          <pad name="1" x="-2.925" y="2.0" width="0.3500000000000001" height="0.25" rotation="180.0" roundness="0.0"/>
          <pad name="2" x="-2.925" y="1.5" width="0.3500000000000001" height="0.25" rotation="180.0" roundness="0.0"/>
          <pad name="3" x="-2.925" y="1.0" width="0.3500000000000001" height="0.25" rotation="180.0" roundness="0.0"/>
@@ -683,26 +683,94 @@
          <string>TIP16cbc9505c3e1916</string>
       </compatible-nozzle-tip-ids>
    </package>
-   <package version="1.1" id="Fiducial_0.75mm_Mask1.5mm" description="Very small fiducial" pick-vacuum-level="0.0" place-blow-off-level="0.0">
+   <package version="1.1" fiducial-vision-id="FVS18115e8f2b34b1f3" id="Fiducial_0.75mm_Mask1.5mm" description="Small Fiducial 0.75mm" pick-vacuum-level="0.0" place-blow-off-level="0.0">
       <footprint units="Millimeters" body-width="0.0" body-height="0.0" outer-dimension="0.0" inner-dimension="0.0" pad-count="0" pad-pitch="0.0" pad-across="0.0" pad-roundness="0.0"/>
       <vision-compositing compositing-method="Restricted" min-leverage-factor="0.2" extra-shots="0" allow-inside="true">
          <max-pick-tolerance value="0.0" units="Millimeters"/>
       </vision-compositing>
       <compatible-nozzle-tip-ids class="java.util.ArrayList"/>
    </package>
-   <package version="1.1" id="TSSOP-30_4.4x7.8mm_P0.5mm" pick-vacuum-level="0.0" place-blow-off-level="0.0">
-      <footprint units="Millimeters" body-width="0.0" body-height="0.0" outer-dimension="0.0" inner-dimension="0.0" pad-count="0" pad-pitch="0.0" pad-across="0.0" pad-roundness="0.0"/>
+   <package version="1.1" id="TSSOP-30_4.4x7.8mm_P0.5mm" description="Thin shrink small outline package 30 pin" tape-specification="16mm" pick-vacuum-level="0.0" place-blow-off-level="0.0">
+      <footprint units="Millimeters" body-width="4.5" body-height="7.5" outer-dimension="6.55" inner-dimension="4.5" pad-count="30" pad-pitch="0.5" pad-across="0.2" pad-roundness="0.0">
+         <pad name="1" x="-2.7625" y="3.5" width="1.025" height="0.2" rotation="180.0" roundness="0.0"/>
+         <pad name="2" x="-2.7625" y="3.0" width="1.025" height="0.2" rotation="180.0" roundness="0.0"/>
+         <pad name="3" x="-2.7625" y="2.5" width="1.025" height="0.2" rotation="180.0" roundness="0.0"/>
+         <pad name="4" x="-2.7625" y="2.0" width="1.025" height="0.2" rotation="180.0" roundness="0.0"/>
+         <pad name="5" x="-2.7625" y="1.5" width="1.025" height="0.2" rotation="180.0" roundness="0.0"/>
+         <pad name="6" x="-2.7625" y="1.0" width="1.025" height="0.2" rotation="180.0" roundness="0.0"/>
+         <pad name="7" x="-2.7625" y="0.5" width="1.025" height="0.2" rotation="180.0" roundness="0.0"/>
+         <pad name="8" x="-2.7625" y="0.0" width="1.025" height="0.2" rotation="180.0" roundness="0.0"/>
+         <pad name="9" x="-2.7625" y="-0.5" width="1.025" height="0.2" rotation="180.0" roundness="0.0"/>
+         <pad name="10" x="-2.7625" y="-1.0" width="1.025" height="0.2" rotation="180.0" roundness="0.0"/>
+         <pad name="11" x="-2.7625" y="-1.5" width="1.025" height="0.2" rotation="180.0" roundness="0.0"/>
+         <pad name="12" x="-2.7625" y="-2.0" width="1.025" height="0.2" rotation="180.0" roundness="0.0"/>
+         <pad name="13" x="-2.7625" y="-2.5" width="1.025" height="0.2" rotation="180.0" roundness="0.0"/>
+         <pad name="14" x="-2.7625" y="-3.0" width="1.025" height="0.2" rotation="180.0" roundness="0.0"/>
+         <pad name="15" x="-2.7625" y="-3.5" width="1.025" height="0.2" rotation="180.0" roundness="0.0"/>
+         <pad name="16" x="2.7625" y="-3.5" width="1.025" height="0.2" rotation="0.0" roundness="0.0"/>
+         <pad name="17" x="2.7625" y="-3.0" width="1.025" height="0.2" rotation="0.0" roundness="0.0"/>
+         <pad name="18" x="2.7625" y="-2.5" width="1.025" height="0.2" rotation="0.0" roundness="0.0"/>
+         <pad name="19" x="2.7625" y="-2.0" width="1.025" height="0.2" rotation="0.0" roundness="0.0"/>
+         <pad name="20" x="2.7625" y="-1.5" width="1.025" height="0.2" rotation="0.0" roundness="0.0"/>
+         <pad name="21" x="2.7625" y="-1.0" width="1.025" height="0.2" rotation="0.0" roundness="0.0"/>
+         <pad name="22" x="2.7625" y="-0.5" width="1.025" height="0.2" rotation="0.0" roundness="0.0"/>
+         <pad name="23" x="2.7625" y="0.0" width="1.025" height="0.2" rotation="0.0" roundness="0.0"/>
+         <pad name="24" x="2.7625" y="0.5" width="1.025" height="0.2" rotation="0.0" roundness="0.0"/>
+         <pad name="25" x="2.7625" y="1.0" width="1.025" height="0.2" rotation="0.0" roundness="0.0"/>
+         <pad name="26" x="2.7625" y="1.5" width="1.025" height="0.2" rotation="0.0" roundness="0.0"/>
+         <pad name="27" x="2.7625" y="2.0" width="1.025" height="0.2" rotation="0.0" roundness="0.0"/>
+         <pad name="28" x="2.7625" y="2.5" width="1.025" height="0.2" rotation="0.0" roundness="0.0"/>
+         <pad name="29" x="2.7625" y="3.0" width="1.025" height="0.2" rotation="0.0" roundness="0.0"/>
+         <pad name="30" x="2.7625" y="3.5" width="1.025" height="0.2" rotation="0.0" roundness="0.0"/>
+      </footprint>
       <vision-compositing compositing-method="Restricted" min-leverage-factor="0.2" extra-shots="0" allow-inside="true">
          <max-pick-tolerance value="0.0" units="Millimeters"/>
       </vision-compositing>
-      <compatible-nozzle-tip-ids class="java.util.ArrayList"/>
+      <compatible-nozzle-tip-ids class="java.util.ArrayList">
+         <string>TIP16cbc9505c3e1916</string>
+      </compatible-nozzle-tip-ids>
    </package>
-   <package version="1.1" id="HVQFN-32-1EP_5x5mm_P0.5mm_EP3.1x3.1mm_ThermalVias" pick-vacuum-level="0.0" place-blow-off-level="0.0">
-      <footprint units="Millimeters" body-width="0.0" body-height="0.0" outer-dimension="0.0" inner-dimension="0.0" pad-count="0" pad-pitch="0.0" pad-across="0.0" pad-roundness="0.0"/>
+   <package version="1.1" id="HVQFN-32-1EP_5x5mm_P0.5mm_EP3.1x3.1mm_ThermalVias" description="quad flat no leads 32 pin" tape-specification="12mm" pick-vacuum-level="0.0" place-blow-off-level="0.0">
+      <footprint units="Millimeters" body-width="5.0" body-height="5.0" outer-dimension="5.0" inner-dimension="4.2" pad-count="32" pad-pitch="0.5" pad-across="0.25" pad-roundness="10.0">
+         <pad name="1" x="-2.3" y="1.75" width="0.3999999999999999" height="0.25" rotation="180.0" roundness="10.0"/>
+         <pad name="2" x="-2.3" y="1.25" width="0.3999999999999999" height="0.25" rotation="180.0" roundness="10.0"/>
+         <pad name="3" x="-2.3" y="0.75" width="0.3999999999999999" height="0.25" rotation="180.0" roundness="10.0"/>
+         <pad name="4" x="-2.3" y="0.25" width="0.3999999999999999" height="0.25" rotation="180.0" roundness="10.0"/>
+         <pad name="5" x="-2.3" y="-0.25" width="0.3999999999999999" height="0.25" rotation="180.0" roundness="10.0"/>
+         <pad name="6" x="-2.3" y="-0.75" width="0.3999999999999999" height="0.25" rotation="180.0" roundness="10.0"/>
+         <pad name="7" x="-2.3" y="-1.25" width="0.3999999999999999" height="0.25" rotation="180.0" roundness="10.0"/>
+         <pad name="8" x="-2.3" y="-1.75" width="0.3999999999999999" height="0.25" rotation="180.0" roundness="10.0"/>
+         <pad name="9" x="-1.75" y="-2.3" width="0.3999999999999999" height="0.25" rotation="-90.0" roundness="10.0"/>
+         <pad name="10" x="-1.25" y="-2.3" width="0.3999999999999999" height="0.25" rotation="-90.0" roundness="10.0"/>
+         <pad name="11" x="-0.75" y="-2.3" width="0.3999999999999999" height="0.25" rotation="-90.0" roundness="10.0"/>
+         <pad name="12" x="-0.25" y="-2.3" width="0.3999999999999999" height="0.25" rotation="-90.0" roundness="10.0"/>
+         <pad name="13" x="0.25" y="-2.3" width="0.3999999999999999" height="0.25" rotation="-90.0" roundness="10.0"/>
+         <pad name="14" x="0.75" y="-2.3" width="0.3999999999999999" height="0.25" rotation="-90.0" roundness="10.0"/>
+         <pad name="15" x="1.25" y="-2.3" width="0.3999999999999999" height="0.25" rotation="-90.0" roundness="10.0"/>
+         <pad name="16" x="1.75" y="-2.3" width="0.3999999999999999" height="0.25" rotation="-90.0" roundness="10.0"/>
+         <pad name="17" x="2.3" y="-1.75" width="0.3999999999999999" height="0.25" rotation="0.0" roundness="10.0"/>
+         <pad name="18" x="2.3" y="-1.25" width="0.3999999999999999" height="0.25" rotation="0.0" roundness="10.0"/>
+         <pad name="19" x="2.3" y="-0.75" width="0.3999999999999999" height="0.25" rotation="0.0" roundness="10.0"/>
+         <pad name="20" x="2.3" y="-0.25" width="0.3999999999999999" height="0.25" rotation="0.0" roundness="10.0"/>
+         <pad name="21" x="2.3" y="0.25" width="0.3999999999999999" height="0.25" rotation="0.0" roundness="10.0"/>
+         <pad name="22" x="2.3" y="0.75" width="0.3999999999999999" height="0.25" rotation="0.0" roundness="10.0"/>
+         <pad name="23" x="2.3" y="1.25" width="0.3999999999999999" height="0.25" rotation="0.0" roundness="10.0"/>
+         <pad name="24" x="2.3" y="1.75" width="0.3999999999999999" height="0.25" rotation="0.0" roundness="10.0"/>
+         <pad name="25" x="1.75" y="2.3" width="0.3999999999999999" height="0.25" rotation="90.0" roundness="10.0"/>
+         <pad name="26" x="1.25" y="2.3" width="0.3999999999999999" height="0.25" rotation="90.0" roundness="10.0"/>
+         <pad name="27" x="0.75" y="2.3" width="0.3999999999999999" height="0.25" rotation="90.0" roundness="10.0"/>
+         <pad name="28" x="0.25" y="2.3" width="0.3999999999999999" height="0.25" rotation="90.0" roundness="10.0"/>
+         <pad name="29" x="-0.25" y="2.3" width="0.3999999999999999" height="0.25" rotation="90.0" roundness="10.0"/>
+         <pad name="30" x="-0.75" y="2.3" width="0.3999999999999999" height="0.25" rotation="90.0" roundness="10.0"/>
+         <pad name="31" x="-1.25" y="2.3" width="0.3999999999999999" height="0.25" rotation="90.0" roundness="10.0"/>
+         <pad name="32" x="-1.75" y="2.3" width="0.3999999999999999" height="0.25" rotation="90.0" roundness="10.0"/>
+      </footprint>
       <vision-compositing compositing-method="Restricted" min-leverage-factor="0.2" extra-shots="0" allow-inside="true">
          <max-pick-tolerance value="0.0" units="Millimeters"/>
       </vision-compositing>
-      <compatible-nozzle-tip-ids class="java.util.ArrayList"/>
+      <compatible-nozzle-tip-ids class="java.util.ArrayList">
+         <string>TIP16cbc9505c3e1916</string>
+      </compatible-nozzle-tip-ids>
    </package>
    <package version="1.1" id="Oscillator_SMD_Abracon_ASDMB-4Pin_2.5x2.0mm" pick-vacuum-level="0.0" place-blow-off-level="0.0">
       <footprint units="Millimeters" body-width="0.0" body-height="0.0" outer-dimension="0.0" inner-dimension="0.0" pad-count="0" pad-pitch="0.0" pad-across="0.0" pad-roundness="0.0"/>
