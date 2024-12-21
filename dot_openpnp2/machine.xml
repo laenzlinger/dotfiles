@@ -1314,7 +1314,7 @@
                <text><![CDATA[G21 ; Set millimeters mode]]></text>
                <text><![CDATA[G90 ; Set absolute positioning mode]]></text>
                <text><![CDATA[M82 ; Set absolute mode for extruder]]></text>
-               <text><![CDATA[M914 X20 ; Sensitivity of X axis sensorless homing]]></text>
+               <text><![CDATA[M914 X50 ; Sensitivity of X axis sensorless homing]]></text>
             </command>
             <command head-mountable-id="ACT170524c73c5ed540" type="ACTUATOR_READ_COMMAND">
                <text><![CDATA[M271 S0x{Value}]]></text>
@@ -1544,7 +1544,7 @@
                <runout-compensation-lookup class="java.util.HashMap">
                   <entry>
                      <string>N1</string>
-                     <runout-compensation class="org.openpnp.machine.reference.ReferenceNozzleTipCalibration$ModelBasedRunoutCameraOffsetCompensation" center-x="0.3124476043380886" center-y="0.267724265913721" radius="0.20016461599589627" phase-shift="41.51250089451625" units="Millimeters" peak-error="0.020656448691896385" rms-error="0.015113466955693681"/>
+                     <runout-compensation class="org.openpnp.machine.reference.ReferenceNozzleTipCalibration$ModelBasedRunoutCameraOffsetCompensation" center-x="0.3907715590255524" center-y="0.2748603484206926" radius="0.2127116148360464" phase-shift="-123.27322829643884" units="Millimeters" peak-error="0.034761669940222194" rms-error="0.01710085056529318"/>
                   </entry>
                </runout-compensation-lookup>
                <minimum-detail-size value="0.2" units="Millimeters"/>
@@ -1665,7 +1665,7 @@
                <runout-compensation-lookup class="java.util.HashMap">
                   <entry>
                      <string>NOZ1710829fd33a0170</string>
-                     <runout-compensation class="org.openpnp.machine.reference.ReferenceNozzleTipCalibration$ModelBasedRunoutCameraOffsetCompensation" center-x="0.5762712700000001" center-y="0.21264368666666666" radius="0.18284850168263728" phase-shift="14.314365344092822" units="Millimeters" peak-error="0.0981319680799216" rms-error="0.051783003068518525"/>
+                     <runout-compensation class="org.openpnp.machine.reference.ReferenceNozzleTipCalibration$ModelBasedRunoutCameraOffsetCompensation" center-x="0.6158192983333334" center-y="0.20114943333333335" radius="0.19911553044887303" phase-shift="-171.5289512843435" units="Millimeters" peak-error="0.07508180667461699" rms-error="0.04838920221145829"/>
                   </entry>
                </runout-compensation-lookup>
                <minimum-detail-size value="0.2" units="Millimeters"/>
