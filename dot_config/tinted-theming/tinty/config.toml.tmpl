@@ -15,10 +15,11 @@ themes-dir = "sh"
 hook = "source %f"
 
 [[items]]
-path = "https://github.com/tinted-theming/base16-alacritty"
-name = "base16-alacritty"
-themes-dir = "colors-256"
-hook = "cp -f %f ~/.config/alacritty/colors.toml"
+path = "https://github.com/tinted-theming/tinted-terminal"
+name = "tinted-terminal"
+themes-dir = "themes/alacritty"
+hook = "cp -f %f ~/.config/alacritty/colors.toml && touch ~/.config/alacritty/alacritty.toml"
+supported-systems = ["base16", "base24"]
 
 {{- if eq .chezmoi.os "linux" }} {{- if eq (printf "%.4s" .chezmoi.osRelease.id) "arch" }}
 
