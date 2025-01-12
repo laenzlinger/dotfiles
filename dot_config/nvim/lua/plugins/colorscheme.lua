@@ -28,11 +28,4 @@ return {
       colorscheme = function() end,
     },
   },
-  -- once the lualine fork is merged, we can remove this
-  -- https://github.com/JamyGolden/lualine.nvim.git
-  -- ~home/projects can then also be removed
-  {
-    "nvim-lualine/lualine.nvim",
-    dev = true,
-  },
 }
