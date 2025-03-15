@@ -7,5 +7,4 @@
 # @description : set base16 shell to light mode (called by darkman)
 ######################################################################
 
-~/.cargo/bin/tinty apply base16-solarized-light
-
+/usr/bin/tinty apply base16-solarized-light

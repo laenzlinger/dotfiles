@@ -7,6 +7,4 @@
 # @description : set base16 to dark mode (called by darkman)
 ######################################################################
 
-
-~/.cargo/bin/tinty apply base16-darktooth
-
+/usr/bin/tinty apply base16-darktooth
