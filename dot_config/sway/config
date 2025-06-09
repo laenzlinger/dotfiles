@@ -31,6 +31,9 @@ exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 # usb disks automounter
 exec udiskie --appindicator -t
 
+# network manager applet
+exec nm-applet --indicator
+
 exec darkman run
 
 # Wayland overlay bar for sound and brightness level
