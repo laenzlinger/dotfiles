@@ -204,6 +204,9 @@
 
 #tray {
 	background: @date;
+  font-size:14px;
+  font-family: Roboto, sans-serif;
+  color: #fbf1c7;
 }
 
 #clock.date {
