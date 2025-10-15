@@ -1,6 +1,6 @@
 {{- if eq .chezmoi.os "linux" }} {{- if eq (printf "%.4s" .chezmoi.osRelease.id) "arch" }}
 if [ -z "${WAYLAND_DISPLAY}" ] && [ "${XDG_VTNR}" -eq 1 ]; then
-  exec sway
+#  exec sway
 fi
 {{- end }} {{- end }}
 
