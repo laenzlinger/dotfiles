@@ -205,11 +205,11 @@ output DP-1 scale 1.5 pos 4000 0
 output * bg $background-image fill
 
 # Assign Workspace
-assign [app_id="chromium"] $ws1
+assign [app_id="vivaldi"] $ws1
 assign [app_id="org.keepassxc.KeePassXC"] $ws9
 assign [app_id="main-terminal"] $ws2
 
-exec "chromium"
+exec "vivaldi"
 exec "exec alacritty --class main-terminal"
 exec "QT_WAYLAND_FORCE_DPI=100 keepassxc"
 
