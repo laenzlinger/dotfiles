@@ -43,13 +43,12 @@ set $volume ~/.config/sway/bin/volume.sh > $WOBSOCK
 
 bindsym XF86AudioRaiseVolume exec wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 5%+ && $volume
 bindsym XF86AudioLowerVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%- && $volume
-bindsym XF86AudioMute exec wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
+bindsym XF86AudioMute exec wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle && $volume
 bindsym XF86AudioMicMute exec wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
 bindsym XF86MonBrightnessDown exec brightnessctl set 10%- && $brightness
 bindsym XF86MonBrightnessUp exec brightnessctl set 10%+ && $brightness
 bindsym XF86Go exec nmcli connection up Laenzis
 bindsym Cancel exec nmcli connection down Laenzis
-
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -206,12 +205,12 @@ output * bg $background-image fill
 
 # Assign Workspace
 assign [app_id="vivaldi"] $ws1
-assign [app_id="org.keepassxc.KeePassXC"] $ws9
+#assign [app_id="org.keepassxc.KeePassXC"] $ws9
 assign [app_id="main-terminal"] $ws2
 
 exec "vivaldi"
 exec "exec alacritty --class main-terminal"
-exec "QT_WAYLAND_FORCE_DPI=100 keepassxc"
+exec swaymsg 'workspace 9:secrets; exec keepassxc'
 
 for_window [title=".* — PCB Editor"] resize set width 80 ppt
 for_window [title=".* — Schematic Editor"] resize set width 80 ppt
