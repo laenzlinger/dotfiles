@@ -36,6 +36,9 @@ exec nm-applet --indicator
 
 exec darkman run
 
+# show dbus error messages
+exec systembus-notify
+
 # Wayland overlay bar for sound and brightness level
 set $WOBSOCK $XDG_RUNTIME_DIR/wob.sock
 set $brightness ~/.config/sway/bin/brightness.sh > $WOBSOCK
@@ -210,7 +213,7 @@ assign [app_id="main-terminal"] $ws2
 
 exec "vivaldi"
 exec "exec alacritty --class main-terminal"
-exec swaymsg 'workspace 9:secrets; exec keepassxc'
+exec swaymsg 'workspace 9:secrets; exec keepassxc ~/data/pw/pw.kdbx'
 
 for_window [title=".* — PCB Editor"] resize set width 80 ppt
 for_window [title=".* — Schematic Editor"] resize set width 80 ppt
