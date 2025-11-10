@@ -34,7 +34,7 @@ hook = "cp -f %f ~/.config/sway/base16.config && /usr/bin/swaymsg reload"
 path = "https://github.com/tinted-theming/base16-waybar"
 name = "base16-waybar"
 themes-dir = "colors"
-hook = "cp -f %f ~/.config/waybar/colors.css"
+hook = "cp -f %f ~/.config/waybar/colors.css && killall -SIGUSR2 waybar"
 
 [[items]]
 path = "https://git.sr.ht/~knezi/base16-wofi"
@@ -54,6 +54,12 @@ path = "https://git.sr.ht/~blueingreen/base16-btop"
 name = "base16-btop"
 themes-dir = "colors"
 hook = "cp -f %f ~/.config/btop/themes/colors.theme"
+
+[[items]]
+path = "https://github.com/kirasok/base16-hyprland"
+name = "base16-hyprland"
+themes-dir = "themes"
+hook = "cp -f %f ~/.config/hypr/colors.conf && hyprctl reload"
 
 {{- end }} {{- end }}
 
