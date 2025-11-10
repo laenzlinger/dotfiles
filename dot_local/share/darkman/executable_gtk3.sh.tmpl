@@ -1,0 +1,10 @@
+#!/usr/bin/env sh
+
+# see https://github.com/swaywm/sway/wiki/GTK-3-settings-on-Wayland#setting-values-in-gsettings
+
+gnome_schema=org.gnome.desktop.interface
+
+gsettings set $gnome_schema color-scheme "prefer-$1"
+gsettings set $gnome_schema gtk-theme "{{ .gtk.theme }}-$1"
+gsettings set $gnome_schema icon-theme "{{ .gtk.theme }}-$1"
+gsettings set $gnome_schema font-name "{{ .gtk.font }}"
