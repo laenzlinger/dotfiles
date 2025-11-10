@@ -61,6 +61,12 @@ name = "base16-hyprland"
 themes-dir = "themes"
 hook = "cp -f %f ~/.config/hypr/colors.conf && hyprctl reload"
 
+[[items]]
+path = "https://github.com/acidghost/base16-obsidian"
+name = "base16-obsidian"
+themes-dir = "colors"
+hook = "cp -f %f ~/notes/.obsidian/themes/base16.css"
+
 {{- end }} {{- end }}
 
 {{- if eq .chezmoi.os "darwin" }}
