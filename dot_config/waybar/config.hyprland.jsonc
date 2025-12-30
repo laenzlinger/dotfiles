@@ -1,0 +1,25 @@
+{
+  "layer": "top",
+  "position": "top",
+  "include": "~/.config/waybar/config.common.jsonc",
+  "modules-left": [
+    "hyprland/workspaces"
+  ],
+  "modules-right": [
+    "custom/arrow8",
+    "network",
+    "custom/arrow7",
+    "memory",
+    "custom/arrow6",
+    "cpu",
+    "custom/arrow5",
+    "temperature",
+    "custom/arrow4",
+    "battery",
+    "custom/arrow2",
+    "clock#date",
+    "custom/arrow1",
+    "clock#time",
+    "tray"
+  ]
+}

@@ -1,0 +1,59 @@
+{
+  "layer": "top",
+  "position": "top",
+  "include": "~/.config/waybar/config.common.jsonc",
+  "modules-left": [
+    "sway/scratchpad",
+    "sway/mode",
+    "sway/workspaces",
+    "sway/window"
+  ],
+  "modules-right": [
+    "custom/arrow8",
+    "network",
+    "custom/arrow7",
+    "memory",
+    "custom/arrow6",
+    "cpu",
+    "custom/arrow5",
+    "temperature",
+    "custom/arrow4",
+    "battery",
+    "custom/arrow2",
+    "clock#date",
+    "custom/arrow1",
+    "clock#time",
+    "tray"
+  ],
+  "sway/language": {
+    "format": " {}",
+    "min-length": 5,
+    "on-click": "swaymsg 'input * xkb_switch_layout next'",
+    "tooltip": false
+  },
+  "sway/mode": {
+    "format": "{}",
+    "tooltip": false
+  },
+  "sway/window": {
+    "format": "{}",
+    "max-length": 30,
+    "tooltip": false
+  },
+  "sway/workspaces": {
+    "disable-scroll-wraparound": true,
+    "smooth-scrolling-threshold": 4,
+    "enable-bar-scroll": true,
+    "format": "{name}"
+  },
+  "sway/scratchpad": {
+    "format": "{icon} {count} ",
+    "show-empty": false,
+    "format-icons": [
+      "",
+      ""
+    ],
+    "tooltip": true,
+    "tooltip-format": "{app}: {title}"
+  }
+}

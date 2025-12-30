@@ -1,31 +1,4 @@
 {
-  "layer": "top",
-  "position": "top",
-  "modules-left": [
-    "sway/scratchpad",
-    "sway/mode",
-    "sway/workspaces",
-    "sway/window",
-    "hyprland/workspaces"
-  ],
-  "modules-right": [
-    "custom/arrow8",
-    "network",
-    "custom/arrow7",
-    "memory",
-    "custom/arrow6",
-    "cpu",
-    "custom/arrow5",
-    "temperature",
-    "custom/arrow4",
-    "battery",
-    "custom/arrow2",
-    "tray",
-    "clock#date",
-    "custom/arrow1",
-    "clock#time"
-  ],
-  // Modules
   "battery": {
     "interval": 10,
     "states": {
@@ -84,12 +57,6 @@
       "critical": 90
     }
   },
-  "sway/language": {
-    "format": " {}",
-    "min-length": 5,
-    "on-click": "swaymsg 'input * xkb_switch_layout next'",
-    "tooltip": false
-  },
   "memory": {
     "interval": 5,
     "format": "󰍛 {percentage}%",
@@ -107,31 +74,6 @@
     "format-disconnected": "No connection",
     "format-alt": "󰩠 {ipaddr}/{cidr}",
     "tooltip": false
-  },
-  "sway/mode": {
-    "format": "{}",
-    "tooltip": false
-  },
-  "sway/window": {
-    "format": "{}",
-    "max-length": 30,
-    "tooltip": false
-  },
-  "sway/workspaces": {
-    "disable-scroll-wraparound": true,
-    "smooth-scrolling-threshold": 4,
-    "enable-bar-scroll": true,
-    "format": "{name}"
-  },
-  "sway/scratchpad": {
-    "format": "{icon} {count} ",
-    "show-empty": false,
-    "format-icons": [
-      "",
-      ""
-    ],
-    "tooltip": true,
-    "tooltip-format": "{app}: {title}"
   },
   "pulseaudio": {
     "format": "{icon} {volume}%",
