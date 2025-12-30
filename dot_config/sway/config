@@ -115,9 +115,9 @@ bindsym $mod+a focus parent
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
-set $ws1 "1:browser"
-set $ws2 "2:terminal"
-set $ws3 "3"
+set $ws1 "1:web"
+set $ws2 "2:term"
+set $ws3 "3:notes"
 set $ws4 "4"
 set $ws5 "5"
 set $ws6 "6"
@@ -210,12 +210,13 @@ include ./config.d/*
 
 # Assign Workspace
 assign [app_id="vivaldi"] $ws1
-#assign [app_id="org.keepassxc.KeePassXC"] $ws9
 assign [app_id="main-terminal"] $ws2
+assign [app_id="obsidian"] $ws3
 
 exec "vivaldi"
 exec "alacritty --class main-terminal"
 exec "keepassxc ~/data/pw/pw.kdbx""
+exec "obsidian 'obsidian://open?vault=Notes'"
 
 for_window [title=".* — PCB Editor"] resize set width 80 ppt
 for_window [title=".* — Schematic Editor"] resize set width 80 ppt
