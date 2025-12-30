@@ -9,7 +9,7 @@ client.urgent           $base08 $base08 $base00 $base08 $base08
 client.placeholder      $base00 $base00 $base05 $base00 $base00
 client.background       $base07
 
-font pango: MesloLGS Nerd Font Propo 13
+font pango: Roboto 11
 
 titlebar_padding 6 1
 
@@ -221,5 +221,4 @@ exec "obsidian 'obsidian://open?vault=Notes'"
 for_window [title=".* — PCB Editor"] resize set width 80 ppt
 for_window [title=".* — Schematic Editor"] resize set width 80 ppt
 for_window [title="personal - KeePassXC"] move scratchpad
-for_window [title="Unlock Database - KeePassXC"] floating enable, resize set 600 400
 

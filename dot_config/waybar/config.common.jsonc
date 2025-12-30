@@ -6,11 +6,11 @@
       "critical": 15
     },
     "format-time": "{H}:{M:02}",
-    "format": "{icon} {capacity}% ({time})",
-    "format-charging": " {capacity}% ({time})",
-    "format-charging-full": " {capacity}%",
-    "format-full": "{icon} {capacity}%",
-    "format-alt": "{icon} {power}W",
+    "format": "{icon}  {capacity}% ({time})",
+    "format-charging": "  {capacity}% ({time})",
+    "format-charging-full": "  {capacity}%",
+    "format-full": "{icon}  {capacity}%",
+    "format-alt": "{icon}  {power}W",
     "format-icons": [
       "",
       "",
@@ -69,7 +69,7 @@
   },
   "network": {
     "interval": 5,
-    "format-wifi": " {essid} ({signalStrength}%)",
+    "format-wifi": "   {essid} ({signalStrength}%)",
     "format-ethernet": "󰈀 {ifname}",
     "format-disconnected": "No connection",
     "format-alt": "󰩠 {ipaddr}/{cidr}",

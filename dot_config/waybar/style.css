@@ -65,8 +65,8 @@
 #waybar {
 	background: @black;
 	color: @white;
-	font-family: MesloLGS Nerd Font Propo;
-	font-size: 10pt;
+	font-family: Roboto;
+	font-size: 11pt;
 	/*font-weight: bold;*/
 }
 
@@ -203,9 +203,8 @@
 }
 
 #tray {
-	background: @date;
+	background: @time;
   font-size:14px;
-  font-family: Roboto, sans-serif;
   color: #fbf1c7;
 }
 
