@@ -34,6 +34,9 @@ exec udiskie --appindicator -t
 # network manager applet
 exec nm-applet --indicator
 
+# bluetoh
+exec blueman-applet
+
 # show dbus error messages
 exec systembus-notify
 
@@ -215,7 +218,7 @@ assign [app_id="obsidian"] $ws3
 
 exec "vivaldi"
 exec "alacritty --class main-terminal"
-exec "keepassxc ~/data/pw/pw.kdbx""
+exec "sleep 3; keepassxc ~/data/pw/pw.kdbx""
 exec "obsidian 'obsidian://open?vault=Notes'"
 
 for_window [title=".* — PCB Editor"] resize set width 80 ppt
