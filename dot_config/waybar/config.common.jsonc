@@ -59,8 +59,8 @@
   "cpu": {
     "interval": 5,
     "tooltip": true,
-    "format": " {usage}%",
-    "format-alt": " {load}",
+    "format": "  {usage}%",
+    "format-alt": "  {load}",
     "states": {
       "warning": 70,
       "critical": 90
@@ -103,6 +103,16 @@
     "scroll-step": 1,
     "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
     "tooltip": false
+  },
+  "wireplumber": {
+    "format": " {icon} ",
+    "format-muted": "",
+    "on-click": "helvum",
+    "format-icons": [
+      "",
+      "",
+      ""
+    ]
   },
   "temperature": {
     "critical-threshold": 90,

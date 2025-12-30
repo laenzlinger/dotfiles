@@ -39,7 +39,7 @@
 @define-color focused	@base03;
 @define-color inactive	@magenta;
 @define-color layout	@bryellow;
-@define-color sound	@green;
+@define-color sound	@black;
 @define-color network	@yellow;
 @define-color memory	@blue;
 @define-color cpu	@cyan;
@@ -171,6 +171,12 @@
 	color: @black;
 }
 
+#wireplumber {
+	background: @sound;
+	color: @white;
+  padding-right: 5pt;
+}
+
 #network {
 	background: @network;
 	color: @black;
@@ -198,7 +204,12 @@
 
 #battery {
 	background: @battery;
-	color: @black;
+	color: @white;
+}
+
+#upower {
+	background: @battery;
+	color: @white;
 }
 
 #tray {
@@ -231,7 +242,7 @@
 
 #custom-arrow3 {
 	font-size: 16pt;
-	color: @layout;
+	color: @sound;
 	background: @battery;
 }
 
