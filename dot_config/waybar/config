@@ -2,10 +2,11 @@
   "layer": "top",
   "position": "top",
   "modules-left": [
+    "sway/scratchpad",
     "sway/mode",
     "sway/workspaces",
-    "hyprland/workspaces",
-    "sway/window"
+    "sway/window",
+    "hyprland/workspaces"
   ],
   "modules-right": [
     "custom/arrow8",
@@ -75,7 +76,7 @@
   },
   "cpu": {
     "interval": 5,
-    "tooltip": false,
+    "tooltip": true,
     "format": " {usage}%",
     "format-alt": " {load}",
     "states": {
@@ -97,7 +98,7 @@
       "warning": 70,
       "critical": 90
     },
-    "tooltip": false
+    "tooltip": true
   },
   "network": {
     "interval": 5,
@@ -121,6 +122,16 @@
     "smooth-scrolling-threshold": 4,
     "enable-bar-scroll": true,
     "format": "{name}"
+  },
+  "sway/scratchpad": {
+    "format": "{icon} {count} ",
+    "show-empty": false,
+    "format-icons": [
+      "",
+      ""
+    ],
+    "tooltip": true,
+    "tooltip-format": "{app}: {title}"
   },
   "pulseaudio": {
     "format": "{icon} {volume}%",
