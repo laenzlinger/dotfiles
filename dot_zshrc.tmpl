@@ -211,6 +211,11 @@ then
   alias ls='lsd'
 fi
 
+if command -v btop &> /dev/null
+then
+  alias top='btop'
+fi
+
 {{- if eq (printf "%.4s" .chezmoi.osRelease.id) "arch" }}
 # Syntax highlighting
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
