@@ -26,7 +26,7 @@
 @define-color brred	@base08;
 @define-color brgreen	@base0B;
 @define-color bryellow	@base0A;
-@define-color brblue	@base0D;
+@define-color brblue	@base06;
 @define-color brmagenta	@base0E;
 @define-color brcyan	@base0C;
 @define-color brwhite	@base07;
@@ -42,10 +42,10 @@
 @define-color sound	@green;
 @define-color network	@yellow;
 @define-color memory	@blue;
-@define-color cpu	@magenta;
-@define-color temp	@cyan;
-@define-color battery	@white;
-@define-color date	@brblack;
+@define-color cpu	@cyan;
+@define-color temp	@brblack;
+@define-color battery	@black;
+@define-color date	@brblue;
 @define-color time	@white;
 
 
@@ -71,7 +71,6 @@
 }
 
 /* Each module */
-#battery,
 #clock,
 #cpu,
 #language,

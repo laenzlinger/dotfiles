@@ -1,4 +1,13 @@
 {
+  "upower": {
+    "icon-size": 16,
+    "hide-if-empty": true,
+    "tooltip": false,
+    "format": "{percentage}",
+    "format-alt": "{time}",
+    "on-click": "mode", // This is the default behavior if on-click is not defined
+    "tooltip-spacing": 20
+  },
   "battery": {
     "interval": 10,
     "states": {
@@ -109,7 +118,7 @@
     "tooltip": false
   },
   "tray": {
-    "icon-size": 18,
+    "icon-size": 16,
     "spacing": 5
   },
   "custom/arrow1": {
