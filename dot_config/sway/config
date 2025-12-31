@@ -13,6 +13,7 @@ font pango: Roboto 11
 
 titlebar_padding 6 1
 
+set $terminal wezterm
 set $mod Mod4
 # <a href="https://www.freepik.com/free-photo/painting-mountain-lake-with-mountain-background_40965130.htm">
 # Image by vecstock</a> on Freepik
@@ -55,7 +56,7 @@ bindsym Cancel exec nmcli connection down Laenzis
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec alacritty
+bindsym $mod+Return exec $terminal
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -214,7 +215,7 @@ assign [app_id="main-terminal"] $ws2
 assign [app_id="obsidian"] $ws3
 
 exec "vivaldi"
-exec "alacritty --class main-terminal"
+exec "$terminal --class main-terminal"
 exec "sleep 3; keepassxc ~/data/pw/pw.kdbx""
 exec "obsidian 'obsidian://open?vault=Notes'"
 

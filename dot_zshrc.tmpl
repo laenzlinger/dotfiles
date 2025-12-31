@@ -250,6 +250,10 @@ eval "$(mise activate zsh)"
 # LESS
 LESSOPEN="|lesspipe.sh %s"; export LESSOPEN
 
+# Theming
+source $(tinty config --data-dir-path)/repos/tinted-fzf/sh/$(tinty current).sh
+# source $(tinty config --data-dir-path)/repos/tinted-shell/scripts/$(tinty current).sh
+
 ## Development Language Settings
 
 ## C compilation environment
