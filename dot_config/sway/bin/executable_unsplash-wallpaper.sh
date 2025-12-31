@@ -2,6 +2,9 @@
 
 # Usage: ./unsplash_random.sh "search terms"
 # Requires: curl, jq, UNSPLASH_ACCESS_KEY env variable
+#
+
+UNSPLASH_ACCESS_KEY=$(secret-tool lookup unsplash access-key)
 
 if [ -z "$UNSPLASH_ACCESS_KEY" ]; then
   echo "Set UNSPLASH_ACCESS_KEY environment variable with your Unsplash API key."

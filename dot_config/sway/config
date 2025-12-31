@@ -162,7 +162,7 @@ bindsym $mod+Shift+e exec "swaynag -t warning -m 'Do you really want to exit swa
 # lock the screen
 bindsym $mod+Shift+Escape exec $lock
 # Toggle KeePassXC from scratchpad (e.g., Mod + K)
-bindsym $mod+Shift+s [title="personal - KeePassXC"] scratchpad show
+bindsym $mod+Shift+s exec keepassxc
 
 # Allow switching between workspaces with left and right swipes
 bindgesture swipe:right workspace prev
@@ -223,5 +223,4 @@ exec "obsidian 'obsidian://open?vault=Notes'"
 
 for_window [title=".* — PCB Editor"] resize set width 80 ppt
 for_window [title=".* — Schematic Editor"] resize set width 80 ppt
-for_window [title="personal - KeePassXC"] move scratchpad
 
