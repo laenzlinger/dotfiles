@@ -34,9 +34,6 @@ exec udiskie --appindicator -t
 # network manager applet
 exec nm-applet --indicator
 
-# bluetoh
-exec blueman-applet
-
 # show dbus error messages
 exec systembus-notify
 
