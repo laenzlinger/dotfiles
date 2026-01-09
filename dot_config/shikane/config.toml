@@ -36,3 +36,28 @@ position = "0,0"
 scale = 1.5
 transform = "normal"
 adaptive_sync = false
+
+[[profile]]
+name = "studio"
+exec = [
+  "notify-send shikane \"Profile $SHIKANE_PROFILE_NAME has been applied\" -t 2000",
+]
+
+[[profile.output]]
+enable = true
+search = ["m=LG HDR 4K", "s=107NTVSDV879", "v=LG Electronics"]
+mode = "3840x2160@59.997Hz"
+position = "0,0"
+scale = 1.5
+transform = "normal"
+adaptive_sync = false
+
+[[profile.output]]
+enable = true
+search = ["m=0x094C", "s=", "v=BOE"]
+mode = "1920x1200@60.003Hz"
+position = "2560,553"
+scale = 1.69921875
+transform = "normal"
+adaptive_sync = false
+
