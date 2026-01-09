@@ -32,7 +32,7 @@ exec = [
 enable = true
 search = ["m=0x094C", "s=", "v=BOE"]
 mode = "1920x1200@60.003Hz"
-position = "0"
+position = "0,0"
 scale = 1.5
 transform = "normal"
 adaptive_sync = false
