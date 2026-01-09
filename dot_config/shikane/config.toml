@@ -9,7 +9,7 @@ enable = true
 search = ["m=0x094C", "s=", "v=BOE"]
 mode = "1920x1200@60.003Hz"
 position = "0,1363"
-scale = 1.5
+scale = 1.69921875
 transform = "normal"
 adaptive_sync = false
 
