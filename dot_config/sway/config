@@ -38,6 +38,9 @@ exec nm-applet --indicator
 # show dbus error messages
 exec systembus-notify
 
+# output configuration
+exec shikane
+
 # Wayland overlay bar for sound and brightness level
 set $WOBSOCK $XDG_RUNTIME_DIR/wob.sock
 set $brightness ~/.config/sway/bin/brightness.sh > $WOBSOCK
@@ -202,11 +205,8 @@ input * {
     xkb_layout "us(altgr-intl)"
 }
 
-include outputs
-include workspaces
-
-#output eDP-1 scale 1.5
-#output DP-1 scale 1.5 pos 4000 0
+# scale the laptop output
+output eDP-1 scale 1.5
 
 output * bg $background-image fill
 

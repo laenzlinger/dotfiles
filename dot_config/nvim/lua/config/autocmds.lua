@@ -6,3 +6,12 @@ vim.api.nvim_create_autocmd({ "InsertLeave", "TextChanged" }, {
   command = "silent! wall",
   nested = true,
 })
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "markdown",
+  callback = function()
+    vim.opt_local.textwidth = 100
+    -- 't' auto-wraps text using textwidth
+    -- 'c' auto-wraps comments
+    vim.opt_local.formatoptions:append("t")
+  end,
+})
