@@ -5,12 +5,12 @@ format = "$all"
 
 [character]
 # Success symbol in standard green, error in standard red
-success_symbol = "[❯](green)"
-error_symbol = "[❯](red)"
+#
+success_symbol = "[](bold green)"
+error_symbol = "[](bold red)"
 
-[time]
-disabled = false
-time_format = "%H:%M:%S" # Standard 24-hour format
+[profiles]
+transient = """$character"""
 
 [git_status]
 style = "red"
@@ -223,6 +223,3 @@ symbol = " "
 
 [zig]
 symbol = " "
-
-[profiles]
-transient = """[$time](grey)[$directory](bold blue)$character"""
