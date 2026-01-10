@@ -91,6 +91,11 @@ bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
+# change the focus between multiple monitors
+bindsym $mod+Control+Right focus output right
+bindsym $mod+Control+Left focus output left
+
+
 # split in horizontal orientation
 bindsym $mod+n split h
 

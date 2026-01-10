@@ -2,6 +2,8 @@
 
 OUTPUT=$1
 
+waymsg focus output "$OUTPUT"
+
 # workspace
 swaymsg [workspace="1"] move workspace to output "$OUTPUT"
 swaymsg [workspace="2"] move workspace to output "$OUTPUT"
