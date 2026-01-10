@@ -21,10 +21,7 @@ position = "1280,839"
 scale = 1.30078125
 transform = "normal"
 adaptive_sync = false
-exec = [
-  "swaync-client --change-cc-monitor $SHIKANE_OUTPUT_NAME",
-  "swaync-client --change-noti-monitor $SHIKANE_OUTPUT_NAME",
-]
+exec = ["~/.config/sway/bin/move-workspace-to-output.sh $SHIKANE_OUTPUT_NAME"]
 
 [[profile]]
 name = "unplugged"
@@ -33,10 +30,7 @@ exec = [
 ]
 
 [[profile.output]]
-exec = [
-  "swaync-client --change-cc-monitor $SHIKANE_OUTPUT_NAME",
-  "swaync-client --change-noti-monitor $SHIKANE_OUTPUT_NAME",
-]
+exec = ["~/.config/sway/bin/move-workspace-to-output.sh $SHIKANE_OUTPUT_NAME"]
 enable = true
 search = ["m=0x094C", "s=", "v=BOE"]
 mode = "1920x1200@60.003Hz"
@@ -59,10 +53,7 @@ position = "0,0"
 scale = 1.5
 transform = "normal"
 adaptive_sync = false
-exec = [
-  "swaync-client --change-cc-monitor $SHIKANE_OUTPUT_NAME",
-  "swaync-client --change-noti-monitor $SHIKANE_OUTPUT_NAME",
-]
+exec = ["~/.config/sway/bin/move-workspace-to-output.sh $SHIKANE_OUTPUT_NAME"]
 
 [[profile.output]]
 enable = true
