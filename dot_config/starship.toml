@@ -13,7 +13,14 @@ error_symbol = "[](bold red)"
 transient = """$character"""
 
 [git_status]
-style = "red"
+#style = "red"
+
+[git_branch]
+style = "purple"
+symbol = " "
+
+[git_commit]
+tag_symbol = '  '
 
 [cmd_duration]
 style = "yellow"
@@ -72,13 +79,6 @@ symbol = " "
 
 [gcloud]
 symbol = " "
-
-[git_branch]
-style = "purple"
-symbol = " "
-
-[git_commit]
-tag_symbol = '  '
 
 [golang]
 symbol = " "

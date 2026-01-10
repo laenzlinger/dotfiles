@@ -1,12 +1,16 @@
 [".config/mutt/base16-mutt"]
-    type = "git-repo"
-    url = "https://github.com/josephholsten/base16-mutt.git"
-    refreshPeriod = "168h"
+type = "git-repo"
+url = "https://github.com/josephholsten/base16-mutt.git"
+refreshPeriod = "168h"
 [".oh-my-zsh"]
-    type = "git-repo"
-    url = "https://github.com/ohmyzsh/ohmyzsh.git"
-    refreshPeriod = "168h"
+type = "git-repo"
+url = "https://github.com/ohmyzsh/ohmyzsh.git"
+refreshPeriod = "168h"
 [".oh-my-zsh/custom/themes/powerlevel10k"]
-    type = "git-repo"
-    url = "https://github.com/romkatv/powerlevel10k.git"
-    refreshPeriod = "168h"
+type = "git-repo"
+url = "https://github.com/romkatv/powerlevel10k.git"
+refreshPeriod = "168h"
+[".oh-my-zsh/custom/plugins/transient-prompt"]
+url = "https://github.com/olets/zsh-transient-prompt.git"
+type = "git-repo"
+refreshPeriod = "168h"
