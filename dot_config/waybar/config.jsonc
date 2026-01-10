@@ -1,4 +1,6 @@
 {
+  "ipc": true,
+  "output": "eDP-1",
   "layer": "top",
   "position": "top",
   "include": "~/.config/waybar/config.common.jsonc",
