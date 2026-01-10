@@ -1,13 +1,16 @@
 #optional dependencies
 base-devel
 cmake
+ffmpeg4.4
 gdb
-gnome-themes-extra
-python-hypothesis
+gl2ps
 python-inflect
 python-pandas
-python-tabulate
+python-pyicu
+python-pytest
+python-sniffio
 python-xlwt
 qt5-tools
+qt5-xmlpatterns
 ruby-stdlib
-usbmuxd
+xorg-xset
