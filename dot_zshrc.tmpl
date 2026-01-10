@@ -31,6 +31,7 @@ export ZSH="{{ .chezmoi.homeDir }}/.oh-my-zsh"
 
 #ZSH_THEME="powerlevel10k/powerlevel10k"
 eval "$(starship init zsh)"
+TRANSIENT_PROMPT_TRANSIENT_PROMPT='$(starship prompt --profile transient)'
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -127,6 +128,7 @@ plugins=(
     gpg-agent
     dotenv
     z
+    transient-prompt
 {{- if hasSuffix "com.com" .email }}
     swisscom-proxy
     dos
