@@ -1,7 +1,7 @@
 [[profile]]
 name = "home-office"
 exec = [
-  "notify-send shikane \"Profile $SHIKANE_PROFILE_NAME has been applied\" -t 2000",
+  "notify-send shikane \"Display Profile $SHIKANE_PROFILE_NAME has been applied\"",
 ]
 
 [[profile.output]]
@@ -12,8 +12,8 @@ position = "0,1363"
 scale = 1.69921875
 transform = "normal"
 adaptive_sync = false
-
 [[profile.output]]
+
 enable = true
 search = ["m=DELL U3417W", "s=660X88270TTL", "v=Dell Inc."]
 mode = "3440x1440@59.973Hz"
@@ -21,14 +21,22 @@ position = "1280,839"
 scale = 1.30078125
 transform = "normal"
 adaptive_sync = false
+exec = [
+  "swaync-client --change-cc-monitor $SHIKANE_OUTPUT_NAME",
+  "swaync-client --change-noti-monitor $SHIKANE_OUTPUT_NAME",
+]
 
 [[profile]]
 name = "unplugged"
 exec = [
-  "notify-send shikane \"Profile $SHIKANE_PROFILE_NAME has been applied\" -t 2000",
+  "notify-send shikane \"Display Profile $SHIKANE_PROFILE_NAME has been applied\"",
 ]
 
 [[profile.output]]
+exec = [
+  "swaync-client --change-cc-monitor $SHIKANE_OUTPUT_NAME",
+  "swaync-client --change-noti-monitor $SHIKANE_OUTPUT_NAME",
+]
 enable = true
 search = ["m=0x094C", "s=", "v=BOE"]
 mode = "1920x1200@60.003Hz"
@@ -40,7 +48,7 @@ adaptive_sync = false
 [[profile]]
 name = "studio"
 exec = [
-  "notify-send shikane \"Profile $SHIKANE_PROFILE_NAME has been applied\" -t 2000",
+  "notify-send shikane \"Display Profile $SHIKANE_PROFILE_NAME has been applied\"",
 ]
 
 [[profile.output]]
@@ -51,6 +59,10 @@ position = "0,0"
 scale = 1.5
 transform = "normal"
 adaptive_sync = false
+exec = [
+  "swaync-client --change-cc-monitor $SHIKANE_OUTPUT_NAME",
+  "swaync-client --change-noti-monitor $SHIKANE_OUTPUT_NAME",
+]
 
 [[profile.output]]
 enable = true
@@ -60,4 +72,3 @@ position = "2560,553"
 scale = 1.69921875
 transform = "normal"
 adaptive_sync = false
-
