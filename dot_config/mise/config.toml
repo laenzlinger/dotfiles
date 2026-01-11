@@ -1,6 +1,7 @@
 [tools]
 usage = "latest"
 golang = "system"
+python = "latest"
 
 [settings]
 

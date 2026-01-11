@@ -233,6 +233,9 @@ python-svgwrite
 qjackctl
 qpwgraph
 qt5-wayland
+qt5ct
+qt6-wayland
+qt6ct
 rclone
 reaper
 restic
@@ -293,6 +296,7 @@ vim
 vim-spell-de
 virtualbox
 vivaldi
+vlc
 vscode-json-languageserver
 w3m
 waybar
