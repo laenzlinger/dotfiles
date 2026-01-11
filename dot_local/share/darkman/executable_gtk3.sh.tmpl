@@ -2,9 +2,16 @@
 
 # see https://github.com/swaywm/sway/wiki/GTK-3-settings-on-Wayland#setting-values-in-gsettings
 
+NEW_STATE=$1 # Pass "dark" or "light" as an argument
+
 gnome_schema=org.gnome.desktop.interface
 
-gsettings set $gnome_schema color-scheme "prefer-$1"
-gsettings set $gnome_schema gtk-theme "{{ .gtk.theme }}-$1"
-gsettings set $gnome_schema icon-theme "{{ .gtk.icon.theme }}-$1"
+if [ "$NEW_STATE" == "dark" ]; then
+  gsettings set $gnome_schema color-scheme "prefer-dark"
+else
+  gsettings set $gnome_schema color-scheme "default"
+fi
+
+gsettings set $gnome_schema gtk-theme "{{ .gtk.theme }}-$NEW_STATE"
+gsettings set $gnome_schema icon-theme "{{ .gtk.icon.theme }}-$NEW_STATE"
 gsettings set $gnome_schema font-name "{{ .gtk.font }}"

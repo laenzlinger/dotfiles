@@ -139,6 +139,9 @@ kicad
 kicad-library
 kicad-library-3d
 kitty
+kvantum
+kvantum-qt5
+kvantum-theme-materia
 lazygit
 lemurs
 less
