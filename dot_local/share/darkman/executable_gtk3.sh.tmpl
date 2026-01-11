@@ -6,5 +6,5 @@ gnome_schema=org.gnome.desktop.interface
 
 gsettings set $gnome_schema color-scheme "prefer-$1"
 gsettings set $gnome_schema gtk-theme "{{ .gtk.theme }}-$1"
-gsettings set $gnome_schema icon-theme "{{ .gtk.theme }}-$1"
+gsettings set $gnome_schema icon-theme "{{ .gtk.icon.theme }}-$1"
 gsettings set $gnome_schema font-name "{{ .gtk.font }}"

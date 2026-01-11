@@ -48,6 +48,7 @@ f3d
 fakeroot
 fd
 firefox
+fish
 flex
 foot
 fprintd
@@ -202,6 +203,7 @@ openvpn
 orca
 pandoc-cli
 papers
+papirus-icon-theme
 parted
 patch
 pavucontrol
