@@ -13,6 +13,8 @@ bison
 blueman
 bluez-utils
 bolt
+breeze-gtk
+breeze-icons
 brightnessctl
 btop
 calc
@@ -206,7 +208,6 @@ openvpn
 orca
 pandoc-cli
 papers
-papirus-icon-theme
 parted
 patch
 pavucontrol
@@ -286,7 +287,6 @@ tree-sitter-cli
 ttf-meslo-nerd
 ttf-nerd-fonts-symbols
 ttf-roboto
-udiskie
 udisks2
 unrar
 unzip

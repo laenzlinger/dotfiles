@@ -13,13 +13,15 @@ mkinitcpio-firmware
 neofetch
 nodejs-neovim
 openpnp
+papirus-icon-theme-git
 pdfposter
 reiserfsprogs
-restic-automatic-backup-scheduler
+resticprofile
 selectdefaultapplication-git
 selectdefaultapplication-git-debug
 tinty-git
 ttf-pacifico
+udiskr
 universal-gcode-sender-bin
 yay
 yay-debug

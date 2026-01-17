@@ -31,8 +31,8 @@ else
   sed -i "s/icon_theme=.*/icon_theme=$ICON_THEME-Light/" "$QT6_CONFIG"
   sed -i "s/icon_theme=.*/icon_theme=$ICON_THEME-Light/" "$QT5_CONFIG"
 fi
-touch "QT5_CONFIG"
-touch "QT6_CONFIG"
+touch "$QT5_CONFIG"
+touch "$QT6_CONFIG"
 
 # Tell Sway/Wayland apps the environment has changed
 systemctl --user set-environment QT_QPA_PLATFORMTHEME=qt5ct
