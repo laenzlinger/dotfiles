@@ -30,7 +30,7 @@ exec swayidle -w \
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
 # usb disks automounter
-exec udiskr
+exec udiskie -t --notify
 
 # network manager applet
 exec nm-applet --indicator
