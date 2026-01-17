@@ -116,7 +116,7 @@
     "return-type": "json",
     "exec": "~/.config/waybar/scripts/restic-status.sh",
     "interval": 30,
-    "on-click": "wezterm --class wt-float resticprofile snapshots"
+    "on-click": "~/.config/waybar/scripts/restic-snapshots.sh"
   },
   "custom/arrow1": {
     "format": "",
