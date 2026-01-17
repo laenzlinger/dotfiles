@@ -282,3 +282,42 @@
 	background: transparent;
 }
 
+
+/* Custom Restic Module Styling */
+#custom-restic {
+	  background: @time;
+    font-size: 18px;
+    padding: 0 10px;
+    transition: all 0.3s ease;
+}
+
+/* Color for Success (Last 24h) - Green */
+#custom-restic.ok {
+    color: @black
+}
+
+/* Color for Stale (Older than 24h) - Yellow/Orange */
+#custom-restic.warning {
+    color: @yellow; /* Catppuccin Yellow */
+}
+
+/* Color for Failed Backup - Red */
+#custom-restic.error {
+    color: @red; /* Catppuccin Red */
+}
+
+/* Color for Unknown/No History - Grey */
+#custom-restic.unknown {
+    color: @gray /* Grey */
+}
+
+/* Optional: Subtle animation when a backup is active */
+/* You would need to add the 'running' class in your script to use this */
+#custom-restic.running {
+    color: @blue;
+    animation: blinker 2s linear infinite;
+}
+
+@keyframes blinker {
+    50% { opacity: 0.5; }
+}

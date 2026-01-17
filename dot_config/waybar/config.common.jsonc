@@ -111,6 +111,13 @@
     "icon-size": 16,
     "spacing": 5
   },
+  "custom/restic": {
+    "format": "{}",
+    "return-type": "json",
+    "exec": "~/.config/waybar/scripts/restic-status.sh",
+    "interval": 30,
+    "on-click": "wezterm --class wt-float resticprofile snapshots"
+  },
   "custom/arrow1": {
     "format": "",
     "tooltip": false

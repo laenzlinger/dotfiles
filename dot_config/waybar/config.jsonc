@@ -27,6 +27,7 @@
     "clock#date",
     "custom/arrow1",
     "clock#time",
+    "custom/restic",
     "tray"
   ],
   "sway/language": {
