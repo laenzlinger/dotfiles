@@ -60,7 +60,7 @@ hook = "cp -f %f ~/.config/wob/wob-colors.ini && cat ~/.config/wob/wob-colors.in
 path = "https://git.sr.ht/~blueingreen/base16-btop"
 name = "base16-btop"
 themes-dir = "colors"
-hook = "cp -f %f ~/.config/btop/themes/colors.theme"
+hook = "cp -f %f ~/.config/btop/themes/colors.theme && killall -SIGUSR2 btop"
 
 [[items]]
 path = "https://github.com/kirasok/base16-hyprland"
