@@ -103,15 +103,16 @@ plugins=(
     marked2
 {{- end }}
     aws
-    gcloud
     cloudfoundry
     common-aliases
     command-not-found
+    dotenv
     docker
     docker-compose
     emoji
-    tmux
+    fzf
     git
+    gpg-agent
     gh
     golang
     jira
@@ -121,12 +122,10 @@ plugins=(
     mise
     ruby
     rust
+    tmux
     safe-paste
     terraform
-    fzf
     web-search
-    gpg-agent
-    dotenv
     z
     transient-prompt
 {{- if hasSuffix "com.com" .email }}
@@ -208,6 +207,7 @@ fi
 {{- if eq .chezmoi.os "linux" }}
 
 alias open='xdg-open'
+alias cm='chezmoi'
 
 if command -v lsd &> /dev/null
 then
