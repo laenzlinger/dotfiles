@@ -13,3 +13,4 @@ data.local/ghost/**
 .mozilla/firefox/*/Cache/**
 .config/chromium
 .rustup/**
+downloads/**
