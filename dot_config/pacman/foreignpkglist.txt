@@ -15,6 +15,7 @@ nodejs-neovim
 openpnp
 papirus-icon-theme-git
 pdfposter
+powerline-fonts-git
 reiserfsprogs
 resticprofile
 selectdefaultapplication-git

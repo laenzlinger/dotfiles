@@ -2,6 +2,7 @@
 alacritty
 alsa-scarlett-gui
 alsa-utils
+arch-install-scripts
 asciidoctor
 autoconf
 automake
@@ -39,6 +40,7 @@ docker
 docker-buildx
 docker-compose
 dos2unix
+dosfstools
 dragonfly-reverb
 drawio-desktop
 efibootmgr
@@ -46,6 +48,7 @@ element-desktop
 emptty
 epiphany
 esptool
+exfatprogs
 f3d
 fakeroot
 fd
@@ -99,7 +102,6 @@ graphviz
 grilo-plugins
 grim
 grsync
-grub
 gst-plugin-pipewire
 gtk3-demos
 gtkmm3
@@ -211,6 +213,7 @@ papers
 parted
 patch
 pavucontrol
+pcsc-tools
 pdftk
 perl-anyevent-i3
 perl-image-exiftool
@@ -246,10 +249,12 @@ restic
 resvg
 ripgrep
 rofi
+rpi-imager
 rsync
 ruby
 rustup
 rygel
+sbctl
 screen
 screenfetch
 shellcheck
@@ -282,11 +287,14 @@ the_silver_searcher
 tmux
 torbrowser-launcher
 toxic
+tpm2-pkcs11
+tpm2-tools
 translate-shell
 tree-sitter-cli
 ttf-meslo-nerd
 ttf-nerd-fonts-symbols
 ttf-roboto
+udiskie
 udisks2
 unrar
 unzip
