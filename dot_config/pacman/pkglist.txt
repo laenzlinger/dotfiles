@@ -277,6 +277,7 @@ syncthing
 sysfsutils
 system-config-printer
 systembus-notify
+systemctl-tui
 systemd-ui
 tecla
 tectonic
@@ -302,7 +303,6 @@ urlscan
 usbip
 usbutils
 uwsm
-vi
 vim
 vim-spell-de
 virtualbox
