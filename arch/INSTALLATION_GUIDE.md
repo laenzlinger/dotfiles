@@ -248,13 +248,13 @@ echo "LANG=en_US.UTF-8" > /etc/locale.conf
 ### 5.5 Set Hostname
 
 ```bash
-echo "thinkpad-x1" > /etc/hostname
+echo "gibson" > /etc/hostname
 
 # Configure hosts file
 cat > /etc/hosts << EOF
 127.0.0.1   localhost
 ::1         localhost
-127.0.1.1   thinkpad-x1.localdomain thinkpad-x1
+127.0.1.1   gibson.home gibson
 EOF
 ```
 
@@ -600,6 +600,7 @@ chown -R root:root /root
 ### 10.1 Review and Merge /etc Configs
 
 **Critical files to NOT overwrite from backup:**
+
 - `/etc/fstab` - Keep the newly generated one
 - `/etc/mkinitcpio.conf` - Keep the one configured for LUKS
 - `/etc/crypttab` - Not needed with systemd-boot + kernel parameters
@@ -609,6 +610,7 @@ chown -R root:root /root
 - `/etc/locale.gen` - Already configured
 
 **Files you may want to restore from backup:**
+
 - Network configurations (if any custom settings)
 - Custom service configurations
 - Application-specific configs in /etc
@@ -748,14 +750,17 @@ sudo systemctl hibernate
 ### Boot Issues
 
 If system doesn't boot:
+
 1. Boot from Arch ISO again
 2. Decrypt and mount partitions:
+
    ```bash
    cryptsetup open /dev/nvme0n1p2 cryptroot
    mount -o subvol=@ /dev/mapper/cryptroot /mnt
    mount /dev/nvme0n1p1 /mnt/boot
    arch-chroot /mnt
    ```
+
 3. Check bootloader configuration
 4. Regenerate initramfs: `mkinitcpio -P`
 
@@ -773,6 +778,7 @@ nmtui
 ### Package Installation Failures
 
 If some packages fail to install:
+
 - Check if they've been renamed or removed from repositories
 - Try installing them individually to identify issues
 - Check AUR for replacements
