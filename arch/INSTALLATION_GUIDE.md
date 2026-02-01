@@ -52,22 +52,6 @@ timedatectl set-ntp true
 timedatectl status
 ```
 
-### Mount External USB Backup Drive
-
-Identify the USB drive:
-
-```bash
-lsblk
-```
-
-Mount the USB drive (adjust device name as needed):
-
-```bash
-mkdir -p /mnt/backup
-mount /dev/sdX1 /mnt/backup  # Replace sdX1 with your USB partition
-ls /mnt/backup/gibson-home   # Verify backup directory exists
-```
-
 ---
 
 ## Disk Partitioning and LUKS Encryption
@@ -192,9 +176,6 @@ mount | grep /mnt
 ### Update Mirror List (Optional)
 
 ```bash
-# Backup original mirrorlist
-cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.backup
-
 # Use reflector to get fastest mirrors
 reflector --country Switzerland,Germany,France --age 12 --protocol https --sort rate --save /etc/pacman.d/mirrorlist
 ```
@@ -436,8 +417,9 @@ exit
 If backup drive is not mounted:
 
 ```bash
-mkdir -p /mnt/backup
-mount /dev/sdX1 /mnt/backup  # Adjust device name
+mkdir -p /media/backup
+mount /dev/sdX1 /media/backup  # Adjust device name
+ls /media/backup/gibson-home   # Verify backup directory exists
 ```
 
 ### Install Restic in Live Environment
@@ -453,7 +435,7 @@ pacman -Sy restic
 From live environment (outside chroot):
 
 ```bash
-export RESTIC_REPOSITORY=/mnt/backup/gibson-home
+export RESTIC_REPOSITORY=/media/backup/gibson-home
 export RESTIC_PASSWORD="your-password-here"
 
 # Restore /home/laenzi
