@@ -202,7 +202,7 @@ reflector --country Switzerland,Germany,France --age 12 --protocol https --sort 
 
 ```bash
 pacstrap -K /mnt base linux linux-firmware intel-ucode btrfs-progs \
-    vim nano networkmanager sudo git base-devel
+    vim networkmanager sudo git base-devel
 ```
 
 ---
@@ -319,7 +319,6 @@ EOF
 cat > /boot/loader/entries/arch.conf << EOF
 title   Arch Linux
 linux   /vmlinuz-linux
-initrd  /intel-ucode.img
 initrd  /initramfs-linux.img
 options cryptdevice=UUID=<UUID>:cryptroot root=/dev/mapper/cryptroot rootflags=subvol=@ rw quiet
 EOF
@@ -333,7 +332,6 @@ EOF
 cat > /boot/loader/entries/arch-fallback.conf << EOF
 title   Arch Linux (fallback)
 linux   /vmlinuz-linux
-initrd  /intel-ucode.img
 initrd  /initramfs-linux-fallback.img
 options cryptdevice=UUID=<UUID>:cryptroot root=/dev/mapper/cryptroot rootflags=subvol=@ rw
 EOF
