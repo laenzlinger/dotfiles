@@ -225,6 +225,9 @@ locale-gen
 
 # Set locale
 echo "LANG=en_US.UTF-8" > /etc/locale.conf
+
+# Set keyboard layout
+echo "KEYMAP=us" > /mnt/etc/vconsole.conf
 ```
 
 ### Set Hostname
@@ -397,7 +400,7 @@ systemctl enable NetworkManager
 ### Create User Account
 
 ```bash
-useradd -m -G wheel -s /bin/bash laenzi
+useradd -m -G wheel -s /bin/zsh laenzi
 passwd laenzi
 # Enter password for laenzi
 
@@ -473,6 +476,9 @@ restic restore latest --target /mnt/root/boot-backup --include /boot
 arch-chroot /mnt
 chown -R laenzi:laenzi /home/laenzi
 chown -R root:root /root
+
+# exit chroot
+exit
 ```
 
 ### Install Official Packages
@@ -482,7 +488,7 @@ chown -R root:root /root
 arch-chroot /mnt pacman -S --needed - < /home/laenzi/.local/share/chezmoi/dot_config/pacman/pkglist.txt
 ```
 
-### Install Yay (AUR Helper)
+### Install Yay (AUR Helper) and AUR Packages
 
 ```bash
 arch-chroot /mnt
@@ -492,16 +498,8 @@ git clone https://aur.archlinux.org/yay.git
 cd yay
 makepkg -si
 cd ~
+yay -S --needed - < /home/laenzi/.local/share/chezmoi/dot_config/pacman/foreignpkglist.txt
 exit  # Back to root
-```
-
-### Install AUR Packages
-
-```bash
-cp /tmp/package-lists /mnt/home/laenzi/
-
-# Install AUR packages as laenzi user
-arch-chroot /mnt su - laenzi -c "yay -S --needed - < /home/laenzi/.local/share/chezmoi/dot_config/pacman/foreignpkglist.txt"
 ```
 
 ---
