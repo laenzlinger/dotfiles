@@ -2,7 +2,7 @@
 
 **Hardware:** Lenovo ThinkPad X1 Carbon Gen 12  
 **Specs:** 1TB NVMe SSD, 32GB RAM, Intel i7-1360P  
-**Configuration:** LUKS encryption, btrfs with subvolumes, systemd-boot, full backup restoration
+**Configuration:** LUKS encryption, btrfs with subvolumes, systemd-boot
 
 ---
 
@@ -10,7 +10,8 @@
 
 ### Boot from Arch ISO
 
-Boot from the Arch Linux USB installation media. The system should boot into the live environment.
+Boot from the Arch Linux USB installation media.
+The system should boot into the live environment.
 
 ### Verify Keyboard Layout
 
@@ -326,19 +327,6 @@ EOF
 
 **Important:** Replace `<UUID>` with the actual UUID from step 6.2.
 
-### Create Fallback Entry
-
-```bash
-cat > /boot/loader/entries/arch-fallback.conf << EOF
-title   Arch Linux (fallback)
-linux   /vmlinuz-linux
-initrd  /initramfs-linux-fallback.img
-options cryptdevice=UUID=<UUID>:cryptroot root=/dev/mapper/cryptroot rootflags=subvol=@ rw
-EOF
-```
-
-**Important:** Replace `<UUID>` with the actual UUID.
-
 ---
 
 ## Swapfile Configuration (32GB with Hibernation)
@@ -452,92 +440,11 @@ mkdir -p /mnt/backup
 mount /dev/sdX1 /mnt/backup  # Adjust device name
 ```
 
-Re-enter chroot with backup access:
-
-```bash
-arch-chroot /mnt
-mkdir -p /mnt/backup
-mount --bind /mnt/backup /mnt/backup  # If needed
-```
-
-Or mount from within chroot:
-
-```bash
-# From within chroot
-mkdir -p /backup
-# Exit chroot, mount backup to /mnt/backup, re-enter chroot
-```
-
-**Simpler approach - work from live environment:**
-
-Exit chroot:
-
-```bash
-exit
-```
-
 ### Install Restic in Live Environment
 
 ```bash
 pacman -Sy restic
 ```
-
-### Extract Package Lists from Backup
-
-```bash
-# Set restic repository
-export RESTIC_REPOSITORY=/mnt/backup/gibson-home
-
-# Retrieve password from your password manager and set it
-export RESTIC_PASSWORD="your-password-here"
-
-# List snapshots
-restic snapshots
-
-# Extract package lists
-mkdir -p /tmp/package-lists
-restic restore latest --target /tmp/package-lists --include /home/laenzi/.local/share/chezmoi/dot_config/pacman/pkglist.txt
-restic restore latest --target /tmp/package-lists --include /home/laenzi/.local/share/chezmoi/dot_config/pacman/foreignpkglist.txt
-
-# Find the extracted files
-find /tmp/package-lists -name "pkglist.txt"
-find /tmp/package-lists -name "foreignpkglist.txt"
-```
-
-### Install Official Packages
-
-```bash
-# Copy package list to accessible location
-cp /tmp/package-lists/home/laenzi/.local/share/chezmoi/dot_config/pacman/pkglist.txt /mnt/root/
-
-# Install packages from list
-arch-chroot /mnt pacman -S --needed - < /mnt/root/pkglist.txt
-```
-
-### Install Yay (AUR Helper)
-
-```bash
-arch-chroot /mnt
-su - laenzi
-cd /tmp
-git clone https://aur.archlinux.org/yay.git
-cd yay
-makepkg -si
-cd ~
-exit  # Back to root
-```
-
-### Install AUR Packages
-
-```bash
-# Copy foreign package list
-cp /tmp/package-lists/home/laenzi/.local/share/chezmoi/dot_config/pacman/foreignpkglist.txt /mnt/home/laenzi/
-
-# Install AUR packages as laenzi user
-arch-chroot /mnt su - laenzi -c "yay -S --needed - < /home/laenzi/foreignpkglist.txt"
-```
-
----
 
 ## Restic Backup Restoration - User Data and Configs
 
@@ -567,7 +474,8 @@ mkdir -p /mnt/root/etc-backup
 restic restore latest --target /mnt/root/etc-backup --include /etc
 ```
 
-**Note:** Do NOT blindly overwrite /etc. You'll manually merge configs in the next section.
+**Note:** Do NOT blindly overwrite /etc.
+You'll manually merge configs in the next section.
 
 ### Restore /boot Configs
 
@@ -583,6 +491,35 @@ restic restore latest --target /mnt/root/boot-backup --include /boot
 arch-chroot /mnt
 chown -R laenzi:laenzi /home/laenzi
 chown -R root:root /root
+```
+
+### Install Official Packages
+
+```bash
+# Install packages from list
+arch-chroot /mnt pacman -S --needed - < /home/laenzi/.local/share/chezmoi/dot_config/pacman/pkglist.txt
+```
+
+### Install Yay (AUR Helper)
+
+```bash
+arch-chroot /mnt
+su - laenzi
+cd /tmp
+git clone https://aur.archlinux.org/yay.git
+cd yay
+makepkg -si
+cd ~
+exit  # Back to root
+```
+
+### Install AUR Packages
+
+```bash
+cp /tmp/package-lists /mnt/home/laenzi/
+
+# Install AUR packages as laenzi user
+arch-chroot /mnt su - laenzi -c "yay -S --needed - < /home/laenzi/.local/share/chezmoi/dot_config/pacman/foreignpkglist.txt"
 ```
 
 ---
@@ -692,7 +629,8 @@ reboot
 
 ## Post-Reboot Verification
 
-After rebooting, you should be prompted for your LUKS passphrase, then boot into your new system.
+After rebooting, you should be prompted for your LUKS passphrase,
+then boot into your new system.
 
 ### Login and Verify
 
