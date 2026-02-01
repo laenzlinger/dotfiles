@@ -7,7 +7,6 @@ cncjs-debug
 cura-bin
 epson-inkjet-printer-escpr2
 gnu-netcat
-gtk2
 lsdesktopf
 mkinitcpio-firmware
 neofetch
