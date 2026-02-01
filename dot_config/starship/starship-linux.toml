@@ -1,0 +1,47 @@
+# Optimized for basic Powerline-patched fonts (e.g., powerline-fonts-git)
+add_newline = true
+
+# The prompt uses the standard Powerline "Hard Arrow" ()
+format = """
+[](blue)$username$hostname[](bg:cyan fg:blue)$directory[](fg:cyan bg:purple)$git_branch$git_status[](fg:purple)
+$character"""
+
+[username]
+show_always = true
+style_user = "bg:blue fg:white"
+format = "[ $user ]($style)"
+
+[directory]
+style = "bg:cyan fg:black"
+format = "[ $path ]($style)"
+truncation_length = 3
+truncation_symbol = ".../"   # Standard ASCII instead of Nerd Font glyph
+
+[git_branch]
+symbol = " "                                   # The ONLY special icon guaranteed in classic Powerline
+style = "bg:purple fg:white"
+format = "[[ $symbol$branch ]($style)]($style)"
+
+[git_status]
+style = "bg:purple fg:white"
+# Uses standard ASCII characters for status to avoid missing font boxes
+format = "[[($all_status$ahead_behind )]($style)]($style)"
+conflicted = "="
+ahead = ">"
+behind = "<"
+diverged = "<>"
+untracked = "?"
+stashed = "$"
+modified = "!"
+staged = "+"
+renamed = "»"
+deleted = "x"
+
+[character]
+# Using a simple ASCII arrow for the input line
+success_symbol = "[>](bold green) "
+error_symbol = "[x](bold red) "
+
+[cmd_duration]
+disabled = false
+format = "took [$duration](bold yellow)"

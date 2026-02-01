@@ -27,9 +27,14 @@ export ZSH="{{ .chezmoi.homeDir }}/.oh-my-zsh"
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 #ZSH_THEME="agnoster"
-
-
 #ZSH_THEME="powerlevel10k/powerlevel10k"
+
+# Starship prompt
+if [[ "$TERM" == "linux" ]]; then
+  export STARSHIP_CONFIG=~/.config/starship/starship-linux.toml
+else
+  export STARSHIP_CONFIG=~/.config/starship/starship.toml
+fi
 eval "$(starship init zsh)"
 TRANSIENT_PROMPT_TRANSIENT_PROMPT='$(starship prompt --profile transient)'
 
