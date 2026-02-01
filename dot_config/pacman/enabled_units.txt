@@ -1,0 +1,16 @@
+cups.path
+avahi-daemon.service
+bluetooth.service
+chronyd.service
+cups.service
+getty@.service
+NetworkManager-dispatcher.service
+NetworkManager-wait-online.service
+NetworkManager.service
+avahi-daemon.socket
+cups.socket
+docker.socket
+pcscd.socket
+systemd-userdbd.socket
+remote-fs.target
+resticprofile-backup@profile-rotating-backup.timer

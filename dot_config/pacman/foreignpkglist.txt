@@ -9,7 +9,6 @@ epson-inkjet-printer-escpr2
 gnu-netcat
 lsdesktopf
 mkinitcpio-firmware
-neofetch
 nodejs-neovim
 openpnp
 papirus-icon-theme-git
