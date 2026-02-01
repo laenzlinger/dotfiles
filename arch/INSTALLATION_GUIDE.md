@@ -496,13 +496,10 @@ export RESTIC_PASSWORD="your-password-here"
 # List snapshots
 restic snapshots
 
-# Find the latest snapshot ID
-SNAPSHOT_ID=$(restic snapshots --json | grep -o '"id":"[^"]*"' | head -1 | cut -d'"' -f4)
-
 # Extract package lists
 mkdir -p /tmp/package-lists
-restic restore $SNAPSHOT_ID --target /tmp/package-lists --include /home/laenzi/.local/share/chezmoi/dot_config/pacman/pkglist.txt
-restic restore $SNAPSHOT_ID --target /tmp/package-lists --include /home/laenzi/.local/share/chezmoi/dot_config/pacman/foreignpkglist.txt
+restic restore latest --target /tmp/package-lists --include /home/laenzi/.local/share/chezmoi/dot_config/pacman/pkglist.txt
+restic restore latest --target /tmp/package-lists --include /home/laenzi/.local/share/chezmoi/dot_config/pacman/foreignpkglist.txt
 
 # Find the extracted files
 find /tmp/package-lists -name "pkglist.txt"
@@ -554,17 +551,14 @@ From live environment (outside chroot):
 export RESTIC_REPOSITORY=/mnt/backup/gibson-home
 export RESTIC_PASSWORD="your-password-here"
 
-# Get latest snapshot
-SNAPSHOT_ID=$(restic snapshots --json | grep -o '"id":"[^"]*"' | head -1 | cut -d'"' -f4)
-
 # Restore /home/laenzi
-restic restore $SNAPSHOT_ID --target /mnt --include /home/laenzi
+restic restore latest --target /mnt --include /home/laenzi
 ```
 
 ### 9.2 Restore /root
 
 ```bash
-restic restore $SNAPSHOT_ID --target /mnt --include /root
+restic restore latest --target /mnt --include /root
 ```
 
 ### 9.3 Restore /etc (with caution)
@@ -572,7 +566,7 @@ restic restore $SNAPSHOT_ID --target /mnt --include /root
 ```bash
 # Restore to temporary location first
 mkdir -p /mnt/root/etc-backup
-restic restore $SNAPSHOT_ID --target /mnt/root/etc-backup --include /etc
+restic restore latest --target /mnt/root/etc-backup --include /etc
 ```
 
 **Note:** Do NOT blindly overwrite /etc. You'll manually merge configs in the next section.
@@ -582,7 +576,7 @@ restic restore $SNAPSHOT_ID --target /mnt/root/etc-backup --include /etc
 ```bash
 # Restore boot configs (not bootloader itself)
 mkdir -p /mnt/root/boot-backup
-restic restore $SNAPSHOT_ID --target /mnt/root/boot-backup --include /boot
+restic restore latest --target /mnt/root/boot-backup --include /boot
 ```
 
 ### 9.5 Fix Permissions
