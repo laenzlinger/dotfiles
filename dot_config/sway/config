@@ -225,7 +225,7 @@ assign [app_id="obsidian"] $ws3
 exec "vivaldi"
 exec "$terminal --class main-terminal"
 exec "sleep 3; keepassxc ~/data/pw/pw.kdbx""
-exec "obsidian 'obsidian://open?vault=Notes'"
+# exec "obsidian 'obsidian://open?vault=Notes'"
 
 for_window [title=".* — PCB Editor"] resize set width 80 ppt
 for_window [title=".* — Schematic Editor"] resize set width 80 ppt

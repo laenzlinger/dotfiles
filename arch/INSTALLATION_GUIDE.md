@@ -6,13 +6,13 @@
 
 ---
 
-## 1. Pre-Installation Setup
+## Pre-Installation Setup
 
-### 1.1 Boot from Arch ISO
+### Boot from Arch ISO
 
 Boot from the Arch Linux USB installation media. The system should boot into the live environment.
 
-### 1.2 Verify Keyboard Layout
+### Verify Keyboard Layout
 
 The default US keyboard layout should already be loaded:
 
@@ -21,7 +21,7 @@ The default US keyboard layout should already be loaded:
 localectl status
 ```
 
-### 1.3 Connect to Network
+### Connect to Network
 
 **For Ethernet:** Should connect automatically.
 
@@ -44,14 +44,14 @@ Verify connectivity:
 ping -c 3 archlinux.org
 ```
 
-### 1.4 Update System Clock
+### Update System Clock
 
 ```bash
 timedatectl set-ntp true
 timedatectl status
 ```
 
-### 1.5 Mount External USB Backup Drive
+### Mount External USB Backup Drive
 
 Identify the USB drive:
 
@@ -69,23 +69,23 @@ ls /mnt/backup/gibson-home   # Verify backup directory exists
 
 ---
 
-## 2. Disk Partitioning and LUKS Encryption
+## Disk Partitioning and LUKS Encryption
 
-### 2.1 Identify NVMe Device
+### Identify NVMe Device
 
 ```bash
 lsblk
 # Your NVMe drive should be /dev/nvme0n1
 ```
 
-### 2.2 Wipe Existing Partitions (Optional but Recommended)
+### Wipe Existing Partitions (Optional but Recommended)
 
 ```bash
 # WARNING: This will destroy all data on the drive
 wipefs -a /dev/nvme0n1
 ```
 
-### 2.3 Create Partition Table
+### Create Partition Table
 
 ```bash
 gdisk /dev/nvme0n1
@@ -115,13 +115,13 @@ w     # Write changes
 y     # Confirm
 ```
 
-### 2.4 Format EFI Partition
+### Format EFI Partition
 
 ```bash
 mkfs.fat -F32 /dev/nvme0n1p1
 ```
 
-### 2.5 Setup LUKS Encryption
+### Setup LUKS Encryption
 
 ```bash
 # Format partition with LUKS
@@ -135,15 +135,15 @@ cryptsetup open /dev/nvme0n1p2 cryptroot
 
 ---
 
-## 3. Btrfs Filesystem and Subvolumes
+## Btrfs Filesystem and Subvolumes
 
-### 3.1 Create Btrfs Filesystem
+### Create Btrfs Filesystem
 
 ```bash
 mkfs.btrfs /dev/mapper/cryptroot
 ```
 
-### 3.2 Mount and Create Subvolumes
+### Mount and Create Subvolumes
 
 ```bash
 # Mount the btrfs filesystem
@@ -186,9 +186,9 @@ mount | grep /mnt
 
 ---
 
-## 4. Base System Installation
+## Base System Installation
 
-### 4.1 Update Mirror List (Optional)
+### Update Mirror List (Optional)
 
 ```bash
 # Backup original mirrorlist
@@ -198,7 +198,7 @@ cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.backup
 reflector --country Switzerland,Germany,France --age 12 --protocol https --sort rate --save /etc/pacman.d/mirrorlist
 ```
 
-### 4.2 Install Base System
+### Install Base System
 
 ```bash
 pacstrap -K /mnt base linux linux-firmware intel-ucode btrfs-progs \
@@ -207,9 +207,9 @@ pacstrap -K /mnt base linux linux-firmware intel-ucode btrfs-progs \
 
 ---
 
-## 5. System Configuration
+## System Configuration
 
-### 5.1 Generate Fstab
+### Generate Fstab
 
 ```bash
 genfstab -U /mnt >> /mnt/etc/fstab
@@ -218,20 +218,20 @@ genfstab -U /mnt >> /mnt/etc/fstab
 cat /mnt/etc/fstab
 ```
 
-### 5.2 Chroot into New System
+### Chroot into New System
 
 ```bash
 arch-chroot /mnt
 ```
 
-### 5.3 Set Timezone
+### Set Timezone
 
 ```bash
 ln -sf /usr/share/zoneinfo/Europe/Zurich /etc/localtime
 hwclock --systohc
 ```
 
-### 5.4 Configure Locale
+### Configure Locale
 
 ```bash
 # Edit locale.gen
@@ -245,7 +245,7 @@ locale-gen
 echo "LANG=en_US.UTF-8" > /etc/locale.conf
 ```
 
-### 5.5 Set Hostname
+### Set Hostname
 
 ```bash
 echo "gibson" > /etc/hostname
@@ -258,14 +258,14 @@ cat > /etc/hosts << EOF
 EOF
 ```
 
-### 5.6 Set Root Password
+### Set Root Password
 
 ```bash
 passwd
 # Enter a strong root password
 ```
 
-### 5.7 Configure mkinitcpio for LUKS
+### Configure mkinitcpio for LUKS
 
 ```bash
 # Edit mkinitcpio.conf
@@ -286,22 +286,22 @@ mkinitcpio -P
 
 ---
 
-## 6. Bootloader Installation (systemd-boot)
+## Bootloader Installation (systemd-boot)
 
-### 6.1 Install systemd-boot
+### Install systemd-boot
 
 ```bash
 bootctl install
 ```
 
-### 6.2 Get UUID of Encrypted Partition
+### Get UUID of Encrypted Partition
 
 ```bash
 blkid /dev/nvme0n1p2
 # Note the UUID value
 ```
 
-### 6.3 Create Loader Configuration
+### Create Loader Configuration
 
 ```bash
 cat > /boot/loader/loader.conf << EOF
@@ -312,7 +312,7 @@ editor no
 EOF
 ```
 
-### 6.4 Create Boot Entry
+### Create Boot Entry
 
 ```bash
 # Get the UUID from the previous step and replace <UUID> below
@@ -326,7 +326,7 @@ EOF
 
 **Important:** Replace `<UUID>` with the actual UUID from step 6.2.
 
-### 6.5 Create Fallback Entry
+### Create Fallback Entry
 
 ```bash
 cat > /boot/loader/entries/arch-fallback.conf << EOF
@@ -341,9 +341,9 @@ EOF
 
 ---
 
-## 7. Swapfile Configuration (32GB with Hibernation)
+## Swapfile Configuration (32GB with Hibernation)
 
-### 7.1 Create Swapfile
+### Create Swapfile
 
 ```bash
 # Create swapfile with no CoW attribute for btrfs
@@ -364,13 +364,13 @@ mkswap /swapfile
 swapon /swapfile
 ```
 
-### 7.2 Add Swapfile to Fstab
+### Add Swapfile to Fstab
 
 ```bash
 echo "/swapfile none swap defaults 0 0" >> /etc/fstab
 ```
 
-### 7.3 Configure Hibernation
+### Configure Hibernation
 
 Get swapfile offset:
 
@@ -417,15 +417,15 @@ Do the same for arch-fallback.conf.
 
 ---
 
-## 8. Restic Backup Restoration - Packages
+## Restic Backup Restoration - Packages
 
-### 8.1 Enable NetworkManager
+### Enable NetworkManager
 
 ```bash
 systemctl enable NetworkManager
 ```
 
-### 8.2 Create User Account
+### Create User Account
 
 ```bash
 useradd -m -G wheel -s /bin/bash laenzi
@@ -437,7 +437,7 @@ EDITOR=vim visudo
 # Uncomment: %wheel ALL=(ALL:ALL) ALL
 ```
 
-### 8.3 Mount Backup Drive (if not already mounted)
+### Mount Backup Drive (if not already mounted)
 
 Exit chroot temporarily:
 
@@ -476,13 +476,13 @@ Exit chroot:
 exit
 ```
 
-### 8.4 Install Restic in Live Environment
+### Install Restic in Live Environment
 
 ```bash
 pacman -Sy restic
 ```
 
-### 8.5 Extract Package Lists from Backup
+### Extract Package Lists from Backup
 
 ```bash
 # Set restic repository
@@ -504,7 +504,7 @@ find /tmp/package-lists -name "pkglist.txt"
 find /tmp/package-lists -name "foreignpkglist.txt"
 ```
 
-### 8.6 Install Official Packages
+### Install Official Packages
 
 ```bash
 # Copy package list to accessible location
@@ -514,7 +514,7 @@ cp /tmp/package-lists/home/laenzi/.local/share/chezmoi/dot_config/pacman/pkglist
 arch-chroot /mnt pacman -S --needed - < /mnt/root/pkglist.txt
 ```
 
-### 8.7 Install Yay (AUR Helper)
+### Install Yay (AUR Helper)
 
 ```bash
 arch-chroot /mnt
@@ -527,7 +527,7 @@ cd ~
 exit  # Back to root
 ```
 
-### 8.8 Install AUR Packages
+### Install AUR Packages
 
 ```bash
 # Copy foreign package list
@@ -539,9 +539,9 @@ arch-chroot /mnt su - laenzi -c "yay -S --needed - < /home/laenzi/foreignpkglist
 
 ---
 
-## 9. Restic Backup Restoration - User Data and Configs
+## Restic Backup Restoration - User Data and Configs
 
-### 9.1 Restore /home/laenzi
+### Restore /home/laenzi
 
 From live environment (outside chroot):
 
@@ -553,13 +553,13 @@ export RESTIC_PASSWORD="your-password-here"
 restic restore latest --target /mnt --include /home/laenzi
 ```
 
-### 9.2 Restore /root
+### Restore /root
 
 ```bash
 restic restore latest --target /mnt --include /root
 ```
 
-### 9.3 Restore /etc (with caution)
+### Restore /etc (with caution)
 
 ```bash
 # Restore to temporary location first
@@ -569,7 +569,7 @@ restic restore latest --target /mnt/root/etc-backup --include /etc
 
 **Note:** Do NOT blindly overwrite /etc. You'll manually merge configs in the next section.
 
-### 9.4 Restore /boot Configs
+### Restore /boot Configs
 
 ```bash
 # Restore boot configs (not bootloader itself)
@@ -577,7 +577,7 @@ mkdir -p /mnt/root/boot-backup
 restic restore latest --target /mnt/root/boot-backup --include /boot
 ```
 
-### 9.5 Fix Permissions
+### Fix Permissions
 
 ```bash
 arch-chroot /mnt
@@ -587,9 +587,9 @@ chown -R root:root /root
 
 ---
 
-## 10. Post-Installation Cleanup and Verification
+## Post-Installation Cleanup and Verification
 
-### 10.1 Review and Merge /etc Configs
+### Review and Merge /etc Configs
 
 **Critical files to NOT overwrite from backup:**
 
@@ -622,7 +622,7 @@ diff /etc/pacman.conf /root/etc-backup/etc/pacman.conf
 # Merge any custom settings manually
 ```
 
-### 10.2 Verify User Accounts
+### Verify User Accounts
 
 ```bash
 # Check that laenzi user exists and has correct groups
@@ -633,7 +633,7 @@ groups laenzi
 usermod -aG wheel laenzi
 ```
 
-### 10.3 Enable Essential Services
+### Enable Essential Services
 
 ```bash
 # NetworkManager should already be enabled, verify:
@@ -644,7 +644,7 @@ systemctl enable NetworkManager
 # ls /root/etc-backup/etc/systemd/system/*.wants/
 ```
 
-### 10.4 Verify Bootloader Configuration
+### Verify Bootloader Configuration
 
 ```bash
 # Double-check boot entries have correct UUIDs
@@ -655,7 +655,7 @@ cat /boot/loader/entries/arch-fallback.conf
 blkid /dev/nvme0n1p2
 ```
 
-### 10.5 Final Checks
+### Final Checks
 
 ```bash
 # Verify fstab
@@ -671,7 +671,7 @@ locale
 timedatectl status
 ```
 
-### 10.6 Exit and Unmount
+### Exit and Unmount
 
 ```bash
 # Exit chroot
@@ -690,11 +690,11 @@ reboot
 
 ---
 
-## 11. Post-Reboot Verification
+## Post-Reboot Verification
 
 After rebooting, you should be prompted for your LUKS passphrase, then boot into your new system.
 
-### 11.1 Login and Verify
+### Login and Verify
 
 ```bash
 # Login as laenzi
@@ -719,7 +719,7 @@ df -h
 pacman -Q | wc -l
 ```
 
-### 11.2 Test Hibernation (Optional)
+### Test Hibernation (Optional)
 
 ```bash
 # Test hibernation
@@ -728,7 +728,7 @@ sudo systemctl hibernate
 # System should hibernate and resume with all state preserved
 ```
 
-### 11.3 Additional Configuration
+### Additional Configuration
 
 - Configure any remaining services from your backup
 - Set up any custom configurations
