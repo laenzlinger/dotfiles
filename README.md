@@ -27,7 +27,7 @@ bash setup-vmware.sh
 
 ### Bare Metal steps
 
-See Obsidian Note
+see [Installation Guide](/arch/INSTALLATION_GUIDE.md)
 
 ### Create user
 
