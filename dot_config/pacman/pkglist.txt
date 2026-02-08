@@ -4,13 +4,11 @@ alsa-scarlett-gui
 alsa-utils
 arch-install-scripts
 asciidoctor
-autoconf
-automake
 baobab
 base
+base-devel
 bat
 bind
-bison
 blueman
 bluez-utils
 bolt
@@ -18,6 +16,8 @@ breeze-gtk
 breeze-icons
 brightnessctl
 btop
+btrfs-assistant
+btrfs-progs
 calc
 calibre
 carla
@@ -27,11 +27,11 @@ chromium
 chrony
 code
 composer
+compsize
 csvkit
 cups
 cups-pdf
 darkman
-debugedit
 decibels
 dex
 dhcpcd
@@ -50,18 +50,14 @@ epiphany
 esptool
 exfatprogs
 f3d
-fakeroot
 fd
 firefox
 fish
-flex
 foot
 fprintd
 freecad
-freetype2
 fwupd
 fzf
-gcc
 gcolor3
 gcr
 gdm
@@ -166,8 +162,6 @@ lsd
 luarocks
 lvm2
 ly
-m4
-make
 malcontent
 man-db
 man-pages
@@ -212,7 +206,6 @@ orca
 pandoc-cli
 papers
 parted
-patch
 pavucontrol
 pcsc-tools
 pdftk
@@ -222,7 +215,6 @@ pipewire-alsa
 pipewire-docs
 pipewire-jack
 pipewire-pulse
-pkgconf
 pkgfile
 plantuml
 platformio-core
@@ -263,6 +255,8 @@ shikane
 showtime
 simple-scan
 slurp
+snap-pac
+snapper
 snapshot
 sof-firmware
 sshuttle
@@ -284,7 +278,6 @@ tecla
 tectonic
 terminus-font
 terraform
-texinfo
 the_silver_searcher
 tmux
 torbrowser-launcher
@@ -316,7 +309,6 @@ websocat
 wev
 wezterm
 wget
-which
 wireguard-tools
 wl-clipboard
 wlr-randr
@@ -345,6 +337,7 @@ zathura
 zathura-pdf-mupdf
 zip
 zoxide
+zsh
 zsh-autosuggestions
 zsh-completions
 zsh-syntax-highlighting

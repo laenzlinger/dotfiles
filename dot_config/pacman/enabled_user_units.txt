@@ -3,7 +3,6 @@ syncthing.service
 wireplumber.service
 wob.service
 xdg-user-dirs.service
-gcr-ssh-agent.socket
 p11-kit-server.socket
 pipewire-pulse.socket
 pipewire.socket

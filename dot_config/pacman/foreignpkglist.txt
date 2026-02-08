@@ -1,11 +1,12 @@
 apfs-fuse-git
 awf-gtk4
+btrfs-desktop-notification
 cheat-bin
 clipman
 cncjs
-cncjs-debug
 cura-bin
 epson-inkjet-printer-escpr2
+f3
 gnu-netcat
 lsdesktopf
 mkinitcpio-firmware
@@ -17,10 +18,9 @@ powerline-fonts-git
 reiserfsprogs
 resticprofile
 selectdefaultapplication-git
-selectdefaultapplication-git-debug
 tinty-git
 ttf-pacifico
-udiskr
 universal-gcode-sender-bin
+ventoy-bin
 yay
 yay-debug

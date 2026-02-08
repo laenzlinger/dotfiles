@@ -14,3 +14,5 @@ pcscd.socket
 systemd-userdbd.socket
 remote-fs.target
 resticprofile-backup@profile-rotating-backup.timer
+snapper-cleanup.timer
+snapper-timeline.timer
