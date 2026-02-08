@@ -18,12 +18,13 @@ fi
 # Launch WezTerm
 wezterm start --class float_wezterm -- bash -i -c "
     echo 'Fetching snapshots for profile: $PROFILE...'
-    sleep 1
-    resticprofile $PROFILE-term.snapshots
+    sleep 0.1
+    resticprofile $PROFILE-term.snapshots -c --latest 3
     echo -e '\n------------------------------------'
-    read -p 'Press Enter to close this window...'
-" &
-sleep 0.5
-swaymsg "[app_id=\"float_wezterm\"] floating enable, border pixel 4"
+    echo \"Press any key to exit...\"
+    read -n 1 -s -r
+    " &
 sleep 0.2
+swaymsg "[app_id=\"float_wezterm\"] floating enable, border pixel 4"
+sleep 0.1
 swaymsg "[app_id=\"float_wezterm\"] resize set 1000 700, move position center"
