@@ -18,10 +18,11 @@ fi
 # Launch WezTerm
 wezterm start --class float_wezterm -- bash -i -c "
     echo 'Fetching snapshots for profile: $PROFILE...'
-    sleep 0.1
-    resticprofile $PROFILE-term.snapshots -c --latest 3
-    echo -e '\n------------------------------------'
-    echo \"Press any key to exit...\"
+    resticprofile $PROFILE-term.snapshots -c --latest 2
+    echo '--- Local Btrfs Snapshots (Root) ---'
+    snapper -c root list | tail -n 3
+    echo -e '\n--- Local Btrfs Snapshots (Home) ---'
+    snapper -c home list | tail -n 3
     read -n 1 -s -r
     " &
 sleep 0.2
