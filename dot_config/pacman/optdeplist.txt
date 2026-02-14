@@ -1,3 +1,4 @@
 #optional dependencies
 cmake
 python-pytest
+qt5-multimedia

@@ -12,6 +12,7 @@ lsdesktopf
 mkinitcpio-firmware
 nodejs-neovim
 openpnp
+openscad-git
 papirus-icon-theme-git
 pdfposter
 powerline-fonts-git
