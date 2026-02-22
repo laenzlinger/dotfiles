@@ -59,6 +59,7 @@ fish
 foot
 fprintd
 freecad
+fuseiso
 fwupd
 fzf
 gcolor3
@@ -139,6 +140,7 @@ jq
 jre-openjdk
 jre17-openjdk
 jre21-openjdk
+k9s
 keepassxc
 kicad
 kicad-library
@@ -234,6 +236,7 @@ python-pip
 python-pipx
 python-pynvim
 python-svgwrite
+qemu-full
 qjackctl
 qpwgraph
 qt5-wayland
@@ -304,7 +307,6 @@ usbutils
 uwsm
 vim
 vim-spell-de
-virtualbox
 vivaldi
 vlc
 vscode-json-languageserver

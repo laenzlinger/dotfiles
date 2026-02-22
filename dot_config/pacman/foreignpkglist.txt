@@ -7,7 +7,9 @@ cncjs
 cura-bin
 epson-inkjet-printer-escpr2
 f3
+flux-bin
 gnu-netcat
+kiro-cli
 lsdesktopf
 mkinitcpio-firmware
 nodejs-neovim
