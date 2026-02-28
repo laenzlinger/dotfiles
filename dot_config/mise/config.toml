@@ -1,9 +1,6 @@
 [tools]
 usage = "latest"
-golang = "system"
-python = "latest"
 
 [settings]
-
-[settings.python]
-compile = true
+experimental = true
+legacy_version_file = false
