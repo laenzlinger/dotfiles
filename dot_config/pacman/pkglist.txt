@@ -146,6 +146,7 @@ kicad
 kicad-library
 kicad-library-3d
 kitty
+kubectx
 kvantum
 kvantum-qt5
 kvantum-theme-materia
@@ -230,6 +231,7 @@ polkit-gnome
 posterazor
 pre-commit
 prusa-slicer
+pv
 python
 python-kikit
 python-pip
@@ -311,6 +313,7 @@ vivaldi
 vlc
 vscode-json-languageserver
 w3m
+wakeonlan
 waybar
 websocat
 wev

@@ -5,4 +5,3 @@ text/html;                         w3m -sixel -o display_image=1 -T text/html %s
 
 # This second one is chosen by auto_view due to the copiousoutput tag
 text/html;                         w3m -I %{charset} -T text/html -cols 140 -o display_link_number=1 -dump; copiousoutput
-

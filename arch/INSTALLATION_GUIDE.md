@@ -1,7 +1,7 @@
 # Arch Linux Installation Guide - ThinkPad X1 Carbon Gen 12
 
-**Hardware:** Lenovo ThinkPad X1 Carbon Gen 12  
-**Specs:** 1TB NVMe SSD, 32GB RAM, Intel i7-1360P  
+**Hardware:** Lenovo ThinkPad X1 Carbon Gen 12
+**Specs:** 1TB NVMe SSD, 32GB RAM, Intel i7-1360P
 **Configuration:** LUKS encryption, btrfs with subvolumes, systemd-boot
 
 ---
@@ -705,6 +705,6 @@ If some packages fail to install:
 
 ---
 
-**Installation Date:** February 2026  
-**System:** Lenovo ThinkPad X1 Carbon Gen 12  
+**Installation Date:** February 2026
+**System:** Lenovo ThinkPad X1 Carbon Gen 12
 **Arch Linux Version:** Rolling Release

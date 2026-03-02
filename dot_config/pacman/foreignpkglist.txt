@@ -20,6 +20,7 @@ pdfposter
 powerline-fonts-git
 reiserfsprogs
 resticprofile
+rpiusbboot-git
 selectdefaultapplication-git
 tinty-git
 ttf-pacifico

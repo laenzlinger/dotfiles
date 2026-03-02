@@ -16,7 +16,7 @@ if [ $# -eq 0 ]; then
   exit 1
 fi
 
-QUERY=$(echo "$*" | sed 's/ /%20/g')
+QUERY="${*//' '/'%20'}"
 API_URL="https://api.unsplash.com/photos/random?query=$QUERY&client_id=$UNSPLASH_ACCESS_KEY"
 
 IMAGE_URL=$(curl -s "$API_URL" | jq -r '.urls.full')

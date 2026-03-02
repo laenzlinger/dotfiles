@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 
-git config --global http.proxy $https_proxy
+if [ -n "$https_proxy" ]; then
+  git config --global http.proxy "$https_proxy"
+fi
 
 # oh-my-zsh
 git clone https://github.com/ohmyzsh/ohmyzsh.git ~/.oh-my-zsh
@@ -13,4 +15,3 @@ git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/.oh-my-zsh/cu
 git clone https://github.com/chriskempson/base16-shell.git ~/.config/base16-shell
 
 ~/bin/chezmoi apply
-

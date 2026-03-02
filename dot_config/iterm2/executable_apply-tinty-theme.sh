@@ -11,4 +11,4 @@
 /usr/libexec/PlistBuddy \
     -c 'Delete "tinty-managed"' \
     -c 'Add "tinty-managed" dict' \
-    -c "Merge ""$HOME/.config/iterm2/tinty-managed.itermcolors"" ""tinty-managed""" $HOME/.config/iterm2/com.googlecode.iterm2.plist
+    -c "Merge ""$HOME/.config/iterm2/tinty-managed.itermcolors"" ""tinty-managed""" "$HOME/.config/iterm2/com.googlecode.iterm2.plist"

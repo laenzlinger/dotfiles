@@ -6,8 +6,10 @@ ICON_THEME="Papirius"
 DARK_THEME="darker"
 LIGHT_THEME="simple"
 
-export XDG_RUNTIME_DIR=/run/user/$(id -u)
-export WAYLAND_DISPLAY=$(ls $XDG_RUNTIME_DIR/wayland-* 2>/dev/null | head -n 1 | xargs basename)
+XDG_RUNTIME_DIR=/run/user/$(id -u)
+export XDG_RUNTIME_DIR
+WAYLAND_DISPLAY=$(find "$XDG_RUNTIME_DIR" -maxdepth 1 -name 'wayland-*' 2>/dev/null | head -n 1 | xargs basename)
+export WAYLAND_DISPLAY
 export QT_QPA_PLATFORM="wayland"
 
 # Path to config files

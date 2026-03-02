@@ -38,6 +38,9 @@ exec nm-applet --indicator
 # show dbus error messages
 exec systembus-notify
 
+# btrfs filesystem monitoring
+exec btrfs-desktop-notification
+
 # output configuration
 exec shikane
 
@@ -229,4 +232,3 @@ exec "sleep 3; keepassxc ~/data/pw/pw.kdbx""
 
 for_window [title=".* — PCB Editor"] resize set width 80 ppt
 for_window [title=".* — Schematic Editor"] resize set width 80 ppt
-
