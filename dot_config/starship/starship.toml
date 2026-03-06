@@ -3,6 +3,16 @@
 # Use the default layout
 format = "$all"
 
+[kubernetes]
+disabled = false
+format = '[$symbol$context( \($namespace\))]($style) '
+symbol = "☸ "
+contexts = [
+  { context_pattern = ".*dev.*", style = "bold green" },
+  { context_pattern = ".*test.*", style = "bold yellow" },
+  { context_pattern = ".*(prod|production).*", style = "bold red" },
+]
+
 [character]
 # Success symbol in standard green, error in standard red
 #
