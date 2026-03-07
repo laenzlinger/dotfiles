@@ -57,25 +57,17 @@
       }
     }
   },
-  "cpu": {
-    "interval": 5,
-    "tooltip": true,
-    "format": "  {usage}%",
-    "format-alt": "  {load}",
-    "states": {
-      "warning": 70,
-      "critical": 90
-    }
+  "custom/cpu": {
+    "format": "{}",
+    "return-type": "json",
+    "exec": "~/.config/waybar/scripts/cpu-status.sh",
+    "interval": 5
   },
-  "memory": {
-    "interval": 5,
-    "format": "󰍛 {percentage}%",
-    "format-alt": "󰍛 {used:0.1f}G/{total:0.1f}G",
-    "states": {
-      "warning": 70,
-      "critical": 90
-    },
-    "tooltip": true
+  "custom/memory": {
+    "format": "{}",
+    "return-type": "json",
+    "exec": "~/.config/waybar/scripts/memory-status.sh",
+    "interval": 5
   },
   "custom/network": {
     "format": "{}",

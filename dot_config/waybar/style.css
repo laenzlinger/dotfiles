@@ -73,8 +73,10 @@
 /* Each module */
 #clock,
 #cpu,
+#custom-cpu,
 #language,
 #memory,
+#custom-memory,
 #mode,
 #network,
 #custom-network,
@@ -184,12 +186,14 @@
 	color: @black;
 }
 
-#memory {
+#memory,
+#custom-memory {
 	background: @memory;
 	color: @black;
 }
 
-#cpu {
+#cpu,
+#custom-cpu {
 	background: @cpu;
 	color: @black;
 }
