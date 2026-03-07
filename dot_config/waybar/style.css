@@ -1,329 +1,171 @@
 @import "colors.css";
 
-
-/* Keyframes */
-
-@keyframes blink-critical {
-	to {
-		/*color: @white;*/
-		background-color: @critical;
-	}
-}
-
-
-/* Styles */
-
-/* Colors (gruvbox) */
-@define-color black	@base00;
-@define-color red	@base08;
-@define-color green	@base0B;
-@define-color yellow	@base0A;
-@define-color blue	@base0D;
-@define-color magenta	@base0E;
-@define-color cyan	@base0C;
-@define-color white	@base05;
-@define-color brblack	@base03;
-@define-color brred	@base08;
-@define-color brgreen	@base0B;
-@define-color bryellow	@base0A;
-@define-color brblue	@base06;
-@define-color brmagenta	@base0E;
-@define-color brcyan	@base0C;
-@define-color brwhite	@base07;
-
-
-@define-color warning 	@bryellow;
-@define-color critical	@red;
-@define-color mode	@black;
-@define-color unfocused	@base00;
-@define-color focused	@base03;
-@define-color inactive	@magenta;
-@define-color layout	@bryellow;
-@define-color sound	@black;
-@define-color network	@yellow;
-@define-color memory	@blue;
-@define-color cpu	@cyan;
-@define-color temp	@brblack;
-@define-color battery	@black;
-@define-color date	@brblue;
-@define-color time	@white;
-
-
-/* Reset all styles */
 * {
-	border: none;
-	border-radius: 0;
-	min-height: 0;
-	margin: 0;
-	padding: 0;
-	box-shadow: none;
-	text-shadow: none;
-	-gtk-icon-shadow: none;
+    font-family: "Roboto", "MesloLGS Nerd Font", sans-serif;
+    font-size: 15px;
+    min-height: 0;
 }
 
-/* The whole bar */
-#waybar {
-	background: @black;
-	color: @white;
-	font-family: Roboto;
-	font-size: 11pt;
-	/*font-weight: bold;*/
+window#waybar {
+    background: alpha(@base00, 0.9);
+    color: @base05;
 }
 
-/* Each module */
-#clock,
-#cpu,
-#custom-cpu,
-#language,
-#memory,
-#custom-memory,
-#mode,
-#network,
-#custom-network,
-#pulseaudio,
-#temperature,
-#tray,
-#backlight,
-#idle_inhibitor,
-#disk,
-#user,
-#mpris {
-	padding-left: 8pt;
-	padding-right: 8pt;
+window#waybar.hidden {
+    opacity: 0.2;
 }
 
-/* Each critical module */
-#mode,
-#memory.critical,
-#cpu.critical,
-#temperature.critical,
-#battery.critical.discharging {
-	animation-timing-function: linear;
-	animation-iteration-count: infinite;
-	animation-direction: alternate;
-	animation-name: blink-critical;
-	animation-duration: 1s;
+#workspaces {
+    padding: 0;
+    margin: 0;
 }
 
-/* Each warning */
-#network.disconnected,
-#memory.warning,
-#cpu.warning,
-#temperature.warning,
-#battery.warning.discharging {
-	color: @warning;
-}
-
-/* And now modules themselves in their respective order */
-
-/* Current sway mode (resize etc) */
-#mode {
-	color: @white;
-	background: @mode;
-}
-
-/* Workspaces stuff */
 #workspaces button {
-	color: @base05;
-	background: @unfocused;
-    padding: 0px 5px 0px 5px;
-    margin: 2px 2px 2px 2px;
-    border-color: @base04;
-    border-style: solid;
-    border-width: 1px;
-    border-radius: 7px;
+    padding: 0 6px;
+    margin: 4px 2px;
+    color: @base04;
+    background: @base01;
+    border: none;
+    border-radius: 4px;
+    min-width: 0;
 }
 
-/* Inactive (on unfocused output) */
-#workspaces button.visible {
-	color: @brblack;
-	background: @inactive;
-}
-
-/* Active (on focused output) */
-#workspaces button.focused {
-	color: @base06;
-	background: @focused;
-    padding: 0px 5px 0px 5px;
-    margin: 2px 2px 2px 2px;
-    border-color: @base05;
-    border-style: solid;
-    border-width: 1px;
-    border-radius: 7px;
-}
-
-/* Contains an urgent window */
-#workspaces button.urgent {
-	color: @black;
-	background: @warning;
-}
-
-/* Style when cursor is on the button */
 #workspaces button:hover {
-	background: @brblack;
-	color: @brwhite;
+    background: @base01;
+}
+
+#workspaces button.focused,
+#workspaces button.active {
+    color: @base06;
+    background: @base01;
+}
+
+#workspaces button.urgent {
+    color: @base00;
+    background: @base08;
+}
+
+#mode {
+    color: @base00;
+    background: @base0A;
+    padding: 0 8px;
 }
 
 #window {
-	margin-right: 10pt;
-	margin-left: 10pt;
+    color: @base04;
+    padding: 0 12px;
 }
 
-#pulseaudio {
-	background: @sound;
-	color: @black;
+/* Right side modules */
+#custom-network,
+#custom-memory,
+#custom-cpu,
+#temperature,
+#battery,
+#wireplumber,
+#clock,
+#custom-restic,
+#custom-vpn,
+#tray {
+    padding: 0 10px;
+    margin: 4px 2px;
+    border-radius: 4px;
+    background: @base01;
 }
 
-#wireplumber {
-	background: @sound;
-	color: @white;
-  padding-right: 5pt;
-}
-
-#network,
 #custom-network {
-	background: @network;
-	color: @black;
+    color: @base0D;
 }
 
-#memory,
 #custom-memory {
-	background: @memory;
-	color: @black;
+    color: @base0E;
 }
 
-#cpu,
 #custom-cpu {
-	background: @cpu;
-	color: @black;
+    color: @base0C;
 }
 
 #temperature {
-	background: @temp;
-	color: @black;
+    color: @base09;
 }
 
-#language {
-	background: @layout;
-	color: @black;
+#temperature.critical {
+    color: @base08;
 }
 
 #battery {
-	background: @battery;
-	color: @white;
+    color: @base0B;
 }
 
-#upower {
-	background: @battery;
-	color: @white;
+#battery.warning {
+    color: @base0A;
+}
+
+#battery.critical {
+    color: @base08;
+}
+
+#battery.charging {
+    color: @base0B;
+}
+
+#wireplumber {
+    color: @base0E;
+}
+
+#wireplumber.muted {
+    color: @base03;
+}
+
+#clock,
+#clock.date,
+#clock.time {
+    color: @base06;
+}
+
+#custom-restic {
+    color: @base0B;
+}
+
+#custom-restic.warning {
+    color: @base0A;
+}
+
+#custom-restic.error {
+    color: @base08;
+}
+
+#custom-vpn {
+    color: @base0D;
 }
 
 #tray {
-	background: @time;
-  font-size:14px;
-  color: #fbf1c7;
+    padding: 0 8px;
 }
 
-#clock.date {
-	background: @date;
-	color: @black;
+#tray > .passive {
+    -gtk-icon-effect: dim;
 }
 
-#clock.time {
-	background: @time;
-	color: @black;
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+    background: @base08;
 }
 
-#custom-arrow1 {
-	font-size: 16pt;
-	color: @time;
-	background: @date;
+#scratchpad {
+    padding: 0 8px;
+    color: @base0E;
+    background: @base01;
+    margin: 4px 2px;
+    border-radius: 4px;
 }
 
-#custom-arrow2 {
-	font-size: 16pt;
-	color: @date;
-	background: @battery;
+#custom-cpu.warning,
+#custom-memory.warning {
+    color: @base0A;
 }
 
-#custom-arrow3 {
-	font-size: 16pt;
-	color: @sound;
-	background: @battery;
-}
-
-#custom-arrow4 {
-	font-size: 16pt;
-	color: @battery;
-	background: @temp;
-}
-
-#custom-arrow5 {
-	font-size: 16pt;
-	color: @temp;
-	background: @cpu;
-}
-
-#custom-arrow6 {
-	font-size: 16pt;
-	color: @cpu;
-	background: @memory;
-}
-
-#custom-arrow7 {
-	font-size: 16pt;
-	color: @memory;
-	background: @network;
-}
-
-#custom-arrow8 {
-	font-size: 16pt;
-	color: @network;
-	background: transparent;
-}
-
-#custom-arrow9 {
-	font-size: 16pt;
-	color: @sound;
-	background: transparent;
-}
-
-
-/* Custom Restic Module Styling */
-#custom-restic {
-	  background: @time;
-    font-size: 18px;
-    padding: 0 10px;
-    transition: all 0.3s ease;
-}
-
-/* Color for Success (Last 24h) - Green */
-#custom-restic.ok {
-    color: @black
-}
-
-/* Color for Stale (Older than 24h) - Yellow/Orange */
-#custom-restic.warning {
-    color: @yellow; /* Catppuccin Yellow */
-}
-
-/* Color for Failed Backup - Red */
-#custom-restic.error {
-    color: @red; /* Catppuccin Red */
-}
-
-/* Color for Unknown/No History - Grey */
-#custom-restic.unknown {
-    color: @gray /* Grey */
-}
-
-/* Optional: Subtle animation when a backup is active */
-/* You would need to add the 'running' class in your script to use this */
-#custom-restic.running {
-    color: @blue;
-    animation: blinker 2s linear infinite;
-}
-
-@keyframes blinker {
-    50% { opacity: 0.5; }
+#custom-cpu.critical,
+#custom-memory.critical {
+    color: @base08;
 }

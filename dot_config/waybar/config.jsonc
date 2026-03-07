@@ -11,21 +11,13 @@
     "sway/window"
   ],
   "modules-right": [
-    "custom/arrow8",
     "custom/network",
-    "custom/arrow7",
     "custom/memory",
-    "custom/arrow6",
     "custom/cpu",
-    "custom/arrow5",
     "temperature",
-    "custom/arrow4",
     "battery",
-    "custom/arrow3",
     "wireplumber",
-    "custom/arrow2",
     "clock#date",
-    "custom/arrow1",
     "clock#time",
     "custom/restic",
     "tray"
