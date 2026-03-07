@@ -2,7 +2,7 @@
   "upower": {
     "icon-size": 16,
     "hide-if-empty": true,
-    "tooltip": false,
+    "tooltip-format": "Temperature: {temperatureC}°C ({temperatureF}°F)",
     "format": "{percentage}",
     "format-alt": "{time}",
     "on-click": "mode", // This is the default behavior if on-click is not defined
@@ -27,12 +27,12 @@
       "",
       ""
     ],
-    "tooltip": false
+    "tooltip-format": "Temperature: {temperatureC}°C ({temperatureF}°F)"
   },
   "clock#time": {
     "interval": 10,
     "format": "{:%H:%M}",
-    "tooltip": false,
+    "tooltip-format": "Temperature: {temperatureC}°C ({temperatureF}°F)",
     "on-click": "darkman toggle"
   },
   "clock#date": {
@@ -78,16 +78,20 @@
   },
   "network": {
     "interval": 5,
-    "format-wifi": "   {essid} ({signalStrength}%)",
+    "format-wifi": "   {essid} ({signalStrength}%)",
     "format-ethernet": "󰈀 {ifname}",
     "format-disconnected": "No connection",
     "format-alt": "󰩠 {ipaddr}/{cidr}",
-    "tooltip": false
+    "tooltip": true,
+    "tooltip-format-wifi": "{essid} ({signalStrength}%)\n{ipaddr}/{cidr}\nGateway: {gwaddr}\n↓ {bandwidthDownBytes} ↑ {bandwidthUpBytes}",
+    "tooltip-format-ethernet": "{ifname}\n{ipaddr}/{cidr}\nGateway: {gwaddr}\n↓ {bandwidthDownBytes} ↑ {bandwidthUpBytes}",
+    "tooltip-format-disconnected": "Disconnected",
+    "on-click": "~/.config/sway/bin/nm-connection-editor.sh"
   },
   "wireplumber": {
     "format": " {icon} ",
     "format-muted": "",
-    "on-click": "helvum",
+    "on-click": "~/.config/sway/bin/helvum.sh",
     "format-icons": [
       "",
       "",
@@ -105,7 +109,7 @@
       "",
       ""
     ],
-    "tooltip": false
+    "tooltip-format": "Temperature: {temperatureC}°C ({temperatureF}°F)"
   },
   "tray": {
     "icon-size": 16,
@@ -120,38 +124,38 @@
   },
   "custom/arrow1": {
     "format": "",
-    "tooltip": false
+    "tooltip-format": "Temperature: {temperatureC}°C ({temperatureF}°F)"
   },
   "custom/arrow2": {
     "format": "",
-    "tooltip": false
+    "tooltip-format": "Temperature: {temperatureC}°C ({temperatureF}°F)"
   },
   "custom/arrow3": {
     "format": "",
-    "tooltip": false
+    "tooltip-format": "Temperature: {temperatureC}°C ({temperatureF}°F)"
   },
   "custom/arrow4": {
     "format": "",
-    "tooltip": false
+    "tooltip-format": "Temperature: {temperatureC}°C ({temperatureF}°F)"
   },
   "custom/arrow5": {
     "format": "",
-    "tooltip": false
+    "tooltip-format": "Temperature: {temperatureC}°C ({temperatureF}°F)"
   },
   "custom/arrow6": {
     "format": "",
-    "tooltip": false
+    "tooltip-format": "Temperature: {temperatureC}°C ({temperatureF}°F)"
   },
   "custom/arrow7": {
     "format": "",
-    "tooltip": false
+    "tooltip-format": "Temperature: {temperatureC}°C ({temperatureF}°F)"
   },
   "custom/arrow8": {
     "format": "",
-    "tooltip": false
+    "tooltip-format": "Temperature: {temperatureC}°C ({temperatureF}°F)"
   },
   "custom/arrow9": {
     "format": "",
-    "tooltip": false
+    "tooltip-format": "Temperature: {temperatureC}°C ({temperatureF}°F)"
   }
 }

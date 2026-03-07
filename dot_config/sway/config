@@ -33,7 +33,10 @@ exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec udiskie -t --notify
 
 # network manager applet
-exec nm-applet --indicator
+# exec nm-applet --indicator
+
+# Toggle network manager
+bindsym $mod+Shift+w exec ~/.config/sway/bin/nm-connection-editor.sh
 
 # show dbus error messages
 exec systembus-notify
@@ -170,8 +173,8 @@ bindsym $mod+Shift+r restart
 bindsym $mod+Shift+e exec "swaynag -t warning -m 'Do you really want to exit sway?' -B 'Yes, exit sway' 'swaymsg exit'"
 # lock the screen
 bindsym $mod+Shift+Escape exec $lock
-# Toggle KeePassXC from scratchpad (e.g., Mod + K)
-bindsym $mod+Shift+s exec keepassxc
+# Toggle KeePassXC
+bindsym $mod+Shift+s exec ~/.config/sway/bin/keepassxc.sh
 
 # Allow switching between workspaces with left and right swipes
 bindgesture swipe:right workspace prev
