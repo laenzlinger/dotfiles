@@ -77,15 +77,10 @@
     "on-click": "~/.config/sway/bin/nm-connection-editor.sh"
   },
   "wireplumber": {
-    "format": " {icon} ",
-    "format-muted": "",
+    "format": "{icon}",
+    "format-muted": "󰝟",
     "on-click": "~/.config/sway/bin/helvum.sh",
-    "tooltip-format": "{capacity}% - {timeTo}\nPower: {power}W\nHealth: {health}%\nCycles: {cycles}",
-    "format-icons": [
-      "",
-      "",
-      ""
-    ]
+    "format-icons": ["󰕿", "󰖀", "󰕾"]
   },
   "temperature": {
     "critical-threshold": 90,
