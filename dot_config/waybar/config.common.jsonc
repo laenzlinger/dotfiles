@@ -20,6 +20,7 @@
     "format-charging-full": "  {capacity}%",
     "format-full": "{icon}  {capacity}%",
     "format-alt": "{icon}  {power}W",
+    "tooltip-format": "{capacity}% - {timeTo}\nPower: {power}W\nHealth: {health}%\nCycles: {cycles}",
     "format-icons": [
       "",
       "",
@@ -27,7 +28,7 @@
       "",
       ""
     ],
-    "tooltip": false
+    "tooltip": true
   },
   "clock#time": {
     "interval": 10,
@@ -87,6 +88,7 @@
     "format": " {icon} ",
     "format-muted": "",
     "on-click": "~/.config/sway/bin/helvum.sh",
+    "tooltip-format": "{capacity}% - {timeTo}\nPower: {power}W\nHealth: {health}%\nCycles: {cycles}",
     "format-icons": [
       "",
       "",
@@ -97,6 +99,7 @@
     "critical-threshold": 90,
     "interval": 5,
     "format": "{icon} {temperatureC}°",
+    "tooltip-format": "{capacity}% - {timeTo}\nPower: {power}W\nHealth: {health}%\nCycles: {cycles}",
     "format-icons": [
       "",
       "",
