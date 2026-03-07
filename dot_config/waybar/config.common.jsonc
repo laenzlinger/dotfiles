@@ -40,7 +40,7 @@
     "format": "{:%e.%m}",
     "tooltip": true,
     "format-alt": "{:%A, %B %d, %Y (%R)} <U+F5EF> ",
-    "tooltip-format": "<tt><small>{calendar}</small></tt>",
+    "tooltip-format": "<tt>{calendar}</tt>",
     "calendar": {
       "mode": "year",
       "mode-mon-col": 2,
@@ -48,11 +48,11 @@
       "on-scroll": 1,
       "on-click": "mode",
       "format": {
-        "months": "<span color='#ffead3'><b>{}</b></span>",
-        "days": "<span color='#ecc6d9'><b>{}</b></span>",
-        "weeks": "<span color='#99ffdd'><b>W{}</b></span>",
-        "weekdays": "<span color='#ffcc66'><b>{}</b></span>",
-        "today": "<span color='#ff6699'><b><u>{}</u></b></span>"
+        "months": "<b>{}</b>",
+        "days": "{}",
+        "weeks": "W{}",
+        "weekdays": "<b>{}</b>",
+        "today": "<span background='#ffffff' foreground='#1d2021'>{}</span>"
       }
     }
   },
