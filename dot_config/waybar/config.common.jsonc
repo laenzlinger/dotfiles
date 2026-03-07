@@ -76,16 +76,11 @@
     },
     "tooltip": true
   },
-  "network": {
+  "custom/network": {
+    "format": "{}",
+    "return-type": "json",
+    "exec": "~/.config/waybar/scripts/network-status.sh",
     "interval": 5,
-    "format-wifi": "   {essid} ({signalStrength}%)",
-    "format-ethernet": "󰈀 {ifname}",
-    "format-disconnected": "No connection",
-    "format-alt": "󰩠 {ipaddr}/{cidr}",
-    "tooltip": true,
-    "tooltip-format-wifi": "{essid} ({signalStrength}%)\n{ipaddr}/{cidr}\nGateway: {gwaddr}\n↓ {bandwidthDownBytes} ↑ {bandwidthUpBytes}",
-    "tooltip-format-ethernet": "{ifname}\n{ipaddr}/{cidr}\nGateway: {gwaddr}\n↓ {bandwidthDownBytes} ↑ {bandwidthUpBytes}",
-    "tooltip-format-disconnected": "Disconnected",
     "on-click": "~/.config/sway/bin/nm-connection-editor.sh"
   },
   "wireplumber": {

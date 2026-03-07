@@ -12,7 +12,7 @@
   ],
   "modules-right": [
     "custom/arrow8",
-    "network",
+    "custom/network",
     "custom/arrow7",
     "memory",
     "custom/arrow6",
