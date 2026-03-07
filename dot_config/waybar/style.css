@@ -73,20 +73,22 @@ window#waybar.hidden {
     background: @base01;
 }
 
-#custom-network {
-    color: @base0D;
-}
-
-#custom-memory {
-    color: @base0E;
-}
-
-#custom-cpu {
+#custom-network,
+#custom-vpn {
     color: @base0C;
 }
 
+#custom-memory,
+#custom-cpu {
+    color: @base0D;
+}
+
+#custom-cpu {
+    color: @base0D;
+}
+
 #temperature {
-    color: @base09;
+    color: @base0D;
 }
 
 #temperature.critical {
@@ -136,9 +138,6 @@ window#waybar.hidden {
     color: @base08;
 }
 
-#custom-vpn {
-    color: @base0D;
-}
 
 #tray {
     padding: 0 8px;

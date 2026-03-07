@@ -16,10 +16,10 @@
     "custom/cpu",
     "temperature",
     "battery",
+    "custom/restic",
     "wireplumber",
     "clock#date",
     "clock#time",
-    "custom/restic",
     "tray"
   ],
   "sway/language": {
