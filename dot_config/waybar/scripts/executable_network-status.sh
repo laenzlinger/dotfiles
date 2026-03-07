@@ -7,7 +7,11 @@ if [ -n "$WIFI" ]; then
     SIGNAL=$(echo "$WIFI" | cut -d: -f2)
     IP=$(ip -4 addr show wlp0s20f3 2>/dev/null | grep inet | awk '{print $2}')
     GW=$(ip route | grep default | awk '{print $3}')
-    NET_TEXT="  $SSID ($SIGNAL%)"
+    if [ "$SIGNAL" -ge 75 ]; then ICON="󰖩"
+    elif [ "$SIGNAL" -ge 50 ]; then ICON="󰖩"
+    elif [ "$SIGNAL" -ge 25 ]; then ICON="󰖩"
+    else ICON="󰖩"; fi
+    NET_TEXT="$ICON  $SSID"
     NET_TIP="$SSID ($SIGNAL%)\n$IP\nGateway: $GW"
 else
     ETH=$(ip -4 addr show | grep -E "inet.*scope global" | head -1)
@@ -18,7 +22,7 @@ else
         NET_TEXT="󰈀 $IFACE"
         NET_TIP="$IFACE\n$IP\nGateway: $GW"
     else
-        NET_TEXT="No connection"
+        NET_TEXT="󰤭 Disconnected"
         NET_TIP="Disconnected"
     fi
 fi
