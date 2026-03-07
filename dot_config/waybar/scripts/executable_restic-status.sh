@@ -46,9 +46,9 @@ AGE=$((NOW - LAST_SEC))
 TIME_FMT=$(date -d "$TIME_RAW" "+%Y-%m-%d %H:%M" 2>/dev/null || echo "Unknown")
 
 if [ "$SUCCESS" != "true" ]; then
-  printf '{"text": "%s", "class": "error", "tooltip": "FAILED: %s\nAt: %s"}\n' "$ICON_ERROR" "$LATEST_PROFILE" "$TIME_FMT"
+  printf '{"text": "%s", "class": "error", "tooltip": "FAILED: %s\\nAt: %s"}\n' "$ICON_ERROR" "$LATEST_PROFILE" "$TIME_FMT"
 elif [ "$AGE" -gt "$ONE_DAY_SEC" ]; then
-  echo "{\"text\": \"$ICON_STALE\", \"class\": \"warning\", \"tooltip\": \"STALE (>24h): $TIME_FMT\"}"
+  printf '{"text": "%s", "class": "warning", "tooltip": "STALE (>24h): %s"}\n' "$ICON_STALE" "$TIME_FMT"
 else
-  printf '{"text": "%s", "class": "ok", "tooltip": "SUCCESS: %s\nTime: %s"}\n' "$ICON_OK" "$LATEST_PROFILE" "$TIME_FMT"
+  printf '{"text": "%s", "class": "ok", "tooltip": "SUCCESS: %s\\nTime: %s"}\n' "$ICON_OK" "$LATEST_PROFILE" "$TIME_FMT"
 fi

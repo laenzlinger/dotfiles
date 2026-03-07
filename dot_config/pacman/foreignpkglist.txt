@@ -12,6 +12,7 @@ gnu-netcat
 kiro-cli
 lsdesktopf
 mkinitcpio-firmware
+netbird
 nodejs-neovim
 openpnp
 openscad-git

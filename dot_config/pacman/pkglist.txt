@@ -240,7 +240,6 @@ python-pynvim
 python-svgwrite
 qemu-full
 qjackctl
-qpwgraph
 qt5-wayland
 qt5ct
 qt6-wayland
@@ -264,6 +263,7 @@ shikane
 showtime
 simple-scan
 slurp
+smartmontools
 snap-pac
 snapper
 snapshot

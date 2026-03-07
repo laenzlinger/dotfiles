@@ -13,6 +13,7 @@ docker.socket
 pcscd.socket
 systemd-userdbd.socket
 remote-fs.target
+fstrim.timer
 resticprofile-backup@profile-rotating-backup.timer
 snapper-cleanup.timer
 snapper-timeline.timer

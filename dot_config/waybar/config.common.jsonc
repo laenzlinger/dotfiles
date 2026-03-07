@@ -2,10 +2,10 @@
   "upower": {
     "icon-size": 16,
     "hide-if-empty": true,
-    "tooltip-format": "Temperature: {temperatureC}°C ({temperatureF}°F)",
+    "tooltip": false,
     "format": "{percentage}",
     "format-alt": "{time}",
-    "on-click": "mode", // This is the default behavior if on-click is not defined
+    "on-click": "mode",
     "tooltip-spacing": 20
   },
   "battery": {
@@ -27,12 +27,12 @@
       "",
       ""
     ],
-    "tooltip-format": "Temperature: {temperatureC}°C ({temperatureF}°F)"
+    "tooltip": false
   },
   "clock#time": {
     "interval": 10,
     "format": "{:%H:%M}",
-    "tooltip-format": "Temperature: {temperatureC}°C ({temperatureF}°F)",
+    "tooltip-format": "{:%A, %B %d, %Y}",
     "on-click": "darkman toggle"
   },
   "clock#date": {
@@ -124,38 +124,38 @@
   },
   "custom/arrow1": {
     "format": "",
-    "tooltip-format": "Temperature: {temperatureC}°C ({temperatureF}°F)"
+    "tooltip": false
   },
   "custom/arrow2": {
     "format": "",
-    "tooltip-format": "Temperature: {temperatureC}°C ({temperatureF}°F)"
+    "tooltip": false
   },
   "custom/arrow3": {
     "format": "",
-    "tooltip-format": "Temperature: {temperatureC}°C ({temperatureF}°F)"
+    "tooltip": false
   },
   "custom/arrow4": {
     "format": "",
-    "tooltip-format": "Temperature: {temperatureC}°C ({temperatureF}°F)"
+    "tooltip": false
   },
   "custom/arrow5": {
     "format": "",
-    "tooltip-format": "Temperature: {temperatureC}°C ({temperatureF}°F)"
+    "tooltip": false
   },
   "custom/arrow6": {
     "format": "",
-    "tooltip-format": "Temperature: {temperatureC}°C ({temperatureF}°F)"
+    "tooltip": false
   },
   "custom/arrow7": {
     "format": "",
-    "tooltip-format": "Temperature: {temperatureC}°C ({temperatureF}°F)"
+    "tooltip": false
   },
   "custom/arrow8": {
     "format": "",
-    "tooltip-format": "Temperature: {temperatureC}°C ({temperatureF}°F)"
+    "tooltip": false
   },
   "custom/arrow9": {
     "format": "",
-    "tooltip-format": "Temperature: {temperatureC}°C ({temperatureF}°F)"
+    "tooltip": false
   }
 }
