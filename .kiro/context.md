@@ -24,7 +24,7 @@
 - Window: 75% width, max 1200px, rounded corners (8px)
 - Toggle behavior: same keybinding opens/closes (`pkill rofi || rofi ...`)
 - Uniform list background (no alternating rows)
-- Used for: app launcher, clipboard manager, file search
+- Used for: app launcher, clipboard manager, file search, calculator, cheatsheet
 
 ## Waybar Setup
 - Modern flat style with rounded modules
@@ -40,7 +40,10 @@
 - **Waybar custom modules**: Scripts in `~/.config/waybar/scripts/`
 - **Icons**: Use nf-md-* icons (󰻠 󰍛 󰖩 etc.) - they render correctly
 - **Tinty hooks**: New apps need a tinty item in config.toml.tmpl to auto-theme
-- **Color generation**: Derive app colors from waybar colors.css when no dedicated base16 repo exists
+- **Color generation**: Derive app colors from waybar colors.css (rofi, swaync, wob)
+- **Color coding**: Waybar module colors match related wob bar colors (e.g. base09 for audio)
+- **Monospace font**: MesloLGS Nerd Font (for calendar, code, terminals)
+- **Script standard**: `#!/usr/bin/env bash` + `set -euo pipefail` + `command -v` checks
 
 ## Key Bindings
 - `Mod+Space` - App launcher (rofi, toggle)
@@ -54,6 +57,7 @@
 - `Mod+Shift+n` - Toggle notification center
 - `Mod+Shift+u` - USB unmount (rofi, whole-disk eject)
 - `Mod+?` - Cheatsheet browser (rofi)
+- `Mod+=` / `Mod+Shift++` - Calculator (rofi, result to clipboard)
 - `Mod+Shift+c` - Reload Sway (kills waybar first)
 - Workspaces: `Mod+1-9` (switch), `Mod+Shift+1-9` (move)
 
