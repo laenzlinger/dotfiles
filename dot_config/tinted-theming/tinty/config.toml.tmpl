@@ -43,10 +43,10 @@ themes-dir = "colors"
 hook = "~/.config/rofi/generate-colors.sh"
 
 [[items]]
-path = "https://github.com/tinted-theming/base16-wob"
-name = "base16-wob"
+path = "https://github.com/tinted-theming/base16-waybar"
+name = "base16-wob-sync"
 themes-dir = "colors"
-hook = "cp -f %f ~/.config/wob/wob-colors.ini && cat ~/.config/wob/wob-colors.ini ~/.config/wob/wob-base.ini > ~/.config/wob/wob.ini && /usr/bin/systemctl --user restart wob"
+hook = "~/.config/wob/generate-colors.sh"
 
 # Swaync uses waybar colors - just run the sync script
 [[items]]
