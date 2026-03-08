@@ -180,8 +180,9 @@ bindsym $mod+Shift+a exec ~/.config/sway/bin/helvum.sh
 # Cheatsheet browser
 bindsym $mod+question exec pkill rofi || ~/.config/sway/bin/cheatsheet.sh
 # Calculator
-bindsym $mod+equal exec pkill rofi || rofi -show calc -modi calc -no-show-match -no-sort -calc-command "wl-copy '{result}'"
-bindsym $mod+plus exec pkill rofi || rofi -show calc -modi calc -no-show-match -no-sort -calc-command "wl-copy '{result}'"
+set $calc pkill rofi || rofi -show calc -modi calc -no-show-match -no-sort -calc-command "wl-copy '{result}'"
+bindsym $mod+equal exec $calc
+bindsym $mod+plus exec $calc
 
 # Allow switching between workspaces with left and right swipes
 bindgesture swipe:right workspace prev
