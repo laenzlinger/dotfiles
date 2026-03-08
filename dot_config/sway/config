@@ -123,7 +123,7 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # System
-bindsym $mod+Shift+c exec "pkill waybar; swaymsg reload"
+bindsym $mod+Shift+c exec "pkill waybar; sleep 0.5; swaymsg reload"
 bindsym $mod+Shift+r restart
 bindsym $mod+Shift+e exec pkill rofi || ~/.config/sway/bin/power-menu.sh
 bindsym $mod+Shift+Escape exec $lock
