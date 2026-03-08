@@ -6,7 +6,7 @@ WIFI=$(nmcli -t -f active,ssid,signal dev wifi | grep '^yes' | cut -d: -f2,3)
 if [ -n "$WIFI" ]; then
     SSID=$(echo "$WIFI" | cut -d: -f1)
     SIGNAL=$(echo "$WIFI" | cut -d: -f2)
-    IFACE=$(iw dev | awk '$1=="Interface"{print $2}' | head -1)
+    IFACE=$(nmcli -t -f device,type dev | grep ':wifi$' | cut -d: -f1 | head -1)
     IP=$(ip -4 addr show "$IFACE" 2>/dev/null | grep inet | awk '{print $2}')
     GW=$(ip route | grep default | awk '{print $3}')
     if [ "$SIGNAL" -ge 75 ]; then ICON="󰖩"
@@ -30,9 +30,9 @@ else
 fi
 
 # VPN info
-NB_STATUS=$(netbird status 2>/dev/null)
-NB_MGMT=$(echo "$NB_STATUS" | grep "^Management:" | cut -d' ' -f2)
-NB_IP=$(echo "$NB_STATUS" | grep "^NetBird IP:" | cut -d' ' -f3)
+NB_STATUS=$(netbird status 2>/dev/null || true)
+NB_MGMT=$(echo "$NB_STATUS" | grep "^Management:" | cut -d' ' -f2 || true)
+NB_IP=$(echo "$NB_STATUS" | grep "^NetBird IP:" | cut -d' ' -f3 || true)
 
 if [ "$NB_MGMT" = "Connected" ]; then
     NET_TEXT="$NET_TEXT 󰒄"
