@@ -93,7 +93,7 @@
       "",
       ""
     ],
-    "tooltip-format": "Temperature: {temperatureC}°C ({temperatureF}°F)"
+    "tooltip-format": "Temperature: {temperatureC}°C"
   },
   "tray": {
     "icon-size": 16,
