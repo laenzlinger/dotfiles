@@ -263,6 +263,9 @@ alias mutt="TERM=screen-256color neomutt"
 # Activate mise
 eval "$(mise activate zsh)"
 
+# Direnv for per-directory env (unloads when leaving)
+eval "$(direnv hook zsh)"
+
 # LESS
 LESSOPEN="|lesspipe.sh %s"; export LESSOPEN
 

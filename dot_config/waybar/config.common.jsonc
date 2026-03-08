@@ -83,7 +83,7 @@
     "format-icons": ["󰕿", "󰖀", "󰕾"]
   },
   "temperature": {
-    "critical-threshold": 90,
+    "critical-threshold": 80,
     "interval": 5,
     "format": "{icon} {temperatureC}°",
     "tooltip-format": "{capacity}% - {timeTo}\nPower: {power}W\nHealth: {health}%\nCycles: {cycles}",

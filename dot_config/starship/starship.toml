@@ -7,6 +7,7 @@ format = "$all"
 disabled = false
 format = '[$symbol$context( \($namespace\))]($style) '
 symbol = "☸ "
+detect_env_vars = ['KUBECONFIG', 'KUBERNETES_SHOW']
 contexts = [
   { context_pattern = ".*dev.*", style = "bold green" },
   { context_pattern = ".*test.*", style = "bold yellow" },
