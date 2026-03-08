@@ -1,0 +1,101 @@
+# WezTerm Terminal Emulator
+
+## Tabs
+# New tab
+Ctrl+Shift+t
+
+# Close tab
+Ctrl+Shift+w
+
+# Next tab
+Ctrl+Tab or Ctrl+Shift+]
+
+# Previous tab
+Ctrl+Shift+Tab or Ctrl+Shift+[
+
+# Switch to tab 1-8
+Ctrl+Shift+1-8
+
+# Switch to last tab
+Ctrl+Shift+9
+
+## Panes
+# Split horizontal (right)
+Ctrl+Shift+%
+
+# Split vertical (down)
+Ctrl+Shift+"
+
+# Close pane
+Ctrl+Shift+w
+
+# Navigate panes
+Ctrl+Shift+Arrow keys
+
+# Resize pane
+Ctrl+Shift+Alt+Arrow keys
+
+# Zoom/unzoom pane
+Ctrl+Shift+z
+
+## Copy/Paste
+# Copy
+Ctrl+Shift+c
+
+# Paste
+Ctrl+Shift+v
+
+# Triple-click to select semantic zone (path, URL, etc.)
+
+## Search
+# Search scrollback
+Ctrl+Shift+f
+
+# Next match
+Ctrl+Shift+n
+
+# Previous match
+Ctrl+Shift+p
+
+## Scrollback
+# Scroll up
+Shift+PageUp
+
+# Scroll down
+Shift+PageDown
+
+# Scroll to top
+Shift+Home
+
+# Scroll to bottom
+Shift+End
+
+## Font Size
+# Increase font size
+Ctrl+Shift++
+
+# Decrease font size
+Ctrl+Shift+-
+
+# Reset font size
+Ctrl+Shift+0
+
+## Window
+# New window
+Ctrl+Shift+n
+
+# Toggle fullscreen
+F11
+
+## Misc
+# Show launcher menu
+Ctrl+Shift+Space
+
+# Show debug overlay
+Ctrl+Shift+l
+
+# Reload configuration
+Ctrl+Shift+r
+
+# Show command palette
+Ctrl+Shift+p

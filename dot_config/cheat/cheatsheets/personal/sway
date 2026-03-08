@@ -1,0 +1,136 @@
+# Sway Window Manager Shortcuts
+# Mod = Super/Windows key
+
+## Applications
+# Launch terminal
+Mod+Enter
+
+# Launch app launcher
+Mod+Space
+
+# Toggle KeePassXC
+Mod+Shift+s
+
+# Toggle Network Manager
+Mod+Shift+w
+
+# Toggle Blueman
+Mod+Shift+b
+
+# Toggle Microscope
+Mod+Shift+m
+
+# Toggle Notifications
+Mod+Shift+n
+
+## Window Management
+# Kill focused window
+Mod+Shift+q
+
+# Toggle fullscreen
+Mod+f
+
+# Toggle floating
+Mod+Shift+Space
+
+# Focus floating/tiling
+Mod+Ctrl+Space
+
+## Focus
+# Focus left/down/up/right (vim keys)
+Mod+h/j/k/l
+
+# Focus left/down/up/right (arrows)
+Mod+Left/Down/Up/Right
+
+# Focus parent container
+Mod+a
+
+# Focus output (monitor)
+Mod+Ctrl+Left/Right
+
+## Move Windows
+# Move window (vim keys)
+Mod+Shift+h/j/k/l
+
+# Move window (arrows)
+Mod+Shift+Left/Down/Up/Right
+
+## Layout
+# Split horizontal
+Mod+n
+
+# Split vertical
+Mod+u
+
+# Stacking layout
+Mod+s
+
+# Tabbed layout
+Mod+w
+
+# Toggle split layout
+Mod+e
+
+## Workspaces
+# Switch to workspace 1-10
+Mod+1-0
+
+# Move window to workspace 1-10
+Mod+Shift+1-0
+
+# Swipe between workspaces
+Swipe left/right (touchpad)
+
+## Resize Mode
+# Enter resize mode
+Mod+r
+
+# In resize mode: h/j/k/l or arrows to resize
+# Exit: Enter/Escape/Mod+r
+
+## System
+# Reload Sway config
+Mod+Shift+c
+
+# Restart Sway
+Mod+Shift+r
+
+# Exit Sway
+Mod+Shift+e
+
+# Lock screen
+Mod+Shift+Escape
+
+## Clipboard
+# Pick from clipboard history
+Mod+v
+
+# Clear clipboard history
+Mod+c
+
+## Screenshots
+# Screenshot area to clipboard
+Print
+
+# Screenshot area to file
+Shift+Print
+
+## Media Keys
+# Volume up/down
+XF86AudioRaiseVolume/LowerVolume
+
+# Mute audio
+XF86AudioMute
+
+# Mute microphone
+XF86AudioMicMute
+
+# Brightness up/down
+XF86MonBrightnessUp/Down
+
+# Connect VPN (Laenzis)
+XF86Go
+
+# Disconnect VPN
+Cancel
