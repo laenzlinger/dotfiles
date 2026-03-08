@@ -1,32 +1,15 @@
-#!/bin/bash
-
-# Usage: ./unsplash_random.sh "search terms"
-# Requires: curl, jq, UNSPLASH_ACCESS_KEY env variable
-#
+#!/usr/bin/env bash
+set -euo pipefail
+command -v curl >/dev/null || { echo "curl not found"; exit 1; }
+command -v jq >/dev/null || { echo "jq not found"; exit 1; }
 
 UNSPLASH_ACCESS_KEY=$(secret-tool lookup unsplash access-key)
+[ -n "$UNSPLASH_ACCESS_KEY" ] || { echo "Set unsplash access-key in secret-tool"; exit 1; }
+[ $# -gt 0 ] || { echo "Usage: $0 \"search terms\""; exit 1; }
 
-if [ -z "$UNSPLASH_ACCESS_KEY" ]; then
-  echo "Set UNSPLASH_ACCESS_KEY environment variable with your Unsplash API key."
-  exit 1
-fi
-
-if [ $# -eq 0 ]; then
-  echo "Usage: $0 \"search terms\""
-  exit 1
-fi
-
-QUERY="${*//' '/'%20'}"
-API_URL="https://api.unsplash.com/photos/random?query=$QUERY&client_id=$UNSPLASH_ACCESS_KEY"
-
-IMAGE_URL=$(curl -s "$API_URL" | jq -r '.urls.full')
-
-if [ "$IMAGE_URL" = "null" ]; then
-  echo "No image found for: $*"
-  exit 1
-fi
+QUERY="${*// /%20}"
+IMAGE_URL=$(curl -s "https://api.unsplash.com/photos/random?query=$QUERY&client_id=$UNSPLASH_ACCESS_KEY" | jq -r '.urls.full')
+[ "$IMAGE_URL" != "null" ] || { echo "No image found for: $*"; exit 1; }
 
 curl -L "$IMAGE_URL" -o "$HOME/.config/sway/resources/background.jpg"
-
-# Reload sway configuration
 swaymsg reload

@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
-
-app_id=$( swaymsg -t get_tree | jq -r '.. | select(.type?) | select(.focused==true) | .app_id'  )
-if [[ $app_id != "org.keepassxc.KeePassXC" ]]; then
-    # --no-persist so that we preserve rich text:
+set -euo pipefail
+app_id=$(swaymsg -t get_tree | jq -r '.. | select(.type?) | select(.focused==true) | .app_id')
+if [[ "$app_id" != "org.keepassxc.KeePassXC" ]]; then
     clipman --notify store --no-persist
 fi
