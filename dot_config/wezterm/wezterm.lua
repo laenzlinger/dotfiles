@@ -7,6 +7,8 @@ config.color_scheme = "tinted-theming"
 config.window_background_opacity = 0.9
 config.text_background_opacity = 0.9
 config.hide_tab_bar_if_only_one_tab = true
+config.enable_wayland = true
+config.front_end = "WebGpu"
 
 config.mouse_bindings = {
 	{
