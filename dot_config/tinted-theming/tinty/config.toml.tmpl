@@ -16,13 +16,6 @@ hook = "source %f"
 
 [[items]]
 path = "https://github.com/tinted-theming/tinted-terminal"
-name = "tinted-terminal-alacritty"
-themes-dir = "themes/alacritty"
-hook = "cp -f %f ~/.config/alacritty/colors.toml && touch ~/.config/alacritty/alacritty.toml"
-supported-systems = ["base16", "base24"]
-
-[[items]]
-path = "https://github.com/tinted-theming/tinted-terminal"
 name = "tinted-terminal-wezterm"
 themes-dir = "themes/wezterm"
 hook = "cp -f %f ~/.config/wezterm/colors/tinted-theming.toml"
@@ -44,11 +37,10 @@ themes-dir = "colors"
 hook = "cp -f %f ~/.config/waybar/colors.css && killall -SIGUSR2 waybar"
 
 [[items]]
-path = "https://git.sr.ht/~knezi/base16-wofi"
-name = "base16-wofi"
-themes-dir = "themes"
-revision = "master"
-hook = "cp -f %f ~/.config/wofi/style.css"
+path = "https://github.com/tinted-theming/base16-waybar"
+name = "base16-rofi-sync"
+themes-dir = "colors"
+hook = "~/.config/rofi/generate-colors.sh"
 
 [[items]]
 path = "https://github.com/tinted-theming/base16-wob"
@@ -68,12 +60,6 @@ path = "https://git.sr.ht/~blueingreen/base16-btop"
 name = "base16-btop"
 themes-dir = "colors"
 hook = "cp -f %f ~/.config/btop/themes/colors.theme && killall -SIGUSR2 btop 2>/dev/null || true"
-
-[[items]]
-path = "https://github.com/kirasok/base16-hyprland"
-name = "base16-hyprland"
-themes-dir = "themes"
-hook = "cp -f %f ~/.config/hypr/colors.conf && (hyprctl reload 2>&1 || true) >/dev/null"
 
 [[items]]
 path = "https://github.com/acidghost/base16-obsidian"

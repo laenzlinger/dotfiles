@@ -1,0 +1,85 @@
+@import "colors.rasi"
+
+* {
+    font: "Roboto 12";
+    background-color: transparent;
+    text-color: @base05;
+    border: 0;
+    border-color: transparent;
+}
+
+window {
+    background-color: @base00;
+    border: 2px;
+    border-color: @base03;
+    border-radius: 8px;
+    width: 75%;
+    max-width: 1200px;
+}
+
+mainbox {
+    padding: 12px;
+}
+
+inputbar {
+    background-color: @base01;
+    border-radius: 4px;
+    padding: 8px 12px;
+    children: [prompt, textbox-prompt-colon, entry];
+}
+
+prompt {
+    text-color: @base0D;
+}
+
+textbox-prompt-colon {
+    expand: false;
+    str: " ";
+}
+
+entry {
+    placeholder: "Type to search...";
+    placeholder-color: @base03;
+}
+
+listview {
+    lines: 18;
+    scrollbar: false;
+    margin: 8px 0 0 0;
+    border: 0;
+}
+
+element {
+    padding: 4px 12px;
+    border-radius: 4px;
+}
+
+element normal.normal,
+element alternate.normal {
+    background-color: transparent;
+    text-color: @base05;
+}
+
+element selected.normal {
+    background-color: @base02;
+    text-color: @base06;
+}
+
+element normal.active,
+element alternate.active {
+    text-color: @base0B;
+}
+
+element selected.active {
+    background-color: @base02;
+    text-color: @base0B;
+}
+
+element-icon {
+    size: 20px;
+    margin: 0 8px 0 0;
+}
+
+element-text {
+    vertical-align: 0.5;
+}

@@ -250,10 +250,6 @@ if [ -f "$HOMEBREW_COMMAND_NOT_FOUND_HANDLER" ]; then
 fi
 {{- end }}
 
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-#[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
 {{- if eq .chezmoi.os "linux" }} {{- if eq (printf "%.4s" .chezmoi.osRelease.id) "arch" }}
 # workaround for mutt colors see https://github.com/neomutt/neomutt/issues/518
 alias neomutt="TERM=screen-256color neomutt"
@@ -298,7 +294,7 @@ export GOTESTS_TEMPLATE=testify
 export PATH=$PATH:$HOME/.cargo/bin
 
 # pipx installes into
-export PATH="$PATH:/home/laenzi/.local/bin"
+export PATH="$PATH:$HOME/.local/bin"
 
 {{- if eq .chezmoi.os "darwin" }}
 # Amazon Q post block. Keep at the bottom of this file.

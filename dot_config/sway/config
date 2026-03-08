@@ -71,7 +71,8 @@ bindsym $mod+Return exec $terminal
 bindsym $mod+Shift+q kill
 
 #bindsym $mod+d desktop app launcher
-bindsym $mod+space exec wofi --show=drun --prompt='' --allow-images --insensitive
+bindsym $mod+space exec pkill rofi || rofi -show drun -show-icons
+bindsym $mod+Shift+f exec pkill rofi || ~/.config/sway/bin/file-search.sh
 
 # change focus
 bindsym $mod+h focus left
@@ -230,7 +231,7 @@ assign [app_id="obsidian"] $ws3
 
 exec "vivaldi"
 exec "$terminal --class main-terminal"
-exec "sleep 3; keepassxc ~/data/pw/pw.kdbx""
+exec "sleep 3; keepassxc ~/data/pw/pw.kdbx"
 # exec "obsidian 'obsidian://open?vault=Notes'"
 
 for_window [title=".* — PCB Editor"] resize set width 80 ppt

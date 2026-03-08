@@ -5,7 +5,8 @@ WIFI=$(nmcli -t -f active,ssid,signal dev wifi | grep '^yes' | cut -d: -f2,3)
 if [ -n "$WIFI" ]; then
     SSID=$(echo "$WIFI" | cut -d: -f1)
     SIGNAL=$(echo "$WIFI" | cut -d: -f2)
-    IP=$(ip -4 addr show wlp0s20f3 2>/dev/null | grep inet | awk '{print $2}')
+    IFACE=$(iw dev | awk '$1=="Interface"{print $2}' | head -1)
+    IP=$(ip -4 addr show "$IFACE" 2>/dev/null | grep inet | awk '{print $2}')
     GW=$(ip route | grep default | awk '{print $3}')
     if [ "$SIGNAL" -ge 75 ]; then ICON="󰖩"
     elif [ "$SIGNAL" -ge 50 ]; then ICON="󰖩"

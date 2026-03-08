@@ -86,7 +86,6 @@
     "critical-threshold": 80,
     "interval": 5,
     "format": "{icon} {temperatureC}°",
-    "tooltip-format": "{capacity}% - {timeTo}\nPower: {power}W\nHealth: {health}%\nCycles: {cycles}",
     "format-icons": [
       "",
       "",
@@ -106,41 +105,5 @@
     "exec": "~/.config/waybar/scripts/restic-status.sh",
     "interval": 30,
     "on-click": "~/.config/waybar/scripts/restic-snapshots.sh"
-  },
-  "custom/arrow1": {
-    "format": "",
-    "tooltip": false
-  },
-  "custom/arrow2": {
-    "format": "",
-    "tooltip": false
-  },
-  "custom/arrow3": {
-    "format": "",
-    "tooltip": false
-  },
-  "custom/arrow4": {
-    "format": "",
-    "tooltip": false
-  },
-  "custom/arrow5": {
-    "format": "",
-    "tooltip": false
-  },
-  "custom/arrow6": {
-    "format": "",
-    "tooltip": false
-  },
-  "custom/arrow7": {
-    "format": "",
-    "tooltip": false
-  },
-  "custom/arrow8": {
-    "format": "",
-    "tooltip": false
-  },
-  "custom/arrow9": {
-    "format": "",
-    "tooltip": false
   }
 }
