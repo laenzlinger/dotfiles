@@ -41,7 +41,7 @@
     "format": "{:%e.%m}",
     "tooltip": true,
     "format-alt": "{:%A, %B %d, %Y (%R)} <U+F5EF> ",
-    "tooltip-format": "<tt>{calendar}</tt>",
+    "tooltip-format": "<span font='MesloLGS Nerd Font 8'>{calendar}</span>",
     "calendar": {
       "mode": "year",
       "mode-mon-col": 2,
