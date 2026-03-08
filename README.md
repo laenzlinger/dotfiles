@@ -33,9 +33,9 @@ also the configuration grows and evolves over time.
 - [ ] Clean up commented boilerplate in `.zshrc` (oh-my-zsh default comments)
 
 ### Improvements
-- [ ] Add error handling to toggle scripts (check if app is installed)
-- [ ] Add `$mod+Shift+a` or similar for Helvum toggle (no keybinding exists)
-- [ ] Consider adding `set -euo pipefail` to shell scripts for robustness
+- [x] Add error handling to toggle scripts (check if app is installed)
+- [x] Add `$mod+Shift+a` for Helvum toggle
+- [x] Add `set -euo pipefail` to toggle scripts
 
 ## Arch Linux
 

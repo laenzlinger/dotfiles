@@ -176,6 +176,8 @@ bindsym $mod+Shift+e exec "swaynag -t warning -m 'Do you really want to exit swa
 bindsym $mod+Shift+Escape exec $lock
 # Toggle KeePassXC
 bindsym $mod+Shift+s exec ~/.config/sway/bin/keepassxc.sh
+# Toggle Helvum audio patchbay
+bindsym $mod+Shift+a exec ~/.config/sway/bin/helvum.sh
 
 # Allow switching between workspaces with left and right swipes
 bindgesture swipe:right workspace prev
