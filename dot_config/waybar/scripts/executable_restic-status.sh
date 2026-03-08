@@ -1,4 +1,5 @@
-#!/bin/bash
+#!/usr/bin/env bash
+set -euo pipefail
 
 # Configuration
 STATUS_FILE="$HOME/.cache/resticprofile/status.json"
@@ -36,7 +37,6 @@ if [ -z "$LATEST_PROFILE" ] || [ "$LATEST_PROFILE" == "null" ]; then
   exit 0
 fi
 
-LATEST_PROFILE=$(jq -r '.profiles | to_entries | sort_by(.value.backup.time) | last | .key' "$STATUS_FILE" 2>/dev/null)
 SUCCESS=$(jq -r ".profiles.\"$LATEST_PROFILE\".backup.success" "$STATUS_FILE")
 TIME_RAW=$(jq -r ".profiles.\"$LATEST_PROFILE\".backup.time" "$STATUS_FILE")
 

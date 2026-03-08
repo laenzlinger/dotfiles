@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+set -euo pipefail
 read -r TOTAL AVAIL <<< "$(grep -E "MemTotal|MemAvailable" /proc/meminfo | awk '{print $2}' | tr '\n' ' ')"
 USED=$(( (TOTAL - AVAIL) / 1024 ))
 TOTAL_MB=$((TOTAL / 1024))

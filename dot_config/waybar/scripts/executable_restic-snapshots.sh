@@ -1,4 +1,5 @@
-#!/bin/bash
+#!/usr/bin/env bash
+set -euo pipefail
 
 # Define your UUIDs from your config
 UUID_HOMEOFFICE="7deb8fd9-c681-4339-86c5-1db5ebf1a7a1"

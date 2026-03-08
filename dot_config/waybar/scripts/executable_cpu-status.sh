@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+set -euo pipefail
 USAGE=$(grep 'cpu ' /proc/stat | awk '{usage=($2+$4)*100/($2+$4+$5)} END {printf "%.0f", usage}')
 LOAD=$(cut -d' ' -f1-3 < /proc/loadavg)
 CORES=$(nproc)
