@@ -66,8 +66,9 @@
 1. Edit files in `~/.local/share/chezmoi/`
 2. Apply individual files with `chezmoi apply <path>` (not full apply)
 3. Test the change
-4. Commit with descriptive message
-5. Push to GitHub
+4. **Update cheatsheet** if keybindings or user-facing behavior changed
+5. Commit with descriptive message
+6. Push to GitHub
 
 ## Shellcheck
 Pre-commit hooks enforce shellcheck - fix warnings before committing.

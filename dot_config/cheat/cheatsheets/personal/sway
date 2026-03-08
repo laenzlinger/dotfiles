@@ -89,11 +89,11 @@ Mod+w
 Mod+e
 
 ## Workspaces
-# Switch to workspace 1-10
-Mod+1-0
+# Switch to workspace 1-9
+Mod+1-9
 
-# Move window to workspace 1-10
-Mod+Shift+1-0
+# Move window to workspace 1-9
+Mod+Shift+1-9
 
 # Swipe between workspaces
 Swipe left/right (touchpad)
