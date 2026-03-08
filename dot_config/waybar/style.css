@@ -7,7 +7,24 @@
 }
 
 window#waybar {
-    background: alpha(@base00, 0.9);
+    background: @base00;
+    color: @base05;
+}
+
+tooltip {
+    background-color: @base00;
+    color: @base05;
+    border: 1px solid @base03;
+    border-radius: 8px;
+    padding: 4px 8px;
+}
+
+tooltip * {
+    background-color: @base00;
+    color: @base05;
+}
+
+tooltip label {
     color: @base05;
 }
 
