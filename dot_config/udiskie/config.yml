@@ -4,5 +4,5 @@ program_options:
   automount: true
 
 notifications:
-  device_unmounted: false
+  device_added: false
   device_removed: false
