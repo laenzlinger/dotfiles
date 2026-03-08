@@ -1,0 +1,30 @@
+# Colors from base16 theme
+color=181818
+inside-color=181818
+inside-clear-color=181818
+inside-ver-color=181818
+inside-wrong-color=181818
+ring-color=585858
+ring-clear-color=f7ca88
+ring-ver-color=7cafc2
+ring-wrong-color=ab4642
+key-hl-color=a1b56c
+bs-hl-color=dc9656
+text-color=d8d8d8
+text-clear-color=f7ca88
+text-ver-color=7cafc2
+text-wrong-color=ab4642
+line-color=00000000
+line-clear-color=00000000
+line-ver-color=00000000
+line-wrong-color=00000000
+separator-color=00000000
+
+# Layout
+indicator-radius=100
+indicator-thickness=10
+
+# Behavior
+show-keyboard-layout
+show-failed-attempts
+font-size=32
