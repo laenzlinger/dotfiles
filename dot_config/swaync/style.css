@@ -3,6 +3,7 @@
 * {
     font-family: Roboto, "Noto Sans", sans-serif;
     font-size: 14px;
+    color: @base05;
 }
 
 .control-center {
@@ -14,6 +15,7 @@
 
 .notification {
     background: @base01;
+    color: @base05;
     border: 1px solid @base03;
     border-radius: 6px;
     margin: 6px;
@@ -48,4 +50,17 @@
 
 .control-center .notification:hover {
     background: @base02;
+}
+
+switch {
+    background: @base02;
+    border: 1px solid @base03;
+}
+
+switch:checked {
+    background: @base0D;
+}
+
+switch slider {
+    background: @base05;
 }
