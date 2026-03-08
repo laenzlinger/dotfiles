@@ -37,13 +37,10 @@ plugins=(
 {{- if eq .chezmoi.os "darwin" }}
     macos
     brew
-    iterm2
     marked2
 {{- end }}
     aws
     docker
-    docker-compose
-    emoji
     fzf
     git
     gitignore
@@ -55,10 +52,8 @@ plugins=(
     mise
     ruby
     rust
-    tmux
     safe-paste
     terraform
-    web-search
     z
     transient-prompt
 {{- if hasSuffix "com.com" .email }}
