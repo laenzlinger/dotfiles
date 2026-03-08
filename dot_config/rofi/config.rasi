@@ -17,8 +17,8 @@ configuration {
 
 window {
     background-color: @base00;
-    border: 2px;
-    border-color: @base03;
+    border: 3px;
+    border-color: @base05;
     border-radius: 8px;
     width: 75%;
     max-width: 1200px;
