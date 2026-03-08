@@ -1,0 +1,51 @@
+@import "colors.css";
+
+* {
+    font-family: Roboto, "Noto Sans", sans-serif;
+    font-size: 14px;
+}
+
+.control-center {
+    background: @base00;
+    color: @base05;
+    border: 2px solid @base03;
+    border-radius: 8px;
+}
+
+.notification {
+    background: @base01;
+    border: 1px solid @base03;
+    border-radius: 6px;
+    margin: 6px;
+    padding: 8px;
+}
+
+.notification-default-action {
+    color: @base05;
+}
+
+.notification-default-action:hover {
+    background: @base02;
+}
+
+.notification-close-button {
+    background: @base08;
+    color: @base00;
+    border-radius: 4px;
+}
+
+.notification-close-button:hover {
+    background: @base09;
+}
+
+.control-center-list-placeholder > image {
+    display: none;
+}
+
+.control-center .notification {
+    background: @base01;
+}
+
+.control-center .notification:hover {
+    background: @base02;
+}

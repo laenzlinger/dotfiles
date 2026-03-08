@@ -56,6 +56,13 @@ name = "base16-wob"
 themes-dir = "colors"
 hook = "cp -f %f ~/.config/wob/wob-colors.ini && cat ~/.config/wob/wob-colors.ini ~/.config/wob/wob-base.ini > ~/.config/wob/wob.ini && /usr/bin/systemctl --user restart wob"
 
+# Swaync uses waybar colors - just run the sync script
+[[items]]
+name = "base16-swaync-sync"
+path = "https://github.com/tinted-theming/base16-waybar"
+themes-dir = "colors"
+hook = "~/.config/swaync/generate-colors.sh"
+
 [[items]]
 path = "https://git.sr.ht/~blueingreen/base16-btop"
 name = "base16-btop"
