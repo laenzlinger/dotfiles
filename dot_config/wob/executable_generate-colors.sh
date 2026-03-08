@@ -16,6 +16,8 @@ EOF
 cat > ~/.config/wob/wob-base.ini <<EOF
 [style.MUTED]
 bar_color = $(get base03)
+[style.BRIGHTNESS]
+bar_color = $(get base0A)
 EOF
 
 cat ~/.config/wob/wob-colors.ini ~/.config/wob/wob-base.ini > ~/.config/wob/wob.ini
