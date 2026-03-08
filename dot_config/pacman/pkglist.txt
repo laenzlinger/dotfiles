@@ -249,6 +249,7 @@ restic
 resvg
 ripgrep
 rofi
+rofi-calc
 rpi-imager
 rsync
 ruby
