@@ -1,0 +1,168 @@
+# Neovim (LazyVim)
+# Leader = Space
+
+## General
+# Command palette
+Space
+# Quit all
+Space+qq
+# Lazy plugin manager
+Space+l
+# Mason (LSP installer)
+Space+cm
+
+## Files
+# Find files
+Space+Space
+# Recent files
+Space+fr
+# File explorer (neo-tree)
+Space+e
+# File explorer (cwd)
+Space+E
+# Find in files (grep)
+Space+/
+# Find in files (grep word)
+Space+sg
+
+## Buffers
+# Switch buffer
+Space+,
+# Close buffer
+Space+bd
+# Close other buffers
+Space+bo
+# Next buffer
+]b
+# Previous buffer
+[b
+
+## Windows
+# Split vertical
+Space+|
+# Split horizontal
+Space+-
+# Close window
+Space+wd
+# Navigate windows
+Ctrl+h/j/k/l
+# Resize windows
+Ctrl+Arrow keys
+# Maximize window
+Space+wm
+
+## Code (LSP)
+# Go to definition
+gd
+# Go to references
+gr
+# Go to declaration
+gD
+# Go to implementation
+gI
+# Go to type definition
+gy
+# Hover info
+K
+# Signature help (insert mode)
+Ctrl+k
+# Code actions
+Space+ca
+# Rename symbol
+Space+cr
+# Format document
+Space+cf
+# Diagnostics (line)
+Space+cd
+# Next diagnostic
+]d
+# Previous diagnostic
+[d
+
+## Search
+# Find files
+Space+ff
+# Grep
+Space+sg
+# Resume last search
+Space+sR
+# Search buffers
+Space+fb
+# Search help
+Space+sh
+# Search keymaps
+Space+sk
+
+## Git
+# Git status (Neogit/lazygit)
+Space+gg
+# Git blame line
+Space+gb
+# Next hunk
+]h
+# Previous hunk
+[h
+# Stage hunk
+Space+ghs
+# Reset hunk
+Space+ghr
+# Diff this
+Space+ghd
+
+## Debug (DAP)
+# Toggle breakpoint
+Space+db
+# Start/continue
+Space+dc
+# Step over
+Space+dO
+# Step into
+Space+di
+# Step out
+Space+do
+# Terminate
+Space+dt
+# Toggle REPL
+Space+dr
+# Toggle DAP UI
+Space+du
+
+## Test
+# Run nearest test
+Space+tr
+# Run file tests
+Space+tt
+# Toggle test summary
+Space+ts
+# Debug nearest test
+Space+td
+
+## Editing
+# Comment line
+gcc
+# Comment selection
+gc (visual)
+# Surround add
+gsa
+# Surround delete
+gsd
+# Surround replace
+gsr
+# Move line down
+Alt+j
+# Move line up
+Alt+k
+# Indent
+>>
+# Dedent
+<<
+
+## Refactoring
+# Extract function
+Space+re (visual)
+# Extract variable
+Space+rv (visual)
+# Inline variable
+Space+ri
+# Select refactor
+Space+rs
