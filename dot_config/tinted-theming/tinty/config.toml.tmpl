@@ -61,7 +61,7 @@ hook = "cp -f %f ~/.config/wob/wob-colors.ini && cat ~/.config/wob/wob-colors.in
 name = "base16-swaync-sync"
 path = "https://github.com/tinted-theming/base16-waybar"
 themes-dir = "colors"
-hook = "~/.config/swaync/generate-colors.sh"
+hook = "~/.config/swaync/generate-colors.sh && killall -SIGUSR2 swaync 2>/dev/null || true"
 
 [[items]]
 path = "https://git.sr.ht/~blueingreen/base16-btop"
