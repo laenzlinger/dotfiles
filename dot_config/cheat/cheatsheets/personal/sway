@@ -29,6 +29,9 @@ Mod+Shift+m
 # Toggle Notifications
 Mod+Shift+n
 
+# USB mount/unmount (rofi)
+Mod+Shift+u
+
 # Cheatsheet browser
 Mod+Shift+/ (Mod+?)
 

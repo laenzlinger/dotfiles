@@ -30,7 +30,8 @@ exec swayidle -w \
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
 # usb disks automounter
-exec udiskie -t --notify
+# USB mount/unmount via rofi + udisks2
+bindsym $mod+Shift+u exec ~/.config/sway/bin/usb.sh
 
 # network manager applet
 # exec nm-applet --indicator

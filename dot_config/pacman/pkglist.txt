@@ -299,7 +299,6 @@ tree-sitter-cli
 ttf-meslo-nerd
 ttf-nerd-fonts-symbols
 ttf-roboto
-udiskie
 udisks2
 unrar
 unzip
