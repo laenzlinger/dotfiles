@@ -1,0 +1,6 @@
+[Desktop Entry]
+Name=Chromium (Incognito)
+Exec=chromium --incognito
+Icon=chromium
+Type=Application
+Categories=Network;WebBrowser;
