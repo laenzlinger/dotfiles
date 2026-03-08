@@ -1,0 +1,6 @@
+[Desktop Entry]
+Name=Vivaldi (Private)
+Exec=vivaldi --incognito
+Icon=vivaldi
+Type=Application
+Categories=Network;WebBrowser;
