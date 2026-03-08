@@ -125,6 +125,12 @@ Print
 # Screenshot area to file
 Shift+Print
 
+# Full screen to clipboard
+Ctrl+Print
+
+# Full screen to file
+Ctrl+Shift+Print
+
 ## Media Keys
 # Volume up/down
 XF86AudioRaiseVolume/LowerVolume
