@@ -1,0 +1,10 @@
+[Unit]
+Description=Output configuration manager for Wayland
+After=graphical-session.target
+
+[Service]
+ExecStart=/usr/bin/shikane
+Restart=on-failure
+
+[Install]
+WantedBy=graphical-session.target

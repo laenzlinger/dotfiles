@@ -1,0 +1,10 @@
+[Unit]
+Description=Btrfs desktop notifications
+After=graphical-session.target
+
+[Service]
+ExecStart=/usr/sbin/btrfs-desktop-notification
+Restart=on-failure
+
+[Install]
+WantedBy=graphical-session.target

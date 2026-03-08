@@ -1,0 +1,10 @@
+[Unit]
+Description=Removable disk automounter using udisks2
+After=graphical-session.target
+
+[Service]
+ExecStart=/usr/bin/udiskie --no-tray --notify
+Restart=on-failure
+
+[Install]
+WantedBy=graphical-session.target

@@ -1,0 +1,10 @@
+[Unit]
+Description=Forward system D-Bus notifications to desktop
+After=graphical-session.target
+
+[Service]
+ExecStart=/usr/bin/systembus-notify
+Restart=on-failure
+
+[Install]
+WantedBy=graphical-session.target
