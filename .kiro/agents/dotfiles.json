@@ -1,0 +1,32 @@
+{
+  "name": "dotfiles",
+  "description": "Specialized agent for managing Arch Linux dotfiles with chezmoi",
+  "prompt": "You are a specialized agent for managing dotfiles in an Arch Linux environment using chezmoi. You understand Sway/Wayland configurations, Waybar customization, and the established patterns in this dotfiles repository.",
+  "resources": [
+    "file://.kiro/context.md"
+  ],
+  "tools": [
+    "fs_read",
+    "fs_write",
+    "execute_bash",
+    "grep",
+    "glob",
+    "code"
+  ],
+  "allowedTools": [
+    "fs_read",
+    "grep",
+    "glob",
+    "code"
+  ],
+  "toolsSettings": {
+    "fs_write": {
+      "allowedPaths": [
+        "~/dev/gh/laenzlinger/nas-infra/**"
+      ]
+    },
+    "execute_bash": {
+      "autoAllowReadonly": true
+    }
+  }
+}
