@@ -15,6 +15,14 @@ fi
 eval "$(starship init zsh)"
 TRANSIENT_PROMPT_TRANSIENT_PROMPT='$(starship prompt --profile transient)'
 
+# OSC 133 semantic prompt markers (enables WezTerm semantic zones)
+if [[ -n "$WEZTERM_EXECUTABLE" ]]; then
+  _osc_prompt_mark() { printf '\e]133;A\e\\'; }
+  precmd_functions+=(_osc_prompt_mark)
+  _osc_preexec() { printf '\e]133;C\e\\'; }
+  preexec_functions+=(_osc_preexec)
+fi
+
 # oh-my-zsh settings
 HYPHEN_INSENSITIVE="true"
 ENABLE_CORRECTION="true"
