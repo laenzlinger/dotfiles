@@ -37,6 +37,9 @@ Mod+Shift+/ (Mod+?)
 
 # Calculator (rofi, result copied to clipboard)
 Mod+=
+# In calculator: type expression, Enter to copy result
+# Examples: 2^16, sqrt(144), 30% of 250, 5 miles to km
+# Clear history: rm ~/.local/share/rofi/rofi_calc_history
 
 ## Clipboard (rofi)
 # Pick from clipboard history
