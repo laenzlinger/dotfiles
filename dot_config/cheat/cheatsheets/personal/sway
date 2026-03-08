@@ -5,8 +5,11 @@
 # Launch terminal
 Mod+Enter
 
-# Launch app launcher
+# Launch app launcher (rofi, toggle)
 Mod+Space
+
+# File search (rofi, toggle)
+Mod+Shift+f
 
 # Toggle KeePassXC
 Mod+Shift+s
@@ -17,11 +20,21 @@ Mod+Shift+w
 # Toggle Blueman
 Mod+Shift+b
 
+# Toggle Helvum audio patchbay
+Mod+Shift+a
+
 # Toggle Microscope
 Mod+Shift+m
 
 # Toggle Notifications
 Mod+Shift+n
+
+## Clipboard (rofi)
+# Pick from clipboard history
+Mod+v
+
+# Clear clipboard history
+Mod+c
 
 ## Window Management
 # Kill focused window
@@ -101,13 +114,6 @@ Mod+Shift+e
 
 # Lock screen
 Mod+Shift+Escape
-
-## Clipboard
-# Pick from clipboard history
-Mod+v
-
-# Clear clipboard history
-Mod+c
 
 ## Screenshots
 # Screenshot area to clipboard
