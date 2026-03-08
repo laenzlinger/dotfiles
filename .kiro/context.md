@@ -49,9 +49,13 @@
 - `Mod+Shift+s` - Toggle KeePassXC
 - `Mod+Shift+b` - Toggle Blueman
 - `Mod+Shift+w` - Toggle Network Manager
+- `Mod+Shift+a` - Toggle Helvum audio patchbay
 - `Mod+Shift+m` - Toggle Microscope
 - `Mod+Shift+n` - Toggle notification center
+- `Mod+Shift+u` - USB unmount (rofi, whole-disk eject)
+- `Mod+?` - Cheatsheet browser (rofi)
 - `Mod+Shift+c` - Reload Sway (kills waybar first)
+- Workspaces: `Mod+1-9` (switch), `Mod+Shift+1-9` (move)
 
 ## Tools in Use
 - **VPN**: Netbird
@@ -61,6 +65,10 @@
 - **Editor**: Neovim with LazyVim (tinted-nvim for colors)
 - **File search**: fd + find piped through rofi
 - **Clipboard**: wl-clipboard + clipman + rofi
+- **USB**: udiskie (no tray, auto-mount, mount notifications only) + rofi unmount
+- **Tray icons**: Monochrome (blueman symbolic, keepassxc monochrome-dark)
+- **Browsers**: Vivaldi (primary), Chromium; private mode entries in rofi
+- **Screenshots**: `~/pictures/screenshots/` (sway + Vivaldi captures)
 
 ## When Making Changes
 1. Edit files in `~/.local/share/chezmoi/`
