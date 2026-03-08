@@ -160,7 +160,6 @@ source $(tinty config --data-dir-path)/repos/tinted-fzf/sh/$(tinty current).sh
 {{- if eq .chezmoi.os "linux" }} {{- if eq (printf "%.4s" .chezmoi.osRelease.id) "arch" }}
 go env -w GOPATH=$HOME/.local/share/go
 {{- end }} {{- end }}
-export GO111MODULE=on
 export PATH=$PATH:$(go env GOPATH)/bin
 export GOTESTS_TEMPLATE=testify
 
