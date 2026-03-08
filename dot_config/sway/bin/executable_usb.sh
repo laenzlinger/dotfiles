@@ -2,10 +2,10 @@
 set -euo pipefail
 
 # List removable disks that have at least one mounted partition
-disks=$(lsblk -Jpo NAME,MOUNTPOINT,HOTPLUG,TYPE,MODEL 2>/dev/null |
+disks=$(lsblk -Jpo NAME,MOUNTPOINT,HOTPLUG,TYPE,MODEL,VENDOR 2>/dev/null |
     jq -r '[.blockdevices[] | select(.hotplug==true and .type=="disk") |
         select(.children[]?.mountpoint != null)] | unique_by(.name)[] |
-        "\(.name) \(.model // "USB Drive")"')
+        "\(.name) \((.vendor // "" | rtrimstr(" ")) + " " + (.model // "USB Drive"))"')
 [ -n "$disks" ] || { notify-send "No removable devices mounted"; exit 0; }
 
 choice=$(echo "$disks" | awk '{$1=""; print substr($0,2)}' | rofi -dmenu -i -p "Unmount")
