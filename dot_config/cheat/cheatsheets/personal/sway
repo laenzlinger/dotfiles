@@ -29,6 +29,9 @@ Mod+Shift+m
 # Toggle Notifications
 Mod+Shift+n
 
+# Cheatsheet browser
+Mod+?
+
 ## Clipboard (rofi)
 # Pick from clipboard history
 Mod+v
