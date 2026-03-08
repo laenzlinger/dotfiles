@@ -41,10 +41,6 @@ plugins=(
     marked2
 {{- end }}
     aws
-    cloudfoundry
-    common-aliases
-    command-not-found
-    dotenv
     docker
     docker-compose
     emoji
@@ -54,8 +50,6 @@ plugins=(
     gpg-agent
     gh
     golang
-    jira
-    jfrog
     kubectl
     mvn
     mise
@@ -68,6 +62,10 @@ plugins=(
     z
     transient-prompt
 {{- if hasSuffix "com.com" .email }}
+    cloudfoundry
+    jira
+    jfrog
+    aws
     swisscom-proxy
     dos
 {{- end }}
