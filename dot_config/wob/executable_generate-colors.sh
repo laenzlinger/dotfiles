@@ -7,7 +7,7 @@ get() { sed -n "s/@define-color $1 #\(.*\);/\1/p" "$src"; }
 cat > ~/.config/wob/wob-colors.ini <<EOF
 border_color = $(get base05)
 background_color = $(get base00)
-bar_color = $(get base0E)
+bar_color = $(get base09)
 overflow_bar_color = $(get base08)
 overflow_background_color = $(get base00)
 overflow_border_color = $(get base05)
