@@ -8,6 +8,9 @@ Mod+Enter
 # Launch app launcher (rofi, toggle)
 Mod+Space
 
+# Window switcher (rofi, toggle)
+Mod+Tab
+
 # File search (rofi, toggle)
 Mod+Shift+f
 
