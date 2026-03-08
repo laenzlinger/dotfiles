@@ -22,7 +22,7 @@
   "toolsSettings": {
     "fs_write": {
       "allowedPaths": [
-        "~/dev/gh/laenzlinger/nas-infra/**"
+        "~/.local/share/chezmoi/**"
       ]
     },
     "execute_bash": {
