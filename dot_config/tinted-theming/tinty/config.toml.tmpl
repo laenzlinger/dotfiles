@@ -67,13 +67,13 @@ hook = "~/.config/swaync/generate-colors.sh"
 path = "https://git.sr.ht/~blueingreen/base16-btop"
 name = "base16-btop"
 themes-dir = "colors"
-hook = "cp -f %f ~/.config/btop/themes/colors.theme && killall -SIGUSR2 btop"
+hook = "cp -f %f ~/.config/btop/themes/colors.theme && killall -SIGUSR2 btop 2>/dev/null || true"
 
 [[items]]
 path = "https://github.com/kirasok/base16-hyprland"
 name = "base16-hyprland"
 themes-dir = "themes"
-hook = "cp -f %f ~/.config/hypr/colors.conf && hyprctl reload"
+hook = "cp -f %f ~/.config/hypr/colors.conf && (hyprctl reload 2>&1 || true) >/dev/null"
 
 [[items]]
 path = "https://github.com/acidghost/base16-obsidian"
