@@ -1,96 +1,304 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 
+
+format = """
+$username\
+$hostname\
+$directory\
+$git_branch\
+$git_status\
+$kubernetes\
+$docker_context\
+$python\
+$nodejs\
+$rust\
+$golang\
+$java\
+$c\
+$cpp\
+$nix_shell\
+$terraform\
+$aws\
+$gcloud\
+$container\
+$fill\
+$cmd_duration\
+$status\
+$line_break\
+$character"""
+
+right_format = ""
+
 [kubernetes]
 disabled = false
-format = '[$symbol$context( \($namespace\))]($style) '
+format = 'in [$symbol$context( \($namespace\))]($style) '
 symbol = "☸ "
 detect_env_vars = ['KUBECONFIG', 'KUBERNETES_SHOW']
 contexts = [
   { context_pattern = ".*dev.*", style = "bold green" },
-  { context_pattern = ".*test.*", style = "bold yellow" },
+  { context_pattern = ".*test.*", style = "bold cyan" },
   { context_pattern = ".*(prod|production).*", style = "bold red" },
 ]
 
 [character]
-success_symbol = "[](bold green)"
-error_symbol = "[](bold red)"
+# Success symbol in standard green, error in standard red
+#
+success_symbol = "[](bold green)"
+error_symbol = "[](bold red)"
+
+
+disabled = false
+format = "[$symbol$status]($style) "
+symbol = "✗ "
+style = "bold red"
+
+
+[status]
+disabled = false
+format = "[$symbol$status]($style) "
+symbol = "✗ "
+style = "bold red"
 
 [profiles]
 transient = """$character"""
 
+[git_status]
+ahead = "⇡${count}"
+diverged = "⇕⇡${ahead_count}⇣${behind_count}"
+behind = "⇣${count}"
+staged = "+"
+modified = "!"
+untracked = "?"
+
 [git_branch]
 style = "purple"
-symbol = " "
+symbol = " "
 
 [git_commit]
-tag_symbol = '  '
+tag_symbol = '  '
 
 [cmd_duration]
-style = "yellow"
+min_time = 2000
+style = "blue"
 
 [aws]
-symbol = " "
+symbol = " "
+
+[buf]
+symbol = " "
+
+[bun]
+symbol = " "
+
+[c]
+symbol = " "
+
+[cpp]
+symbol = " "
+
+[cmake]
+symbol = " "
+
+[conda]
+symbol = " "
+
+[crystal]
+symbol = " "
+
+[dart]
+symbol = " "
+
+[deno]
+symbol = " "
 
 [directory]
 style = "cyan"
 read_only = " 󰌾"
+truncation_length = 3
+truncate_to_repo = true
 
 [docker_context]
-symbol = " "
+symbol = " "
+
+[elixir]
+symbol = " "
+
+[elm]
+symbol = " "
+
+[fennel]
+symbol = " "
+
+[fortran]
+symbol = " "
+
+[fossil_branch]
+symbol = " "
+
+[gcloud]
+symbol = " "
 
 [golang]
-symbol = " "
-
-[java]
-symbol = " "
+detect_extensions = []
+detect_files = ["go.mod", "go.sum"]
+detect_folders = []
+symbol = " "
 
 [gradle]
-symbol = " "
+symbol = " "
 
-[lua]
-symbol = " "
+[guix_shell]
+symbol = " "
 
-[nodejs]
-symbol = " "
+[haskell]
+symbol = " "
 
-[python]
-symbol = " "
+[haxe]
+symbol = " "
 
-[ruby]
-symbol = " "
+[hg_branch]
+symbol = " "
 
-[rust]
-symbol = "󱘗 "
+[hostname]
+ssh_only = true
+format = "[$ssh_symbol$hostname]($style) "
+style = "magenta"
+ssh_symbol = " "
 
-[terraform]
-symbol = " "
+[java]
+symbol = " "
 
-[c]
-symbol = " "
-
-[cmake]
-symbol = " "
-
-[dart]
-symbol = " "
+[julia]
+symbol = " "
 
 [kotlin]
-symbol = " "
+symbol = " "
 
-[scala]
-symbol = " "
+[lua]
+symbol = " "
 
-[swift]
-symbol = " "
+[memory_usage]
+symbol = "󰍛 "
 
-[php]
-symbol = " "
+[meson]
+symbol = "󰔷 "
+
+[nim]
+symbol = "󰆥 "
+
+[nix_shell]
+symbol = " "
+
+[nodejs]
+detect_extensions = []
+detect_files = ["package.json"]
+detect_folders = ["node_modules"]
+symbol = " "
+
+[ocaml]
+symbol = " "
+
+[os.symbols]
+Alpaquita = " "
+Alpine = " "
+AlmaLinux = " "
+Amazon = " "
+Android = " "
+AOSC = " "
+Arch = " "
+Artix = " "
+CachyOS = " "
+CentOS = " "
+Debian = " "
+DragonFly = " "
+Elementary = " "
+Emscripten = " "
+EndeavourOS = " "
+Fedora = " "
+FreeBSD = " "
+Garuda = "󰛓 "
+Gentoo = " "
+HardenedBSD = "󰞌 "
+Illumos = "󰈸 "
+Ios = "󰀷 "
+Kali = " "
+Linux = " "
+Mabox = " "
+Macos = " "
+Manjaro = " "
+Mariner = " "
+MidnightBSD = " "
+Mint = " "
+NetBSD = " "
+NixOS = " "
+Nobara = " "
+OpenBSD = "󰈺 "
+openSUSE = " "
+OracleLinux = "󰌷 "
+Pop = " "
+Raspbian = " "
+Redhat = " "
+RedHatEnterprise = " "
+RockyLinux = " "
+Redox = "󰀘 "
+Solus = "󰠳 "
+SUSE = " "
+Ubuntu = " "
+Unknown = " "
+Void = " "
+Windows = "󰍲 "
+Zorin = " "
 
 [package]
 symbol = "󰏗 "
 
-[hostname]
-ssh_symbol = " "
+[perl]
+symbol = " "
 
-[memory_usage]
-symbol = "󰍛 "
+[php]
+symbol = " "
+
+[pijul_channel]
+symbol = " "
+
+[pixi]
+symbol = "󰏗 "
+
+[python]
+detect_extensions = []
+detect_files = ["pyproject.toml", "requirements.txt", "setup.py", "Pipfile"]
+detect_folders = [".venv"]
+symbol = " "
+
+[rlang]
+symbol = "󰟔 "
+
+[ruby]
+symbol = " "
+
+[rust]
+detect_extensions = []
+detect_files = ["Cargo.toml"]
+detect_folders = []
+symbol = "󱘗 "
+
+[scala]
+symbol = " "
+
+
+[swift]
+symbol = " "
+
+[xmake]
+symbol = " "
+
+[zig]
+symbol = " "
+
+[container]
+format = "[$symbol]($style) "
+symbol = "🐳"
+
+[fill]
+symbol = "·"
+style = "dimmed white"
