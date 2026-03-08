@@ -325,7 +325,6 @@ wlr-randr
 wmenu
 wmname
 wob
-wofi
 wtype
 xclip
 xdg-desktop-portal
