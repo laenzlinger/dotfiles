@@ -37,8 +37,8 @@ also the configuration grows and evolves over time.
 - [x] Add `$mod+Shift+a` for Helvum toggle
 - [x] Add `set -euo pipefail` to toggle scripts
 - [ ] Evaluate migrating from oh-my-zsh to bare zsh (startup ~220ms → <50ms)
-- [ ] Swaync notification styling - match 3px border/base05 color
-- [ ] Waybar tooltip styling - add rounded corners and consistent border
+- [x] Swaync notification styling - match 3px border/base05 color
+- [ ] Waybar tooltip styling - not possible (GTK tooltips on Wayland)
 - [ ] WezTerm tab bar - show current directory or git branch in tabs
 - [ ] Unfocused window opacity - dim unfocused windows (requires SwayFX)
 - [ ] Swaylock styling - match theme colors

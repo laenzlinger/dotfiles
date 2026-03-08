@@ -9,7 +9,7 @@
 .control-center {
     background: @base00;
     color: @base05;
-    border: 2px solid @base03;
+    border: 3px solid @base05;
     border-radius: 8px;
 }
 
