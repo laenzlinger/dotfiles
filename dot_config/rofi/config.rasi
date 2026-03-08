@@ -1,3 +1,10 @@
+configuration {
+    kb-row-down: "Down,Control+j,Control+n";
+    kb-row-up: "Up,Control+k,Control+p";
+    kb-accept-entry: "Return,KP_Enter";
+    kb-remove-to-eol: "";
+}
+
 @import "colors.rasi"
 
 * {
