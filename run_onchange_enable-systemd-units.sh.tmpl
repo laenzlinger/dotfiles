@@ -1,0 +1,21 @@
+{{- if eq .chezmoi.os "linux" -}}
+#!/usr/bin/env bash
+set -euo pipefail
+
+# Enable user systemd units managed by this dotfiles repo
+# Re-runs whenever content changes (chezmoi run_onchange_)
+
+units=(
+  darkman.service
+  syncthing.service
+  wob.socket
+  wob.service
+)
+
+for unit in "${units[@]}"; do
+  if ! systemctl --user is-enabled "$unit" &>/dev/null; then
+    echo "Enabling $unit"
+    systemctl --user enable --now "$unit"
+  fi
+done
+{{- end -}}
