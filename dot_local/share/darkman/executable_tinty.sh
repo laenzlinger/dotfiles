@@ -1,11 +1,5 @@
-#!/usr/bin/env sh
-
-######################################################################
-# @file        : tinty.sh
-# @created     : Saturday Apr 27, 2024 16:32:42 CEST
-#
-# @description : set tinty theme to dark or lignt mode (called by darkman)
-######################################################################
+#!/usr/bin/env bash
+set -euo pipefail
 
 case "$1" in
 dark) THEME=base16-darktooth ;;

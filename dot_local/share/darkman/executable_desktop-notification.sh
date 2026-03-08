@@ -1,8 +1,5 @@
-#!/usr/bin/env sh
-
-# trigger a small, passive popup dialog to inform the user about darkman's activity
-# reference https://wiki.archlinux.org/title/Desktop_notifications#Usage_in_programming
-#
+#!/usr/bin/env bash
+set -euo pipefail
 
 ICON_WORKAROUND="/usr/share/icons/Papirus/48x48/status"
 

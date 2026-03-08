@@ -1,10 +1,7 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
+set -euo pipefail
 
-# Control keyboard backlight based on mode. Should be vendor agnostic.
-# reference https://wiki.archlinux.org/title/Keyboard_backlight#D-Bus
-
-# Check the max brightness value for your hardware with:
-# dbus-send --type=method_call --print-reply=literal --system --dest="org.freedesktop.UPower" /org/freedesktop/UPower/KbdBacklight org.freedesktop.UPower.KbdBacklight.GetMaxBrightness
+# Control keyboard backlight based on mode
 
 case "$1" in
 dark) BRIGHTNESS=2 ;;  # Activate keyboard backlight in dark mode
