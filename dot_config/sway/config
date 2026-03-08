@@ -125,7 +125,7 @@ bindsym $mod+r mode "resize"
 # System
 bindsym $mod+Shift+c exec "pkill waybar; swaymsg reload"
 bindsym $mod+Shift+r restart
-bindsym $mod+Shift+e exec "swaynag -t warning -m 'Do you really want to exit sway?' -B 'Yes, exit sway' 'swaymsg exit'"
+bindsym $mod+Shift+e exec pkill rofi || ~/.config/sway/bin/power-menu.sh
 bindsym $mod+Shift+Escape exec $lock
 
 # KiCad

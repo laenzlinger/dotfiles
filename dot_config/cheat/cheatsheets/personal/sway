@@ -121,7 +121,7 @@ Mod+Shift+c
 # Restart Sway
 Mod+Shift+r
 
-# Exit Sway
+# Power menu (rofi: lock/logout/suspend/reboot/shutdown)
 Mod+Shift+e
 
 # Lock screen
