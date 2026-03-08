@@ -122,7 +122,6 @@ httrack
 hugo
 hyphen-de
 hyphen-en
-hyprland
 imagemagick
 imv
 inetutils
@@ -330,7 +329,6 @@ xclip
 xdg-desktop-portal
 xdg-desktop-portal-gnome
 xdg-desktop-portal-gtk
-xdg-desktop-portal-hyprland
 xdg-desktop-portal-wlr
 xdg-user-dirs
 xdg-user-dirs-gtk
