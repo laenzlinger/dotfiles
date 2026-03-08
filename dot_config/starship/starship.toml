@@ -28,6 +28,9 @@ tag_symbol = '  '
 [cmd_duration]
 style = "yellow"
 
+[aws]
+symbol = " "
+
 [directory]
 style = "cyan"
 read_only = " 󰌾"
@@ -39,6 +42,9 @@ symbol = " "
 symbol = " "
 
 [java]
+symbol = " "
+
+[gradle]
 symbol = " "
 
 [lua]
