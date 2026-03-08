@@ -3,31 +3,8 @@
 [[ -f "${HOME}/Library/Application Support/amazon-q/shell/zshrc.pre.zsh" ]] && builtin source "${HOME}/Library/Application Support/amazon-q/shell/zshrc.pre.zsh"
 {{- end }}
 
-{{- if eq .chezmoi.os "linux" }} {{- if eq (printf "%.4s" .chezmoi.osRelease.id) "arch" }}
-if [ -z "${WAYLAND_DISPLAY}" ] && [ "${XDG_VTNR}" -eq 1 ]; then
-#  exec sway
-fi
-{{- end }} {{- end }}
-
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block, everything else may go below.
-#if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-#  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-#fi
-
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
-
-# Path to your oh-my-zsh installation.
+# oh-my-zsh
 export ZSH="{{ .chezmoi.homeDir }}/.oh-my-zsh"
-
-# Set name of the theme to load --- if set to "random", it will
-# load a random theme each time oh-my-zsh is loaded, in which case,
-# to know which specific one was loaded, run: echo $RANDOM_THEME
-# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-#ZSH_THEME="agnoster"
-#ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Starship prompt
 if [[ "$TERM" == "linux" ]]; then
@@ -38,64 +15,12 @@ fi
 eval "$(starship init zsh)"
 TRANSIENT_PROMPT_TRANSIENT_PROMPT='$(starship prompt --profile transient)'
 
-# Set list of themes to pick from when loading at random
-# Setting this variable when ZSH_THEME=random will cause zsh to load
-# a theme from this variable instead of looking in ~/.oh-my-zsh/themes/
-# If set to an empty array, this variable will have no effect.
-# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
-
-# Uncomment the following line to use case-sensitive completion.
-# CASE_SENSITIVE="true"
-
-# Uncomment the following line to use hyphen-insensitive completion.
-# Case-sensitive completion must be off. _ and - will be interchangeable.
+# oh-my-zsh settings
 HYPHEN_INSENSITIVE="true"
-
-# Uncomment the following line to disable bi-weekly auto-update checks.
-# DISABLE_AUTO_UPDATE="true"
-
-# Uncomment the following line to automatically update without prompting.
-# DISABLE_UPDATE_PROMPT="true"
-
-# Uncomment the following line to change how often to auto-update (in days).
-# export UPDATE_ZSH_DAYS=13
-
-# Uncomment the following line if pasting URLs and other text is messed up.
-# DISABLE_MAGIC_FUNCTIONS=true
-
-# Uncomment the following line to disable colors in ls.
-# DISABLE_LS_COLORS="true"
-
-# Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
-
-# Uncomment the following line to enable command auto-correction.
 ENABLE_CORRECTION="true"
-
-# Uncomment the following line to display red dots whilst waiting for completion.
 COMPLETION_WAITING_DOTS="true"
-
-# Uncomment the following line if you want to disable marking untracked files
-# under VCS as dirty. This makes repository status check for large repositories
-# much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
-
-# Uncomment the following line if you want to change the command execution time
-# stamp shown in the history command output.
-# You can set one of the optional three formats:
-# "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-# or set a custom format using the strftime function format specifications,
-# see 'man strftime' for details.
 HIST_STAMPS="dd.mm.yyyy"
 
-# Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
-
-# Which plugins would you like to load?
-# Standard plugins can be found in ~/.oh-my-zsh/plugins/*
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
 plugins=(
 {{- if eq .chezmoi.os "linux" }} {{- if eq (printf "%.4s" .chezmoi.osRelease.id) "arch" }}
     archlinux
@@ -142,46 +67,27 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
-# User configuration
-
-# export MANPATH="/usr/local/man:$MANPATH"
-
-# You may need to manually set your language environment
+# Environment
 export LANG=en_US.UTF-8
-
-# Preferred editor for local
 export EDITOR='vi'
 
-# Key bindings
+# Vi key bindings
 bindkey -v
-
-## switched away from vi-mode plugin, since it seems to be buggy
-## for more vi-mode keybindings see https://github.com/ohmyzsh/ohmyzsh/blob/8a6fc5c16d49368dc8f9ddd965a9e25ef652e129/plugins/vi-mode/vi-mode.plugin.zsh#L97-L119)
-
-
-## allow vv to edit the command line (standard behaviour)
 autoload -Uz edit-command-line
 zle -N edit-command-line
 bindkey -M vicmd 'vv' edit-command-line
 
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-
-if command -v vim &> /dev/null
-then
+# Editor aliases (progressively override)
+if command -v vim &> /dev/null; then
   alias vi=vim
   export EDITOR='vim'
 fi
 
-if command -v nvim &> /dev/null
-then
+if command -v nvim &> /dev/null; then
   alias vi=nvim
   export EDITOR='nvim'
   export MANPAGER='nvim +Man!'
 fi
-
 
 {{- if eq .chezmoi.os "darwin" }}
 
@@ -197,12 +103,7 @@ source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 # iterm integration
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
-# gnu tools
-# export PATH="$(brew --prefix coreutils)/libexec/gnubin:/usr/local/bin:$PATH"
-
-# color ls on gnu ls
-if command -v lsd &> /dev/null
-then
+if command -v lsd &> /dev/null; then
   alias ls='lsd'
 else
   alias ls='ls --color=tty'
@@ -215,34 +116,24 @@ fi
 alias open='xdg-open'
 alias cm='chezmoi'
 
-if command -v lsd &> /dev/null
-then
+if command -v lsd &> /dev/null; then
   alias ls='lsd'
 fi
 
-if command -v btop &> /dev/null
-then
+if command -v btop &> /dev/null; then
   alias top='btop'
 fi
 
 {{- if eq (printf "%.4s" .chezmoi.osRelease.id) "arch" }}
-# Syntax highlighting
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
-# Autosuggestion
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-
-# "Command not found" handler
 source /usr/share/doc/pkgfile/command-not-found.zsh
 {{- end }}
 {{- if eq .chezmoi.osRelease.id "debian" }}
-# Syntax highlighting
 source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+{{- end }}
+{{- end }}
 
-# "Command not found" handler
-# source /usr/share/doc/pkgfile/command-not-found.zsh
-{{- end }}
-{{- end }}
 {{- if eq .chezmoi.os "darwin" }}
 HOMEBREW_COMMAND_NOT_FOUND_HANDLER="$(brew --repository)/Library/Homebrew/command-not-found/handler.sh"
 if [ -f "$HOMEBREW_COMMAND_NOT_FOUND_HANDLER" ]; then
@@ -251,15 +142,12 @@ fi
 {{- end }}
 
 {{- if eq .chezmoi.os "linux" }} {{- if eq (printf "%.4s" .chezmoi.osRelease.id) "arch" }}
-# workaround for mutt colors see https://github.com/neomutt/neomutt/issues/518
 alias neomutt="TERM=screen-256color neomutt"
 alias mutt="TERM=screen-256color neomutt"
 {{- end }} {{- end }}
 
-# Activate mise
+# Tool integrations
 eval "$(mise activate zsh)"
-
-# Direnv for per-directory env (unloads when leaving)
 eval "$(direnv hook zsh)"
 
 # LESS
@@ -267,21 +155,8 @@ LESSOPEN="|lesspipe.sh %s"; export LESSOPEN
 
 # Theming
 source $(tinty config --data-dir-path)/repos/tinted-fzf/sh/$(tinty current).sh
-# source $(tinty config --data-dir-path)/repos/tinted-shell/scripts/$(tinty current).sh
 
-## Development Language Settings
-
-## C compilation environment
-# export ARCHFLAGS="-arch x86_64"
-
-## node environment
-
-## java environment
-
-## ruby environment
-
-## golang environment
-
+# Go
 {{- if eq .chezmoi.os "linux" }} {{- if eq (printf "%.4s" .chezmoi.osRelease.id) "arch" }}
 go env -w GOPATH=$HOME/.local/share/go
 {{- end }} {{- end }}
@@ -289,11 +164,10 @@ export GO111MODULE=on
 export PATH=$PATH:$(go env GOPATH)/bin
 export GOTESTS_TEMPLATE=testify
 
-# rust environment
-
+# Rust
 export PATH=$PATH:$HOME/.cargo/bin
 
-# pipx installes into
+# Local binaries
 export PATH="$PATH:$HOME/.local/bin"
 
 {{- if eq .chezmoi.os "darwin" }}
