@@ -46,9 +46,12 @@ if [[ -n "$WEZTERM_EXECUTABLE" ]]; then
   preexec_functions+=(_osc_command_start)
 fi
 
-# Environment
-export LANG=en_US.UTF-8
-export EDITOR='vi'
+{{- if eq .chezmoi.os "darwin" }}
+# Simulate systemd environment.d on macOS
+for conf in "$XDG_CONFIG_HOME/environment.d/"*.conf; do
+  set -a; source "$conf"; set +a
+done
+{{- end }}
 
 # Vi key bindings
 bindkey -v
@@ -56,15 +59,13 @@ autoload -Uz edit-command-line
 zle -N edit-command-line
 bindkey -M vicmd 'vv' edit-command-line
 
-# Editor aliases (progressively override)
+# Editor aliases
 if command -v vim &> /dev/null; then
   alias vi=vim
-  export EDITOR='vim'
 fi
 
 if command -v nvim &> /dev/null; then
   alias vi=nvim
-  export EDITOR='nvim'
   export MANPAGER='nvim +Man!'
 fi
 
@@ -164,14 +165,7 @@ command -v aws_completer &>/dev/null && complete -C aws_completer aws
 
 # Go
 go env -w GOPATH=$HOME/.local/share/go
-export PATH=$PATH:$(go env GOPATH)/bin
 export GOTESTS_TEMPLATE=testify
-
-# Rust
-export PATH=$PATH:$HOME/.cargo/bin
-
-# Local binaries
-export PATH="$PATH:$HOME/.local/bin"
 
 {{- if eq .chezmoi.os "darwin" }}
 # Amazon Q post block. Keep at the bottom of this file.
