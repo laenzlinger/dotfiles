@@ -30,7 +30,7 @@ also the configuration grows and evolves over time.
 - [x] Remove `dot_config/termite/` — terminal emulator discontinued
 - [x] Remove `dot_config/alacritty/` — replaced by WezTerm
 - [x] Remove `dot_vimrc` / `dot_vim/` — fully on Neovim
-- [ ] Clean up commented boilerplate in `.zshrc` (oh-my-zsh default comments)
+- [x] Clean up commented boilerplate in `.zshrc` (oh-my-zsh default comments)
 
 ### Improvements
 - [x] Add error handling to toggle scripts (check if app is installed)
