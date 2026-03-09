@@ -4,17 +4,3 @@ zsh-users/zsh-autosuggestions
 
 # Transient prompt support
 olets/zsh-transient-prompt
-
-# OS-specific plugins
-{{- if eq .chezmoi.os "linux" }}
-{{- if eq (printf "%.4s" .chezmoi.osRelease.id) "arch" }}
-ohmyzsh/ohmyzsh path:plugins/archlinux
-ohmyzsh/ohmyzsh path:plugins/systemd
-{{- end }}
-{{- end }}
-
-# Tool completions and aliases
-ohmyzsh/ohmyzsh path:plugins/git
-ohmyzsh/ohmyzsh path:plugins/docker
-ohmyzsh/ohmyzsh path:plugins/kubectl
-ohmyzsh/ohmyzsh path:plugins/terraform

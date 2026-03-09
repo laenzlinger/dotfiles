@@ -7,13 +7,3 @@ refreshPeriod = "168h"
 type = "git-repo"
 url = "https://github.com/mattmc3/antidote.git"
 refreshPeriod = "168h"
-
-[".oh-my-zsh"]
-type = "git-repo"
-url = "https://github.com/ohmyzsh/ohmyzsh.git"
-refreshPeriod = "168h"
-
-[".oh-my-zsh/custom/plugins/transient-prompt"]
-url = "https://github.com/olets/zsh-transient-prompt.git"
-type = "git-repo"
-refreshPeriod = "168h"
