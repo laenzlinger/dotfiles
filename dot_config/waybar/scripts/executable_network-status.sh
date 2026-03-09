@@ -9,10 +9,10 @@ if [ -n "$WIFI" ]; then
     IFACE=$(nmcli -t -f device,type dev | grep ':wifi$' | cut -d: -f1 | head -1)
     IP=$(ip -4 addr show "$IFACE" 2>/dev/null | grep inet | awk '{print $2}')
     GW=$(ip route | grep default | awk '{print $3}')
-    if [ "$SIGNAL" -ge 75 ]; then ICON="󰖩"
-    elif [ "$SIGNAL" -ge 50 ]; then ICON="󰖩"
-    elif [ "$SIGNAL" -ge 25 ]; then ICON="󰖩"
-    else ICON="󰖩"; fi
+    if [ "$SIGNAL" -ge 75 ]; then ICON="󰤥"
+    elif [ "$SIGNAL" -ge 50 ]; then ICON="󰤢"
+    elif [ "$SIGNAL" -ge 25 ]; then ICON="󰤟"
+    else ICON="󰤯"; fi
     NET_TEXT="$ICON  $SSID"
     NET_TIP="$SSID ($SIGNAL%)\n$IP\nGateway: $GW"
 else
