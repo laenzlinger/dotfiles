@@ -18,7 +18,7 @@ setopt SHARE_HISTORY
 
 # Completion system (must be before antidote)
 autoload -Uz compinit
-compinit -d "$XDG_CACHE_HOME/zsh/zcompdump-$ZSH_VERSION"
+compinit -C -d "$XDG_CACHE_HOME/zsh/zcompdump-$ZSH_VERSION"
 
 zstyle ':completion:*' menu select
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
@@ -69,7 +69,9 @@ if command -v nvim &> /dev/null; then
 fi
 
 # Common aliases
+{{- if eq .chezmoi.os "linux" }}
 alias open='xdg-open'
+{{- end }}
 alias cm='chezmoi'
 
 if command -v lsd &> /dev/null; then
@@ -102,7 +104,7 @@ alias scs='systemctl status'
 alias scr='systemctl restart'
 {{- end }}
 
-{{- if eq (printf "%.4s" .chezmoi.osRelease.id) "arch" }}
+{{- if eq .chezmoi.osRelease.id "arch" }}
 # Pacman aliases
 alias pacupg='sudo pacman -Syu'
 alias pacin='sudo pacman -S'
@@ -133,11 +135,10 @@ fi
 
 # Tool integrations
 eval "$(mise activate zsh)"
-eval "$(direnv hook zsh)"
 eval "$(zoxide init zsh)"
 
 # fzf integration
-{{- if eq .chezmoi.os "linux" }}
+{{- if eq .chezmoi.osRelease.id "arch" }}
 source /usr/share/fzf/key-bindings.zsh
 source /usr/share/fzf/completion.zsh
 {{- end }}
@@ -156,24 +157,13 @@ source $(tinty config --data-dir-path)/repos/tinted-fzf/sh/$(tinty current).sh
 command -v kubectl &>/dev/null && source <(kubectl completion zsh)
 command -v gh &>/dev/null && eval "$(gh completion -s zsh)"
 
-# Terraform (uses bash-style complete)
-if command -v terraform &>/dev/null; then
-  autoload -U +X bashcompinit && bashcompinit
-  complete -o nospace -C terraform terraform
-fi
-
-# AWS (uses bash-style complete)
-if command -v aws_completer &>/dev/null; then
-  autoload -U +X bashcompinit && bashcompinit
-  complete -C aws_completer aws
-fi
+# Bash-style completions (terraform, aws)
+autoload -U +X bashcompinit && bashcompinit
+command -v terraform &>/dev/null && complete -o nospace -C terraform terraform
+command -v aws_completer &>/dev/null && complete -C aws_completer aws
 
 # Go
-{{- if eq .chezmoi.os "linux" }}
-{{- if eq (printf "%.4s" .chezmoi.osRelease.id) "arch" }}
 go env -w GOPATH=$HOME/.local/share/go
-{{- end }}
-{{- end }}
 export PATH=$PATH:$(go env GOPATH)/bin
 export GOTESTS_TEMPLATE=testify
 
