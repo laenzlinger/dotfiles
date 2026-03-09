@@ -4,14 +4,7 @@ if [ -n "$https_proxy" ]; then
   git config --global http.proxy "$https_proxy"
 fi
 
-# oh-my-zsh
-git clone https://github.com/ohmyzsh/ohmyzsh.git ~/.oh-my-zsh
-
-# powerlevel10k
-git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/.oh-my-zsh/custom/themes/powerlevel10k
-~/.oh-my-zsh/custom/themes/powerlevel10k/gitstatus/install -f
-
-# Base 16 shell
-git clone https://github.com/chriskempson/base16-shell.git ~/.config/base16-shell
+# antidote (managed by chezmoi external)
+# Base 16 shell (deprecated - now using tinty)
 
 ~/bin/chezmoi apply

@@ -36,7 +36,7 @@ also the configuration grows and evolves over time.
 - [x] Add error handling to toggle scripts (check if app is installed)
 - [x] Add `$mod+Shift+a` for Helvum toggle
 - [x] Add `set -euo pipefail` to toggle scripts
-- [ ] Evaluate migrating from oh-my-zsh to bare zsh (startup ~220ms → <50ms)
+- [x] Migrate from oh-my-zsh to antidote (see ADR 001)
 - [x] Swaync notification styling - match 3px border/base05 color
 - [ ] Waybar tooltip styling - not possible (GTK tooltips on Wayland)
 - [ ] WezTerm tab bar - show current directory or git branch in tabs
