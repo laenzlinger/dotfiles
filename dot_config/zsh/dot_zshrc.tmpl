@@ -35,7 +35,7 @@ TRANSIENT_PROMPT_TRANSIENT_PROMPT='$(starship prompt --profile transient)'
 
 # Antidote plugin manager
 export ANTIDOTE_HOME="$XDG_DATA_HOME/antidote"
-source ~/.antidote/antidote.zsh
+source "$XDG_DATA_HOME/antidote-src/antidote.zsh"
 antidote load "$XDG_CONFIG_HOME/zsh/.zsh_plugins.txt"
 
 # OSC 133 semantic prompt markers (enables WezTerm semantic zones)
