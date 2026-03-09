@@ -95,29 +95,27 @@ alias dex='docker exec -it'
 alias dlog='docker logs -f'
 
 {{- if eq .chezmoi.os "linux" }}
-{{- if eq (printf "%.4s" .chezmoi.osRelease.id) "arch" }}
 # Systemd aliases
 alias sc='systemctl'
 alias scu='systemctl --user'
 alias scs='systemctl status'
 alias scr='systemctl restart'
+{{- end }}
 
+{{- if eq (printf "%.4s" .chezmoi.osRelease.id) "arch" }}
 # Pacman aliases
 alias pacupg='sudo pacman -Syu'
 alias pacin='sudo pacman -S'
 alias pacreps='pacman -Ss'
 alias pacrem='sudo pacman -Rns'
-{{- end }}
+
+source /usr/share/doc/pkgfile/command-not-found.zsh
 {{- end }}
 
-{{- if eq .chezmoi.os "linux" }}
-{{- if eq (printf "%.4s" .chezmoi.osRelease.id) "arch" }}
-# Arch Linux specific
-source /usr/share/doc/pkgfile/command-not-found.zsh
-alias neomutt="TERM=screen-256color neomutt"
-alias mutt="TERM=screen-256color neomutt"
-{{- end }}
-{{- end }}
+if command -v neomutt &> /dev/null; then
+  alias neomutt="TERM=screen-256color neomutt"
+  alias mutt="TERM=screen-256color neomutt"
+fi
 
 {{- if eq .chezmoi.os "darwin" }}
 # macOS specific
