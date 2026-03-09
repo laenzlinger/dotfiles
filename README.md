@@ -2,7 +2,7 @@
 
 This repo contains the dotfiles managed by `chezmoi`
 
-It's a very of course a very opinionated and personal setup.
+It's of course a very opinionated and personal setup.
 Together with my learning of all these great FOSS software,
 also the configuration grows and evolves over time.
 
