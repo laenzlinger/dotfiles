@@ -53,6 +53,7 @@ See [arch/Makefile](arch/Makefile)
 
 ## Documentation
 
+- [Arch Linux](docs/arch.md) — hardware, system config, backups
 - [Zsh](docs/zsh.md) — shell config, plugins, performance
 - [Environment Variables](docs/environment-variables.md) — session-wide env setup
 - [Systemd Units](docs/systemd.md) — background daemons
