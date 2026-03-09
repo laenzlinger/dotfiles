@@ -12,28 +12,27 @@ WAYLAND_DISPLAY=$(find "$XDG_RUNTIME_DIR" -maxdepth 1 -name 'wayland-*' 2>/dev/n
 export WAYLAND_DISPLAY
 export QT_QPA_PLATFORM="wayland"
 
-QT6_CONFIG="$HOME/.config/qt6ct/qt6ct.conf"
-QT5_CONFIG="$HOME/.config/qt5ct/qt5ct.conf"
+QT_CONFIGS=(
+  "$HOME/.config/qt5ct/qt5ct.conf qt5ct"
+  "$HOME/.config/qt6ct/qt6ct.conf qt6ct"
+)
 
 if [[ "$NEW_STATE" == "dark" ]]; then
   kvantummanager --set "MateriaDark"
-
-  sed -i "s/color_scheme_path=.*/color_scheme_path=\/usr\/share\/qt6ct\/colors\/$DARK_THEME.conf/" "$QT6_CONFIG"
-  sed -i "s/color_scheme_path=.*/color_scheme_path=\/usr\/share\/qt5ct\/colors\/$DARK_THEME.conf/" "$QT5_CONFIG"
-
-  sed -i "s/icon_theme=.*/icon_theme=$ICON_THEME-Dark/" "$QT6_CONFIG"
-  sed -i "s/icon_theme=.*/icon_theme=$ICON_THEME-Dark/" "$QT5_CONFIG"
+  COLOR_SCHEME="$DARK_THEME"
+  ICON="$ICON_THEME-Dark"
 else
-  sed -i "s/color_scheme_path=.*/color_scheme_path=\/usr\/share\/qt6ct\/colors\/$LIGHT_THEME.conf/" "$QT6_CONFIG"
-  sed -i "s/color_scheme_path=.*/color_scheme_path=\/usr\/share\/qt5ct\/colors\/$LIGHT_THEME.conf/" "$QT5_CONFIG"
-
   kvantummanager --set "MateriaLight"
-
-  sed -i "s/icon_theme=.*/icon_theme=$ICON_THEME-Light/" "$QT6_CONFIG"
-  sed -i "s/icon_theme=.*/icon_theme=$ICON_THEME-Light/" "$QT5_CONFIG"
+  COLOR_SCHEME="$LIGHT_THEME"
+  ICON="$ICON_THEME-Light"
 fi
-touch "$QT5_CONFIG"
-touch "$QT6_CONFIG"
+
+for entry in "${QT_CONFIGS[@]}"; do
+  read -r conf name <<< "$entry"
+  sed -i "s|color_scheme_path=.*|color_scheme_path=/usr/share/$name/colors/$COLOR_SCHEME.conf|" "$conf"
+  sed -i "s/icon_theme=.*/icon_theme=$ICON/" "$conf"
+  touch "$conf"
+done
 
 systemctl --user set-environment QT_QPA_PLATFORMTHEME=qt5ct
 dbus-update-activation-environment --systemd WAYLAND_DISPLAY DISPLAY XDG_CURRENT_DESKTOP QT_QPA_PLATFORMTHEME
