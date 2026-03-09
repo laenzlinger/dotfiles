@@ -59,5 +59,4 @@ See [arch/Makefile](arch/Makefile)
 - [Systemd Units](docs/systemd.md) — background daemons
 - [GPG](docs/gpg.md) — key management
 - [Troubleshooting](docs/troubleshooting.md) — common issues
-- [TODO](docs/todo.md) — open items
 - [ADR 001](docs/adr/001-migrate-from-oh-my-zsh-to-antidote.md) — oh-my-zsh → antidote migration
