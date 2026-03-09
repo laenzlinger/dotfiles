@@ -1,98 +1,20 @@
 # Configuration Repository
 
-This repo contains the dotfiles managed by `chezmoi`
+Dotfiles managed by [chezmoi](https://www.chezmoi.io/). Opinionated, personal, evolving.
 
-It's of course a very opinionated and personal setup.
-Together with my learning of all these great FOSS software,
-also the configuration grows and evolves over time.
+## Setup
 
-## TODO
+- **OS**: Arch Linux / macOS
+- **WM**: Sway (Wayland)
+- **Shell**: Zsh with Starship prompt
+- **Terminal**: WezTerm
+- **Theme**: Base16 via tinty
 
-### Bugs
-- [x] Fix hardcoded WiFi interface `wlp0s20f3` in `waybar/scripts/network-status.sh` — auto-detect instead
-- [x] Fix temperature tooltip in `waybar/config.common.jsonc` — copy-pasted from battery module
-- [x] Fix typo in filename: `executable_microsope.sh` → `executable_microscope.sh`
-- [x] Fix `move-workspace-to-output.sh` — uses `waymsg` (typo) instead of `swaymsg`
-- [x] Fix trailing double-quote on keepassxc exec line in `sway/config`
-- [x] Fix hardcoded username in `.zshrc` pipx PATH — use `$HOME` instead
-- [x] Fix `Shift+Print` screenshot — properly quoted `$(...)` in sway exec
+## Installation
 
-### Cleanup
-- [x] Remove unused waybar arrow modules (arrow1-9 in `config.common.jsonc`)
-- [x] Remove unused `vpn-status.sh` — VPN is already integrated in `network-status.sh`
-- [x] Remove `config.hyprland.jsonc` — no longer using Hyprland
-- [x] Remove `dot_p10k.zsh` — switched to Starship, p10k config was 96KB of dead weight
-- [x] Remove powerlevel10k from `.chezmoiexternal.toml` — no longer used
-- [x] Remove commented p10k source line in `.zshrc`
-- [x] Remove commented `exec sway` in `.zshrc`
-- [x] Remove commented Obsidian autostart in `sway/config`
-- [x] Remove `dot_config/i3/` and `dot_config/i3status/` — no longer used
-- [x] Remove `dot_config/termite/` — terminal emulator discontinued
-- [x] Remove `dot_config/alacritty/` — replaced by WezTerm
-- [x] Remove `dot_vimrc` / `dot_vim/` — fully on Neovim
-- [x] Clean up commented boilerplate in `.zshrc` (oh-my-zsh default comments)
+### Arch Linux
 
-### Improvements
-- [x] Add error handling to toggle scripts (check if app is installed)
-- [x] Add `$mod+Shift+a` for Helvum toggle
-- [x] Add `set -euo pipefail` to toggle scripts
-- [x] Migrate from oh-my-zsh to antidote (see ADR 001)
-- [x] Swaync notification styling - match 3px border/base05 color
-- [ ] Waybar tooltip styling - not possible (GTK tooltips on Wayland)
-- [ ] WezTerm tab bar - show current directory or git branch in tabs
-- [ ] Unfocused window opacity - dim unfocused windows (requires SwayFX)
-- [x] Swaylock styling - match theme colors
-
-## Systemd User Units
-
-Background daemons are managed as systemd user units rather than sway `exec` lines.
-This gives automatic restart on failure, clean per-service logs, and independence from sway reloads.
-
-Custom unit files in `dot_config/systemd/user/`:
-- `udiskie.service` — USB automounter
-- `polkit-gnome.service` — PolicyKit authentication agent
-- `systembus-notify.service` — D-Bus notification bridge
-- `shikane.service` — Display/output management
-- `btrfs-desktop-notification.service` — Btrfs health notifications
-
-Units enabled automatically on fresh install via `run_onchange_enable-systemd-units.sh`.
-
-Stays in sway config:
-- `swayidle` — uses sway `$lock` variable
-- App launches (`vivaldi`, `terminal`, `keepassxc`) — need workspace assignments
-
-## Troubleshooting
-
-### Empty line at terminal start
-
-If you see an empty line before the first prompt when opening a new terminal, check:
-- `add_newline = false` in `~/.config/starship/starship.toml`
-- No empty lines at the start of `~/.zshrc`
-
-### Waybar not updating after config change
-
-Sway reload (`Mod+Shift+c`) kills waybar first, then reloads sway config which restarts waybar.
-
-### Theme colors not applying to new app
-
-Add the app to tinty config in `dot_config/tinted-theming/tinty/config.toml.tmpl` and create a hook script in `dot_config/tinted-theming/tinty/hooks/`.
-
-### Toggle script not working
-
-Check if the app is installed - toggle scripts use `command -v` to verify before launching.
-
-## Arch Linux
-
-Followed steps in Arch Linux [installation guide](https://wiki.archlinux.org/index.php/installation_guide)
-
-### VM: Manual steps
-
-* UEFI boot mode
-* Virtual Disk Size 50GB
-* 4 CPU
-* 4096 MB RAM
-
-#### VM: Run the installation script
+See [arch/INSTALLATION_GUIDE.md](arch/INSTALLATION_GUIDE.md) for bare metal, or:
 
 ```bash
 loadkeys de_CH-latin1
@@ -100,55 +22,41 @@ curl https://raw.githubusercontent.com/laenzlinger/dotfiles/master/arch/setup-vm
 bash setup-vmware.sh
 ```
 
-### Bare Metal steps
+### User setup (all platforms)
 
-see [Installation Guide](/arch/INSTALLATION_GUIDE.md)
+```bash
+chezmoi init https://github.com/laenzlinger/dotfiles.git
+chezmoi cd
+# then run the platform setup script:
+#   arch/setup-user.sh
+#   darwin/setup-user.sh
+#   debian/setup-user.sh
+```
 
-### Create user
+### Create user (Arch)
 
 ```bash
 arch-chroot /dev
 passwd
-useradd -m laenzi
-passwd laenzi
-visudo                  # laenzi   ALL=(ALL) ALL
-```
-
-### User setup
-
-```bash
-chezmoi init https://github.com/laenzlinger/dotfiles.git
-chezmoi cd
-arch/setup-user.sh
-exit
+useradd -m <username>
+passwd <username>
+visudo                  # <username>   ALL=(ALL) ALL
 ```
 
 ### Testing in Docker
 
-See [Makefile](arch/Makefile)
+See [arch/Makefile](arch/Makefile)
 
-### List of installed packages
+### Installed packages
 
-chezmoi apply creates list of installed packages in [.config/pacman/*.txt](dot_config/pacman)
+`chezmoi apply` creates list of installed packages in [.config/pacman/*.txt](dot_config/pacman)
 
-## OSX
+## Documentation
 
-### User setup in OSX
-
-```bash
-chezmoi init https://github.com/laenzlinger/dotfiles.git
-chezmoi cd
-darwin/setup-user.sh
-exit
-```
-
-## Debian
-
-### User setup in Debian
-
-```bash
-curl -sfL https://git.io/chezmoi | sh
-./bin/chezmoi init https://github.com/laenzlinger/dotfiles.git
-.local/share/chezmoi/debian/setup-user.sh
-source .zshrc
-```
+- [Zsh](docs/zsh.md) — shell config, plugins, performance
+- [Environment Variables](docs/environment-variables.md) — session-wide env setup
+- [Systemd Units](docs/systemd.md) — background daemons
+- [GPG](docs/gpg.md) — key management
+- [Troubleshooting](docs/troubleshooting.md) — common issues
+- [TODO](docs/todo.md) — open items
+- [ADR 001](docs/adr/001-migrate-from-oh-my-zsh-to-antidote.md) — oh-my-zsh → antidote migration
