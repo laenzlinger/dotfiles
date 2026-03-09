@@ -1,0 +1,161 @@
+{{- if eq .chezmoi.os "darwin" }}
+# Amazon Q pre block. Keep at the top of this file.
+[[ -f "${HOME}/Library/Application Support/amazon-q/shell/zshrc.pre.zsh" ]] && builtin source "${HOME}/Library/Application Support/amazon-q/shell/zshrc.pre.zsh"
+{{- end }}
+
+# XDG Base Directory
+export XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-$HOME/.config}"
+export XDG_DATA_HOME="${XDG_DATA_HOME:-$HOME/.local/share}"
+export XDG_CACHE_HOME="${XDG_CACHE_HOME:-$HOME/.cache}"
+
+# History
+HISTFILE="$XDG_DATA_HOME/zsh/history"
+HISTSIZE=10000
+SAVEHIST=10000
+setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_FIND_NO_DUPS
+setopt SHARE_HISTORY
+
+# Completion system (must be before antidote)
+autoload -Uz compinit
+compinit -d "$XDG_CACHE_HOME/zsh/zcompdump-$ZSH_VERSION"
+
+zstyle ':completion:*' menu select
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
+setopt COMPLETE_IN_WORD
+
+# Starship prompt (must be before transient-prompt plugin)
+if [[ "$TERM" == "linux" ]]; then
+  export STARSHIP_CONFIG=~/.config/starship/starship-linux.toml
+else
+  export STARSHIP_CONFIG=~/.config/starship/starship.toml
+fi
+eval "$(starship init zsh)"
+TRANSIENT_PROMPT_TRANSIENT_PROMPT='$(starship prompt --profile transient)'
+
+# Antidote plugin manager
+export ANTIDOTE_HOME="$XDG_DATA_HOME/antidote"
+source ~/.antidote/antidote.zsh
+antidote load "$XDG_CONFIG_HOME/zsh/.zsh_plugins.txt"
+
+# OSC 133 semantic prompt markers (enables WezTerm semantic zones)
+if [[ -n "$WEZTERM_EXECUTABLE" ]]; then
+  _osc_prompt_start() { printf '\e]133;A\e\\'; }
+  _osc_command_start() { printf '\e]133;C\e\\'; }
+  precmd_functions+=(_osc_prompt_start)
+  preexec_functions+=(_osc_command_start)
+fi
+
+# Environment
+export LANG=en_US.UTF-8
+export EDITOR='vi'
+
+# Vi key bindings
+bindkey -v
+autoload -Uz edit-command-line
+zle -N edit-command-line
+bindkey -M vicmd 'vv' edit-command-line
+
+# Editor aliases (progressively override)
+if command -v vim &> /dev/null; then
+  alias vi=vim
+  export EDITOR='vim'
+fi
+
+if command -v nvim &> /dev/null; then
+  alias vi=nvim
+  export EDITOR='nvim'
+  export MANPAGER='nvim +Man!'
+fi
+
+# Common aliases
+alias open='xdg-open'
+alias cm='chezmoi'
+
+if command -v lsd &> /dev/null; then
+  alias ls='lsd'
+fi
+
+if command -v btop &> /dev/null; then
+  alias top='btop'
+fi
+
+{{- if eq .chezmoi.os "linux" }}
+{{- if eq (printf "%.4s" .chezmoi.osRelease.id) "arch" }}
+# Arch Linux specific
+source /usr/share/doc/pkgfile/command-not-found.zsh
+alias neomutt="TERM=screen-256color neomutt"
+alias mutt="TERM=screen-256color neomutt"
+{{- end }}
+{{- end }}
+
+{{- if eq .chezmoi.os "darwin" }}
+# macOS specific
+alias tinty='tinty --config=~/.config/tinted-theming/tinty/config.toml --data-dir=~/.local/share/tinted-theming/tinty'
+
+# iTerm integration
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+# Homebrew command-not-found
+HOMEBREW_COMMAND_NOT_FOUND_HANDLER="$(brew --repository)/Library/Homebrew/command-not-found/handler.sh"
+if [ -f "$HOMEBREW_COMMAND_NOT_FOUND_HANDLER" ]; then
+  source "$HOMEBREW_COMMAND_NOT_FOUND_HANDLER"
+fi
+{{- end }}
+
+# Tool integrations
+eval "$(mise activate zsh)"
+eval "$(direnv hook zsh)"
+eval "$(zoxide init zsh)"
+
+# fzf integration
+{{- if eq .chezmoi.os "linux" }}
+source /usr/share/fzf/key-bindings.zsh
+source /usr/share/fzf/completion.zsh
+{{- end }}
+{{- if eq .chezmoi.os "darwin" }}
+source $(brew --prefix)/opt/fzf/shell/key-bindings.zsh
+source $(brew --prefix)/opt/fzf/shell/completion.zsh
+{{- end }}
+
+# LESS
+LESSOPEN="|lesspipe.sh %s"; export LESSOPEN
+
+# Theming
+source $(tinty config --data-dir-path)/repos/tinted-fzf/sh/$(tinty current).sh
+
+# Native completions
+command -v kubectl &>/dev/null && source <(kubectl completion zsh)
+command -v gh &>/dev/null && eval "$(gh completion -s zsh)"
+
+# Terraform (uses bash-style complete)
+if command -v terraform &>/dev/null; then
+  autoload -U +X bashcompinit && bashcompinit
+  complete -o nospace -C terraform terraform
+fi
+
+# AWS (uses bash-style complete)
+if command -v aws_completer &>/dev/null; then
+  autoload -U +X bashcompinit && bashcompinit
+  complete -C aws_completer aws
+fi
+
+# Go
+{{- if eq .chezmoi.os "linux" }}
+{{- if eq (printf "%.4s" .chezmoi.osRelease.id) "arch" }}
+go env -w GOPATH=$HOME/.local/share/go
+{{- end }}
+{{- end }}
+export PATH=$PATH:$(go env GOPATH)/bin
+export GOTESTS_TEMPLATE=testify
+
+# Rust
+export PATH=$PATH:$HOME/.cargo/bin
+
+# Local binaries
+export PATH="$PATH:$HOME/.local/bin"
+
+{{- if eq .chezmoi.os "darwin" }}
+# Amazon Q post block. Keep at the bottom of this file.
+[[ -f "${HOME}/Library/Application Support/amazon-q/shell/zshrc.post.zsh" ]] && builtin source "${HOME}/Library/Application Support/amazon-q/shell/zshrc.post.zsh"
+{{- end }}
