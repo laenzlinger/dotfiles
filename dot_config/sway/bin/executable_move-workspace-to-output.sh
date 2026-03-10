@@ -5,7 +5,7 @@ OUTPUT="$1"
 swaymsg focus output "$OUTPUT"
 
 for ws in $(seq 1 9); do
-    swaymsg "[workspace=\"$ws\"] move workspace to output \"$OUTPUT\""
+    swaymsg "[workspace=\"$ws\"] move workspace to output \"$OUTPUT\"" || true
 done
 
 CONFIG=~/.config/waybar/config.jsonc

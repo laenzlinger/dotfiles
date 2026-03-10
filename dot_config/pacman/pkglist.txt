@@ -1,6 +1,5 @@
 7zip
 age
-alacritty
 alsa-scarlett-gui
 alsa-utils
 ansible-core
@@ -224,6 +223,7 @@ pkgfile
 plantuml
 platformio-core
 playitslowly
+plocate
 podman
 podofo-tools
 polkit-gnome
