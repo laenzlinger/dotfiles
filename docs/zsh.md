@@ -1,5 +1,13 @@
 # Zsh Configuration
 
+## XDG compliance
+
+`~/.zshenv` sets `ZDOTDIR=~/.config/zsh`, so all zsh dotfiles live there:
+
+- `.zshrc` — interactive shell config (plugins, aliases, completions)
+- `.zprofile` — login session setup (imports `environment.d` vars on Linux)
+- `.zsh_plugins.txt` — antidote plugin list
+
 ## Plugin manager
 
 [Antidote](https://github.com/mattmc3/antidote) — a lightweight pure-zsh plugin manager.
