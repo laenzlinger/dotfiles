@@ -18,6 +18,18 @@
 - **Compact** - Smaller fonts (12px for overlays), tight spacing, no wasted space
 - **No visual noise** - No borders, dotted lines, or alternating row colors in lists
 
+## Zsh Setup
+- **ZDOTDIR**: Set in `~/.zshenv` → `~/.config/zsh/` (all zsh dotfiles live there)
+- `.zprofile` imports `environment.d` vars into login session (via `systemd-environment-d-generator`)
+- `.zshrc` is the interactive shell config (plugins, aliases, completions)
+- Plugin manager: Antidote (lightweight, pure zsh)
+- GPG agent provides SSH agent (`enable-ssh-support` in `gpg-agent.conf`)
+- `SSH_AUTH_SOCK` set via `environment.d/gpg.conf`, imported by `.zprofile`
+
+## Display Manager
+- **ly** (TUI display manager) — sources `~/.config/zsh/.zprofile` via its setup script
+- `environment.d/*.conf` vars reach sway session through `.zprofile`
+
 ## Rofi Setup
 - Base16 themed via tinty hook (generates colors.rasi from waybar colors.css)
 - Font: Roboto 12px
@@ -40,7 +52,7 @@
 - **Waybar custom modules**: Scripts in `~/.config/waybar/scripts/`
 - **Icons**: Use nf-md-* icons (󰻠 󰍛 󰖩 etc.) - they render correctly
 - **Tinty hooks**: New apps need a tinty item in config.toml.tmpl to auto-theme
-- **Color generation**: Derive app colors from waybar colors.css (rofi, swaync, wob)
+- **Color generation**: Derive app colors from waybar colors.css (rofi, swaync, wob, obsidian)
 - **Color coding**: Waybar module colors match related wob bar colors (e.g. base09 for audio)
 - **Monospace font**: MesloLGS Nerd Font (for calendar, code, terminals)
 - **Script standard**: `#!/usr/bin/env bash` + `set -euo pipefail` + `command -v` checks
@@ -65,7 +77,9 @@
 - **VPN**: Netbird
 - **Backups**: Restic via resticprofile
 - **Audio**: PipeWire with Helvum patchbay
-- **Theming**: Tinty for base16 colors
+- **Dark/light**: Darkman switches tinty schemes (darktooth/solarized-light)
+- **Theming**: Tinty for base16 colors, hooks generate per-app color files
+- **Sway reload**: Not triggered on theme switch (causes ~30s waybar restart); border colors update on manual reload
 - **Editor**: Neovim with LazyVim (tinted-nvim for colors)
 - **File search**: fd + find piped through rofi
 - **Clipboard**: wl-clipboard + clipman + rofi
