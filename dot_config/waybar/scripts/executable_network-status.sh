@@ -2,7 +2,7 @@
 set -euo pipefail
 
 # Network info
-WIFI=$(nmcli -t -f active,ssid,signal dev wifi | grep '^yes' | cut -d: -f2,3)
+WIFI=$(nmcli -t -f active,ssid,signal dev wifi 2>/dev/null | grep '^yes' | cut -d: -f2,3 || true)
 if [ -n "$WIFI" ]; then
     SSID=$(echo "$WIFI" | cut -d: -f1)
     SIGNAL=$(echo "$WIFI" | cut -d: -f2)
