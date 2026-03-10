@@ -28,7 +28,7 @@ name = "base16-sway"
 path = "https://github.com/rkubosz/base16-sway"
 themes-dir = "themes"
 revision = "master"
-hook = "cp -f %f ~/.config/sway/base16.config && swaymsg reload"
+hook = "cp -f %f ~/.config/sway/base16.config"
 
 [[items]]
 path = "https://github.com/tinted-theming/base16-waybar"
@@ -62,10 +62,10 @@ themes-dir = "colors"
 hook = "cp -f %f ~/.config/btop/themes/colors.theme && killall -SIGUSR2 btop 2>/dev/null || true"
 
 [[items]]
-path = "https://github.com/acidghost/base16-obsidian"
-name = "base16-obsidian"
+path = "https://github.com/tinted-theming/base16-waybar"
+name = "base16-obsidian-sync"
 themes-dir = "colors"
-hook = "cp -f %f ~/notes/.obsidian/themes/base16.css"
+hook = "~/.config/obsidian/generate-colors.sh"
 
 {{- end }} {{- end }}
 
