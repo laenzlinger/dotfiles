@@ -5,6 +5,7 @@
 - [ ] Better dark/light theming for Electron apps
 - [ ] Theme Vivaldi with tinted-theming base16 colors
 - [ ] Generate base16 theme from wallpaper image
+- [ ] Evaluate if lazy-lock.json should be managed by chezmoi or gitignored
 
 ### Nice to have
 
