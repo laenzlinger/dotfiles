@@ -7,11 +7,6 @@
 - [ ] Generate base16 theme from wallpaper image
 - [ ] Evaluate if lazy-lock.json should be managed by chezmoi or gitignored
 
-### Cleanup
-
-- [ ] Set ZDOTDIR in ~/.zshenv and remove symlink_dot_zshrc — all zsh dotfiles in ~/.config/zsh/
-- [ ] Deduplicate SSH_AUTH_SOCK: set in both environment.d/gpg.conf and zshrc
-
 ### Nice to have
 
 - [ ] Theme GTK apps with tinted-theming base16 colors
