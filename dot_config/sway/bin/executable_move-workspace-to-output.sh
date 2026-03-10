@@ -2,6 +2,7 @@
 set -uo pipefail
 OUTPUT="$1"
 
+# FIXME: verify plug-in direction works (moves workspaces + waybar to external monitor)
 # Move all workspaces to target output (may fail during output transitions)
 swaymsg -t get_workspaces | jq -r '.[].name' | while read -r ws; do
     swaymsg "workspace $ws, move workspace to output $OUTPUT" 2>/dev/null || true
