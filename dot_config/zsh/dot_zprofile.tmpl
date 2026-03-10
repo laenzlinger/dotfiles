@@ -1,0 +1,7 @@
+{{- if eq .chezmoi.os "linux" }}
+# Import environment.d variables into the login session
+# (ly display manager sources this before launching sway)
+set -a
+eval "$(/usr/lib/systemd/user-environment-generators/30-systemd-environment-d-generator)"
+set +a
+{{- end }}
