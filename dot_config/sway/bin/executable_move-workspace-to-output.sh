@@ -10,7 +10,8 @@ done
 
 CONFIG=~/.config/waybar/config.jsonc
 sed -i "s/\"output\": \".*\"/\"output\": \"$OUTPUT\"/" "$CONFIG"
-killall waybar && waybar &
+killall waybar || true
+swaymsg exec waybar
 
 swaync-client --change-cc-monitor "$OUTPUT"
 swaync-client --change-noti-monitor "$OUTPUT"
