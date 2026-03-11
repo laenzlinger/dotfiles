@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 set -euo pipefail
-app_id=$(swaymsg -t get_tree | jq -r '.. | select(.type?) | select(.focused==true) | .app_id')
-if [[ "$app_id" != "org.keepassxc.KeePassXC" ]]; then
+if ! wl-paste --list-types 2>/dev/null | grep -q 'x-kde-passwordManagerHint'; then
     clipman --notify store --no-persist
 fi
