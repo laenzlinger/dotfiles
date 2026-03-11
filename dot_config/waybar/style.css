@@ -53,8 +53,8 @@ window#waybar.hidden {
 
 #workspaces button.focused,
 #workspaces button.active {
-    color: @base06;
-    background: @base01;
+    color: @base00;
+    background: @base05;
 }
 
 #workspaces button.urgent {
