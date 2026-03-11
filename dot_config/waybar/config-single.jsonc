@@ -6,8 +6,7 @@
   "modules-left": [
     "sway/scratchpad",
     "sway/mode",
-    "sway/workspaces",
-    "sway/window"
+    "sway/workspaces"
   ],
   "modules-right": [
     "custom/network",
