@@ -107,8 +107,7 @@ Mod+1-9, Mod+0
 # Move window to workspace 1-9, 0
 Mod+Shift+1-9, Mod+Shift+0
 
-# Workspace layout (dual monitor): 1-7 external, 8-9-0 laptop
-# Single monitor: all workspaces on one screen
+# 1-7 external, 8-9-0 laptop (single monitor: all on one screen)
 (dual monitor)
 
 # Swipe between workspaces
