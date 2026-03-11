@@ -65,7 +65,7 @@
   "ipc": true,
   "output": "eDP-1",
   "layer": "top",
-  "position": "top",
+  "position": "left",
   "modules-left": [
     "sway/workspaces"
   ],
