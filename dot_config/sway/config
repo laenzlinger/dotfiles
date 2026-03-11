@@ -149,8 +149,6 @@ bindsym $mod+Shift+Escape exec $lock
 for_window [title=".* — PCB Editor"] resize set width 80 ppt
 for_window [title=".* — Schematic Editor"] resize set width 80 ppt
 
-bar {
-    swaybar_command waybar
-}
+exec ~/.config/waybar/scripts/waybar-reload.sh
 
 include ./config.d/*

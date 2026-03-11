@@ -8,7 +8,12 @@ LIGHT_THEME="simple"
 
 XDG_RUNTIME_DIR=/run/user/$(id -u)
 export XDG_RUNTIME_DIR
-WAYLAND_DISPLAY=$(find "$XDG_RUNTIME_DIR" -maxdepth 1 -name 'wayland-*' 2>/dev/null | head -n 1 | xargs basename)
+WAYLAND_SOCKET=$(find "$XDG_RUNTIME_DIR" -maxdepth 1 -name 'wayland-*' ! -name '*.lock' -print -quit 2>/dev/null)
+if [[ -z "$WAYLAND_SOCKET" ]]; then
+  echo "qt.sh: No wayland socket found, skipping" >&2
+  exit 0
+fi
+WAYLAND_DISPLAY=$(basename "$WAYLAND_SOCKET")
 export WAYLAND_DISPLAY
 export QT_QPA_PLATFORM="wayland"
 
