@@ -1,6 +1,5 @@
 {
   "ipc": true,
-  "output": "eDP-1",
   "layer": "top",
   "position": "top",
   "include": "~/.config/waybar/config.common.jsonc",
@@ -23,7 +22,7 @@
     "tray"
   ],
   "sway/language": {
-    "format": " {}",
+    "format": " {}",
     "min-length": 5,
     "on-click": "swaymsg 'input * xkb_switch_layout next'",
     "tooltip": false
@@ -53,7 +52,7 @@
     "show-empty": false,
     "format-icons": [
       "",
-      ""
+      ""
     ],
     "tooltip": true,
     "tooltip-format": "{app}: {title}"

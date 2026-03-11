@@ -1,18 +1,24 @@
 #!/usr/bin/env bash
 set -uo pipefail
-OUTPUT="$1"
 
-# Move all workspaces to target output (may fail during output transitions)
-swaymsg -t get_workspaces | jq -r '.[].name' | while read -r ws; do
-    swaymsg "workspace $ws, move workspace to output $OUTPUT" 2>/dev/null || true
-done
-swaymsg focus output "$OUTPUT" 2>/dev/null || true
+OUTPUTS=$(swaymsg -t get_outputs | jq -r '[.[] | select(.active)] | length')
+EXT=$(swaymsg -t get_outputs | jq -r '.[] | select(.active) | select(.name != "eDP-1") | .name' | head -1)
 
-# Update waybar config and restart
-sed -i "s/\"output\": \".*\"/\"output\": \"$OUTPUT\"/" ~/.config/waybar/config.jsonc
-killall -q waybar || true
-swaymsg exec waybar
+if [ "$OUTPUTS" -gt 1 ] && [ -n "$EXT" ]; then
+    # Move workspaces to their assigned outputs
+    for ws in 1 2 3 4 5 6 7; do
+        swaymsg "workspace $ws, move workspace to output $EXT" 2>/dev/null || true
+    done
+    for ws in 8 9 10; do
+        swaymsg "workspace $ws, move workspace to output eDP-1" 2>/dev/null || true
+    done
+    swaymsg focus output "$EXT" 2>/dev/null || true
+    swaync-client --change-cc-monitor "$EXT" 2>/dev/null || true
+    swaync-client --change-noti-monitor "$EXT" 2>/dev/null || true
+else
+    swaync-client --change-cc-monitor "eDP-1" 2>/dev/null || true
+    swaync-client --change-noti-monitor "eDP-1" 2>/dev/null || true
+fi
 
-# Move notification center
-swaync-client --change-cc-monitor "$OUTPUT"
-swaync-client --change-noti-monitor "$OUTPUT"
+# Reload waybar with correct config
+~/.config/waybar/scripts/waybar-reload.sh

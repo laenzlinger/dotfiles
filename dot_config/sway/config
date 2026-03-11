@@ -85,8 +85,8 @@ set $ws8 "8"
 set $ws9 "9"
 
 # Workspace output assignments (fallback to other output)
-set $ext DP-3 DP-4 DP-5 HDMI-A-1 eDP-1
-set $int eDP-1 DP-3 DP-4 DP-5 HDMI-A-1
+set $ext DP-1 DP-2 DP-3 DP-4 DP-5 HDMI-A-1 eDP-1
+set $int eDP-1 DP-1 DP-2 DP-3 DP-4 DP-5 HDMI-A-1
 workspace $ws1 output $ext
 workspace $ws2 output $ext
 workspace $ws3 output $ext
@@ -140,7 +140,7 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # System
-bindsym $mod+Shift+c exec "pkill waybar; sleep 0.5; swaymsg reload"
+bindsym $mod+Shift+c exec "pkill waybar; sleep 0.5; swaymsg reload; ~/.config/waybar/scripts/waybar-reload.sh"
 bindsym $mod+Shift+r restart
 bindsym $mod+Shift+e exec pkill rofi || ~/.config/sway/bin/power-menu.sh
 bindsym $mod+Shift+Escape exec $lock
