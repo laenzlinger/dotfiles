@@ -3,8 +3,10 @@ Description=Forward system D-Bus notifications to desktop
 After=graphical-session.target
 
 [Service]
+Type=simple
 ExecStart=/usr/bin/systembus-notify
 Restart=on-failure
+RestartSec=3
 
 [Install]
 WantedBy=graphical-session.target

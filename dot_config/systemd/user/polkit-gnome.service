@@ -3,8 +3,10 @@ Description=PolicyKit authentication agent (GNOME)
 After=graphical-session.target
 
 [Service]
+Type=simple
 ExecStart=/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-Restart=on-failure
+Restart=always
+RestartSec=3
 
 [Install]
 WantedBy=graphical-session.target

@@ -3,7 +3,19 @@
 set -euo pipefail
 
 # Enable user systemd units managed by this dotfiles repo
-# Re-runs whenever content changes (chezmoi run_onchange_)
+# Re-runs whenever this file or unit files change (chezmoi run_onchange_)
+#
+# Services:
+#   darkman              - Dark/light mode switcher
+#   syncthing            - File synchronization
+#   udiskie              - USB automounter
+#   polkit-gnome         - PolicyKit authentication agent (privilege escalation dialogs)
+#   systembus-notify     - Forward system D-Bus notifications to desktop
+#   shikane              - Wayland output/display configuration manager
+#   btrfs-desktop-notification - Btrfs filesystem health notifications
+#   wob                  - Wayland overlay bar (volume/brightness indicators)
+#
+# Note: Only runs on Linux. Unit files are in ~/.config/systemd/user/
 
 units=(
   darkman.service
