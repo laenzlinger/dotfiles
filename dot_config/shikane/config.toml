@@ -1,7 +1,7 @@
 [[profile]]
 name = "home-office"
 exec = [
-  "notify-send shikane \"Display Profile $SHIKANE_PROFILE_NAME has been applied\"",
+  "notify-send -t 5000 shikane \"Display Profile $SHIKANE_PROFILE_NAME has been applied\"",
 ]
 
 [[profile.output]]
@@ -26,7 +26,7 @@ exec = ["~/.config/sway/bin/move-workspace-to-output.sh $SHIKANE_OUTPUT_NAME"]
 [[profile]]
 name = "unplugged"
 exec = [
-  "notify-send shikane \"Display Profile $SHIKANE_PROFILE_NAME has been applied\"",
+  "notify-send -t 5000 shikane \"Display Profile $SHIKANE_PROFILE_NAME has been applied\"",
 ]
 
 [[profile.output]]
@@ -42,7 +42,7 @@ adaptive_sync = false
 [[profile]]
 name = "studio"
 exec = [
-  "notify-send shikane \"Display Profile $SHIKANE_PROFILE_NAME has been applied\"",
+  "notify-send -t 5000 shikane \"Display Profile $SHIKANE_PROFILE_NAME has been applied\"",
 ]
 
 [[profile.output]]
