@@ -3,7 +3,7 @@ set -euo pipefail
 
 case "$1" in
 dark) THEME=base16-darktooth ;;
-light) THEME=base16-solarized-light ;;
+light) THEME=base16-gruvbox-light-medium ;;
 esac
 
 SWAYSOCK=$(find /run/user/"$(id -u)" -name 'sway-ipc.*.sock' 2>/dev/null | head -1)
