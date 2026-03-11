@@ -13,6 +13,9 @@ set -euo pipefail
 #   systembus-notify     - Forward system D-Bus notifications to desktop
 #   shikane              - Wayland output/display configuration manager
 #   btrfs-desktop-notification - Btrfs filesystem health notifications
+#   blueman-applet       - Bluetooth system tray applet
+#   swaync               - Sway notification center
+#   clipboard-watcher    - Clipboard manager watcher (wl-paste)
 #   wob                  - Wayland overlay bar (volume/brightness indicators)
 #
 # Note: Only runs on Linux. Unit files are in ~/.config/systemd/user/
@@ -25,6 +28,9 @@ units=(
   systembus-notify.service
   shikane.service
   btrfs-desktop-notification.service
+  blueman-applet.service
+  swaync.service
+  clipboard-watcher.service
   wob.socket
   wob.service
 )
