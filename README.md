@@ -53,6 +53,7 @@ See [arch/Makefile](arch/Makefile)
 
 ## Documentation
 
+- [Conventions](docs/conventions.md) — guiding principles
 - [Arch Linux](docs/arch.md) — hardware, system config, backups
 - [Zsh](docs/zsh.md) — shell config, plugins, performance
 - [Environment Variables](docs/environment-variables.md) — session-wide env setup
@@ -62,3 +63,4 @@ See [arch/Makefile](arch/Makefile)
 - [Troubleshooting](docs/troubleshooting.md) — common issues
 - [TODO](docs/todo.md) — open items
 - [ADR 001](docs/adr/001-migrate-from-oh-my-zsh-to-antidote.md) — oh-my-zsh → antidote migration
+- [ADR 002](docs/adr/002-uwsm-for-sway-session-management.md) — UWSM for Sway session management
