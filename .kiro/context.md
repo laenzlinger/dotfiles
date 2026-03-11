@@ -77,7 +77,7 @@
 - **VPN**: Netbird
 - **Backups**: Restic via resticprofile
 - **Audio**: PipeWire with Helvum patchbay
-- **Dark/light**: Darkman switches tinty schemes (darktooth/solarized-light)
+- **Dark/light**: Darkman switches tinty schemes (darktooth/gruvbox-light-medium)
 - **Theming**: Tinty for base16 colors, hooks generate per-app color files
 - **Sway reload**: Not triggered on theme switch (causes ~30s waybar restart); border colors update on manual reload
 - **Editor**: Neovim with LazyVim (tinted-nvim for colors)
