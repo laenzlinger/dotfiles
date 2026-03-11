@@ -101,5 +101,10 @@ Custom unit files in `dot_config/systemd/user/`, enabled via `run_onchange_enabl
 5. Commit with descriptive message
 6. Push to GitHub
 
+## Sway Script Pitfalls
+- **No TTY**: Sway `exec` has no terminal — pagers, interactive prompts, and TTY detection fail silently
+- **No focus guarantee**: Window focus may change before a watcher script runs — use metadata (e.g. MIME types) instead of focused window to identify event sources
+- **Test from sway**: Always verify scripts with `swaymsg exec 'script.sh 2>/tmp/debug.log'`, not just from a terminal
+
 ## Shellcheck
 Pre-commit hooks enforce shellcheck - fix warnings before committing.
