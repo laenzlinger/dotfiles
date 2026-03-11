@@ -5,13 +5,24 @@ This gives automatic restart on failure, clean per-service logs, and independenc
 
 Custom unit files in `dot_config/systemd/user/`:
 - `udiskie.service` — USB automounter
-- `polkit-gnome.service` — PolicyKit authentication agent
+- `polkit-gnome.service` — PolicyKit authentication agent (Restart=always, critical service)
 - `systembus-notify.service` — D-Bus notification bridge
 - `shikane.service` — Display/output management
 - `btrfs-desktop-notification.service` — Btrfs health notifications
 
+All custom services include:
+- `Type=simple` — explicit service type
+- `Restart=on-failure` (or `always` for polkit-gnome)
+- `RestartSec=3` — 3-second delay to prevent rapid restart loops
+
 Units enabled automatically on fresh install via `run_onchange_enable-systemd-units.sh`.
 
+System-provided services (enabled but not customized):
+- `darkman.service` — Dark/light mode switcher (already has RestartSec=100ms)
+- `syncthing.service` — File sync (already has RestartSec=1s)
+- `wob.service` — Volume/brightness overlay (socket-activated, no restart needed)
+
 Stays in sway config:
-- `swayidle` — uses sway `$lock` variable
-- App launches (`vivaldi`, `terminal`, `keepassxc`) — need workspace assignments
+- `waybar` — Launched by Sway's bar config, needs to restart on display changes and reload on theme changes
+- `swayidle` — Uses sway `$lock` variable
+- App launches (`vivaldi`, `terminal`, `keepassxc`) — Need workspace assignments
