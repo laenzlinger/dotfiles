@@ -109,6 +109,7 @@ Mod+Shift+1-9, Mod+Shift+0
 
 # Workspace layout (dual monitor): 1-7 external, 8-9-0 laptop
 # Single monitor: all workspaces on one screen
+(dual monitor)
 
 # Swipe between workspaces
 Swipe left/right (touchpad)
