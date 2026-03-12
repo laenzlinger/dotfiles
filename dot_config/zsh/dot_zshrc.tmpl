@@ -171,3 +171,9 @@ export GOTESTS_TEMPLATE=testify
 # Amazon Q post block. Keep at the bottom of this file.
 [[ -f "${HOME}/Library/Application Support/amazon-q/shell/zshrc.post.zsh" ]] && builtin source "${HOME}/Library/Application Support/amazon-q/shell/zshrc.post.zsh"
 {{- end }}
+
+# Aliases
+alias ll='ls -l'
+alias la='ls -la'
+alias -g G='| grep'
+alias -g L='| less'
