@@ -22,7 +22,6 @@ $terraform\
 $aws\
 $gcloud\
 $container\
-$fill\
 $cmd_duration\
 $status\
 $line_break\
@@ -294,8 +293,3 @@ symbol = " "
 
 [container]
 format = "[$symbol]($style) "
-symbol = "🐳"
-
-[fill]
-symbol = "·"
-style = "dimmed white"
