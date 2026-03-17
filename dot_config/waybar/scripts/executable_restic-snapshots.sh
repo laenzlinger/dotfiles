@@ -10,9 +10,10 @@ if [ -e "/dev/disk/by-uuid/$UUID_HOMEOFFICE" ]; then
   PROFILE="homeoffice"
 elif [ -e "/dev/disk/by-uuid/$UUID_LIVINGROOM" ]; then
   PROFILE="livingroom"
+elif curl -sf --max-time 3 -o /dev/null https://backup.laenzlinger.net; then
+  PROFILE="nas"
 else
-  # Fallback or error if no disk is plugged in
-  wezterm start --class float_wezterm -- bash -c "echo 'ERROR: No backup disk detected!'; read"
+  wezterm start --class float_wezterm -- bash -c "echo 'ERROR: No backup target available!'; read"
   exit 1
 fi
 
