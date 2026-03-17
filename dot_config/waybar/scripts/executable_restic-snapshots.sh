@@ -10,7 +10,7 @@ if [ -e "/dev/disk/by-uuid/$UUID_HOMEOFFICE" ]; then
   PROFILE="homeoffice"
 elif [ -e "/dev/disk/by-uuid/$UUID_LIVINGROOM" ]; then
   PROFILE="livingroom"
-elif curl -sf --max-time 3 -o /dev/null https://backup.laenzlinger.net; then
+elif curl -s --max-time 3 -o /dev/null https://backup.laenzlinger.net; then
   PROFILE="nas"
 else
   wezterm start --class float_wezterm -- bash -c "echo 'ERROR: No backup target available!'; read"
