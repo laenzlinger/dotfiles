@@ -20,6 +20,7 @@ fi
 # Launch WezTerm
 wezterm start --class float_wezterm -- bash -i -c "
     echo 'Fetching snapshots for profile: $PROFILE...'
+    [ \"$PROFILE\" = \"nas\" ] && export RESTIC_REPOSITORY=\$(secret-tool lookup restic nas-repo)
     resticprofile $PROFILE-term.snapshots -c --latest 2
     echo '--- Local Btrfs Snapshots (Root) ---'
     snapper -c root list | tail -n 3
