@@ -24,8 +24,8 @@ else
         NET_TEXT="󰈀 $IFACE"
         NET_TIP="$IFACE\n$IP\nGateway: $GW"
     else
-        NET_TEXT="󰤭 Disconnected"
-        NET_TIP="Disconnected"
+        NET_TEXT="󰤭  Down"
+        NET_TIP="Network disconnected"
     fi
 fi
 
