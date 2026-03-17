@@ -16,7 +16,12 @@ find_caller_parent() {
         comm=$(ps -o comm= -p "$pid" 2>/dev/null) || break
         case "$comm" in
             sh|bash|zsh|dash) ;;
-            *) ps -o args= -p "$pid" 2>/dev/null; return ;;
+            *)
+                local args
+                args=$(ps -o args= -p "$pid" 2>/dev/null) || break
+                echo "${comm}|${args}"
+                return
+                ;;
         esac
         ppid=$(ps -o ppid= -p "$pid" 2>/dev/null | tr -d ' ') || break
         pid=$ppid
@@ -39,6 +44,8 @@ while read -r line; do
         parent=$(find_caller_parent "$pid") || continue
         [ -z "$parent" ] && continue
 
-        notify-send -a "KeePassXC" "󰌾 Secret requested by" "${parent}" -t 10000
+        name="${parent%%|*}"
+        args="${parent#*|}"
+        notify-send -a "KeePassXC" "󰌾 ${name}" "${args}" -t 10000
     fi
 done
