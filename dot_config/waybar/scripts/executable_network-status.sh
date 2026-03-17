@@ -8,7 +8,7 @@ if [ -n "$WIFI" ]; then
     SIGNAL=$(echo "$WIFI" | cut -d: -f2)
     IFACE=$(nmcli -t -f device,type dev | grep ':wifi$' | cut -d: -f1 | head -1)
     IP=$(ip -4 addr show "$IFACE" 2>/dev/null | grep inet | awk '{print $2}')
-    GW=$(ip route | grep default | awk '{print $3}')
+    GW=$(ip route | grep default | awk '{print $3}' | head -1)
     if [ "$SIGNAL" -ge 75 ]; then ICON="󰤥"
     elif [ "$SIGNAL" -ge 50 ]; then ICON="󰤢"
     elif [ "$SIGNAL" -ge 25 ]; then ICON="󰤟"
@@ -20,7 +20,7 @@ else
     if [ -n "$ETH" ]; then
         IFACE=$(echo "$ETH" | awk '{print $NF}')
         IP=$(echo "$ETH" | awk '{print $2}')
-        GW=$(ip route | grep default | awk '{print $3}')
+        GW=$(ip route | grep default | awk '{print $3}' | head -1)
         NET_TEXT="󰈀 $IFACE"
         NET_TIP="$IFACE\n$IP\nGateway: $GW"
     else
