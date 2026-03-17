@@ -17,6 +17,7 @@ set -euo pipefail
 #   swaync               - Sway notification center
 #   clipboard-watcher    - Clipboard manager watcher (wl-paste)
 #   wob                  - Wayland overlay bar (volume/brightness indicators)
+#   secret-monitor       - Notifies which process requests secrets from KeePassXC
 #
 # Note: Only runs on Linux. Unit files are in ~/.config/systemd/user/
 
@@ -31,6 +32,7 @@ units=(
   blueman-applet.service
   swaync.service
   clipboard-watcher.service
+  secret-monitor.service
   wob.socket
   wob.service
 )
