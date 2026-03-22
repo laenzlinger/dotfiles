@@ -58,12 +58,12 @@
     "return-type": "json",
     "exec": "~/.config/waybar/scripts/network-status.sh",
     "interval": 5,
-    "on-click": "~/.config/sway/bin/nm-connection-editor.sh"
+    "on-click": "~/.config/sway/bin/toggle.sh nm-connection-editor nm-connection-editor"
   },
   "wireplumber": {
     "format": "{icon}",
     "format-muted": "󰝟",
-    "on-click": "~/.config/sway/bin/helvum.sh",
+    "on-click": "~/.config/sway/bin/toggle.sh helvum org.pipewire.Helvum",
     "format-icons": ["󰕿", "󰖀", "󰕾"]
   },
   "temperature": {
