@@ -35,7 +35,7 @@
     defaultBranch = main
 [user]
     name = Christof Laenzlinger
-    signingKey = {{ (keepassxc "git.sign.key.id").Password }}
+    signingKey = {{ index (fromYaml (output "sops" "--decrypt" (joinPath .chezmoi.sourceDir "secrets.sops.yaml"))) "gpg_key_id" }}
 
 [pager]
     branch = false

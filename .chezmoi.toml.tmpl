@@ -1,6 +1,5 @@
 {{ $email := promptString "email" -}}
 {{ $brewprefix := promptString "Value of brew --prefix" -}}
-{{ $keepassdb := promptString "keepass db file" -}}
 [data]
     email = "{{ $email }}"
     brewprefix = "{{ $brewprefix }}"
@@ -9,6 +8,3 @@
         theme = "Materia"
         icon.theme = "Papirus"
         font = "Roboto 10.5"
-
-[keepassxc]
-    database = "{{ $keepassdb }}"
