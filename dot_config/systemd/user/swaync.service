@@ -1,12 +1,16 @@
 [Unit]
 Description=Sway notification center
 After=graphical-session.target
+PartOf=graphical-session.target
+ConditionEnvironment=WAYLAND_DISPLAY
 
 [Service]
 Type=simple
 ExecStart=/usr/bin/swaync
 Restart=on-failure
-RestartSec=3
+RestartSec=5
+StartLimitIntervalSec=30
+StartLimitBurst=3
 
 [Install]
 WantedBy=graphical-session.target

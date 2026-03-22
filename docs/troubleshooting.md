@@ -17,3 +17,22 @@ Add the app to tinty config in `dot_config/tinted-theming/tinty/config.toml.tmpl
 ## Toggle script not working
 
 Check if the app is installed — toggle scripts use `command -v` to verify before launching.
+
+## Vivaldi loses connection to notification center
+
+Chromium-based browsers connect to the D-Bus notification service once at startup.
+If swaync restarts (crash, manual restart), Vivaldi won't reconnect — notifications silently stop working.
+
+**Causes:**
+- swaync crash-looping at boot (before `WAYLAND_DISPLAY` is set)
+- Manual `systemctl --user restart swaync`
+
+**Fix applied:**
+- `ConditionEnvironment=WAYLAND_DISPLAY` in swaync.service prevents boot crash loops
+- `StartLimitBurst=3` stops excessive restart attempts
+
+**If it happens:**
+- `swaync-client --reload-css && swaync-client -rs` (try first)
+- Restart Vivaldi as last resort
+
+**Rule:** Never restart swaync while Vivaldi is running. Use `swaync-client --reload-css` for theme changes (already done in tinty hook).
