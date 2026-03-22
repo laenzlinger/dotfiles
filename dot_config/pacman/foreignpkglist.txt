@@ -5,7 +5,6 @@ cheat-bin
 clipman
 cncjs
 cura-bin
-epson-inkjet-printer-escpr2
 f3
 flux-bin
 gnu-netcat
