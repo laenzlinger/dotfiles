@@ -8,27 +8,11 @@
     "on-click": "mode",
     "tooltip-spacing": 20
   },
-  "battery": {
-    "interval": 10,
-    "states": {
-      "warning": 30,
-      "critical": 15
-    },
-    "format-time": "{H}:{M:02}",
-    "format": "{icon}  {capacity}% ({time})",
-    "format-charging": "  {capacity}% ({time})",
-    "format-charging-full": "  {capacity}%",
-    "format-full": "{icon}  {capacity}%",
-    "format-alt": "{icon}  {power}W",
-    "tooltip-format": "{capacity}% - {timeTo}\nPower: {power}W\nHealth: {health}%\nCycles: {cycles}",
-    "format-icons": [
-      "",
-      "",
-      "",
-      "",
-      ""
-    ],
-    "tooltip": true
+  "custom/battery": {
+    "format": "{}",
+    "return-type": "json",
+    "exec": "~/.config/waybar/scripts/battery-status.sh",
+    "interval": 10
   },
   "clock#time": {
     "interval": 10,

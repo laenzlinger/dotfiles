@@ -78,7 +78,7 @@ window#waybar.hidden {
 #custom-memory,
 #custom-cpu,
 #temperature,
-#battery,
+#custom-battery,
 #wireplumber,
 #clock,
 #custom-restic,
@@ -106,19 +106,19 @@ window#waybar.hidden {
     color: @base08;
 }
 
-#battery {
+#custom-battery {
     color: @base0B;
 }
 
-#battery.warning {
+#custom-battery.warning {
     color: @base0A;
 }
 
-#battery.critical {
+#custom-battery.critical {
     color: @base08;
 }
 
-#battery.charging {
+#custom-battery.charging {
     color: @base0B;
 }
 

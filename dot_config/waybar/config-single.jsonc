@@ -13,7 +13,7 @@
     "custom/memory",
     "custom/cpu",
     "temperature",
-    "battery",
+    "custom/battery",
     "custom/restic",
     "wireplumber",
     "clock#date",
