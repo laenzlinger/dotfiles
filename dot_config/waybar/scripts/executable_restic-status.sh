@@ -1,54 +1,62 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-# Configuration
 STATUS_FILE="$HOME/.cache/resticprofile/status.json"
-STATUS_DIR=$(dirname "$STATUS_FILE")
 ONE_DAY_SEC=86400
 
-# Corrected for Nerd Font v3.0+ (Meslo Nerd Font)
 ICON_OK=󰪩
 ICON_STALE=󱘪
 ICON_ERROR=󱘤
 ICON_UNKNOWN=󰴀
 ICON_RUNNING=󰗂
 
-# 1. Ensure directory exists
-mkdir -p "$STATUS_DIR"
+mkdir -p "$(dirname "$STATUS_FILE")"
 
-# 1. Check if restic is currently running
 if pgrep -x "restic" >/dev/null; then
   echo "{\"text\": \"$ICON_RUNNING\", \"class\": \"running\", \"tooltip\": \"Backup currently active...\"}"
   exit 0
 fi
 
-# 2. Check if the status file exists
 if [ ! -f "$STATUS_FILE" ]; then
   echo "{\"text\": \"$ICON_UNKNOWN\", \"class\": \"unknown\", \"tooltip\": \"No backup history found\"}"
   exit 0
 fi
 
-# 3. Get the profile name with the most recent backup timestamp
-LATEST_PROFILE=$(jq -r '.profiles | to_entries | sort_by(.value.backup.time) | last | .key' "$STATUS_FILE" 2>/dev/null)
-
-# Fallback if jq fails or file is empty
-if [ -z "$LATEST_PROFILE" ] || [ "$LATEST_PROFILE" == "null" ]; then
+profiles=$(jq -r '.profiles | keys[]' "$STATUS_FILE" 2>/dev/null)
+if [ -z "$profiles" ]; then
   echo "{\"text\": \"$ICON_UNKNOWN\", \"class\": \"unknown\", \"tooltip\": \"Status file is empty or invalid\"}"
   exit 0
 fi
 
-SUCCESS=$(jq -r ".profiles.\"$LATEST_PROFILE\".backup.success" "$STATUS_FILE")
-TIME_RAW=$(jq -r ".profiles.\"$LATEST_PROFILE\".backup.time" "$STATUS_FILE")
-
 NOW=$(date +%s)
-LAST_SEC=$(date -d "$TIME_RAW" +%s 2>/dev/null || echo 0)
-AGE=$((NOW - LAST_SEC))
-TIME_FMT=$(date -d "$TIME_RAW" "+%Y-%m-%d %H:%M" 2>/dev/null || echo "Unknown")
+worst="ok"
+tooltip=""
 
-if [ "$SUCCESS" != "true" ]; then
-  printf '{"text": "%s", "class": "error", "tooltip": "FAILED: %s\\nAt: %s"}\n' "$ICON_ERROR" "$LATEST_PROFILE" "$TIME_FMT"
-elif [ "$AGE" -gt "$ONE_DAY_SEC" ]; then
-  printf '{"text": "%s", "class": "warning", "tooltip": "STALE (>24h): %s"}\n' "$ICON_STALE" "$TIME_FMT"
-else
-  printf '{"text": "%s", "class": "ok", "tooltip": "SUCCESS: %s\\nTime: %s"}\n' "$ICON_OK" "$LATEST_PROFILE" "$TIME_FMT"
-fi
+for profile in $profiles; do
+  success=$(jq -r ".profiles.\"$profile\".backup.success" "$STATUS_FILE")
+  time_raw=$(jq -r ".profiles.\"$profile\".backup.time" "$STATUS_FILE")
+  last_sec=$(date -d "$time_raw" +%s 2>/dev/null || echo 0)
+  age=$((NOW - last_sec))
+
+  if [ "$success" != "true" ]; then
+    status="❌"
+    [ "$worst" != "error" ] && worst="error"
+  elif [ "$age" -gt "$ONE_DAY_SEC" ]; then
+    days=$((age / ONE_DAY_SEC))
+    status="⚠ ${days}d ago"
+    [ "$worst" = "ok" ] && worst="warning"
+  else
+    status="✓"
+  fi
+
+  time_fmt=$(date -d "$time_raw" "+%m-%d %H:%M" 2>/dev/null || echo "unknown")
+  tooltip="${tooltip}${profile}: ${status} (${time_fmt})\\n"
+done
+
+case "$worst" in
+  error)    icon="$ICON_ERROR";   class="error" ;;
+  warning)  icon="$ICON_STALE";   class="warning" ;;
+  *)        icon="$ICON_OK";      class="ok" ;;
+esac
+
+printf '{"text": "%s", "class": "%s", "tooltip": "%s"}\n' "$icon" "$class" "${tooltip%\\n}"
