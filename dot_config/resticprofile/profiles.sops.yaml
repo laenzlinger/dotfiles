@@ -1,0 +1,133 @@
+# yaml-language-server: $schema=https://creativeprojects.github.io/resticprofile/jsonschema/config-2.json
+version: "2"
+global:
+    default-command: snapshots
+    priority: low
+profiles:
+    # Base template (not a runnable profile)
+    base:
+        priority: low
+        nice: 19
+        ionice:
+            class: idle
+        lock-wait: 10m
+        check-battery: true
+        status-file: /home/laenzi/.cache/resticprofile/status.json
+        password-command: cat ${CREDENTIALS_DIRECTORY}/restic-pass
+        force-inactive-lock: true
+        backup:
+            source:
+                - /home/laenzi
+                - /etc
+                - /boot
+                - /root
+            tag:
+                - resticprofile
+            verbose: true
+            exclude-file:
+                - /home/laenzi/.config/resticprofile/excludes
+            exclude-caches: true
+            check-before: true
+            check-after: true
+        retention:
+            after-backup: true
+            keep-daily: 14
+            keep-weekly: 16
+            keep-monthly: 18
+            keep-yearly: 3
+            prune: true
+    homeoffice:
+        inherit: base
+        env:
+            DISK_UUID: ENC[AES256_GCM,data:eV5eBXY2U4s03uu8Doa34TbI3ItluRg3fljXyETrjbUFFQBp,iv:UYS3eOX2lpRzk4frXmYzfluulDYSoGKeDQ4bqEMsTbs=,tag:8k1tN2PeYZT1FWbm7xgDNA==,type:str]
+        repository: ENC[AES256_GCM,data:AFYg1hJAPDHHzrVJUXMc/hPCR5jnkII4C9k8v0l9mA2IywAL+JZR6A==,iv:3T7J3mi0Two1Cap1gvq/vp0RjFg5iS/vrMM0JJnyEC4=,tag:j04rlnix6pdlkC8arZJDNg==,type:str]
+        run-before:
+            - |
+              STATUS_FILE="/home/laenzi/.cache/resticprofile/status.json"
+              PROFILE="{{ .Profile.Name }}"
+              if [ -f "$STATUS_FILE" ]; then
+                LAST_TIME_STR=$(/usr/sbin/jq -r ".profiles.\"$PROFILE\".backup.time // \"1970-01-01T00:00:00Z\"" "$STATUS_FILE")
+                LAST_UNIX=$(date -d "$LAST_TIME_STR" +%s)
+                THRESHOLD=$(date +%s -d '6 hours ago')
+                if [ "$LAST_UNIX" -ge "$THRESHOLD" ]; then
+                  echo "Condition: Skipping $PROFILE. Last backup ($LAST_TIME_STR) is too recent."
+                  exit 1
+                fi
+              fi
+            - |
+              if /sbin/blkid -U ${DISK_UUID} > /dev/null; then
+                udisksctl mount -b /dev/disk/by-uuid/${DISK_UUID}
+              else
+                echo "Disk ${DISK_UUID} not found. Stopping profile {{ .Profile.Name }}."
+                exit 1
+              fi
+            - /home/laenzi/.local/share/chezmoi/dot_config/pacman/run_chezmoi_apply.sh
+        run-finally:
+            - |
+              if /sbin/blkid -U ${DISK_UUID} > /dev/null; then
+                # Only unmount if it's actually in the mount list
+                if findmnt -rn -S UUID=${DISK_UUID} > /dev/null; then
+                  udisksctl unmount -b /dev/disk/by-uuid/${DISK_UUID} --no-user-interaction
+                else
+                  echo "Disk ${DISK_UUID} is present but was not mounted. No unmount needed."
+                fi
+              fi
+    nas:
+        inherit: base
+        repository-file: ENC[AES256_GCM,data:2sT8Ult7QfWUeuEJgOUrhhOhFfyRlRAiK/cy/2u8kq/J,iv:/OTsH59fnIeCsUYAYsrieCfmlo+3+2jA1ljv3+Gwfms=,tag:zK0HZXB7pS0v3j6mU3FULw==,type:str]
+        run-before:
+            - |
+              STATUS_FILE="/home/laenzi/.cache/resticprofile/status.json"
+              PROFILE="{{ .Profile.Name }}"
+              if [ -f "$STATUS_FILE" ]; then
+                LAST_TIME_STR=$(/usr/sbin/jq -r ".profiles.\"$PROFILE\".backup.time // \"1970-01-01T00:00:00Z\"" "$STATUS_FILE")
+                LAST_UNIX=$(date -d "$LAST_TIME_STR" +%s)
+                THRESHOLD=$(date +%s -d '6 hours ago')
+                if [ "$LAST_UNIX" -ge "$THRESHOLD" ]; then
+                  echo "Condition: Skipping $PROFILE. Last backup ($LAST_TIME_STR) is too recent."
+                  exit 1
+                fi
+              fi
+            - |
+              if ! ip route get 192.168.1.221 | grep -q "src 192.168.1"; then
+                echo "Not on LAN. Skipping profile {{ .Profile.Name }}."
+                exit 1
+              fi
+            - /home/laenzi/.local/share/chezmoi/dot_config/pacman/run_chezmoi_apply.sh
+    homeoffice-term:
+        inherit: homeoffice
+        password-command: secret-tool lookup restic gibson-home
+    nas-term:
+        inherit: nas
+        password-command: secret-tool lookup restic gibson-home
+        repository: ENC[AES256_GCM,data:WhvLZoMKOy9XW1REMDwcsUoEOWlx2G7dH9ugNQ==,iv:hTPgj1QsD2JuFlg4BxecNf4ss7IDmK2KDl+O+IgMmRc=,tag:Br14pXdleQlr6RrbHwlh1A==,type:str]
+        repository-file: ""
+groups:
+    rotating-backup:
+        continue-on-error: true
+        profiles:
+            - homeoffice
+            - nas
+        schedules:
+            backup:
+                at: daily
+                permission: user
+                systemd-drop-in-files:
+                    - system-integration.conf
+sops:
+    lastmodified: "2026-03-22T21:34:48Z"
+    mac: ENC[AES256_GCM,data:1u5etysWdKYMJCwve768nVbcIjr9rSM0VZGI3oSnEqpjQqoab4j0eXAkURt9BakWlI3Y6D4SiJEb4g8/ncFEIf6mQtqFlDlj3kGAVsnEwrBx2VSld4CkYkidtxI87WScqeWj+lhrefFe8nIvEu0dHb65tgWU2zV5A2jw6rwn95s=,iv:2fnTChIlDN6LLOCJV2P6Mqt3mUNQOfVwGy5jbmHP1cY=,tag:8c9dEK4VeZW5IEAyyCeHwQ==,type:str]
+    pgp:
+        - created_at: "2026-03-22T21:34:48Z"
+          enc: |-
+            -----BEGIN PGP MESSAGE-----
+
+            hF4DW7dSlBr/UTcSAQdA9oTeu/nq/Ru0qm0v5CIb8KgJX/9tBxfReHRY3ihfFBgw
+            vUq7uYGC/dVTDfqIvWEZrROiJOzq+CkSDXdKxMp+mUMjvSRVolEVBXK5Gq+xHBYQ
+            0lwBUg+MIZX6ODI/Mcqz6OsGYgDf8kHMxGztZm5lH3SXgVYnyAcE+CG+r3cMiGAZ
+            /MGGv16z4jYHRbEupEuKvBU4Wn6tP2cgEfXTyAupaP+TvPv9FbujwIvWRy9sYQ==
+            =ARUd
+            -----END PGP MESSAGE-----
+          fp: 5D0F5C9123DC8E85027768E924B71D9642BACC8E
+    encrypted_regex: ^(DISK_UUID|repository|repository-file)$
+    version: 3.12.2

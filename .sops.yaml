@@ -1,0 +1,4 @@
+creation_rules:
+  - path_regex: dot_config/resticprofile/profiles\.sops\.yaml$
+    pgp: "5D0F5C9123DC8E85027768E924B71D9642BACC8E"
+    encrypted_regex: "^(DISK_UUID|repository|repository-file)$"
