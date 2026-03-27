@@ -27,19 +27,19 @@ elif [[ "$status" == "Discharging" && "$power_uw" -gt 0 ]]; then
 fi
 
 # Bar text
-icons=("" "" "" "" "")
+icons=("󰂎" "󰁺" "󰁼" "󰁾" "󰁹")
 icon_idx=$(( capacity * 4 / 100 ))
 (( icon_idx > 4 )) && icon_idx=4
 icon="${icons[$icon_idx]}"
-[[ "$status" == "Charging" ]] && icon=""
+[[ "$status" == "Charging" ]] && icon="󰂄"
 
-text="$icon${capacity}%"
+text="$icon ${capacity}%"
 if [[ -n "$time_str" ]]; then
   time_val="${time_str%% *}"
   if [[ "$status" == "Charging" ]]; then
-    text="$icon${capacity}% 󰁞 ${time_val}"
+    text="$icon ${capacity}% 󰁞 ${time_val}"
   else
-    text="$icon${capacity}% 󰁆 ${time_val}"
+    text="$icon ${capacity}% 󰁆 ${time_val}"
   fi
 fi
 
