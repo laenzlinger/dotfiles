@@ -20,10 +20,10 @@ time_str=""
 if [[ "$status" == "Charging" && "$power_uw" -gt 0 ]]; then
   remaining_uwh=$((energy_full - energy_now))
   mins=$(awk "BEGIN {printf \"%.0f\", $remaining_uwh/$power_uw*60}")
-  time_str="$(( mins / 60 )):$(printf '%02d' $(( mins % 60 ))) to full"
+  (( mins > 0 )) && time_str="$(( mins / 60 )):$(printf '%02d' $(( mins % 60 ))) to full"
 elif [[ "$status" == "Discharging" && "$power_uw" -gt 0 ]]; then
   mins=$(awk "BEGIN {printf \"%.0f\", $energy_now/$power_uw*60}")
-  time_str="$(( mins / 60 )):$(printf '%02d' $(( mins % 60 ))) remaining"
+  (( mins > 0 )) && time_str="$(( mins / 60 )):$(printf '%02d' $(( mins % 60 ))) remaining"
 fi
 
 # Bar text
@@ -33,13 +33,13 @@ icon_idx=$(( capacity * 4 / 100 ))
 icon="${icons[$icon_idx]}"
 [[ "$status" == "Charging" ]] && icon=""
 
-text="$icon  ${capacity}%"
+text="$icon${capacity}%"
 if [[ -n "$time_str" ]]; then
   time_val="${time_str%% *}"
   if [[ "$status" == "Charging" ]]; then
-    text="$icon  ${capacity}% 󰁞 ${time_val}"
+    text="$icon${capacity}% 󰁞 ${time_val}"
   else
-    text="$icon  ${capacity}% 󰁆 ${time_val}"
+    text="$icon${capacity}% 󰁆 ${time_val}"
   fi
 fi
 
