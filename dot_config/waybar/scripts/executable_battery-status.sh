@@ -34,7 +34,14 @@ icon="${icons[$icon_idx]}"
 [[ "$status" == "Charging" ]] && icon=""
 
 text="$icon  ${capacity}%"
-[[ -n "$time_str" ]] && text="$text (${time_str%%to *}${time_str:+})" && text="$icon  ${capacity}% (${time_str})"
+if [[ -n "$time_str" ]]; then
+  time_val="${time_str%% *}"
+  if [[ "$status" == "Charging" ]]; then
+    text="$icon  ${capacity}% 󰁞 ${time_val}"
+  else
+    text="$icon  ${capacity}% 󰁆 ${time_val}"
+  fi
+fi
 
 # CSS class
 class=""
