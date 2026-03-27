@@ -43,7 +43,7 @@
 - Font: Roboto 15px, Nerd Font icons as fallback
 - Custom modules for: network (with VPN), CPU, memory
 - Tooltips show detailed info (top processes, battery health, etc.)
-- Toggle scripts for floating dialogs (keepassxc, blueman, nm-connection-editor, helvum)
+- Toggle scripts for floating dialogs (keepassxc, blueman, helvum)
 
 ## Patterns Established
 - **Toggle scripts**: Check if visible, kill if yes, launch if no
@@ -63,7 +63,7 @@
 - `Mod+v` / `Mod+c` - Clipboard pick/clear (rofi)
 - `Mod+Shift+s` - Toggle KeePassXC
 - `Mod+Shift+b` - Toggle Blueman
-- `Mod+Shift+w` - Toggle Network Manager
+- `Mod+Shift+w` - Network switcher (rofi, networkmanager_dmenu)
 - `Mod+Shift+a` - Toggle Helvum audio patchbay
 - `Mod+Shift+m` - Toggle Microscope
 - `Mod+Shift+n` - Toggle notification center

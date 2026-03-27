@@ -17,7 +17,7 @@ Mod+Shift+f
 # Toggle KeePassXC
 Mod+Shift+s
 
-# Toggle Network Manager
+# Network switcher (rofi, toggle)
 Mod+Shift+w
 
 # Toggle Blueman
@@ -159,8 +159,8 @@ XF86AudioMicMute
 # Brightness up/down
 XF86MonBrightnessUp/Down
 
-# Connect VPN (Laenzis)
-XF86Go
+# Connect VPN (Netbird)
+Phone Pickup key
 
 # Disconnect VPN
-Cancel
+Phone Hangup key

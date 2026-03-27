@@ -58,7 +58,8 @@
     "return-type": "json",
     "exec": "~/.config/waybar/scripts/network-status.sh",
     "interval": 5,
-    "on-click": "~/.config/sway/bin/toggle.sh nm-connection-editor nm-connection-editor"
+    "signal": 1,
+    "on-click": "pkill rofi || { ~/.config/sway/bin/network-menu.sh; pkill -RTMIN+1 waybar; }"
   },
   "wireplumber": {
     "format": "{icon}",
