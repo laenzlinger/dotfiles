@@ -1,0 +1,37 @@
+# Backup (resticprofile + restic)
+
+## Trigger Backup
+
+# Run scheduled backup (as systemd service, respects 6h skip + disk/LAN checks)
+sudo systemctl start resticprofile-backup@profile-rotating-backup.service
+
+# Run NAS backup manually from terminal (bypasses 6h skip, needs LAN)
+resticprofile -c ~/.config/resticprofile/profiles.yaml nas-term.backup
+
+# Run homeoffice backup manually from terminal (needs USB disk connected)
+resticprofile -c ~/.config/resticprofile/profiles.yaml homeoffice-term.backup
+
+## Monitor
+
+# Check backup status (what waybar shows)
+~/.config/waybar/scripts/restic-status.sh
+
+# View systemd timer schedule
+systemctl list-timers 'resticprofile*'
+
+# View last run logs
+journalctl -u resticprofile-backup@profile-rotating-backup.service -e --no-pager
+
+# View snapshots (also: click waybar backup icon)
+resticprofile -c ~/.config/resticprofile/profiles.yaml nas-term.snapshots
+
+## Profiles
+# homeoffice     - USB disk backup (scheduled, auto-mount/unmount)
+# nas            - NAS backup over LAN (scheduled)
+# homeoffice-term - same as homeoffice but for manual terminal use
+# nas-term       - same as nas but for manual terminal use
+# rotating-backup group runs: homeoffice + nas (daily timer)
+
+## Skip Logic
+# Scheduled runs skip a profile if last backup was < 6 hours ago
+# Manual -term profiles always run (no skip check)

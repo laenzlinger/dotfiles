@@ -8,4 +8,5 @@ cheat "$sheet" | awk '
     /^$/ { next }
     { if (desc) printf "%s\t%s\n", $0, desc; else print; desc="" }
 ' | rofi -dmenu -i -p "$sheet" -eh 1 -sep '\n' \
-    -theme-str 'element-text { tab-stops: [200px]; }'
+    -theme-str 'element-text { tab-stops: [200px]; }' \
+  | cut -f1 | sed 's/^ *//' | wl-copy
