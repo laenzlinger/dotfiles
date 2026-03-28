@@ -27,10 +27,12 @@ elif [[ "$status" == "Discharging" && "$power_uw" -gt 0 ]]; then
 fi
 
 # Bar text
-icons=("󰂎" "󰁺" "󰁼" "󰁾" "󰁹")
-icon_idx=$(( capacity * 4 / 100 ))
-(( icon_idx > 4 )) && icon_idx=4
-icon="${icons[$icon_idx]}"
+if (( capacity >= 90 )); then icon="󰁹"
+elif (( capacity >= 60 )); then icon="󰁾"
+elif (( capacity >= 40 )); then icon="󰁼"
+elif (( capacity >= 10 )); then icon="󰁺"
+else icon="󰂎"
+fi
 [[ "$status" == "Charging" ]] && icon="󰂄"
 
 text="$icon ${capacity}%"
