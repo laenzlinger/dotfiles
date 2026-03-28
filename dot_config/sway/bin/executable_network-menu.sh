@@ -2,14 +2,15 @@
 set -euo pipefail
 
 command -v networkmanager_dmenu >/dev/null
-command -v netbird >/dev/null
 
-# Check VPN status
-nb_mgmt=$(netbird status 2>/dev/null | grep "^Management:" | awk '{print $2}' || true)
-if [[ "$nb_mgmt" == "Connected" ]]; then
-    vpn_entry="󰒄 VPN Disconnect"
-else
-    vpn_entry="󰒃 VPN Connect"
+# Check VPN status (skip if daemon unreachable)
+vpn_entry=""
+if [[ -S /var/run/netbird.sock ]] && nb_mgmt=$(timeout 1 netbird status 2>/dev/null | grep "^Management:" | awk '{print $2}'); then
+    if [[ "$nb_mgmt" == "Connected" ]]; then
+        vpn_entry="󰒄 VPN Disconnect"
+    else
+        vpn_entry="󰒃 VPN Connect"
+    fi
 fi
 
 # Get WiFi networks from nmcli
@@ -25,7 +26,7 @@ wifi_list=$(nmcli -t -f SSID,SIGNAL,SECURITY dev wifi list 2>/dev/null | sort -t
     }')
 
 # Show combined menu
-choice=$(printf '%s\n%s\n' "$vpn_entry" "$wifi_list" | rofi -dmenu -i -p "Network")
+choice=$(printf '%s\n' ${vpn_entry:+"$vpn_entry"} "$wifi_list" | rofi -dmenu -i -p "Network")
 
 case "$choice" in
     *"VPN Disconnect"*) netbird down ;;
@@ -34,3 +35,5 @@ case "$choice" in
     *) ssid="${choice%%  *}"
        nmcli -a connection up "$ssid" 2>/dev/null || nmcli -a dev wifi connect "$ssid" ;;
 esac
+
+pkill -RTMIN+1 waybar || true
