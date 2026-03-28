@@ -22,7 +22,7 @@ if [ ! -f "$STATUS_FILE" ]; then
   exit 0
 fi
 
-profiles=$(jq -r '.profiles | keys[]' "$STATUS_FILE" 2>/dev/null)
+profiles=$(jq -r '.profiles | keys[] | select(endswith("-term") | not)' "$STATUS_FILE" 2>/dev/null)
 if [ -z "$profiles" ]; then
   echo "{\"text\": \"$ICON_UNKNOWN\", \"class\": \"unknown\", \"tooltip\": \"Status file is empty or invalid\"}"
   exit 0
