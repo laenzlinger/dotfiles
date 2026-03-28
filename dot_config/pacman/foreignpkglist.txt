@@ -12,6 +12,7 @@ kiro-cli
 lsdesktopf
 mkinitcpio-firmware
 netbird
+networkmanager-dmenu-git
 nodejs-neovim
 openpnp
 openscad-git
