@@ -21,8 +21,9 @@ else
         IFACE=$(echo "$ETH" | awk '{print $NF}')
         IP=$(echo "$ETH" | awk '{print $2}')
         GW=$(ip route | grep default | awk '{print $3}' | head -1)
-        NET_TEXT="󰈀 $IFACE"
-        NET_TIP="$IFACE\n$IP\nGateway: $GW"
+        CONN=$(nmcli -t -f name,device con show --active 2>/dev/null | grep ":${IFACE}$" | cut -d: -f1)
+        NET_TEXT="󰄜 ${CONN:-$IFACE}"
+        NET_TIP="${CONN:-$IFACE}\n$IP\nGateway: $GW"
     else
         NET_TEXT="󰤭  Down"
         NET_TIP="Network disconnected"
