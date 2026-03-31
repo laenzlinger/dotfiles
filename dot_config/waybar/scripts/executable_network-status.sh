@@ -40,4 +40,10 @@ if [ "$NB_MGMT" = "Connected" ]; then
     NET_TIP="$NET_TIP\nVPN: $NB_IP"
 fi
 
+# WiFi radio status
+if [ "$(nmcli radio wifi 2>/dev/null)" = "disabled" ]; then
+    NET_TEXT="$NET_TEXT 󰀝"
+    NET_TIP="$NET_TIP\nWiFi radio: off"
+fi
+
 printf '{"text": "%s", "tooltip": "%s"}\n' "$NET_TEXT" "$NET_TIP"
