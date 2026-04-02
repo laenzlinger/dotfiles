@@ -26,21 +26,33 @@ fi
 PASS=$(secret-tool lookup restic gibson-home)
 
 SCRIPT=$(mktemp /tmp/restic-snap.XXXXXX.sh)
-cat > "$SCRIPT" << EOF
-echo "Fetching snapshots for profile: $PROFILE..."
-export RESTIC_REPOSITORY="$REPO"
-export RESTIC_PASSWORD="$PASS"
-restic snapshots --compact --latest 2
-echo
-echo "--- Local Btrfs Snapshots (Root) ---"
-snapper -c root list | tail -n 3
-echo
-echo "--- Local Btrfs Snapshots (Home) ---"
-snapper -c home list | tail -n 3
+cat > "$SCRIPT" << 'OUTER'
+#!/usr/bin/env bash
+set -euo pipefail
+export RESTIC_REPOSITORY="REPO_PLACEHOLDER"
+export RESTIC_PASSWORD="PASS_PLACEHOLDER"
+PROFILE="PROFILE_PLACEHOLDER"
+
+printf "\n  \033[1m󰪩 Live Backup Check — %s\033[0m\n" "$PROFILE"
+printf "  %s\n\n" "$(printf '─%.0s' {1..40})"
+
+printf "  \033[1mRestic Snapshots\033[0m\n\n"
+restic snapshots --compact --latest 5 2>/dev/null | sed 's/^/  /'
+
+printf "\n  %s\n\n" "$(printf '─%.0s' {1..40})"
+printf "  \033[1mBtrfs Snapshots\033[0m\n\n"
+printf "  Root:\n"
+snapper -c root list --columns number,date,type | tail -n 3 | sed 's/^/  /'
+printf "\n  Home:\n"
+snapper -c home list --columns number,date,type | tail -n 3 | sed 's/^/  /'
+
+printf "\n  %s\n" "$(printf '─%.0s' {1..40})"
+printf "  Press any key to close\n"
 read -n 1 -s -r
-rm -f "$SCRIPT"
-EOF
+OUTER
+
+sed -i "s|REPO_PLACEHOLDER|$REPO|;s|PASS_PLACEHOLDER|$PASS|;s|PROFILE_PLACEHOLDER|$PROFILE|" "$SCRIPT"
 chmod +x "$SCRIPT"
 
-foot --app-id "$APP_ID" -W 120x35 bash "$SCRIPT" &
+foot --app-id "$APP_ID" -W 100x35 bash "$SCRIPT" &
 disown
