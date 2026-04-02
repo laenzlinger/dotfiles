@@ -6,24 +6,41 @@ UUID_HOMEOFFICE="{{ index $secrets "disk_uuid_homeoffice" }}"
 
 if [ -e "/dev/disk/by-uuid/$UUID_HOMEOFFICE" ]; then
   PROFILE="homeoffice"
+  REPO="local:/mnt/backup-homeoffice/gibson-home"
 elif curl -s --max-time 3 -o /dev/null https://{{ index $secrets "nas_domain" }}; then
   PROFILE="nas"
+  REPO="{{ index $secrets "nas_restic_repo" }}"
 else
-  wezterm start --class float_wezterm -- bash -c "echo 'ERROR: No backup target available!'; read"
+  notify-send -u critical "Backup" "No backup target available"
   exit 1
 fi
 
-wezterm start --class float_wezterm -- bash -i -c "
-    echo 'Fetching snapshots for profile: $PROFILE...'
-    [ \"$PROFILE\" = \"nas\" ] && export RESTIC_REPOSITORY=\$(secret-tool lookup restic nas-repo)
-    resticprofile $PROFILE-term.snapshots -c --latest 2
-    echo '--- Local Btrfs Snapshots (Root) ---'
-    snapper -c root list | tail -n 3
-    echo -e '\n--- Local Btrfs Snapshots (Home) ---'
-    snapper -c home list | tail -n 3
-    read -n 1 -s -r
-    " &
-sleep 0.2
-swaymsg "[app_id=\"float_wezterm\"] floating enable, border pixel 4"
-sleep 0.1
-swaymsg "[app_id=\"float_wezterm\"] resize set 1000 700, move position center"
+APP_ID="restic-snapshots"
+
+# Toggle: close if already open
+if swaymsg -t get_tree | grep -q "restic-snapshots"; then
+  swaymsg "[app_id=\"$APP_ID\"] kill"
+  exit 0
+fi
+
+PASS=$(secret-tool lookup restic gibson-home)
+
+SCRIPT=$(mktemp /tmp/restic-snap.XXXXXX.sh)
+cat > "$SCRIPT" << EOF
+echo "Fetching snapshots for profile: $PROFILE..."
+export RESTIC_REPOSITORY="$REPO"
+export RESTIC_PASSWORD="$PASS"
+restic snapshots --compact --latest 2
+echo
+echo "--- Local Btrfs Snapshots (Root) ---"
+snapper -c root list | tail -n 3
+echo
+echo "--- Local Btrfs Snapshots (Home) ---"
+snapper -c home list | tail -n 3
+read -n 1 -s -r
+rm -f "$SCRIPT"
+EOF
+chmod +x "$SCRIPT"
+
+foot --app-id "$APP_ID" -W 120x35 bash "$SCRIPT" &
+disown
