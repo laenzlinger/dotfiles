@@ -15,7 +15,12 @@ profiles:
         status-file: /home/laenzi/.cache/resticprofile/status.json
         password-command: cat ${CREDENTIALS_DIRECTORY}/restic-pass
         force-inactive-lock: true
+        prometheus-push: http://192.168.1.223:8428/api/v1/import/prometheus
+        prometheus-push-job: device-backup
+        prometheus-labels:
+            - device: gibson
         backup:
+            extended-status: true
             source:
                 - /home/laenzi
                 - /etc
@@ -39,8 +44,8 @@ profiles:
     homeoffice:
         inherit: base
         env:
-            DISK_UUID: ENC[AES256_GCM,data:eV5eBXY2U4s03uu8Doa34TbI3ItluRg3fljXyETrjbUFFQBp,iv:UYS3eOX2lpRzk4frXmYzfluulDYSoGKeDQ4bqEMsTbs=,tag:8k1tN2PeYZT1FWbm7xgDNA==,type:str]
-        repository: ENC[AES256_GCM,data:AFYg1hJAPDHHzrVJUXMc/hPCR5jnkII4C9k8v0l9mA2IywAL+JZR6A==,iv:3T7J3mi0Two1Cap1gvq/vp0RjFg5iS/vrMM0JJnyEC4=,tag:j04rlnix6pdlkC8arZJDNg==,type:str]
+            DISK_UUID: ENC[AES256_GCM,data:y1S1I2ntHPqdYmCw51rM0gNaxagefZjwmqFWxWi6r2COS4rM,iv:s7eyhiv0MksY0CRb98j3hCRAs2TeiuWEPd7lrOu4uec=,tag:6MKiSJ6yuilyahv1pMPK3w==,type:str]
+        repository: ENC[AES256_GCM,data:d5MQYUVZKlQa3XFsSqWKU4e/d9sGKQsyfRhYHQMn1U2C5f1VWRI2rQ==,iv:+PCK10OP/XL59YDyiEruv46OzYtKrIkcS/WZfZh0M0o=,tag:PFP6b8hRz9PNSFK14PAZQQ==,type:str]
         run-before:
             - |
               STATUS_FILE="/home/laenzi/.cache/resticprofile/status.json"
@@ -48,7 +53,7 @@ profiles:
               if [ -f "$STATUS_FILE" ]; then
                 LAST_TIME_STR=$(/usr/sbin/jq -r ".profiles.\"$PROFILE\".backup.time // \"1970-01-01T00:00:00Z\"" "$STATUS_FILE")
                 LAST_UNIX=$(date -d "$LAST_TIME_STR" +%s)
-                THRESHOLD=$(date +%s -d '6 hours ago')
+                THRESHOLD=$(date +%s -d '13 hours ago')
                 if [ "$LAST_UNIX" -ge "$THRESHOLD" ]; then
                   echo "Condition: Skipping $PROFILE. Last backup ($LAST_TIME_STR) is too recent."
                   exit 1
@@ -74,7 +79,7 @@ profiles:
               fi
     nas:
         inherit: base
-        repository-file: ENC[AES256_GCM,data:2sT8Ult7QfWUeuEJgOUrhhOhFfyRlRAiK/cy/2u8kq/J,iv:/OTsH59fnIeCsUYAYsrieCfmlo+3+2jA1ljv3+Gwfms=,tag:zK0HZXB7pS0v3j6mU3FULw==,type:str]
+        repository-file: ENC[AES256_GCM,data:R5K0RWQy/MHPBV/sP8z9tWtEJdmVe4oWq29XRV3nZ2Wn,iv:6+QGxH9ICEZEh0595/l/JVs9CCxQ+ZQ2x/s7DMIqIl8=,tag:lON5XEy0YE9InWa0kcMbQw==,type:str]
         run-before:
             - |
               STATUS_FILE="/home/laenzi/.cache/resticprofile/status.json"
@@ -82,7 +87,7 @@ profiles:
               if [ -f "$STATUS_FILE" ]; then
                 LAST_TIME_STR=$(/usr/sbin/jq -r ".profiles.\"$PROFILE\".backup.time // \"1970-01-01T00:00:00Z\"" "$STATUS_FILE")
                 LAST_UNIX=$(date -d "$LAST_TIME_STR" +%s)
-                THRESHOLD=$(date +%s -d '6 hours ago')
+                THRESHOLD=$(date +%s -d '13 hours ago')
                 if [ "$LAST_UNIX" -ge "$THRESHOLD" ]; then
                   echo "Condition: Skipping $PROFILE. Last backup ($LAST_TIME_STR) is too recent."
                   exit 1
@@ -100,7 +105,7 @@ profiles:
     nas-term:
         inherit: nas
         password-command: secret-tool lookup restic gibson-home
-        repository: ENC[AES256_GCM,data:WhvLZoMKOy9XW1REMDwcsUoEOWlx2G7dH9ugNQ==,iv:hTPgj1QsD2JuFlg4BxecNf4ss7IDmK2KDl+O+IgMmRc=,tag:Br14pXdleQlr6RrbHwlh1A==,type:str]
+        repository: ENC[AES256_GCM,data:v31sA/4LHxfClqo+AywKiDWOCtUXtis4+QeoTA==,iv:Ea6kGHBq81Njl4DaQ65h5U9eBkFRhTHhYuhCvSIUPFA=,tag:GxKsMqF6AgXyfkAq0v1VIA==,type:str]
         repository-file: ""
 groups:
     rotating-backup:
@@ -110,23 +115,25 @@ groups:
             - nas
         schedules:
             backup:
-                at: daily
+                at:
+                    - "00:00"
+                    - "12:00"
                 permission: user
                 systemd-drop-in-files:
                     - system-integration.conf
 sops:
-    lastmodified: "2026-03-22T21:34:48Z"
-    mac: ENC[AES256_GCM,data:1u5etysWdKYMJCwve768nVbcIjr9rSM0VZGI3oSnEqpjQqoab4j0eXAkURt9BakWlI3Y6D4SiJEb4g8/ncFEIf6mQtqFlDlj3kGAVsnEwrBx2VSld4CkYkidtxI87WScqeWj+lhrefFe8nIvEu0dHb65tgWU2zV5A2jw6rwn95s=,iv:2fnTChIlDN6LLOCJV2P6Mqt3mUNQOfVwGy5jbmHP1cY=,tag:8c9dEK4VeZW5IEAyyCeHwQ==,type:str]
+    lastmodified: "2026-04-03T09:39:40Z"
+    mac: ENC[AES256_GCM,data:hZCLHrNCB0rSpoyslTnIgoAl0epqxRQT0kIhM8lxxePpr4zFWv1cFPrF6AaICzeWAg/FvlqdKU9KpY0xHhv+mTjbWofn8ysZZuABI6jxqALs+6AFOthXPu/vN1BclAB+D+zjl7DJ55Z6k+bQZLOBbSW0JzdBpoM9wjsRj6twRw0=,iv:Ip94R7NS/eYe9VWAlPONDmaoziR8JRceAkdml+AgidQ=,tag:PIIZoOkw2twY2KgUhfTWrw==,type:str]
     pgp:
-        - created_at: "2026-03-22T21:34:48Z"
+        - created_at: "2026-04-03T09:39:40Z"
           enc: |-
             -----BEGIN PGP MESSAGE-----
 
-            hF4DW7dSlBr/UTcSAQdA9oTeu/nq/Ru0qm0v5CIb8KgJX/9tBxfReHRY3ihfFBgw
-            vUq7uYGC/dVTDfqIvWEZrROiJOzq+CkSDXdKxMp+mUMjvSRVolEVBXK5Gq+xHBYQ
-            0lwBUg+MIZX6ODI/Mcqz6OsGYgDf8kHMxGztZm5lH3SXgVYnyAcE+CG+r3cMiGAZ
-            /MGGv16z4jYHRbEupEuKvBU4Wn6tP2cgEfXTyAupaP+TvPv9FbujwIvWRy9sYQ==
-            =ARUd
+            hF4DW7dSlBr/UTcSAQdAqeCVqQ1GNJTYD3HEjLcIUdYtA8Nzzk7EV2vmIJgD+B4w
+            ykVpO2MPLXSO1/FqQDdlBqpO9TGqkD8TI73EaNUmBwo0BckwMor0LXcB4M2dmKpj
+            0l4BDeHWJtPDlUUA+okbixfwVCFT1U0PTv0L+ZJskSioKT5K7TFpU6QX3ByKVUz2
+            Z8UUcOHy+Lay2koh2TMjVNOWxkLpHQhMGmGtKmWzk8RAQTbVAXiN9zd33YcvDv2P
+            =TTqL
             -----END PGP MESSAGE-----
           fp: 5D0F5C9123DC8E85027768E924B71D9642BACC8E
     encrypted_regex: ^(DISK_UUID|repository|repository-file)$
