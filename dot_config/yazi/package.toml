@@ -1,0 +1,7 @@
+[plugin]
+deps = []
+
+[[flavor.deps]]
+use = "matt-dong-123/base16"
+rev = "b02b7a8"
+hash = "fdb3a7d76f51c0a46bde55322ede9171"
