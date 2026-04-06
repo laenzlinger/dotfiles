@@ -52,7 +52,7 @@
 - **Waybar custom modules**: Scripts in `~/.config/waybar/scripts/`
 - **Icons**: Use nf-md-* icons (󰻠 󰍛 󰖩 etc.) - they render correctly
 - **Tinty hooks**: New apps need a tinty item in config.toml.tmpl to auto-theme
-- **Color generation**: Derive app colors from waybar colors.css (rofi, swaync, wob, obsidian)
+- **Color generation**: Derive app colors from waybar colors.css (rofi, swaync, wob, obsidian, vivaldi)
 - **Color coding**: Waybar module colors match related wob bar colors (e.g. base09 for audio)
 - **Monospace font**: MesloLGS Nerd Font (for calendar, code, terminals)
 - **Script standard**: `#!/usr/bin/env bash` + `set -euo pipefail` + `command -v` checks

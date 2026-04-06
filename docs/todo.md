@@ -7,7 +7,7 @@
   - Reachability check in `run-before` (curl/ping, skip if offline)
   - Add to `rotating-backup` group (skips gracefully like USB disks when not home)
 - [ ] Better dark/light theming for Electron apps
-- [ ] Theme Vivaldi with tinted-theming base16 colors
+- [x] Theme Vivaldi with tinted-theming base16 colors
 - [ ] Generate base16 theme from wallpaper image
 - [ ] Evaluate if lazy-lock.json should be managed by chezmoi or gitignored
 
