@@ -54,6 +54,17 @@
     background: @base02;
 }
 
+.widget-title > button {
+    background: @base02;
+    color: @base05;
+    border: 1px solid @base03;
+    border-radius: 6px;
+}
+
+.widget-title > button:hover {
+    background: @base03;
+}
+
 switch {
     background: @base02;
     border: 1px solid @base03;

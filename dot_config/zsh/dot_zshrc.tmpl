@@ -112,6 +112,11 @@ alias pacin='sudo pacman -S'
 alias pacreps='pacman -Ss'
 alias pacrem='sudo pacman -Rns'
 
+# Yay wrapper: refresh waybar updates counter after install/upgrade
+yay() {
+  command yay "$@" && pkill -RTMIN+8 waybar 2>/dev/null
+}
+
 source /usr/share/doc/pkgfile/command-not-found.zsh
 {{- end }}
 
