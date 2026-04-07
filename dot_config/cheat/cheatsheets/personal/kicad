@@ -1,0 +1,183 @@
+# KiCad Shortcuts
+
+## General (all editors)
+# Undo / Redo
+Ctrl+z / Ctrl+y
+
+# Zoom in / out
+Scroll wheel (or +/-)
+
+# Zoom to fit
+Home
+
+# Zoom to selection
+Ctrl+F5
+
+# Pan
+Middle-click drag (or Shift+scroll)
+
+# Properties
+e
+
+# Delete
+Del
+
+# Duplicate
+Ctrl+d
+
+# Find
+Ctrl+f / t (next match)
+
+# Preferences
+Ctrl+,
+
+# Hotkey list
+Ctrl+F1
+
+## Schematic Editor
+# Place symbol
+a
+
+# Place power symbol
+p
+
+# Place wire
+w
+
+# Place bus
+b
+
+# Place label / global label
+l / Ctrl+l
+
+# Place no-connect flag
+q
+
+# Place junction
+j
+
+# Move (break wires)
+m
+
+# Drag (keep wires attached)
+g
+
+# Rotate / Mirror X / Mirror Y
+r / x / y
+
+# Copy
+c
+
+# Edit symbol value
+v
+
+# Edit symbol reference
+u
+
+# Edit symbol footprint
+f
+
+# Annotate schematic
+(menu) Tools → Annotate
+
+# Run ERC
+(menu) Inspect → Electrical Rules Checker
+
+# Generate netlist / BOM
+(menu) Tools → Generate Netlist / BOM
+
+# Update PCB from schematic
+F8
+
+## PCB Editor
+# Route single track
+x
+
+# Route differential pair
+d (in route mode)
+
+# Drag track (keep connections)
+d
+
+# Move item
+m
+
+# Rotate / Flip to other side
+r / f
+
+# Change track width
+w
+
+# Switch active layer (while routing)
+v
+
+# Select active layer
+Page Up / Page Down
+
+# Add via (while routing)
+v
+
+# Add filled zone
+Ctrl+Shift+z
+
+# Fill all zones / Unfill all zones
+b / Ctrl+b
+
+# Select net inspector
+n (in selection)
+
+# Highlight net
+` (backtick)
+
+# Clear highlight
+Esc
+
+# Inspect clearance
+i
+
+# Measure tool
+Ctrl+Shift+m
+
+# Toggle board layers visibility
+(click in Layers panel)
+
+# Toggle ratsnest
+(menu) View → Ratsnest
+
+# Run DRC
+(menu) Inspect → Design Rules Checker
+
+# 3D Viewer
+Alt+3
+
+# Update schematic from PCB
+(menu) Tools → Update Schematic from PCB
+
+# Interactive router settings
+< / > (decrease/increase corner rounding)
+
+## Footprint Editor
+# Place pad
+(menu) Place → Pad
+
+# Edit pad properties
+e (on pad)
+
+# Set grid origin
+s
+
+## Selection
+# Select item
+Click
+
+# Add to selection
+Shift+click
+
+# Select all
+Ctrl+a
+
+# Filter selection
+(right-click) → Select → Filter
+
+# Select connected tracks
+u (expand selection)
