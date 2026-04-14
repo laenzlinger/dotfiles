@@ -82,6 +82,7 @@ window#waybar.hidden {
 #wireplumber,
 #clock,
 #custom-restic,
+#custom-updates,
 #tray {
     padding: 0 10px;
     margin: 4px 2px;
@@ -146,6 +147,14 @@ window#waybar.hidden {
 }
 
 #custom-restic.error {
+    color: @base08;
+}
+
+#custom-updates {
+    color: @base0A;
+}
+
+#custom-updates.critical {
     color: @base08;
 }
 

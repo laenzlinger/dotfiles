@@ -17,6 +17,7 @@
     "temperature",
     "custom/battery",
     "custom/restic",
+    "custom/updates",
     "wireplumber",
     "clock#date",
     "clock#time",
