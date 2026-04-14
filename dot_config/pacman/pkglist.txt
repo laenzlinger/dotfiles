@@ -108,7 +108,6 @@ gtkmm3
 gvfs-afc
 gvfs-dnssd
 gvfs-goa
-gvfs-google
 gvfs-gphoto2
 gvfs-mtp
 gvfs-nfs
@@ -207,6 +206,7 @@ open-vm-tools
 openssh
 openvpn
 orca
+pacman-contrib
 pandoc-cli
 papers
 parted
@@ -229,7 +229,6 @@ podofo-tools
 polkit-gnome
 posterazor
 pre-commit
-prusa-slicer
 pv
 python
 python-kikit
@@ -334,6 +333,7 @@ xdg-desktop-portal-wlr
 xdg-user-dirs
 xdg-user-dirs-gtk
 xfsprogs
+xorg-server-xvfb
 xorg-xeyes
 xorg-xlsclients
 xorg-xwayland
