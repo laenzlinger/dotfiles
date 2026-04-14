@@ -18,7 +18,7 @@ hook = "source %f"
 path = "https://github.com/tinted-theming/tinted-terminal"
 name = "tinted-terminal-wezterm"
 themes-dir = "themes/wezterm"
-hook = "cp -f %f ~/.config/wezterm/colors/tinted-theming.toml"
+hook = "cp -f %f ~/.config/wezterm/colors/tinted-theming.toml && touch ~/.config/wezterm/wezterm.lua"
 supported-systems = ["base16", "base24"]
 
 {{- if eq .chezmoi.os "linux" }} {{- if eq (printf "%.4s" .chezmoi.osRelease.id) "arch" }}
@@ -28,7 +28,7 @@ name = "base16-sway"
 path = "https://github.com/rkubosz/base16-sway"
 themes-dir = "themes"
 revision = "master"
-hook = "cp -f %f ~/.config/sway/base16.config && swaymsg reload && sleep 0.5 && ~/.config/waybar/scripts/waybar-reload.sh"
+hook = "cp -f %f ~/.config/sway/base16.config"
 
 [[items]]
 path = "https://github.com/tinted-theming/base16-waybar"

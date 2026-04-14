@@ -1,6 +1,16 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+PIDFILE="/tmp/tinty-switch.pid"
+
+# Kill previous tinty apply session (entire process group)
+if [[ -f "$PIDFILE" ]]; then
+  prev=$(cat "$PIDFILE" 2>/dev/null || true)
+  if [[ -n "$prev" ]] && kill -0 "$prev" 2>/dev/null; then
+    kill -- -"$prev" 2>/dev/null || true
+  fi
+fi
+
 case "$1" in
 dark) THEME=base16-darktooth ;;
 light) THEME=base16-gruvbox-light-medium ;;
@@ -12,4 +22,9 @@ if [[ -z "$SWAYSOCK" ]]; then
   exit 0
 fi
 export SWAYSOCK
-/usr/bin/tinty apply "$THEME"
+
+# Run in new session so kill -PGID can stop the whole tree
+setsid /usr/bin/tinty apply "$THEME" &
+echo $! > "$PIDFILE"
+wait $! || true
+rm -f "$PIDFILE"
