@@ -4,6 +4,7 @@ bluetooth.service
 chronyd.service
 cups.service
 getty@.service
+netbird.service
 NetworkManager-dispatcher.service
 NetworkManager-wait-online.service
 NetworkManager.service

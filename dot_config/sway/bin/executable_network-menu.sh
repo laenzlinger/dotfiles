@@ -5,7 +5,7 @@ command -v networkmanager_dmenu >/dev/null
 
 # Check VPN status (skip if daemon unreachable)
 vpn_entry=""
-if [[ -S /var/run/netbird.sock ]] && nb_mgmt=$(timeout 1 netbird status 2>/dev/null | grep "^Management:" | awk '{print $2}'); then
+if [[ -d /var/run/netbird ]] && nb_mgmt=$(timeout 1 netbird status 2>/dev/null | grep "^Management:" | awk '{print $2}'); then
     if [[ "$nb_mgmt" == "Connected" ]]; then
         vpn_entry="󰒄 VPN Disconnect"
     else

@@ -36,3 +36,13 @@ If swaync restarts (crash, manual restart), Vivaldi won't reconnect — notifica
 - Restart Vivaldi as last resort
 
 **Rule:** Never restart swaync while Vivaldi is running. Use `swaync-client --reload-css` for theme changes (already done in tinty hook).
+
+## Netbird VPN unstable / relay connections dropping
+
+Symptom: Netbird relays constantly reconnect, peers can't stay connected, logs show `failed to read frame header: EOF`.
+
+Root cause: Intel Raptor Lake WiFi (`iwlwifi`) misses beacons due to power management bug, causing WiFi to disconnect every ~35 seconds.
+
+**Fix:** `/etc/modprobe.d/iwlwifi.conf` sets `options iwlmvm power_scheme=1` (CAM mode). See [ADR 003](adr/003-iwlwifi-disable-power-saving.md).
+
+**Diagnosis:** Check `sudo dmesg | grep missed_beacons` — if you see counts climbing, the WiFi chip is sleeping through beacons.

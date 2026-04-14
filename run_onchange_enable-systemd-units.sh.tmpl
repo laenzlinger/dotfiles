@@ -18,6 +18,7 @@ set -euo pipefail
 #   clipboard-watcher    - Clipboard manager watcher (wl-paste)
 #   wob                  - Wayland overlay bar (volume/brightness indicators)
 #   secret-monitor       - Notifies which process requests secrets from KeePassXC
+#   netbird-check        - Notify when Netbird VPN needs re-auth (on connect)
 #
 # Note: Only runs on Linux. Unit files are in ~/.config/systemd/user/
 
@@ -33,6 +34,7 @@ units=(
   swaync.service
   clipboard-watcher.service
   secret-monitor.service
+  netbird-check.service
   wob.socket
   wob.service
 )
