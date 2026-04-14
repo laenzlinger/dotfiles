@@ -1,0 +1,9 @@
+# KiCad footprint → OpenPnP package ID mapping
+# Lines starting with # are comments. Unmapped footprints are passed through as-is.
+kicad_footprint,openpnp_package
+C_0805_2012Metric,C_0805
+R_0805_2012Metric,R_0805
+LED_0805_2012Metric,LED_0805
+SOT-223-3_TabPin2,SOT-223
+SOT-23,SOT-23
+Fiducial_1mm_Mask2mm,FIDUCIAL-1X2
