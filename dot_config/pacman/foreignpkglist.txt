@@ -4,7 +4,6 @@ btrfs-desktop-notification
 cheat-bin
 clipman
 cncjs
-cura-bin
 f3
 flux-bin
 gnu-netcat
@@ -16,6 +15,7 @@ networkmanager-dmenu-git
 nodejs-neovim
 openpnp
 openscad-git
+orca-slicer-bin
 papirus-icon-theme-git
 pdfposter
 powerline-fonts-git
