@@ -79,6 +79,12 @@ path = "https://github.com/tinted-theming/base16-waybar"
 themes-dir = "colors"
 hook = "~/.config/vivaldi/generate-theme.sh"
 
+[[items]]
+name = "base16-kiro-sync"
+path = "https://github.com/tinted-theming/base16-waybar"
+themes-dir = "colors"
+hook = "kiro-cli theme $(echo %f | grep -qi light && echo light || echo dark) 2>/dev/null || true"
+
 {{- end }} {{- end }}
 
 {{- if eq .chezmoi.os "darwin" }}
