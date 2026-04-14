@@ -3,25 +3,16 @@ set -euo pipefail
 
 command -v netbird >/dev/null
 
-check() {
-    sleep 15
-    for _ in 1 2 3; do
-        local mgmt
-        mgmt=$(netbird status 2>/dev/null | grep "^Management:" | awk '{print $2}' || true)
-        [[ "$mgmt" == "Connected" ]] && return
-        sleep 10
-    done
-    notify-send \
-        -u critical \
-        -h string:x-canonical-private-synchronous:netbird-auth \
-        "󰒃   Netbird VPN" \
-        "Session expired — re-login required"
-}
+NID=(-h string:x-canonical-private-synchronous:netbird-auth)
+NOTIFIED=false
 
-check &
-
-nmcli monitor | while read -r line; do
-    if [[ "$line" == *"Connectivity is now"*"full"* ]]; then
-        check &
+while true; do
+    sleep 300
+    mgmt=$(netbird status 2>/dev/null | grep "^Management:" | awk '{print $2}' || true)
+    if [[ "$mgmt" == "Connected" ]]; then
+        NOTIFIED=false
+    elif [[ "$mgmt" != "" && "$NOTIFIED" == false ]]; then
+        notify-send -u critical "${NID[@]}" "󰒃   Netbird VPN" "Session expired — re-login required"
+        NOTIFIED=true
     fi
 done

@@ -26,6 +26,3 @@ fi
 if [ -n "$CURRENT_WS" ]; then
     swaymsg "workspace $CURRENT_WS" 2>/dev/null || true
 fi
-
-# Reload waybar with correct config
-~/.config/waybar/scripts/waybar-reload.sh

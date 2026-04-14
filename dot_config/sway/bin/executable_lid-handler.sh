@@ -12,11 +12,13 @@ case "${1:-}" in
         if [ -n "$EXT" ]; then
             swaymsg output eDP-1 disable
             ~/.config/sway/bin/move-workspace-to-output.sh
+            ~/.config/waybar/scripts/waybar-reload.sh
         fi
         ;;
     open)
         swaymsg output eDP-1 enable
         ~/.config/sway/bin/move-workspace-to-output.sh
+        ~/.config/waybar/scripts/waybar-reload.sh
         ;;
     check)
         if [ "$LID" = "closed" ] && [ -n "$EXT" ]; then
