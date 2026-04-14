@@ -1,0 +1,12 @@
+[Unit]
+Description=Notify when Netbird VPN needs re-authentication
+After=graphical-session.target
+
+[Service]
+Type=simple
+ExecStart=%h/.config/sway/bin/netbird-check.sh
+Restart=on-failure
+RestartSec=10
+
+[Install]
+WantedBy=graphical-session.target
