@@ -4,5 +4,6 @@ pinentry-program /usr/bin/pinentry-gtk
 {{- if eq .chezmoi.os "darwin" }}
     pinentry-program {{ .brewprefix }}/bin/pinentry-mac
 {{- end }}
-pinentry-timeout 120
+pinentry-timeout 300
+max-cache-ttl 3600
 enable-ssh-support
