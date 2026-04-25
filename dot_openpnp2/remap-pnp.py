@@ -36,7 +36,7 @@ def read_placements(infile, mapping):
             "ref": ref, "val": val,
             "kicad_fp": kicad_fp,
             "pkg": openpnp_pkg,
-            "part_id": f"{kicad_fp}-{val}",
+            "part_id": f"{openpnp_pkg}-{val}",
             "x": row["PosX"].strip(), "y": row["PosY"].strip(),
             "rot": row["Rot"].strip(), "side": row["Side"].strip(),
         })
