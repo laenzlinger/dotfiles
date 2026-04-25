@@ -342,7 +342,7 @@
                   <back-light-compensation property="BackLightCompensation" value="0"/>
                   <brightness property="Brightness" value="0"/>
                   <contrast property="Contrast" value="191"/>
-                  <exposure property="Exposure" value="1" auto="true"/>
+                  <exposure property="Exposure" value="50" auto="false"/>
                   <focus property="Focus"/>
                   <gain property="Gain" value="0"/>
                   <gamma property="Gamma" value="72"/>
@@ -1738,7 +1738,7 @@
             <back-light-compensation property="BackLightCompensation" value="0"/>
             <brightness property="Brightness" value="0"/>
             <contrast property="Contrast" value="255"/>
-            <exposure property="Exposure" value="200" auto="true"/>
+            <exposure property="Exposure" value="50" auto="false"/>
             <focus property="Focus"/>
             <gain property="Gain" value="0"/>
             <gamma property="Gamma" value="72"/>
@@ -1751,7 +1751,7 @@
          </camera>
       </cameras>
       <actuators>
-         <actuator class="org.openpnp.machine.reference.ReferenceActuator" id="ACT1605385237291" name="LED" value-type="Double" value-type-confirmed="true" default-on-double="255.0" default-on-string="" default-off-double="0.0" default-off-string="" interlock-actuator="false" driver-id="DRV16982438146c1dd4" coordinated-before-actuate="true" coordinated-after-actuate="false" coordinated-before-read="true" enabled-actuation="AssumeUnknown" homed-actuation="LeaveAsIs" disabled-actuation="LeaveAsIs" index="0">
+         <actuator class="org.openpnp.machine.reference.ReferenceActuator" id="ACT1605385237291" name="LED" value-type="Double" value-type-confirmed="true" default-on-double="150.0" default-on-string="" default-off-double="0.0" default-off-string="" interlock-actuator="false" driver-id="DRV16982438146c1dd4" coordinated-before-actuate="true" coordinated-after-actuate="false" coordinated-before-read="true" enabled-actuation="AssumeUnknown" homed-actuation="LeaveAsIs" disabled-actuation="LeaveAsIs" index="0">
             <head-offsets units="Millimeters" x="0.0" y="0.0" z="0.0" rotation="0.0"/>
             <safe-z value="0.0" units="Millimeters"/>
          </actuator>
