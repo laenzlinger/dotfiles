@@ -302,7 +302,7 @@
                </actuator>
             </actuators>
             <cameras>
-               <camera class="org.openpnp.machine.reference.camera.OpenPnpCaptureCamera" axis-X-id="AXS169824381580efcb" axis-Y-id="AXS16982438158c4660" axis-Z-id="AXS171084434ad04ba5" axis-rotation-id="AXS171084470fa6d522" id="CAM1607555396816" name="Top" looking="Down" auto-visible="false" shown-in-multi-camera-view="true" before-capture-light-on="true" user-action-light-on="true" after-capture-light-off="false" anti-glare-light-off="false" enable-units-per-pixel-3-d="false" auto-view-plane-z="false" max-relative-motion="0.05" min-motion-template-match-score="0.9" min-contrast-range="16.0" settle-method="FixedTime" settle-time-ms="2000" settle-timeout-ms="500" settle-threshold="0.0" settle-debounce="0" settle-full-color="false" settle-gaussian-blur="0" settle-gradients="false" settle-mask-circle="0.0" settle-contrast-enhance="0.0" settle-diagnostics="false" fps="10.0" suspend-preview-in-tasks="false" capture-try-count="4" capture-try-timeout-ms="2000" rotation="0.0" flip-x="true" flip-y="true" offset-x="0" offset-y="0" crop-width="0" crop-height="0" scale-width="0" scale-height="0" red-balance="1.0" green-balance="1.0" blue-balance="1.0" red-gamma="1.0" green-gamma="1.0" blue-gamma="1.0" deinterlace="false" light-actuator-id="ACT1605385237291" allow-machine-actuators="true" focus-sensing-method="None" white-balance-lead-fractile="0.8" white-balance-clip-fractile="0.99" white-balance-gamma-fractile="0.5" unique-id="HD USB Camera: HD USB Camera usb-0000:00:14.0-3.3" format-id="0" freeze-properties="true">
+               <camera class="org.openpnp.machine.reference.camera.OpenPnpCaptureCamera" axis-X-id="AXS169824381580efcb" axis-Y-id="AXS16982438158c4660" axis-Z-id="AXS171084434ad04ba5" axis-rotation-id="AXS171084470fa6d522" id="CAM1607555396816" name="Top" looking="Down" auto-visible="false" shown-in-multi-camera-view="true" before-capture-light-on="true" user-action-light-on="true" after-capture-light-off="false" anti-glare-light-off="false" enable-units-per-pixel-3-d="false" auto-view-plane-z="false" max-relative-motion="0.05" min-motion-template-match-score="0.9" min-contrast-range="16.0" settle-method="FixedTime" settle-time-ms="2000" settle-timeout-ms="500" settle-threshold="0.0" settle-debounce="0" settle-full-color="false" settle-gaussian-blur="0" settle-gradients="false" settle-mask-circle="0.0" settle-contrast-enhance="0.0" settle-diagnostics="false" fps="10.0" suspend-preview-in-tasks="false" capture-try-count="4" capture-try-timeout-ms="2000" rotation="0.0" flip-x="true" flip-y="true" offset-x="0" offset-y="0" crop-width="0" crop-height="0" scale-width="0" scale-height="0" red-balance="1.0" green-balance="1.0" blue-balance="1.0" red-gamma="1.0" green-gamma="1.0" blue-gamma="1.0" deinterlace="false" light-actuator-id="ACT1605385237291" allow-machine-actuators="true" focus-sensing-method="None" white-balance-lead-fractile="0.8" white-balance-clip-fractile="0.99" white-balance-gamma-fractile="0.5" unique-id="HD USB Camera: HD USB Camera usb-0000:00:14.0-3.3" format-id="0" freeze-properties="false">
                   <units-per-pixel units="Millimeters" x="0.01329787" y="0.01344086" z="0.0" rotation="0.0"/>
                   <default-z value="9.300000000000002" units="Millimeters"/>
                   <vision-provider class="org.openpnp.machine.reference.vision.OpenCvVisionProvider"/>
@@ -340,17 +340,17 @@
                      <focal-resolution value="0.05" units="Millimeters"/>
                   </focus-provider>
                   <back-light-compensation property="BackLightCompensation" value="0"/>
-                  <brightness property="Brightness" value="-5"/>
+                  <brightness property="Brightness" value="0"/>
                   <contrast property="Contrast" value="191"/>
-                  <exposure property="Exposure" value="1" auto="false"/>
+                  <exposure property="Exposure" value="1" auto="true"/>
                   <focus property="Focus"/>
                   <gain property="Gain" value="0"/>
                   <gamma property="Gamma" value="72"/>
                   <hue property="Hue" value="-4"/>
                   <power-line-frequency property="PowerLineFrequency" value="1"/>
-                  <saturation property="Saturation" value="1"/>
+                  <saturation property="Saturation" value="64"/>
                   <sharpness property="Sharpness" value="1"/>
-                  <white-balance property="WhiteBalance" value="2800" auto="true"/>
+                  <white-balance property="WhiteBalance" value="4600" auto="true"/>
                   <zoom property="Zoom"/>
                </camera>
             </cameras>
@@ -1685,7 +1685,7 @@
          </feeder>
       </feeders>
       <cameras>
-         <camera class="org.openpnp.machine.reference.camera.OpenPnpCaptureCamera" id="CAM1614803235898" name="Bottom" looking="Up" auto-visible="false" shown-in-multi-camera-view="true" before-capture-light-on="true" user-action-light-on="true" after-capture-light-off="false" anti-glare-light-off="false" enable-units-per-pixel-3-d="false" auto-view-plane-z="false" max-relative-motion="0.05" min-motion-template-match-score="0.9" min-contrast-range="16.0" settle-method="FixedTime" settle-time-ms="600" settle-timeout-ms="500" settle-threshold="0.0" settle-debounce="0" settle-full-color="false" settle-gaussian-blur="0" settle-gradients="false" settle-mask-circle="0.0" settle-contrast-enhance="0.0" settle-diagnostics="false" fps="10000.0" suspend-preview-in-tasks="false" capture-try-count="4" capture-try-timeout-ms="2000" rotation="-0.05964544840267904" flip-x="true" flip-y="false" offset-x="0" offset-y="0" crop-width="0" crop-height="0" scale-width="0" scale-height="0" red-balance="1.0" green-balance="1.0" blue-balance="1.0" red-gamma="1.0" green-gamma="1.0" blue-gamma="1.0" deinterlace="false" light-actuator-id="ACT1605385237291" allow-machine-actuators="false" focus-sensing-method="None" white-balance-lead-fractile="0.8" white-balance-clip-fractile="0.99" white-balance-gamma-fractile="0.5" unique-id="HD USB Camera: HD USB Camera usb-0000:00:14.0-3.4" format-id="0" freeze-properties="true">
+         <camera class="org.openpnp.machine.reference.camera.OpenPnpCaptureCamera" id="CAM1614803235898" name="Bottom" looking="Up" auto-visible="false" shown-in-multi-camera-view="true" before-capture-light-on="true" user-action-light-on="true" after-capture-light-off="false" anti-glare-light-off="false" enable-units-per-pixel-3-d="false" auto-view-plane-z="false" max-relative-motion="0.05" min-motion-template-match-score="0.9" min-contrast-range="16.0" settle-method="FixedTime" settle-time-ms="600" settle-timeout-ms="500" settle-threshold="0.0" settle-debounce="0" settle-full-color="false" settle-gaussian-blur="0" settle-gradients="false" settle-mask-circle="0.0" settle-contrast-enhance="0.0" settle-diagnostics="false" fps="10000.0" suspend-preview-in-tasks="false" capture-try-count="4" capture-try-timeout-ms="2000" rotation="-0.05964544840267904" flip-x="true" flip-y="false" offset-x="0" offset-y="0" crop-width="0" crop-height="0" scale-width="0" scale-height="0" red-balance="1.0" green-balance="1.0" blue-balance="1.0" red-gamma="1.0" green-gamma="1.0" blue-gamma="1.0" deinterlace="false" light-actuator-id="ACT1605385237291" allow-machine-actuators="false" focus-sensing-method="None" white-balance-lead-fractile="0.8" white-balance-clip-fractile="0.99" white-balance-gamma-fractile="0.5" unique-id="HD USB Camera: HD USB Camera usb-0000:00:14.0-7" format-id="0" freeze-properties="false">
             <units-per-pixel units="Millimeters" x="0.03389831" y="0.03448276" z="0.0" rotation="0.0"/>
             <camera-primary-z value="29.813333333333333" units="Millimeters"/>
             <default-z value="29.813333333333333" units="Millimeters"/>
@@ -1736,17 +1736,17 @@
                <focal-resolution value="0.05" units="Millimeters"/>
             </focus-provider>
             <back-light-compensation property="BackLightCompensation" value="0"/>
-            <brightness property="Brightness" value="-51"/>
+            <brightness property="Brightness" value="0"/>
             <contrast property="Contrast" value="255"/>
-            <exposure property="Exposure" value="1" auto="false"/>
+            <exposure property="Exposure" value="200" auto="true"/>
             <focus property="Focus"/>
             <gain property="Gain" value="0"/>
             <gamma property="Gamma" value="72"/>
             <hue property="Hue" value="0"/>
             <power-line-frequency property="PowerLineFrequency" value="1"/>
-            <saturation property="Saturation" value="1"/>
+            <saturation property="Saturation" value="64"/>
             <sharpness property="Sharpness" value="2"/>
-            <white-balance property="WhiteBalance" value="2800" auto="true"/>
+            <white-balance property="WhiteBalance" value="4600" auto="true"/>
             <zoom property="Zoom"/>
          </camera>
       </cameras>
@@ -2010,7 +2010,7 @@
                <runout-compensation-lookup class="java.util.HashMap">
                   <entry>
                      <string>N1</string>
-                     <runout-compensation class="org.openpnp.machine.reference.ReferenceNozzleTipCalibration$ModelBasedRunoutCameraOffsetCompensation" center-x="0.3540020401685491" center-y="0.22673590010497632" radius="0.2104059046411298" phase-shift="-159.45531192915698" units="Millimeters" peak-error="0.021428918687452947" rms-error="0.015787957783563816"/>
+                     <runout-compensation class="org.openpnp.machine.reference.ReferenceNozzleTipCalibration$ModelBasedRunoutCameraOffsetCompensation" center-x="0.2999615685033459" center-y="0.29303302167208345" radius="0.2102690285621961" phase-shift="-151.54698461740446" units="Millimeters" peak-error="0.028156454246153203" rms-error="0.014973218159439616"/>
                   </entry>
                </runout-compensation-lookup>
                <minimum-detail-size value="0.2" units="Millimeters"/>
@@ -2131,7 +2131,7 @@
                <runout-compensation-lookup class="java.util.HashMap">
                   <entry>
                      <string>NOZ1710829fd33a0170</string>
-                     <runout-compensation class="org.openpnp.machine.reference.ReferenceNozzleTipCalibration$ModelBasedRunoutCameraOffsetCompensation" center-x="0.5593221150000001" center-y="0.15229885666666665" radius="0.15865321129604118" phase-shift="-139.78712533986854" units="Millimeters" peak-error="0.10824241516206444" rms-error="0.05372357556609125"/>
+                     <runout-compensation class="org.openpnp.machine.reference.ReferenceNozzleTipCalibration$ModelBasedRunoutCameraOffsetCompensation" center-x="0.35875711416666667" center-y="0.29885058666666664" radius="0.16676879383564303" phase-shift="54.603780984936336" units="Millimeters" peak-error="0.08945529738713096" rms-error="0.04641075838056874"/>
                   </entry>
                </runout-compensation-lookup>
                <minimum-detail-size value="0.2" units="Millimeters"/>
