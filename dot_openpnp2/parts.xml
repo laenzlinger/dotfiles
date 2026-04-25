@@ -76,6 +76,44 @@
    <part id="HVQFN-32-1EP_5x5mm_P0.5mm_EP3.1x3.1mm_ThermalVias-PCM5242RHBR" height-units="Millimeters" height="1.0" package-id="HVQFN-32-1EP_5x5mm_P0.5mm_EP3.1x3.1mm_ThermalVias" speed="1.0" pick-retry-count="0" />
    <part id="Oscillator_SMD_Abracon_ASDMB-4Pin_2.5x2.0mm-22.5792M" height-units="Millimeters" height="0.75" package-id="Oscillator_SMD_Abracon_ASDMB-4Pin_2.5x2.0mm" speed="1.0" pick-retry-count="0" />
    <part id="Oscillator_SMD_Abracon_ASDMB-4Pin_2.5x2.0mm-24.576M" height-units="Millimeters" height="0.75" package-id="Oscillator_SMD_Abracon_ASDMB-4Pin_2.5x2.0mm" speed="1.0" pick-retry-count="0" />
+   <part id="C_0805-1.2n" height-units="Millimeters" height="0.0" package-id="C_0805" speed="1.0" pick-retry-count="0" />
+   <part id="C_0805-100n" height-units="Millimeters" height="0.0" package-id="C_0805" speed="1.0" pick-retry-count="0" />
+   <part id="C_0805-10u" height-units="Millimeters" height="0.0" package-id="C_0805" speed="1.0" pick-retry-count="0" />
+   <part id="C_0805-18p" height-units="Millimeters" height="0.0" package-id="C_0805" speed="1.0" pick-retry-count="0" />
+   <part id="C_0805-1n" height-units="Millimeters" height="0.0" package-id="C_0805" speed="1.0" pick-retry-count="0" />
+   <part id="ECAP-6.3x7.7-100uF/25V" height-units="Millimeters" height="0.0" package-id="ECAP-6.3x7.7" speed="1.0" pick-retry-count="0" />
+   <part id="FIDUCIAL-1X2-Fiducial" height-units="Millimeters" height="0.0" package-id="FIDUCIAL-1X2" speed="1.0" pick-retry-count="0" />
+   <part id="FUSE-2512-3A" height-units="Millimeters" height="0.0" package-id="FUSE-2512" speed="1.0" pick-retry-count="0" />
+   <part id="IND-6045-SRN6045TA-3R3Y" height-units="Millimeters" height="0.0" package-id="IND-6045" speed="1.0" pick-retry-count="0" />
+   <part id="JST-SH-3-BM03B-SRSS-TB" height-units="Millimeters" height="0.0" package-id="JST-SH-3" speed="1.0" pick-retry-count="0" />
+   <part id="LED_0805-LED G" height-units="Millimeters" height="0.0" package-id="LED_0805" speed="1.0" pick-retry-count="0" />
+   <part id="LED_0805-LED R" height-units="Millimeters" height="0.0" package-id="LED_0805" speed="1.0" pick-retry-count="0" />
+   <part id="QFN-48-7x7-ASM1061" height-units="Millimeters" height="0.0" package-id="QFN-48-7x7" speed="1.0" pick-retry-count="0" />
+   <part id="R_0805-100K" height-units="Millimeters" height="0.0" package-id="R_0805" speed="1.0" pick-retry-count="0" />
+   <part id="R_0805-10K" height-units="Millimeters" height="0.0" package-id="R_0805" speed="1.0" pick-retry-count="0" />
+   <part id="R_0805-10R" height-units="Millimeters" height="0.0" package-id="R_0805" speed="1.0" pick-retry-count="0" />
+   <part id="R_0805-12K" height-units="Millimeters" height="0.0" package-id="R_0805" speed="1.0" pick-retry-count="0" />
+   <part id="R_0805-20K" height-units="Millimeters" height="0.0" package-id="R_0805" speed="1.0" pick-retry-count="0" />
+   <part id="R_0805-2K2" height-units="Millimeters" height="0.0" package-id="R_0805" speed="1.0" pick-retry-count="0" />
+   <part id="R_0805-330R" height-units="Millimeters" height="0.0" package-id="R_0805" speed="1.0" pick-retry-count="0" />
+   <part id="R_0805-4K7" height-units="Millimeters" height="0.0" package-id="R_0805" speed="1.0" pick-retry-count="0" />
+   <part id="R_0805-5K1" height-units="Millimeters" height="0.0" package-id="R_0805" speed="1.0" pick-retry-count="0" />
+   <part id="R_0805-750R" height-units="Millimeters" height="0.0" package-id="R_0805" speed="1.0" pick-retry-count="0" />
+   <part id="SATA_Amphenol_10029364-001LF_Horizontal-SATA_22pin" height-units="Millimeters" height="0.0" package-id="SATA_Amphenol_10029364-001LF_Horizontal" speed="1.0" pick-retry-count="0" />
+   <part id="SOIC-8-DS3231MZ" height-units="Millimeters" height="0.0" package-id="SOIC-8" speed="1.0" pick-retry-count="0" />
+   <part id="SOIC-8-EP-AP64501SP-13" height-units="Millimeters" height="0.0" package-id="SOIC-8-EP" speed="1.0" pick-retry-count="0" />
+   <part id="SOIC-8-FDS4435BZ" height-units="Millimeters" height="0.0" package-id="SOIC-8" speed="1.0" pick-retry-count="0" />
+   <part id="SOT-223-NCP1117-3.3_SOT223" height-units="Millimeters" height="0.0" package-id="SOT-223" speed="1.0" pick-retry-count="0" />
+   <part id="SOT-23-2N7002" height-units="Millimeters" height="0.0" package-id="SOT-23" speed="1.0" pick-retry-count="0" />
+   <part id="SOT-23-5-74AHCT1G125" height-units="Millimeters" height="0.0" package-id="SOT-23-5" speed="1.0" pick-retry-count="0" />
+   <part id="SOT-23-5-74AHCT1G32" height-units="Millimeters" height="0.0" package-id="SOT-23-5" speed="1.0" pick-retry-count="0" />
+   <part id="SOT-23-6-USBLC6-2SC6" height-units="Millimeters" height="0.0" package-id="SOT-23-6" speed="1.0" pick-retry-count="0" />
+   <part id="SW-PCM12-PCM12SMTR" height-units="Millimeters" height="0.0" package-id="SW-PCM12" speed="1.0" pick-retry-count="0" />
+   <part id="SW-SKRTLAE010-SW_Push" height-units="Millimeters" height="0.0" package-id="SW-SKRTLAE010" speed="1.0" pick-retry-count="0" />
+   <part id="TANT-D-100u" height-units="Millimeters" height="0.0" package-id="TANT-D" speed="1.0" pick-retry-count="0" />
+   <part id="USB-C-GCT4105-USB_C_Receptacle_USB2.0_14P" height-units="Millimeters" height="0.0" package-id="USB-C-GCT4105" speed="1.0" pick-retry-count="0" />
+   <part id="WS2812B-5050-WS2812B-5mm" height-units="Millimeters" height="0.0" package-id="WS2812B-5050" speed="1.0" pick-retry-count="0" />
+   <part id="XTAL-2016-25MHz" height-units="Millimeters" height="0.0" package-id="XTAL-2016" speed="1.0" pick-retry-count="0" />
    <part id="CP_Elec_6.3x7.7-100uF/25V" package-id="ECAP-6.3x7.7" speed="1.0" height-units="Millimeters" height="0.0" pick-retry-count="0" />
    <part id="Crystal_SMD_2016-4Pin_2.0x1.6mm-25MHz" package-id="XTAL-2016" speed="1.0" height-units="Millimeters" height="0.0" pick-retry-count="0" />
    <part id="Fuse_2512_6332Metric-3A" package-id="FUSE-2512" speed="1.0" height-units="Millimeters" height="0.0" pick-retry-count="0" />
@@ -89,12 +127,7 @@
    <part id="R_0805_2012Metric-4K7" package-id="R_0805" speed="1.0" height-units="Millimeters" height="0.0" pick-retry-count="0" />
    <part id="R_0805_2012Metric-5K1" package-id="R_0805" speed="1.0" height-units="Millimeters" height="0.0" pick-retry-count="0" />
    <part id="R_0805_2012Metric-750R" package-id="R_0805" speed="1.0" height-units="Millimeters" height="0.0" pick-retry-count="0" />
-   <part id="SATA_Amphenol_10029364-001LF_Horizontal-SATA_22pin" package-id="SATA_Amphenol_10029364-001LF_Horizontal" speed="1.0" height-units="Millimeters" height="0.0" pick-retry-count="0" />
    <part id="SOIC-8_3.9x4.9mm_P1.27mm-DS3231MZ" package-id="SOIC-8" speed="1.0" height-units="Millimeters" height="0.0" pick-retry-count="0" />
-   <part id="SOT-23-2N7002" package-id="SOT-23" speed="1.0" height-units="Millimeters" height="0.0" pick-retry-count="0" />
-   <part id="SOT-23-5-74AHCT1G125" package-id="SOT-23-5" speed="1.0" height-units="Millimeters" height="0.0" pick-retry-count="0" />
-   <part id="SOT-23-5-74AHCT1G32" package-id="SOT-23-5" speed="1.0" height-units="Millimeters" height="0.0" pick-retry-count="0" />
-   <part id="SOT-23-6-USBLC6-2SC6" package-id="SOT-23-6" speed="1.0" height-units="Millimeters" height="0.0" pick-retry-count="0" />
    <part id="SW_Push_1P1T-MP_NO_Horizontal_Alps_SKRTLAE010-SW_Push" package-id="SW-SKRTLAE010" speed="1.0" height-units="Millimeters" height="0.0" pick-retry-count="0" />
    <part id="SW_SPDT_PCM12-PCM12SMTR" package-id="SW-PCM12" speed="1.0" height-units="Millimeters" height="0.0" pick-retry-count="0" />
    <part id="USB_C_Receptacle_GCT_USB4105-xx-A_16P_TopMnt_Horizontal-USB_C_Receptacle_USB2.0_14P" package-id="USB-C-GCT4105" speed="1.0" height-units="Millimeters" height="0.0" pick-retry-count="0" />

@@ -786,20 +786,68 @@
          <string>NT1</string>
       </compatible-nozzle-tip-ids>
    </package>
-   <package version="1.1" id="ECAP-6.3x7.7" pick-vacuum-level="0.0" place-blow-off-level="0.0" />
-   <package version="1.1" id="FUSE-2512" pick-vacuum-level="0.0" place-blow-off-level="0.0" />
-   <package version="1.1" id="IND-6045" pick-vacuum-level="0.0" place-blow-off-level="0.0" />
-   <package version="1.1" id="JST-SH-3" pick-vacuum-level="0.0" place-blow-off-level="0.0" />
-   <package version="1.1" id="QFN-48-7x7" pick-vacuum-level="0.0" place-blow-off-level="0.0" />
-   <package version="1.1" id="Raspberry-Pi-4-Compute-Module" pick-vacuum-level="0.0" place-blow-off-level="0.0" />
-   <package version="1.1" id="SATA_Amphenol_10029364-001LF_Horizontal" pick-vacuum-level="0.0" place-blow-off-level="0.0" />
-   <package version="1.1" id="SOIC-8" pick-vacuum-level="0.0" place-blow-off-level="0.0" />
-   <package version="1.1" id="SOIC-8-EP" pick-vacuum-level="0.0" place-blow-off-level="0.0" />
-   <package version="1.1" id="SOT-23" pick-vacuum-level="0.0" place-blow-off-level="0.0" />
-   <package version="1.1" id="SW-PCM12" pick-vacuum-level="0.0" place-blow-off-level="0.0" />
-   <package version="1.1" id="SW-SKRTLAE010" pick-vacuum-level="0.0" place-blow-off-level="0.0" />
-   <package version="1.1" id="TANT-D" pick-vacuum-level="0.0" place-blow-off-level="0.0" />
-   <package version="1.1" id="USB-C-GCT4105" pick-vacuum-level="0.0" place-blow-off-level="0.0" />
-   <package version="1.1" id="WS2812B-5050" pick-vacuum-level="0.0" place-blow-off-level="0.0" />
-   <package version="1.1" id="XTAL-2016" pick-vacuum-level="0.0" place-blow-off-level="0.0" />
+   <package version="1.1" id="ECAP-6.3x7.7" pick-vacuum-level="0.0" place-blow-off-level="0.0">
+      <footprint units="Millimeters" body-width="0.0" body-height="0.0" outer-dimension="0.0" inner-dimension="0.0" pad-count="0" pad-pitch="0.0" pad-across="0.0" pad-roundness="0.0" />
+      <compatible-nozzle-tip-ids class="java.util.ArrayList" />
+   </package>
+   <package version="1.1" id="FUSE-2512" pick-vacuum-level="0.0" place-blow-off-level="0.0">
+      <footprint units="Millimeters" body-width="0.0" body-height="0.0" outer-dimension="0.0" inner-dimension="0.0" pad-count="0" pad-pitch="0.0" pad-across="0.0" pad-roundness="0.0" />
+      <compatible-nozzle-tip-ids class="java.util.ArrayList" />
+   </package>
+   <package version="1.1" id="IND-6045" pick-vacuum-level="0.0" place-blow-off-level="0.0">
+      <footprint units="Millimeters" body-width="0.0" body-height="0.0" outer-dimension="0.0" inner-dimension="0.0" pad-count="0" pad-pitch="0.0" pad-across="0.0" pad-roundness="0.0" />
+      <compatible-nozzle-tip-ids class="java.util.ArrayList" />
+   </package>
+   <package version="1.1" id="JST-SH-3" pick-vacuum-level="0.0" place-blow-off-level="0.0">
+      <footprint units="Millimeters" body-width="0.0" body-height="0.0" outer-dimension="0.0" inner-dimension="0.0" pad-count="0" pad-pitch="0.0" pad-across="0.0" pad-roundness="0.0" />
+      <compatible-nozzle-tip-ids class="java.util.ArrayList" />
+   </package>
+   <package version="1.1" id="QFN-48-7x7" pick-vacuum-level="0.0" place-blow-off-level="0.0">
+      <footprint units="Millimeters" body-width="0.0" body-height="0.0" outer-dimension="0.0" inner-dimension="0.0" pad-count="0" pad-pitch="0.0" pad-across="0.0" pad-roundness="0.0" />
+      <compatible-nozzle-tip-ids class="java.util.ArrayList" />
+   </package>
+   <package version="1.1" id="Raspberry-Pi-4-Compute-Module" pick-vacuum-level="0.0" place-blow-off-level="0.0">
+      <footprint units="Millimeters" body-width="0.0" body-height="0.0" outer-dimension="0.0" inner-dimension="0.0" pad-count="0" pad-pitch="0.0" pad-across="0.0" pad-roundness="0.0" />
+      <compatible-nozzle-tip-ids class="java.util.ArrayList" />
+   </package>
+   <package version="1.1" id="SATA_Amphenol_10029364-001LF_Horizontal" pick-vacuum-level="0.0" place-blow-off-level="0.0">
+      <footprint units="Millimeters" body-width="0.0" body-height="0.0" outer-dimension="0.0" inner-dimension="0.0" pad-count="0" pad-pitch="0.0" pad-across="0.0" pad-roundness="0.0" />
+      <compatible-nozzle-tip-ids class="java.util.ArrayList" />
+   </package>
+   <package version="1.1" id="SOIC-8" pick-vacuum-level="0.0" place-blow-off-level="0.0">
+      <footprint units="Millimeters" body-width="0.0" body-height="0.0" outer-dimension="0.0" inner-dimension="0.0" pad-count="0" pad-pitch="0.0" pad-across="0.0" pad-roundness="0.0" />
+      <compatible-nozzle-tip-ids class="java.util.ArrayList" />
+   </package>
+   <package version="1.1" id="SOIC-8-EP" pick-vacuum-level="0.0" place-blow-off-level="0.0">
+      <footprint units="Millimeters" body-width="0.0" body-height="0.0" outer-dimension="0.0" inner-dimension="0.0" pad-count="0" pad-pitch="0.0" pad-across="0.0" pad-roundness="0.0" />
+      <compatible-nozzle-tip-ids class="java.util.ArrayList" />
+   </package>
+   <package version="1.1" id="SOT-23" pick-vacuum-level="0.0" place-blow-off-level="0.0">
+      <footprint units="Millimeters" body-width="0.0" body-height="0.0" outer-dimension="0.0" inner-dimension="0.0" pad-count="0" pad-pitch="0.0" pad-across="0.0" pad-roundness="0.0" />
+      <compatible-nozzle-tip-ids class="java.util.ArrayList" />
+   </package>
+   <package version="1.1" id="SW-PCM12" pick-vacuum-level="0.0" place-blow-off-level="0.0">
+      <footprint units="Millimeters" body-width="0.0" body-height="0.0" outer-dimension="0.0" inner-dimension="0.0" pad-count="0" pad-pitch="0.0" pad-across="0.0" pad-roundness="0.0" />
+      <compatible-nozzle-tip-ids class="java.util.ArrayList" />
+   </package>
+   <package version="1.1" id="SW-SKRTLAE010" pick-vacuum-level="0.0" place-blow-off-level="0.0">
+      <footprint units="Millimeters" body-width="0.0" body-height="0.0" outer-dimension="0.0" inner-dimension="0.0" pad-count="0" pad-pitch="0.0" pad-across="0.0" pad-roundness="0.0" />
+      <compatible-nozzle-tip-ids class="java.util.ArrayList" />
+   </package>
+   <package version="1.1" id="TANT-D" pick-vacuum-level="0.0" place-blow-off-level="0.0">
+      <footprint units="Millimeters" body-width="0.0" body-height="0.0" outer-dimension="0.0" inner-dimension="0.0" pad-count="0" pad-pitch="0.0" pad-across="0.0" pad-roundness="0.0" />
+      <compatible-nozzle-tip-ids class="java.util.ArrayList" />
+   </package>
+   <package version="1.1" id="USB-C-GCT4105" pick-vacuum-level="0.0" place-blow-off-level="0.0">
+      <footprint units="Millimeters" body-width="0.0" body-height="0.0" outer-dimension="0.0" inner-dimension="0.0" pad-count="0" pad-pitch="0.0" pad-across="0.0" pad-roundness="0.0" />
+      <compatible-nozzle-tip-ids class="java.util.ArrayList" />
+   </package>
+   <package version="1.1" id="WS2812B-5050" pick-vacuum-level="0.0" place-blow-off-level="0.0">
+      <footprint units="Millimeters" body-width="0.0" body-height="0.0" outer-dimension="0.0" inner-dimension="0.0" pad-count="0" pad-pitch="0.0" pad-across="0.0" pad-roundness="0.0" />
+      <compatible-nozzle-tip-ids class="java.util.ArrayList" />
+   </package>
+   <package version="1.1" id="XTAL-2016" pick-vacuum-level="0.0" place-blow-off-level="0.0">
+      <footprint units="Millimeters" body-width="0.0" body-height="0.0" outer-dimension="0.0" inner-dimension="0.0" pad-count="0" pad-pitch="0.0" pad-across="0.0" pad-roundness="0.0" />
+      <compatible-nozzle-tip-ids class="java.util.ArrayList" />
+   </package>
 </openpnp-packages>
