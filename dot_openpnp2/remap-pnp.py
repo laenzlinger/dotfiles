@@ -54,6 +54,10 @@ def write_pos(placements, path):
         f.write("## End\n")
 
 
+HAND_PLACE = {"CM1", "J1", "J2", "J3", "J4", "SW1", "C26"}
+FIDUCIALS = {"FID1", "FID2", "FID3", "FID4"}
+
+
 def write_board_xml(placements, path):
     with open(path, "w") as f:
         f.write('<openpnp-board version="1.1" name="granit">\n')
@@ -61,7 +65,14 @@ def write_board_xml(placements, path):
         f.write('   <placements>\n')
         for p in placements:
             side = p["side"].capitalize()
-            f.write(f'      <placement version="1.4" id="{p["ref"]}" side="{side}" part-id="{p["part_id"]}" type="Placement" enabled="true">\n')
+            ref = p["ref"]
+            if ref in FIDUCIALS:
+                ptype, enabled = "Fiducial", "true"
+            elif ref in HAND_PLACE:
+                ptype, enabled = "Placement", "false"
+            else:
+                ptype, enabled = "Placement", "true"
+            f.write(f'      <placement version="1.4" side="{side}" id="{ref}" part-id="{p["part_id"]}" type="{ptype}" enabled="{enabled}">\n')
             f.write(f'         <location units="Millimeters" x="{p["x"]}" y="{p["y"]}" z="0.0" rotation="{p["rot"]}"/>\n')
             f.write(f'      </placement>\n')
         f.write('   </placements>\n')
