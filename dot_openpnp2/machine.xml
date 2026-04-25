@@ -342,10 +342,10 @@
                   <back-light-compensation property="BackLightCompensation" value="0"/>
                   <brightness property="Brightness" value="0"/>
                   <contrast property="Contrast" value="191"/>
-                  <exposure property="Exposure" value="50" auto="false"/>
+                  <exposure property="Exposure" value="30" auto="false"/>
                   <focus property="Focus"/>
                   <gain property="Gain" value="0"/>
-                  <gamma property="Gamma" value="72"/>
+                  <gamma property="Gamma" value="100"/>
                   <hue property="Hue" value="-4"/>
                   <power-line-frequency property="PowerLineFrequency" value="1"/>
                   <saturation property="Saturation" value="64"/>
@@ -1737,11 +1737,11 @@
             </focus-provider>
             <back-light-compensation property="BackLightCompensation" value="0"/>
             <brightness property="Brightness" value="0"/>
-            <contrast property="Contrast" value="255"/>
-            <exposure property="Exposure" value="50" auto="false"/>
+            <contrast property="Contrast" value="191"/>
+            <exposure property="Exposure" value="200" auto="false"/>
             <focus property="Focus"/>
             <gain property="Gain" value="0"/>
-            <gamma property="Gamma" value="72"/>
+            <gamma property="Gamma" value="100"/>
             <hue property="Hue" value="0"/>
             <power-line-frequency property="PowerLineFrequency" value="1"/>
             <saturation property="Saturation" value="64"/>
@@ -2010,7 +2010,7 @@
                <runout-compensation-lookup class="java.util.HashMap">
                   <entry>
                      <string>N1</string>
-                     <runout-compensation class="org.openpnp.machine.reference.ReferenceNozzleTipCalibration$ModelBasedRunoutCameraOffsetCompensation" center-x="0.2999615685033459" center-y="0.29303302167208345" radius="0.2102690285621961" phase-shift="-151.54698461740446" units="Millimeters" peak-error="0.028156454246153203" rms-error="0.014973218159439616"/>
+                     <runout-compensation class="org.openpnp.machine.reference.ReferenceNozzleTipCalibration$ModelBasedRunoutCameraOffsetCompensation" center-x="0.2669511626096003" center-y="0.22783824764263552" radius="0.2127132900464423" phase-shift="-149.9013965852028" units="Millimeters" peak-error="0.03304955847132319" rms-error="0.01721286213980442"/>
                   </entry>
                </runout-compensation-lookup>
                <minimum-detail-size value="0.2" units="Millimeters"/>
@@ -2131,7 +2131,7 @@
                <runout-compensation-lookup class="java.util.HashMap">
                   <entry>
                      <string>NOZ1710829fd33a0170</string>
-                     <runout-compensation class="org.openpnp.machine.reference.ReferenceNozzleTipCalibration$ModelBasedRunoutCameraOffsetCompensation" center-x="0.35875711416666667" center-y="0.29885058666666664" radius="0.16676879383564303" phase-shift="54.603780984936336" units="Millimeters" peak-error="0.08945529738713096" rms-error="0.04641075838056874"/>
+                     <runout-compensation class="org.openpnp.machine.reference.ReferenceNozzleTipCalibration$ModelBasedRunoutCameraOffsetCompensation" center-x="0.39265542416666666" center-y="0.22126437666666665" radius="0.17500253450290804" phase-shift="56.54975391558989" units="Millimeters" peak-error="0.07208654220030489" rms-error="0.03999611919865304"/>
                   </entry>
                </runout-compensation-lookup>
                <minimum-detail-size value="0.2" units="Millimeters"/>
