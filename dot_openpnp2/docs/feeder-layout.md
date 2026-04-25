@@ -9,16 +9,16 @@ Standard feeder array layout for the Opulo Lumen PnP machine.
 
 ┌─────────────────────────────────────────────────────────────────┐
 │                                                                 │  High Y
-│  HL 8×8mm        PCB AREA                      HR 6×12mm       │  (hinten)
+│  LH8 8×8mm       PCB AREA                      RH12 6×12mm     │  (hinten)
 │  ║ ║ ║ ║ ║ ║ ║ ║                               ║ ║ ║ ║ ║ ║    │
 │  (8 slots)                                     (6 slots)       │
 │                                                                 │
 ├─────────────────────────────────────────────────────────────────┤
 │                                                                 │  Low Y
-│  VL 16×8mm       [BTM CAM]  VR 8×8mm  RV 6×16mm               │  (vorne)
-│  ║║║║║║║║║║║║║║║║    ◉      ║║║║║║║║  ═══ ═══ ═══             │
-│  (16 slots)                 (8 slots) ═══ ═══ ═══             │
-│                                       (X dir hi→lo)            │
+│  DRAG  LV8 16×8mm  [BTM CAM]  RV8 8×8mm  RV16 6×16mm          │  (vorne)
+│  ≋≋≋≋≋≋≋≋  ║║║║║║║║║║║║║║║║  ◉     ║║║║║║║║  ═══ ═══ ═══          │
+│  (8)  (16 slots)               (8 slots) ═══ ═══ ═══          │
+│                                           (X dir hi→lo)        │
 └─────────────────────────────────────────────────────────────────┘
    Operator (vorne)
 ```
@@ -27,13 +27,46 @@ Standard feeder array layout for the Opulo Lumen PnP machine.
 
 | Array | Position       | Slots | Tape Width | Strip Direction | Feed Direction |
 |-------|----------------|-------|------------|-----------------|----------------|
-| VL    | Vorne Links    | 16    | 8mm        | Y               | ↑ (low→high Y) |
-| VR    | Vorne Rechts   | 8     | 8mm        | Y               | ↑ (low→high Y) |
-| HL    | Hinten Links   | 8     | 8mm        | Y               | ↓ (high→low Y) |
-| HR    | Hinten Rechts  | 6     | 12mm       | Y               | ↑              |
-| RV    | Rechts Vorne   | 6     | 16mm       | X               | ← (high→low X) |
+| LV8   | Links Vorne    | 16    | 8mm        | Y               | ↑ (low→high Y) |
+| RV8   | Rechts Vorne   | 8     | 8mm        | Y               | ↑ (low→high Y) |
+| LH8   | Links Hinten   | 8     | 8mm        | Y               | ↓ (high→low Y) |
+| RH12  | Rechts Hinten  | 6     | 12mm       | Y               | ↑              |
+| RV16  | Rechts Vorne   | 6     | 16mm       | X               | ← (high→low X) |
 
 **Total: 44 feeder slots** (32×8mm + 6×12mm + 6×16mm)
+
+## Naming Conventions
+
+### Feeder Names
+
+Format: `{Position}{TapeWidth}-{Slot}` — e.g. `LV8-01`, `RH12-3`, `RV16-5`
+
+| Prefix | Position | Tape Width | Slots |
+|--------|----------|------------|-------|
+| LV8    | Links Vorne (front-left) | 8mm | 01–16 |
+| RV8    | Rechts Vorne (front-right) | 8mm | 1–8 |
+| LH8    | Links Hinten (back-left) | 8mm | 01–13 |
+| RH12   | Rechts Hinten (back-right) | 12mm | 1–10 |
+| RV16   | Rechts Vorne (front-right, beside RV8) | 16mm | 1–6 |
+
+### Package Names
+
+Short names mapped from KiCad footprints via `openpnp-package-map.csv`:
+
+| Package | Example footprint |
+|---------|-------------------|
+| C_0805  | C_0805_2012Metric |
+| R_0805  | R_0805_2012Metric |
+| SOT-23  | SOT-23 |
+| SOIC-8  | SOIC-8_3.9x4.9mm_P1.27mm |
+| QFN-48-7x7 | QFN50P700X700X90-49N-D |
+
+### Part IDs
+
+Format: `{Package}-{Value}` — e.g. `C_0805-100n`, `R_0805-10K`, `SOT-23-2N7002`
+
+Parts are shared across all projects. The package map ensures consistent naming
+regardless of which KiCad library the footprint came from.
 
 ## Typical Allocation
 
