@@ -1,9 +1,11 @@
 #!/usr/bin/env python3
-"""Remap KiCad footprint names in a PnP position CSV to OpenPnP package IDs.
+"""Remap KiCad footprint names and generate OpenPnP board XML.
 
-Reads CSV from stdin, writes KiCad ASCII .pos format to stdout.
+Usage:
+  kicad-cli pcb export pos --format csv ... | remap-pnp.py PNP_DIR
 """
 import csv
+import re
 import sys
 from pathlib import Path
 
@@ -18,9 +20,9 @@ def load_map(path):
     return mapping
 
 
-def remap(infile, outfile, mapping):
+def read_placements(infile, mapping):
+    placements = []
     reader = csv.DictReader(infile)
-    outfile.write("# Ref     Val                          Package                                    PosX       PosY       Rot  Side\n")
     for row in reader:
         ref = (row.get("Ref") or "").strip()
         val = (row.get("Val") or "").strip()
@@ -28,13 +30,50 @@ def remap(infile, outfile, mapping):
         if not ref or not pkg:
             continue
         pkg = mapping.get(pkg, pkg)
-        x = row["PosX"].strip()
-        y = row["PosY"].strip()
-        rot = row["Rot"].strip()
-        side = row["Side"].strip()
-        outfile.write(f"{ref:<10}{val:<29}{pkg:<43}{x:>10}{y:>11}{rot:>10}  {side}\n")
+        placements.append({
+            "ref": ref, "val": val, "pkg": pkg,
+            "x": row["PosX"].strip(), "y": row["PosY"].strip(),
+            "rot": row["Rot"].strip(), "side": row["Side"].strip(),
+        })
+    return placements
+
+
+def write_pos(placements, path):
+    with open(path, "w") as f:
+        f.write("### Footprint positions ###\n")
+        f.write("## Unit = mm, Angle = deg.\n")
+        f.write("## Side : All\n")
+        f.write("# Ref     Val                          Package                                    PosX       PosY       Rot  Side\n")
+        for p in placements:
+            f.write(f"{p['ref']:<10}{p['val']:<29}{p['pkg']:<43}{p['x']:>10}{p['y']:>11}{p['rot']:>10}  {p['side']}\n")
+        f.write("## End\n")
+
+
+def write_board_xml(placements, path):
+    with open(path, "w") as f:
+        f.write('<openpnp-board version="1.1" name="granit">\n')
+        f.write('   <dimensions units="Millimeters" x="92.0" y="99.5" z="1.6" rotation="0.0"/>\n')
+        f.write('   <placements>\n')
+        for p in placements:
+            part_id = f"{p['pkg']}-{p['val']}"
+            side = p["side"].capitalize()
+            f.write(f'      <placement version="1.4" id="{p["ref"]}" side="{side}" part-id="{part_id}" type="Placement" enabled="true">\n')
+            f.write(f'         <location units="Millimeters" x="{p["x"]}" y="{p["y"]}" z="0.0" rotation="{p["rot"]}"/>\n')
+            f.write(f'      </placement>\n')
+        f.write('   </placements>\n')
+        f.write('   <fiducials/>\n')
+        f.write('   <solder-paste-pads/>\n')
+        f.write('</openpnp-board>\n')
 
 
 if __name__ == "__main__":
+    if len(sys.argv) != 2:
+        print("Usage: kicad-cli pcb export pos --format csv ... | remap-pnp.py PNP_DIR", file=sys.stderr)
+        sys.exit(1)
+    pnp_dir = Path(sys.argv[1])
+    pnp_dir.mkdir(parents=True, exist_ok=True)
     mapping = load_map(MAP_FILE)
-    remap(sys.stdin, sys.stdout, mapping)
+    placements = read_placements(sys.stdin, mapping)
+    write_pos(placements, pnp_dir / "granit.pos")
+    write_board_xml(placements, pnp_dir / "granit.board.xml")
+    print(f"Wrote {len(placements)} placements to {pnp_dir}")
