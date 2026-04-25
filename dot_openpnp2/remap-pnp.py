@@ -3,9 +3,11 @@
 
 Usage:
   kicad-cli pcb export pos --format csv ... | remap-pnp.py PNP_DIR
+
+Part IDs use the original KiCad footprint name to match existing OpenPnP parts.
+Package IDs use the remapped short name from openpnp-package-map.csv.
 """
 import csv
-import re
 import sys
 from pathlib import Path
 
@@ -26,12 +28,15 @@ def read_placements(infile, mapping):
     for row in reader:
         ref = (row.get("Ref") or "").strip()
         val = (row.get("Val") or "").strip()
-        pkg = (row.get("Package") or "").strip()
-        if not ref or not pkg:
+        kicad_fp = (row.get("Package") or "").strip()
+        if not ref or not kicad_fp:
             continue
-        pkg = mapping.get(pkg, pkg)
+        openpnp_pkg = mapping.get(kicad_fp, kicad_fp)
         placements.append({
-            "ref": ref, "val": val, "pkg": pkg,
+            "ref": ref, "val": val,
+            "kicad_fp": kicad_fp,
+            "pkg": openpnp_pkg,
+            "part_id": f"{kicad_fp}-{val}",
             "x": row["PosX"].strip(), "y": row["PosY"].strip(),
             "rot": row["Rot"].strip(), "side": row["Side"].strip(),
         })
@@ -55,9 +60,8 @@ def write_board_xml(placements, path):
         f.write('   <dimensions units="Millimeters" x="92.0" y="99.5" z="1.6" rotation="0.0"/>\n')
         f.write('   <placements>\n')
         for p in placements:
-            part_id = f"{p['pkg']}-{p['val']}"
             side = p["side"].capitalize()
-            f.write(f'      <placement version="1.4" id="{p["ref"]}" side="{side}" part-id="{part_id}" type="Placement" enabled="true">\n')
+            f.write(f'      <placement version="1.4" id="{p["ref"]}" side="{side}" part-id="{p["part_id"]}" type="Placement" enabled="true">\n')
             f.write(f'         <location units="Millimeters" x="{p["x"]}" y="{p["y"]}" z="0.0" rotation="{p["rot"]}"/>\n')
             f.write(f'      </placement>\n')
         f.write('   </placements>\n')
