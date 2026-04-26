@@ -30,6 +30,17 @@
     background: @base02;
 }
 
+.notification-action {
+    background: @base02;
+    color: @base05;
+    border: 1px solid @base03;
+    border-radius: 6px;
+}
+
+.notification-action:hover {
+    background: @base03;
+}
+
 .close-button {
     background: @base02;
     color: @base07;
