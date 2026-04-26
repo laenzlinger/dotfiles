@@ -21,7 +21,7 @@
       </compatible-nozzle-tip-ids>
    </package>
    <package version="1.1" bottom-vision-id="BVS17a3c51b992772c5" id="D_SMA" description="Diode Outline 214AC" tape-specification="12mm" pick-vacuum-level="0.0" place-blow-off-level="0.0">
-      <footprint units="Millimeters" body-width="2.29" body-height="4.0" outer-dimension="6.45" inner-dimension="1.47" pad-count="2" pad-pitch="1.0" pad-across="1.8" pad-roundness="5.0">
+      <footprint units="Millimeters" body-width="4.6" body-height="2.6" outer-dimension="6.45" inner-dimension="1.47" pad-count="2" pad-pitch="1.0" pad-across="1.8" pad-roundness="5.0">
          <pad name="1" x="-1.98" y="0.0" width="2.49" height="1.8" rotation="180.0" roundness="5.0" />
          <pad name="2" x="1.98" y="0.0" width="2.49" height="1.8" rotation="0.0" roundness="5.0" />
       </footprint>
