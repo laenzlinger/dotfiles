@@ -5,11 +5,11 @@ CHEZMOI_SRC  := $(HOME)/.local/share/chezmoi/dot_openpnp2
 MANAGED_FILES := machine.xml parts.xml packages.xml vision-settings.xml
 
 define check_openpnp_not_running
-	@pgrep -f '[Oo]pen[Pp]np' >/dev/null 2>&1 && { echo "\033[31mERROR: OpenPnP is running — close it first!\033[0m"; exit 1; } || true
+	@if pgrep -x OpenPnP >/dev/null 2>&1; then printf "\033[31mERROR: OpenPnP is running — close it first!\033[0m\n"; exit 1; fi
 endef
 
 define check_openpnp_running
-	@pgrep -f '[Oo]pen[Pp]np' >/dev/null 2>&1 || { echo "\033[31mERROR: OpenPnP is not running.\033[0m"; exit 1; }
+	@if ! pgrep -x OpenPnP >/dev/null 2>&1; then printf "\033[31mERROR: OpenPnP is not running.\033[0m\n"; exit 1; fi
 endef
 
 .PHONY: apply
