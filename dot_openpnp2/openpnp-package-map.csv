@@ -22,7 +22,7 @@ CP_EIA-7343-31_Kemet-D,TANT-D,1.9,ClearPlastic,8
 CP_Elec_6.3x7.7,ECAP-6.3x7.7,7.7,,
 Fuse_2512_6332Metric,FUSE-2512,1.0,ClearPlastic,12
 L_Bourns_SRN6045TA,IND-6045,4.2,ClearPlastic,16
-LED_WS2812B_PLCC4_5.0x5.0mm_P3.2mm,WS2812B-5050,1.6,ClearPlastic,8
+LED_WS2812B_PLCC4_5.0x5.0mm_P3.2mm,WS2812B-5050,1.6,ClearPlastic,12
 # Connectors & switches (hand-place, no tape info)
 SW_Push_1P1T-MP_NO_Horizontal_Alps_SKRTLAE010,SW-SKRTLAE010,,,
 SW_SPDT_PCM12,SW-PCM12,,,
