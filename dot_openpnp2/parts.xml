@@ -34,7 +34,7 @@
    <part id="R_0805-12K" height-units="Millimeters" height="0.5" package-id="R_0805" speed="1.0" pick-retry-count="0"/>
    <part id="R_0805-20K" height-units="Millimeters" height="0.5" package-id="R_0805" speed="1.0" pick-retry-count="0"/>
    <part id="R_0805-2K2" height-units="Millimeters" height="0.5" package-id="R_0805" speed="1.0" pick-retry-count="0"/>
-   <part id="SOIC-8-EP-AP64501SP-13" height-units="Millimeters" height="1.8" package-id="SOIC-8-EP" speed="1.0" pick-retry-count="0"/>
+   <part speed="0.75" pick-retry-count="0"/>
    <part id="TEST-OBJECT" height-units="Millimeters" height="0.02" package-id="FIDUCIAL-1X2" speed="1.0" pick-retry-count="0"/>
    <part id="C_0402_1005Metric-1uF" height-units="Millimeters" height="0.0" package-id="C_0402_1005Metric" speed="1.0" pick-retry-count="0"/>
    <part id="LED_SK6812_EC15_1.5x1.5mm-SK6812_EC15" height-units="Millimeters" height="0.0" package-id="LED_SK6812_EC15_1.5x1.5mm" speed="1.0" pick-retry-count="0"/>
@@ -81,7 +81,7 @@
    <part id="JST-SH-3-BM03B-SRSS-TB" height-units="Millimeters" height="0.0" package-id="JST-SH-3" speed="1.0" pick-retry-count="0"/>
    <part id="LED_0805-LED G" height-units="Millimeters" height="0.8" package-id="LED_0805" speed="1.0" pick-retry-count="0"/>
    <part id="LED_0805-LED R" height-units="Millimeters" height="0.8" package-id="LED_0805" speed="1.0" pick-retry-count="0"/>
-   <part id="QFN-48-7x7-ASM1061" height-units="Millimeters" height="0.9" package-id="QFN-48-7x7" speed="1.0" pick-retry-count="0"/>
+   <part speed="0.5" pick-retry-count="0"/>
    <part id="R_0805-330R" height-units="Millimeters" height="0.5" package-id="R_0805" speed="1.0" pick-retry-count="0"/>
    <part id="R_0805-4K7" height-units="Millimeters" height="0.5" package-id="R_0805" speed="1.0" pick-retry-count="0"/>
    <part id="R_0805-5K1" height-units="Millimeters" height="0.5" package-id="R_0805" speed="1.0" pick-retry-count="0"/>
@@ -95,7 +95,7 @@
    <part id="SW-PCM12-PCM12SMTR" height-units="Millimeters" height="0.0" package-id="SW-PCM12" speed="1.0" pick-retry-count="0"/>
    <part id="SW-SKRTLAE010-SW_Push" height-units="Millimeters" height="0.0" package-id="SW-SKRTLAE010" speed="1.0" pick-retry-count="0"/>
    <part id="USB-C-GCT4105-USB_C_Receptacle_USB2.0_14P" height-units="Millimeters" height="0.0" package-id="USB-C-GCT4105" speed="1.0" pick-retry-count="0"/>
-   <part id="WS2812B-5050-WS2812B-5mm" height-units="Millimeters" height="1.6" package-id="WS2812B-5050" speed="1.0" pick-retry-count="0"/>
+   <part speed="0.75" pick-retry-count="0"/>
    <part id="XTAL-2016-25MHz" height-units="Millimeters" height="0.7" package-id="XTAL-2016" speed="1.0" pick-retry-count="0"/>
    <part id="CALIBRATION-DUMMY" height-units="Millimeters" height="0.0" package-id="C_0805" speed="1.0" pick-retry-count="0"/>
    <part id="CP_Elec_6.3x7.7-100uF/25V" height-units="Millimeters" height="0.0" package-id="ECAP-6.3x7.7" speed="1.0" pick-retry-count="0"/>
