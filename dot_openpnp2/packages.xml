@@ -99,7 +99,7 @@
       </compatible-nozzle-tip-ids>
    </package>
    <package version="1.1" bottom-vision-id="BVS17a3bc476203fff4" id="R_0805" description="Resistor0805" tape-specification="8mm" pick-vacuum-level="0.0" place-blow-off-level="0.0">
-      <footprint units="Millimeters" body-width="1.2" body-height="2.0" outer-dimension="0.0" inner-dimension="0.0" pad-count="0" pad-pitch="0.0" pad-across="0.0" pad-roundness="0.0">
+      <footprint units="Millimeters" body-width="2.0" body-height="1.25" outer-dimension="0.0" inner-dimension="0.0" pad-count="0" pad-pitch="0.0" pad-across="0.0" pad-roundness="0.0">
          <pad name="1" x="-0.95" y="0.0" width="0.7" height="1.3" rotation="0.0" roundness="0.0" />
          <pad name="2" x="0.95" y="0.0" width="0.7" height="1.3" rotation="0.0" roundness="0.0" />
       </footprint>
@@ -123,7 +123,7 @@
       </compatible-nozzle-tip-ids>
    </package>
    <package version="1.1" id="LED_0805" description="LED  0805" tape-specification="8mm" pick-vacuum-level="0.0" place-blow-off-level="0.0">
-      <footprint units="Millimeters" body-width="1.5" body-height="2.0" outer-dimension="0.0" inner-dimension="0.0" pad-count="0" pad-pitch="0.0" pad-across="0.0" pad-roundness="0.0">
+      <footprint units="Millimeters" body-width="2.0" body-height="1.25" outer-dimension="0.0" inner-dimension="0.0" pad-count="0" pad-pitch="0.0" pad-across="0.0" pad-roundness="0.0">
          <pad name="1" x="-0.95" y="0.0" width="0.7" height="1.3" rotation="0.0" roundness="0.0" />
          <pad name="2" x="0.95" y="0.0" width="0.7" height="1.3" rotation="0.0" roundness="0.0" />
       </footprint>
@@ -337,7 +337,7 @@
       </compatible-nozzle-tip-ids>
    </package>
    <package version="1.1" bottom-vision-id="BVS17a4332093fb0f60" id="SOT-223" description="Small Outline Transistor 3 Pin" tape-specification="8mm" pick-vacuum-level="0.0" place-blow-off-level="0.0">
-      <footprint units="Millimeters" body-width="3.5" body-height="6.5" outer-dimension="8.3" inner-dimension="4.3" pad-count="6" pad-pitch="2.25" pad-across="1.47" pad-roundness="1.0">
+      <footprint units="Millimeters" body-width="6.5" body-height="3.5" outer-dimension="8.3" inner-dimension="4.3" pad-count="6" pad-pitch="2.25" pad-across="1.47" pad-roundness="1.0">
          <pad name="1" x="-3.1500000000000004" y="2.25" width="2.0000000000000004" height="1.47" rotation="180.0" roundness="1.0" />
          <pad name="2" x="-3.1500000000000004" y="0.0" width="2.0000000000000004" height="1.47" rotation="180.0" roundness="1.0" />
          <pad name="3" x="-3.1500000000000004" y="-2.25" width="2.0000000000000004" height="1.47" rotation="180.0" roundness="1.0" />
@@ -550,7 +550,7 @@
       </compatible-nozzle-tip-ids>
    </package>
    <package version="1.1" id="SOT-23-6" description="Small Outline Transistor 6 Pin" tape-specification="8mm" pick-vacuum-level="0.0" place-blow-off-level="0.0">
-      <footprint units="Millimeters" body-width="2.7" body-height="2.8499999999999996" outer-dimension="2.6" inner-dimension="1.5" pad-count="6" pad-pitch="0.95" pad-across="0.4" pad-roundness="0.0">
+      <footprint units="Millimeters" body-width="2.9" body-height="1.6" outer-dimension="2.6" inner-dimension="1.5" pad-count="6" pad-pitch="0.95" pad-across="0.4" pad-roundness="0.0">
          <pad name="1" x="-1.025" y="0.95" width="0.55" height="0.4" rotation="180.0" roundness="0.0" />
          <pad name="2" x="-1.025" y="0.0" width="0.55" height="0.4" rotation="180.0" roundness="0.0" />
          <pad name="3" x="-1.025" y="-0.95" width="0.55" height="0.4" rotation="180.0" roundness="0.0" />
@@ -586,7 +586,7 @@
       </compatible-nozzle-tip-ids>
    </package>
    <package version="1.1" id="SOT-23-5" description="Small Outline Transistor 5 Pin" tape-specification="8mm" pick-vacuum-level="0.0" place-blow-off-level="0.0">
-      <footprint units="Millimeters" body-width="2.8" body-height="2.4" outer-dimension="2.6" inner-dimension="1.5" pad-count="6" pad-pitch="0.95" pad-across="0.4" pad-roundness="0.0">
+      <footprint units="Millimeters" body-width="2.9" body-height="1.6" outer-dimension="2.6" inner-dimension="1.5" pad-count="6" pad-pitch="0.95" pad-across="0.4" pad-roundness="0.0">
          <pad name="1" x="-1.025" y="0.95" width="0.55" height="0.4" rotation="180.0" roundness="0.0" />
          <pad name="2" x="-1.025" y="0.0" width="0.55" height="0.4" rotation="180.0" roundness="0.0" />
          <pad name="3" x="-1.025" y="-0.95" width="0.55" height="0.4" rotation="180.0" roundness="0.0" />
@@ -738,7 +738,7 @@
       <compatible-nozzle-tip-ids class="java.util.ArrayList" />
    </package>
    <package version="1.1" bottom-vision-id="BVS17a3c352742f3ca8" id="IND-6045" description="Inductor" tape-specification="16mm" pick-vacuum-level="0.0" place-blow-off-level="0.0">
-      <footprint units="Millimeters" body-width="6.1" body-height="6.1" outer-dimension="6.4" inner-dimension="1.8" pad-count="2" pad-pitch="0.0" pad-across="5.1" pad-roundness="0.0">
+      <footprint units="Millimeters" body-width="6.0" body-height="4.5" outer-dimension="6.4" inner-dimension="1.8" pad-count="2" pad-pitch="0.0" pad-across="5.1" pad-roundness="0.0">
          <pad name="1" x="-2.0500000000000003" y="0.0" width="2.3000000000000003" height="5.1" rotation="180.0" roundness="0.0" />
          <pad name="2" x="2.0500000000000003" y="0.0" width="2.3000000000000003" height="5.1" rotation="0.0" roundness="0.0" />
       </footprint>
@@ -834,7 +834,7 @@
       </compatible-nozzle-tip-ids>
    </package>
    <package version="1.1" id="SOIC-8-EP" description="8-Lead Plastic SOIC with Exposed Pad" tape-specification="12mm" pick-vacuum-level="0.0" place-blow-off-level="0.0">
-      <footprint units="Millimeters" body-width="3.5" body-height="3.81" outer-dimension="6.5" inner-dimension="3.5" pad-count="8" pad-pitch="1.27" pad-across="0.8" pad-roundness="0.0">
+      <footprint units="Millimeters" body-width="3.9" body-height="4.9" outer-dimension="6.5" inner-dimension="3.5" pad-count="8" pad-pitch="1.27" pad-across="0.8" pad-roundness="0.0">
          <pad name="1" x="-2.5" y="1.905" width="1.5" height="0.8" rotation="180.0" roundness="0.0" />
          <pad name="2" x="-2.5" y="0.635" width="1.5" height="0.8" rotation="180.0" roundness="0.0" />
          <pad name="3" x="-2.5" y="-0.635" width="1.5" height="0.8" rotation="180.0" roundness="0.0" />
@@ -843,6 +843,7 @@
          <pad name="6" x="2.5" y="-0.635" width="1.5" height="0.8" rotation="0.0" roundness="0.0" />
          <pad name="7" x="2.5" y="0.635" width="1.5" height="0.8" rotation="0.0" roundness="0.0" />
          <pad name="8" x="2.5" y="1.905" width="1.5" height="0.8" rotation="0.0" roundness="0.0" />
+         <pad name="9" x="0.0" y="0.0" width="2.95" height="4.9" rotation="0.0" roundness="0.0" />
       </footprint>
       <vision-compositing compositing-method="Restricted" min-leverage-factor="0.2" extra-shots="0" allow-inside="true">
          <max-pick-tolerance value="0.0" units="Millimeters" />
@@ -868,7 +869,7 @@
       <compatible-nozzle-tip-ids class="java.util.ArrayList" />
    </package>
    <package version="1.1" bottom-vision-id="BVS17a3c674d36e51bb" id="TANT-D" description="Capacitor Polarized" tape-specification="12mm" pick-vacuum-level="0.0" place-blow-off-level="0.0">
-      <footprint units="Millimeters" body-width="4.4" body-height="7.3" outer-dimension="7.3" inner-dimension="4.4" pad-count="2" pad-pitch="0.0" pad-across="2.4" pad-roundness="0.0">
+      <footprint units="Millimeters" body-width="7.3" body-height="4.3" outer-dimension="7.3" inner-dimension="4.4" pad-count="2" pad-pitch="0.0" pad-across="2.4" pad-roundness="0.0">
          <pad name="1" x="-2.925" y="0.0" width="1.4499999999999997" height="2.4" rotation="180.0" roundness="0.0" />
          <pad name="2" x="2.925" y="0.0" width="1.4499999999999997" height="2.4" rotation="0.0" roundness="0.0" />
       </footprint>
