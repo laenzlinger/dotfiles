@@ -8,10 +8,12 @@ NOTIFIED=false
 
 while true; do
     sleep 300
-    mgmt=$(netbird status 2>/dev/null | grep "^Management:" | awk '{print $2}' || true)
+    status=$(netbird status 2>/dev/null || true)
+    mgmt=$(echo "$status" | grep "^Management:" | awk '{print $2}')
+    ip=$(echo "$status" | grep "^NetBird IP:" | awk '{print $3}')
     if [[ "$mgmt" == "Connected" ]]; then
         NOTIFIED=false
-    elif [[ "$mgmt" != "" && "$NOTIFIED" == false ]]; then
+    elif [[ "$ip" != "N/A" && "$ip" != "" && "$mgmt" != "Connected" && "$NOTIFIED" == false ]]; then
         notify-send -u critical "${NID[@]}" "󰒃   Netbird VPN" "Session expired — re-login required"
         NOTIFIED=true
     fi
