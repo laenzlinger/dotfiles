@@ -1,9 +1,32 @@
-# KiCad footprint → OpenPnP package ID mapping
-# Lines starting with # are comments. Unmapped footprints are passed through as-is.
-kicad_footprint,openpnp_package
-C_0805_2012Metric,C_0805
-R_0805_2012Metric,R_0805
-LED_0805_2012Metric,LED_0805
-SOT-223-3_TabPin2,SOT-223
-SOT-23,SOT-23
-Fiducial_1mm_Mask2mm,FIDUCIAL-1X2
+# KiCad footprint → OpenPnP package mapping with part metadata
+# height: component height in mm
+# tape_type: WhitePaper, ClearPlastic, BlackPlastic
+# part_pitch: distance between parts on tape in mm
+kicad_footprint,openpnp_package,height,tape_type,part_pitch
+# Passives
+C_0805_2012Metric,C_0805,0.9,WhitePaper,4
+R_0805_2012Metric,R_0805,0.5,WhitePaper,4
+LED_0805_2012Metric,LED_0805,0.8,ClearPlastic,4
+# ICs
+SOT-223-3_TabPin2,SOT-223,1.6,ClearPlastic,8
+SOT-23,SOT-23,1.1,ClearPlastic,8
+SOT-23-5,SOT-23-5,1.3,ClearPlastic,8
+SOT-23-6,SOT-23-6,1.3,ClearPlastic,8
+SOIC-8_3.9x4.9mm_P1.27mm,SOIC-8,1.75,ClearPlastic,12
+SOIC-8-1EP_3.9x4.9mm_P1.27mm_EP2.95x4.9mm_Mask2.71x3.4mm_ThermalVias,SOIC-8-EP,0.65,ClearPlastic,12
+QFN50P700X700X90-49N-D,QFN-48-7x7,0.9,ClearPlastic,12
+SO08-E3,SOIC-8,1.5,ClearPlastic,12
+# Passives (special)
+Crystal_SMD_2016-4Pin_2.0x1.6mm,XTAL-2016,0.7,ClearPlastic,8
+CP_EIA-7343-31_Kemet-D,TANT-D,1.9,ClearPlastic,8
+CP_Elec_6.3x7.7,ECAP-6.3x7.7,7.7,,
+Fuse_2512_6332Metric,FUSE-2512,1.0,ClearPlastic,12
+L_Bourns_SRN6045TA,IND-6045,4.2,ClearPlastic,16
+LED_WS2812B_PLCC4_5.0x5.0mm_P3.2mm,WS2812B-5050,1.6,ClearPlastic,8
+# Connectors & switches (hand-place, no tape info)
+SW_Push_1P1T-MP_NO_Horizontal_Alps_SKRTLAE010,SW-SKRTLAE010,,,
+SW_SPDT_PCM12,SW-PCM12,,,
+JST_SH_BM03B-SRSS-TB_1x03-1MP_P1.00mm_Vertical,JST-SH-3,,,
+USB_C_Receptacle_GCT_USB4105-xx-A_16P_TopMnt_Horizontal,USB-C-GCT4105,,,
+# Fiducials
+Fiducial_1mm_Mask2mm,FIDUCIAL-1X2,0.0,,
