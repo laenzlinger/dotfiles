@@ -34,8 +34,8 @@ output * bg $background-image fill
 
 floating_modifier $mod
 
-# Terminal
-bindsym $mod+Return exec $terminal
+# Terminal (inherits cwd from last-used terminal)
+bindsym $mod+Return exec ~/.config/sway/bin/wezterm-spawn.sh
 
 # Kill focused window
 bindsym $mod+Shift+q kill
@@ -149,7 +149,5 @@ bindsym $mod+Shift+Escape exec $lock
 # KiCad
 for_window [title=".* — PCB Editor"] resize set width 80 ppt
 for_window [title=".* — Schematic Editor"] resize set width 80 ppt
-
-exec ~/.config/waybar/scripts/waybar-reload.sh
 
 include ~/.config/sway/config.d/*

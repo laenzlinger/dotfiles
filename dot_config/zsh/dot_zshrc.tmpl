@@ -39,10 +39,13 @@ source "$XDG_DATA_HOME/antidote-src/antidote.zsh"
 antidote load "$XDG_CONFIG_HOME/zsh/.zsh_plugins.txt"
 
 # OSC 133 semantic prompt markers (enables WezTerm semantic zones)
+# OSC 7 reports cwd so new terminals inherit the focused terminal's directory
 if [[ -n "$WEZTERM_EXECUTABLE" ]]; then
   _osc_prompt_start() { printf '\e]133;A\e\\'; }
   _osc_command_start() { printf '\e]133;C\e\\'; }
-  precmd_functions+=(_osc_prompt_start)
+  _osc7_cwd() { printf '\e]7;file://%s%s\e\\' "$HOST" "$PWD"; }
+  _wezterm_track_cwd() { echo "$PWD" > "$XDG_RUNTIME_DIR/wezterm-last-cwd"; }
+  precmd_functions+=(_osc_prompt_start _osc7_cwd _wezterm_track_cwd)
   preexec_functions+=(_osc_command_start)
 fi
 
