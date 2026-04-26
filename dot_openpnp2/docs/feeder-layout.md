@@ -28,15 +28,16 @@ Standard feeder array layout for the Opulo Lumen PnP machine.
 
 ## Feeder Arrays
 
-| Array | Position       | Slots | Tape Width | Strip Direction | Feed Direction |
-|-------|----------------|-------|------------|-----------------|----------------|
-| LV08  | Links Vorne    | 16    | 8mm        | Y               | ↑ (low→high Y) |
-| RV08  | Rechts Vorne   | 8     | 8mm        | Y               | ↑ (low→high Y) |
-| LH08  | Links Hinten   | 8     | 8mm        | Y               | ↓ (high→low Y) |
-| RH12  | Rechts Hinten  | 6     | 12mm       | Y               | ↑              |
-| RV16  | Rechts Vorne   | 6     | 16mm       | X               | ← (high→low X) |
+| Array | Position       | Slots | Tape Width | Strip Direction | Feed Direction | Type |
+|-------|----------------|-------|------------|-----------------|----------------|------|
+| DV08  | Drag Vorne     | 8     | 8mm        | Y               | ↑ (low→high Y) | PushPull |
+| LV08  | Links Vorne    | 16    | 8mm        | Y               | ↑ (low→high Y) | Strip |
+| RV08  | Rechts Vorne   | 8     | 8mm        | Y               | ↑ (low→high Y) | Strip |
+| LH08  | Links Hinten   | 8     | 8mm        | Y               | ↓ (high→low Y) | Strip |
+| RH12  | Rechts Hinten  | 6     | 12mm       | Y               | ↑              | Strip |
+| RV16  | Rechts Vorne   | 6     | 16mm       | X               | ← (high→low X) | Strip |
 
-**Total: 44 feeder slots** (32×8mm + 6×12mm + 6×16mm)
+**Total: 52 feeder slots** (40×8mm + 6×12mm + 6×16mm)
 
 ## Naming Conventions
 
@@ -46,6 +47,7 @@ Format: `{Position}{TapeWidth}-{Slot}` — e.g. `LV08-01`, `RH12-03`, `RV16-05`
 
 | Prefix | Position | Tape Width | Slots |
 |--------|----------|------------|-------|
+| DV08   | Drag Vorne (front, drag feeders) | 8mm | 01–08 |
 | LV08   | Links Vorne (front-left) | 8mm | 01–16 |
 | RV08   | Rechts Vorne (front-right) | 8mm | 01–08 |
 | LH08   | Links Hinten (back-left) | 8mm | 01–08 |
