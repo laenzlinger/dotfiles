@@ -97,4 +97,5 @@
    <part id="USB-C-GCT4105-USB_C_Receptacle_USB2.0_14P" height-units="Millimeters" height="0.0" package-id="USB-C-GCT4105" speed="1.0" pick-retry-count="0"/>
    <part id="WS2812B-5050-WS2812B-5mm" height-units="Millimeters" height="1.6" package-id="WS2812B-5050" speed="1.0" pick-retry-count="0"/>
    <part id="XTAL-2016-25MHz" height-units="Millimeters" height="0.7" package-id="XTAL-2016" speed="1.0" pick-retry-count="0"/>
+   <part id="CALIBRATION-DUMMY" height-units="Millimeters" height="0.0" package-id="C_0805" speed="1.0" pick-retry-count="0"/>
 </openpnp-parts>

@@ -1,5 +1,8 @@
 # Opulo Lumen — Feeder Layout
 
+> **⚠️ Always close OpenPnP before editing config files externally.**
+> OpenPnP overwrites machine.xml on save/exit, discarding any external changes.
+
 Standard feeder array layout for the Opulo Lumen PnP machine.
 
 ## Bed Layout
@@ -9,13 +12,13 @@ Standard feeder array layout for the Opulo Lumen PnP machine.
 
 ┌─────────────────────────────────────────────────────────────────┐
 │                                                                 │  High Y
-│  LH8 8×8mm       PCB AREA                      RH12 6×12mm     │  (hinten)
+│  LH08 8×8mm      PCB AREA                      RH12 6×12mm     │  (hinten)
 │  ║ ║ ║ ║ ║ ║ ║ ║                               ║ ║ ║ ║ ║ ║    │
 │  (8 slots)                                     (6 slots)       │
 │                                                                 │
 ├─────────────────────────────────────────────────────────────────┤
 │                                                                 │  Low Y
-│  DRAG  LV8 16×8mm  [BTM CAM]  RV8 8×8mm  RV16 6×16mm          │  (vorne)
+│  DRAG  LV08 16×8mm  [BTM CAM]  RV08 8×8mm  RV16 6×16mm         │  (vorne)
 │  ≋≋≋≋≋≋≋≋  ║║║║║║║║║║║║║║║║  ◉     ║║║║║║║║  ═══ ═══ ═══          │
 │  (8)  (16 slots)               (8 slots) ═══ ═══ ═══          │
 │                                           (X dir hi→lo)        │
@@ -27,9 +30,9 @@ Standard feeder array layout for the Opulo Lumen PnP machine.
 
 | Array | Position       | Slots | Tape Width | Strip Direction | Feed Direction |
 |-------|----------------|-------|------------|-----------------|----------------|
-| LV8   | Links Vorne    | 16    | 8mm        | Y               | ↑ (low→high Y) |
-| RV8   | Rechts Vorne   | 8     | 8mm        | Y               | ↑ (low→high Y) |
-| LH8   | Links Hinten   | 8     | 8mm        | Y               | ↓ (high→low Y) |
+| LV08  | Links Vorne    | 16    | 8mm        | Y               | ↑ (low→high Y) |
+| RV08  | Rechts Vorne   | 8     | 8mm        | Y               | ↑ (low→high Y) |
+| LH08  | Links Hinten   | 8     | 8mm        | Y               | ↓ (high→low Y) |
 | RH12  | Rechts Hinten  | 6     | 12mm       | Y               | ↑              |
 | RV16  | Rechts Vorne   | 6     | 16mm       | X               | ← (high→low X) |
 
@@ -39,15 +42,15 @@ Standard feeder array layout for the Opulo Lumen PnP machine.
 
 ### Feeder Names
 
-Format: `{Position}{TapeWidth}-{Slot}` — e.g. `LV8-01`, `RH12-3`, `RV16-5`
+Format: `{Position}{TapeWidth}-{Slot}` — e.g. `LV08-01`, `RH12-03`, `RV16-05`
 
 | Prefix | Position | Tape Width | Slots |
 |--------|----------|------------|-------|
-| LV8    | Links Vorne (front-left) | 8mm | 01–16 |
-| RV8    | Rechts Vorne (front-right) | 8mm | 1–8 |
-| LH8    | Links Hinten (back-left) | 8mm | 01–13 |
-| RH12   | Rechts Hinten (back-right) | 12mm | 1–10 |
-| RV16   | Rechts Vorne (front-right, beside RV8) | 16mm | 1–6 |
+| LV08   | Links Vorne (front-left) | 8mm | 01–16 |
+| RV08   | Rechts Vorne (front-right) | 8mm | 01–08 |
+| LH08   | Links Hinten (back-left) | 8mm | 01–08 |
+| RH12   | Rechts Hinten (back-right) | 12mm | 01–06 |
+| RV16   | Rechts Vorne (front-right, beside RV08) | 16mm | 01–06 |
 
 ### Package Names
 
@@ -68,9 +71,25 @@ Format: `{Package}-{Value}` — e.g. `C_0805-100n`, `R_0805-10K`, `SOT-23-2N7002
 Parts are shared across all projects. The package map ensures consistent naming
 regardless of which KiCad library the footprint came from.
 
+## Tape Defaults
+
+| Tape Width | Tape Type    | Part Pitch | Typical Components |
+|------------|-------------|------------|-------------------|
+| 8mm        | WhitePaper   | 4mm        | 0805 R/C/LED, SOT-23, SOT-23-5/6 |
+| 8mm        | BlackPlastic | 4mm        | Oscillators, small ICs |
+| 8mm        | ClearPlastic | 4mm        | Ceramic caps (1µF+) |
+| 12mm       | BlackPlastic | 8mm        | SOIC-8, SOT-223, 2512 fuses |
+| 12mm       | ClearPlastic | 8mm        | Tantalum caps |
+| 16mm       | BlackPlastic | 12mm       | QFN-32/48, TSSOP, large ICs |
+| 16mm       | WhitePaper   | 12mm       | Connectors (USB, etc.) |
+
+> **Part pitch** is the distance between component centers on the tape.
+> **Sprocket pitch** is always 4mm for all tape widths (EIA-481).
+> Adjust part-pitch per feeder if the actual tape differs.
+
 ## Typical Allocation
 
-### 8mm slots (VL + VR + HL = 32)
+### 8mm slots (LV08 + RV08 + LH08 = 32)
 - 0805 capacitors (C_0805)
 - 0805 resistors (R_0805)
 - 0805 LEDs (LED_0805)
