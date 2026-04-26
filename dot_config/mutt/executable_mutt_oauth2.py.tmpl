@@ -45,7 +45,7 @@ import readline
 # encryption and decryption pipes you prefer. They should read from standard
 # input and write to standard output. The example values here invoke GPG,
 # although won't work until an appropriate identity appears in the first line.
-{{- $secrets := fromYaml (output "sops" "--decrypt" (joinPath .chezmoi.sourceDir "secrets.sops.yaml")) -}}
+{{- $secrets := fromYaml (output "sops" "--decrypt" (joinPath .chezmoi.sourceDir "secrets.sops.yaml")) }}
 ENCRYPTION_PIPE = ['gpg', '--encrypt', '--recipient', '{{ index $secrets "mutt_email" }}']
 DECRYPTION_PIPE = ['gpg', '--decrypt']
 
@@ -59,7 +59,7 @@ registrations = {
         'pop_endpoint': 'pop.gmail.com',
         'smtp_endpoint': 'smtp.gmail.com',
         'sasl_method': 'OAUTHBEARER',
-        'scope': 'https://mail.google.com/',
+        'scope': 'https://mail.google.com/ https://www.googleapis.com/auth/gmail.settings.basic',
         'client_id': '{{ index $secrets "mutt_oauth_client_id" }}',
         'client_secret': '{{ index $secrets "mutt_oauth_client_secret" }}',
     },
