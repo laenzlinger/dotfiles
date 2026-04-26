@@ -98,18 +98,18 @@
    <part id="WS2812B-5050-WS2812B-5mm" height-units="Millimeters" height="1.6" package-id="WS2812B-5050" speed="1.0" pick-retry-count="0" />
    <part id="XTAL-2016-25MHz" height-units="Millimeters" height="0.7" package-id="XTAL-2016" speed="1.0" pick-retry-count="0" />
    <part id="CALIBRATION-DUMMY" height-units="Millimeters" height="0.0" package-id="C_0805" speed="1.0" pick-retry-count="0" />
-   <part id="CP_Elec_6.3x7.7-100uF/25V" height-units="Millimeters" height="0.0" package-id="CP_Elec_6.3x7.7" speed="1.0" pick-retry-count="0" />
+   <part id="CP_Elec_6.3x7.7-100uF/25V" height-units="Millimeters" height="0.0" package-id="ECAP-6.3x7.7" speed="1.0" pick-retry-count="0" />
    <part id="TANT-D-100u" height-units="Millimeters" height="0.0" package-id="TANT-D" speed="1.0" pick-retry-count="0" />
-   <part id="LED_WS2812B_PLCC4_5.0x5.0mm_P3.2mm-WS2812B-5mm" height-units="Millimeters" height="0.0" package-id="LED_WS2812B_PLCC4_5.0x5.0mm_P3.2mm-WS2812B" speed="1.0" pick-retry-count="0" />
-   <part id="Fuse_2512_6332Metric-3A" height-units="Millimeters" height="0.0" package-id="Fuse_2512_6332Metric" speed="1.0" pick-retry-count="0" />
-   <part id="USB_C_Receptacle_GCT_USB4105-xx-A_16P_TopMnt_Horizontal-USB_C_Receptacle_USB2.0_14P" height-units="Millimeters" height="0.0" package-id="USB_C_Receptacle_GCT_USB4105-xx-A_16P_TopMnt_Horizontal" speed="1.0" pick-retry-count="0" />
-   <part id="SW_SPDT_PCM12-PCM12SMTR" height-units="Millimeters" height="0.0" package-id="SW_SPDT_PCM12" speed="1.0" pick-retry-count="0" />
-   <part id="JST_SH_BM03B-SRSS-TB_1x03-1MP_P1.00mm_Vertical-BM03B-SRSS-TB" height-units="Millimeters" height="0.0" package-id="JST_SH_BM03B-SRSS-TB_1x03-1MP_P1.00mm_Vertical-BM03B-SRSS" speed="1.0" pick-retry-count="0" />
-   <part id="IND-6045-SRN6045TA-3R3Y" height-units="Millimeters" height="0.0" package-id="L_Bourns_SRN6045TA-SRN6045TA" speed="1.0" pick-retry-count="0" />
+   <part id="LED_WS2812B_PLCC4_5.0x5.0mm_P3.2mm-WS2812B-5mm" height-units="Millimeters" height="0.0" package-id="WS2812B-5050" speed="1.0" pick-retry-count="0" />
+   <part id="Fuse_2512_6332Metric-3A" height-units="Millimeters" height="0.0" package-id="FUSE-2512" speed="1.0" pick-retry-count="0" />
+   <part id="USB_C_Receptacle_GCT_USB4105-xx-A_16P_TopMnt_Horizontal-USB_C_Receptacle_USB2.0_14P" height-units="Millimeters" height="0.0" package-id="USB-C-GCT4105" speed="1.0" pick-retry-count="0" />
+   <part id="SW_SPDT_PCM12-PCM12SMTR" height-units="Millimeters" height="0.0" package-id="SW-PCM12" speed="1.0" pick-retry-count="0" />
+   <part id="JST_SH_BM03B-SRSS-TB_1x03-1MP_P1.00mm_Vertical-BM03B-SRSS-TB" height-units="Millimeters" height="0.0" package-id="JST-SH-3" speed="1.0" pick-retry-count="0" />
+   <part id="IND-6045-SRN6045TA-3R3Y" height-units="Millimeters" height="0.0" package-id="IND-6045" speed="1.0" pick-retry-count="0" />
    <part id="SO08-E3-FDS4435BZ" height-units="Millimeters" height="0.0" package-id="SO08-E3" speed="1.0" pick-retry-count="0" />
-   <part id="SW_Push_1P1T-MP_NO_Horizontal_Alps_SKRTLAE010-SW_Push" height-units="Millimeters" height="0.0" package-id="SW_Push_1P1T-MP_NO_Horizontal_Alps_SKRTLAE010" speed="1.0" pick-retry-count="0" />
-   <part id="QFN50P700X700X90-49N-D-ASM1061" height-units="Millimeters" height="0.0" package-id="QFN50P700X700X90-49N-D" speed="1.0" pick-retry-count="0" />
+   <part id="SW_Push_1P1T-MP_NO_Horizontal_Alps_SKRTLAE010-SW_Push" height-units="Millimeters" height="0.0" package-id="SW-SKRTLAE010" speed="1.0" pick-retry-count="0" />
+   <part id="QFN50P700X700X90-49N-D-ASM1061" height-units="Millimeters" height="0.0" package-id="QFN-48-7x7" speed="1.0" pick-retry-count="0" />
    <part id="SOIC-8-DS3231MZ" height-units="Millimeters" height="1.8" package-id="SOIC-8" speed="1.0" pick-retry-count="0" />
-   <part id="SOIC-8-EP-AP64501SP-13" height-units="Millimeters" height="1.8" package-id="SOIC-8-1EP_3.9x4.9mm_P1.27mm_EP2.95x4.9mm_Mask2.71x3.4mm_ThermalVias-AP64501SP" speed="1.0" pick-retry-count="0" />
-   <part id="Crystal_SMD_2016-4Pin_2.0x1.6mm-25MHz" height-units="Millimeters" height="0.0" package-id="Crystal_SMD_2016-4Pin_2.0x1.6mm" speed="1.0" pick-retry-count="0" />
+   <part id="SOIC-8-EP-AP64501SP-13" height-units="Millimeters" height="1.8" package-id="SOIC-8-EP" speed="1.0" pick-retry-count="0" />
+   <part id="Crystal_SMD_2016-4Pin_2.0x1.6mm-25MHz" height-units="Millimeters" height="0.0" package-id="XTAL-2016" speed="1.0" pick-retry-count="0" />
 </openpnp-parts>
