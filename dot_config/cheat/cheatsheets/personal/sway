@@ -11,6 +11,9 @@ Mod+Space
 # Window switcher (rofi, toggle)
 Mod+Tab
 
+# File manager (yazi in terminal)
+Mod+y
+
 # File search (rofi, toggle)
 Mod+Shift+f
 
