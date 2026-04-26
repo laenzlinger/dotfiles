@@ -337,7 +337,7 @@
       </compatible-nozzle-tip-ids>
    </package>
    <package version="1.1" bottom-vision-id="BVS17a4332093fb0f60" id="SOT-223" description="Small Outline Transistor 3 Pin" tape-specification="8mm" pick-vacuum-level="0.0" place-blow-off-level="0.0">
-      <footprint units="Millimeters" body-width="6.5" body-height="3.5" outer-dimension="8.3" inner-dimension="4.3" pad-count="6" pad-pitch="2.25" pad-across="1.47" pad-roundness="1.0">
+      <footprint units="Millimeters" body-width="3.5" body-height="6.5" outer-dimension="8.3" inner-dimension="4.3" pad-count="6" pad-pitch="2.25" pad-across="1.47" pad-roundness="1.0">
          <pad name="1" x="-3.1500000000000004" y="2.25" width="2.0000000000000004" height="1.47" rotation="180.0" roundness="1.0" />
          <pad name="2" x="-3.1500000000000004" y="0.0" width="2.0000000000000004" height="1.47" rotation="180.0" roundness="1.0" />
          <pad name="3" x="-3.1500000000000004" y="-2.25" width="2.0000000000000004" height="1.47" rotation="180.0" roundness="1.0" />
