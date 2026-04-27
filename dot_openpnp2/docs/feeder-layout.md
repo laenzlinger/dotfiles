@@ -12,9 +12,9 @@ Standard feeder array layout for the Opulo Lumen PnP machine.
 
 ┌─────────────────────────────────────────────────────────────────┐
 │                                                                 │  High Y
-│  LH08 8×8mm      PCB AREA                      RH12 6×12mm     │  (hinten)
-│  ║ ║ ║ ║ ║ ║ ║ ║                               ║ ║ ║ ║ ║ ║    │
-│  (8 slots)                                     (6 slots)       │
+│  LH08 8×8mm      PCB AREA                      RH12 9×12mm     │  (hinten)
+│  ║ ║ ║ ║ ║ ║ ║ ║                               ║ ║ ║ ║ ║ ║ ║ ║ ║ │
+│  (8 slots)                                     (9 slots)       │
 │                                                                 │
 ├─────────────────────────────────────────────────────────────────┤
 │                                                                 │  Low Y
@@ -33,11 +33,11 @@ Standard feeder array layout for the Opulo Lumen PnP machine.
 | LV08  | Links Vorne    | 16    | 8mm        | Y               | ↑ (low→high Y) |
 | RV08  | Rechts Vorne   | 8     | 8mm        | Y               | ↑ (low→high Y) |
 | LH08  | Links Hinten   | 8     | 8mm        | Y               | ↓ (high→low Y) |
-| RH12  | Rechts Hinten  | 6     | 12mm       | Y               | ↑              |
+| RH12  | Rechts Hinten  | 9     | 12mm       | Y               | ↑              |
 | RV16  | Rechts Vorne   | 6     | 16mm       | X               | ← (high→low X) |
 | DV08   | Drag Vorne (far left)    | 8     | 8mm        | Y               | ↑              |
 
-**Total: 44 feeder slots** (32×8mm + 6×12mm + 6×16mm)
+**Total: 47 feeder slots** (32×8mm + 9×12mm + 6×16mm)
 
 ## Naming Conventions
 
@@ -50,7 +50,7 @@ Format: `{Position}{TapeWidth}-{Slot}` — e.g. `LV08-01`, `RH12-03`, `RV16-05`
 | LV08   | Links Vorne (front-left) | 8mm | 01–16 |
 | RV08   | Rechts Vorne (front-right) | 8mm | 01–08 |
 | LH08   | Links Hinten (back-left) | 8mm | 01–08 |
-| RH12   | Rechts Hinten (back-right) | 12mm | 01–06 |
+| RH12   | Rechts Hinten (back-right) | 12mm | 01–09 |
 | RV16   | Rechts Vorne (front-right, beside RV08) | 16mm | 01–06 |
 | DV08   | Drag Vorne (far left)    | 8     | 8mm        | Y               | ↑              |
 
@@ -98,7 +98,7 @@ regardless of which KiCad library the footprint came from.
 - SOT-23 / SOT-23-5 / SOT-23-6 ICs
 - Small crystals (2016)
 
-### 12mm slots (HR = 6)
+### 12mm slots (RH12 = 9)
 - SOIC-8 ICs
 - SOT-223 regulators
 - 2512 fuses
