@@ -99,6 +99,7 @@ jre17-openjdk
 jre21-openjdk
 k9s
 keepassxc
+kernel-modules-hook
 kicad
 kicad-library
 kicad-library-3d
@@ -255,6 +256,7 @@ unrar
 unzip
 urlscan
 usbip
+usbmuxd
 usbutils
 uwsm
 vim
