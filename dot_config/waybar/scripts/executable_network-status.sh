@@ -16,14 +16,14 @@ if [ -n "$WIFI" ]; then
     NET_TEXT="$ICON  $SSID"
     NET_TIP="$SSID ($SIGNAL%)\n$IP\nGateway: $GW"
 else
-    ETH=$(ip -4 addr show | grep -E "inet.*scope global" | grep -v ' wt[0-9]' | head -1 || true)
-    if [ -n "$ETH" ]; then
-        IFACE=$(echo "$ETH" | awk '{print $NF}')
-        IP=$(echo "$ETH" | awk '{print $2}')
+    CONN_INFO=$(nmcli -t -f name,device,type con show --active 2>/dev/null | grep -vE ':(loopback|wireguard)$' | head -1 || true)
+    if [ -n "$CONN_INFO" ]; then
+        CONN=$(echo "$CONN_INFO" | cut -d: -f1)
+        IFACE=$(echo "$CONN_INFO" | cut -d: -f2)
+        IP=$(ip -4 addr show "$IFACE" 2>/dev/null | grep inet | awk '{print $2}')
         GW=$(ip route | grep default | awk '{print $3}' | head -1)
-        CONN=$(nmcli -t -f name,device con show --active 2>/dev/null | grep ":${IFACE}$" | cut -d: -f1)
-        NET_TEXT="󰄜 ${CONN:-$IFACE}"
-        NET_TIP="${CONN:-$IFACE}\n$IP\nGateway: $GW"
+        NET_TEXT="󰄜 ${CONN}"
+        NET_TIP="${CONN}\n$IP\nGateway: $GW"
     else
         NET_TEXT="󰤭  Down"
         NET_TIP="Network disconnected"
