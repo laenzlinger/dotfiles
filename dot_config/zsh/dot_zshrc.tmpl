@@ -77,6 +77,7 @@ fi
 alias open='xdg-open'
 {{- end }}
 alias cm='chezmoi'
+alias kiro='systemd-run --user --quiet --scope -p MemoryMax=4G kiro-cli'
 
 if command -v lsd &> /dev/null; then
   alias ls='lsd'
