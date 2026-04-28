@@ -98,8 +98,7 @@ Custom unit files in `dot_config/systemd/user/`, enabled via `run_onchange_enabl
 2. Apply individual files with `chezmoi apply <path>` (not full apply)
 3. Test the change
 4. **Update cheatsheet** if keybindings or user-facing behavior changed
-5. Commit with descriptive message
-6. Push to GitHub
+5. **After testing**: review all uncommitted changes with `git status`/`git diff`, group into logical commits with descriptive messages, and push to GitHub
 
 ## Sway Script Pitfalls
 - **No TTY**: Sway `exec` has no terminal — pagers, interactive prompts, and TTY detection fail silently
