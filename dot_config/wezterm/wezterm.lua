@@ -9,6 +9,7 @@ config.text_background_opacity = 1.0
 config.hide_tab_bar_if_only_one_tab = true
 config.enable_wayland = true
 config.front_end = "WebGpu"
+config.default_cursor_style = "SteadyBar"
 
 config.mouse_bindings = {
 	{
