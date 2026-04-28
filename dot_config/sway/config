@@ -21,6 +21,7 @@ set $lock "swaylock -k -l -F -f --image $background-image"
 input type:touchpad {
     tap enabled
     natural_scroll enabled
+    click_method clickfinger
 }
 
 input * {
