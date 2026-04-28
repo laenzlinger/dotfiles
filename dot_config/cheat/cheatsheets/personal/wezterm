@@ -45,6 +45,12 @@ Ctrl+Shift+c
 # Paste
 Ctrl+Shift+v
 
+# Enter copy mode (vim keys: v=select, y=copy, Esc=exit)
+Ctrl+Shift+x
+
+# Quick select (pattern match URLs, paths, etc.)
+Ctrl+Shift+Space
+
 # Triple-click to select semantic zone (path, URL, etc.)
 
 ## Search
