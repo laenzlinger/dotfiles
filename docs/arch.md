@@ -27,6 +27,14 @@ Backups are done with restic via resticprofile. Backed up paths:
 
 Stored on external USB drive in directory `gibson-home`.
 
+## DNS
+
+DNS is handled by `systemd-resolved` (see [ADR 006](adr/006-systemd-resolved-for-dns.md)).
+
+System config (not chezmoi-managed, backed up by restic):
+- `/etc/resolv.conf` → symlink to `/run/systemd/resolve/stub-resolv.conf`
+- `/etc/NetworkManager/conf.d/dns.conf` — `dns=systemd-resolved`
+
 ## Package lists
 
 `chezmoi apply` generates package lists in `~/.config/pacman/`:

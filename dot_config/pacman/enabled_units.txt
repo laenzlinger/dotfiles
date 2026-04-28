@@ -4,6 +4,7 @@ bluetooth.service
 chronyd.service
 cups.service
 getty@.service
+linux-modules-cleanup.service
 netbird.service
 NetworkManager-dispatcher.service
 NetworkManager-wait-online.service
@@ -12,6 +13,9 @@ avahi-daemon.socket
 cups.socket
 docker.socket
 pcscd.socket
+systemd-resolved-monitor.socket
+systemd-resolved.service
+systemd-resolved-varlink.socket
 systemd-userdbd.socket
 remote-fs.target
 fstrim.timer
