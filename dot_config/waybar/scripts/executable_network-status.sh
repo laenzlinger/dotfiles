@@ -16,7 +16,7 @@ if [ -n "$WIFI" ]; then
     NET_TEXT="$ICON  $SSID"
     NET_TIP="$SSID ($SIGNAL%)\n$IP\nGateway: $GW"
 else
-    ETH=$(ip -4 addr show | grep -E "inet.*scope global" | head -1 || true)
+    ETH=$(ip -4 addr show | grep -E "inet.*scope global" | grep -v ' wt[0-9]' | head -1 || true)
     if [ -n "$ETH" ]; then
         IFACE=$(echo "$ETH" | awk '{print $NF}')
         IP=$(echo "$ETH" | awk '{print $2}')
