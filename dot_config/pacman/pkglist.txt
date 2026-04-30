@@ -271,6 +271,7 @@ websocat
 wev
 wezterm
 wget
+whois
 wireguard-tools
 wl-clipboard
 wlr-randr
