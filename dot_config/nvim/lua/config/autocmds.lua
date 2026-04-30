@@ -15,6 +15,12 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.opt_local.formatoptions:append("t")
   end,
 })
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "openscad",
+  callback = function()
+    vim.b.autoformat = false
+  end,
+})
 -- Auto-install plugin updates when checker finds them.
 -- To disable: remove this autocmd and set checker.notify=true in lazy.lua
 vim.api.nvim_create_autocmd("User", {
