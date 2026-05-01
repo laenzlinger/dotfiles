@@ -1751,7 +1751,7 @@
             </focus-provider>
             <back-light-compensation property="BackLightCompensation" value="0"/>
             <brightness property="Brightness" value="0"/>
-            <contrast property="Contrast" value="191"/>
+            <contrast property="Contrast" value="220"/>
             <exposure property="Exposure" value="200" auto="false"/>
             <focus property="Focus"/>
             <gain property="Gain" value="0"/>
@@ -2008,12 +2008,12 @@
                <pipeline>
                   <stages>
                      <cv-stage class="org.openpnp.vision.pipeline.stages.ImageCapture" name="0" enabled="true" default-light="true" settle-option="Settle" count="1"/>
-                     <cv-stage class="org.openpnp.vision.pipeline.stages.MaskCircle" name="1" enabled="true" diameter="50" property-name="MaskCircle"/>
+                     <cv-stage class="org.openpnp.vision.pipeline.stages.MaskCircle" name="1" enabled="true" diameter="75" property-name="MaskCircle"/>
                      <cv-stage class="org.openpnp.vision.pipeline.stages.ConvertColor" name="2" enabled="true" conversion="Bgr2Gray"/>
-                     <cv-stage class="org.openpnp.vision.pipeline.stages.Threshold" name="3" enabled="true" threshold="150" auto="false" invert="true"/>
+                     <cv-stage class="org.openpnp.vision.pipeline.stages.Threshold" name="3" enabled="true" threshold="200" auto="false" invert="true"/>
                      <cv-stage class="org.openpnp.vision.pipeline.stages.BlurMedian" name="4" enabled="true" kernel-size="5"/>
                      <cv-stage class="org.openpnp.vision.pipeline.stages.SimpleBlobDetector" name="8" enabled="false" threshold-step="10.0" threshold-min="40.0" threshold-max="110.0" repeatability="2" dist-between-blobs="10.0" color="true" color-value="0.0" area="true" area-min="2000.0" area-max="5000.0" circularity="false" circularity-min="0.9" circularity-max="-1.0" inertia="true" inertia-ratio-min="0.10000000149011612" inertia-ratio-max="-1.0" convexity="true" convexity-min="0.949999988079071" convexity-max="-1.0" property-name="SimpleBlobDetector"/>
-                     <cv-stage class="org.openpnp.vision.pipeline.stages.DetectCirclesHough" name="results" enabled="true" min-distance="300" min-diameter="10" max-diameter="20" dp="1.0" param-1="120.0" param-2="12.0"/>
+                     <cv-stage class="org.openpnp.vision.pipeline.stages.DetectCirclesHough" name="results" enabled="true" min-distance="300" min-diameter="10" max-diameter="20" dp="1.0" param-1="80.0" param-2="8.0"/>
                      <cv-stage class="org.openpnp.vision.pipeline.stages.ImageRecall" name="5" enabled="true" image-stage-name="0"/>
                      <cv-stage class="org.openpnp.vision.pipeline.stages.DrawCircles" name="6" enabled="true" circles-stage-name="results" thickness="3">
                         <color r="255" g="0" b="51" a="255"/>
@@ -2025,7 +2025,7 @@
                <runout-compensation-lookup class="java.util.HashMap">
                   <entry>
                      <string>N1</string>
-                     <runout-compensation class="org.openpnp.machine.reference.ReferenceNozzleTipCalibration$ModelBasedRunoutCameraOffsetCompensation" center-x="-0.09880355466444139" center-y="0.23080631662860693" radius="0.2318474430742591" phase-shift="85.54346651748837" units="Millimeters" peak-error="0.02515137452774926" rms-error="0.015296637080836001"/>
+                     <runout-compensation class="org.openpnp.machine.reference.ReferenceNozzleTipCalibration$ModelBasedRunoutCameraOffsetCompensation" center-x="0.1567024166317499" center-y="0.04490972037739893" radius="0.19964560975036963" phase-shift="126.06534033983333" units="Millimeters" peak-error="1.0080615493588552" rms-error="0.3893543245431125"/>
                   </entry>
                </runout-compensation-lookup>
                <minimum-detail-size value="0.2" units="Millimeters"/>
@@ -2146,7 +2146,7 @@
                <runout-compensation-lookup class="java.util.HashMap">
                   <entry>
                      <string>NOZ1710829fd33a0170</string>
-                     <runout-compensation class="org.openpnp.machine.reference.ReferenceNozzleTipCalibration$ModelBasedRunoutCameraOffsetCompensation" center-x="0.21468929666666664" center-y="0.20977012333333334" radius="0.12654901063010796" phase-shift="100.88782304304634" units="Millimeters" peak-error="0.06668697193583975" rms-error="0.041037350878209394"/>
+                     <runout-compensation class="org.openpnp.machine.reference.ReferenceNozzleTipCalibration$ModelBasedRunoutCameraOffsetCompensation" center-x="0.0932203525" center-y="-0.04597701333333333" radius="0.0511131810798124" phase-shift="44.378340408218314" units="Millimeters" peak-error="0.24569328885193104" rms-error="0.16382506529100416"/>
                   </entry>
                </runout-compensation-lookup>
                <minimum-detail-size value="0.2" units="Millimeters"/>
