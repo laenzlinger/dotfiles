@@ -726,8 +726,8 @@
          <string>NT1</string>
       </compatible-nozzle-tip-ids>
    </package>
-   <package version="1.1" bottom-vision-id="BVS_Stock" id="ECAP-6.3x7.7" pick-vacuum-level="0.0" place-blow-off-level="0.0">
-      <footprint units="Millimeters" body-width="6.3" body-height="6.3" outer-dimension="6.6" inner-dimension="1.8" pad-count="2" pad-pitch="0.0" pad-across="2.8" pad-roundness="0.0"/>
+   <package version="1.1" id="ECAP-6.3x7.7" pick-vacuum-level="0.0" place-blow-off-level="0.0">
+      <footprint units="Millimeters" body-width="3.5" body-height="1.5" outer-dimension="6.6" inner-dimension="1.8" pad-count="2" pad-pitch="0.0" pad-across="2.8" pad-roundness="0.0"/>
       <vision-compositing compositing-method="Restricted" min-leverage-factor="0.2" extra-shots="0" allow-inside="true">
          <max-pick-tolerance value="0.0" units="Millimeters"/>
       </vision-compositing>
@@ -840,7 +840,7 @@
       <compatible-nozzle-tip-ids class="java.util.ArrayList"/>
    </package>
    <package version="1.1" bottom-vision-id="BVS17a3c4dcc6dc7519" id="SOIC-8" description="8-Lead Plastic SOIC standard" tape-specification="12mm" pick-vacuum-level="0.0" place-blow-off-level="0.0">
-      <footprint units="Millimeters" body-width="4.0" body-height="6.2" outer-dimension="6.9" inner-dimension="3.0" pad-count="8" pad-pitch="1.27" pad-across="0.6" pad-roundness="1.0">
+      <footprint units="Millimeters" body-width="4.5" body-height="6.2" outer-dimension="6.9" inner-dimension="3.0" pad-count="8" pad-pitch="1.27" pad-across="0.6" pad-roundness="1.0">
          <pad name="1" x="-2.475" y="1.905" width="1.9500000000000002" height="0.6" rotation="180.0" roundness="1.0"/>
          <pad name="2" x="-2.475" y="0.635" width="1.9500000000000002" height="0.6" rotation="180.0" roundness="1.0"/>
          <pad name="3" x="-2.475" y="-0.635" width="1.9500000000000002" height="0.6" rotation="180.0" roundness="1.0"/>

@@ -86,6 +86,14 @@ regardless of which KiCad library the footprint came from.
   vision actually detects. Adjust tolerance if needed, but keep size
   checking enabled on all packages.
 
+## FIXME
+
+- **D_SOD123**: body-width/height likely swapped (3.6×1.1mm, W>>H)
+- **SW_SPST_B3U-1000P**: has vision settings but no footprint defined
+- **SOIC-8_5.23x5.23mm**: uses DEFAULT/BodySize, should probably use PadExtents
+- **TSSOP-10_3x3mm**: missing footprint
+- Several connector/hand-place packages have no footprint (OK if not machine-placed)
+
 ## Tape Defaults
 
 | Tape Width | Tape Type    | Part Pitch | Typical Components |
