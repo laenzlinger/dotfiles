@@ -86,6 +86,23 @@ regardless of which KiCad library the footprint came from.
   vision actually detects. Adjust tolerance if needed, but keep size
   checking enabled on all packages.
 
+## Part Test Procedure
+
+Before running a job, test each part type with this procedure:
+
+1. Load all parts into feeders
+2. Peel cover tape on feeders to test
+3. Select the nozzle to test (e.g. N14 for larger parts)
+4. In the **Parts** tab, sort by **# of placements** (most placements first)
+5. For each part assigned to the selected nozzle:
+   a. **Bottom Vision Settings → Test Alignment** — verify detection and size check
+   b. **Special Actions → Recycle** — return part to discard location
+6. Repeat with the other nozzle
+7. Fix any vision/size issues before running the job
+
+> Script: `feeder/check_feeder_strips.py` can verify strip alignment.
+> Script: `feeder/check_feeder_z.py` can verify pick Z heights.
+
 ## FIXME
 
 - **D_SOD123**: body-width/height likely swapped (3.6×1.1mm, W>>H)
