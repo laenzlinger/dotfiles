@@ -839,7 +839,7 @@
       </vision-compositing>
       <compatible-nozzle-tip-ids class="java.util.ArrayList"/>
    </package>
-   <package version="1.1" id="SOIC-8" description="8-Lead Plastic SOIC standard" tape-specification="12mm" pick-vacuum-level="0.0" place-blow-off-level="0.0">
+   <package version="1.1" bottom-vision-id="BVS17a3c4dcc6dc7519" id="SOIC-8" description="8-Lead Plastic SOIC standard" tape-specification="12mm" pick-vacuum-level="0.0" place-blow-off-level="0.0">
       <footprint units="Millimeters" body-width="4.0" body-height="5.0" outer-dimension="6.9" inner-dimension="3.0" pad-count="8" pad-pitch="1.27" pad-across="0.6" pad-roundness="1.0">
          <pad name="1" x="-2.475" y="1.905" width="1.9500000000000002" height="0.6" rotation="180.0" roundness="1.0"/>
          <pad name="2" x="-2.475" y="0.635" width="1.9500000000000002" height="0.6" rotation="180.0" roundness="1.0"/>
@@ -857,7 +857,7 @@
          <string>TIP16cbc9505c3e1916</string>
       </compatible-nozzle-tip-ids>
    </package>
-   <package version="1.1" id="SOIC-8-EP" description="8-Lead Plastic SOIC with Exposed Pad" tape-specification="12mm" pick-vacuum-level="0.0" place-blow-off-level="0.0">
+   <package version="1.1" bottom-vision-id="BVS17a3c4dcc6dc7519" id="SOIC-8-EP" description="8-Lead Plastic SOIC with Exposed Pad" tape-specification="12mm" pick-vacuum-level="0.0" place-blow-off-level="0.0">
       <footprint units="Millimeters" body-width="3.9" body-height="4.9" outer-dimension="6.5" inner-dimension="3.5" pad-count="8" pad-pitch="1.27" pad-across="0.8" pad-roundness="0.0">
          <pad name="1" x="-2.5" y="1.905" width="1.5" height="0.8" rotation="180.0" roundness="0.0"/>
          <pad name="2" x="-2.5" y="0.635" width="1.5" height="0.8" rotation="180.0" roundness="0.0"/>
@@ -890,7 +890,7 @@
       </compatible-nozzle-tip-ids>
    </package>
    <package version="1.1" id="SW-PCM12" pick-vacuum-level="0.0" place-blow-off-level="0.0">
-      <footprint units="Millimeters" body-width="0.0" body-height="0.0" outer-dimension="0.0" inner-dimension="0.0" pad-count="0" pad-pitch="0.0" pad-across="0.0" pad-roundness="0.0"/>
+      <footprint units="Millimeters" body-width="6.7" body-height="2.7" outer-dimension="8.7" inner-dimension="2.0" pad-count="7" pad-pitch="0.0" pad-across="1.0" pad-roundness="0.0"/>
       <vision-compositing compositing-method="Restricted" min-leverage-factor="0.2" extra-shots="0" allow-inside="true">
          <max-pick-tolerance value="0.0" units="Millimeters"/>
       </vision-compositing>
@@ -899,7 +899,7 @@
       </compatible-nozzle-tip-ids>
    </package>
    <package version="1.1" id="SW-SKRTLAE010" pick-vacuum-level="0.0" place-blow-off-level="0.0">
-      <footprint units="Millimeters" body-width="0.0" body-height="0.0" outer-dimension="0.0" inner-dimension="0.0" pad-count="0" pad-pitch="0.0" pad-across="0.0" pad-roundness="0.0"/>
+      <footprint units="Millimeters" body-width="3.7" body-height="2.9" outer-dimension="4.7" inner-dimension="2.2" pad-count="4" pad-pitch="0.0" pad-across="1.0" pad-roundness="0.0"/>
       <vision-compositing compositing-method="Restricted" min-leverage-factor="0.2" extra-shots="0" allow-inside="true">
          <max-pick-tolerance value="0.0" units="Millimeters"/>
       </vision-compositing>
