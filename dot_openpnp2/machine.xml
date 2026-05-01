@@ -430,9 +430,9 @@
                </stages>
             </pipeline>
          </feeder>
-         <feeder class="org.openpnp.machine.reference.feeder.ReferenceStripFeeder" version="1.1" id="FDR5ad69f9724f143db" name="LV08-04" enabled="true" part-id="C_0805-100n" retry-count="3" feed-retry-count="3" pick-retry-count="1" tape-type="WhitePaper" standard-eia-481="true" vision-enabled="true" feed-count="0" max-feed-count="28">
+         <feeder class="org.openpnp.machine.reference.feeder.ReferenceStripFeeder" version="1.1" id="FDR5ad69f9724f143db" name="LV08-04" enabled="true" part-id="C_0805-100n" retry-count="3" feed-retry-count="3" pick-retry-count="1" tape-type="WhitePaper" standard-eia-481="true" vision-enabled="true" feed-count="1" max-feed-count="28">
             <location units="Millimeters" x="0.0" y="0.0" z="0.0" rotation="90.0"/>
-            <reference-hole-location units="Millimeters" x="37.402" y="196.0309375" z="9.0" rotation="0.0"/>
+            <reference-hole-location units="Millimeters" x="37.402" y="196.0309375" z="8.8" rotation="0.0"/>
             <last-hole-location units="Millimeters" x="37.402" y="192.0929582842922" z="0.0" rotation="0.0"/>
             <part-pitch value="4.0" units="Millimeters"/>
             <tape-width value="8.0" units="Millimeters"/>
@@ -2025,7 +2025,7 @@
                <runout-compensation-lookup class="java.util.HashMap">
                   <entry>
                      <string>N1</string>
-                     <runout-compensation class="org.openpnp.machine.reference.ReferenceNozzleTipCalibration$ModelBasedRunoutCameraOffsetCompensation" center-x="0.07741749345485849" center-y="0.22874386470136784" radius="0.2549867835109003" phase-shift="18.2563014184702" units="Millimeters" peak-error="0.043495103214314226" rms-error="0.023947211760915705"/>
+                     <runout-compensation class="org.openpnp.machine.reference.ReferenceNozzleTipCalibration$ModelBasedRunoutCameraOffsetCompensation" center-x="0.18013231847126687" center-y="0.2353777777777672" radius="0.22797756859468704" phase-shift="9.283285872213243" units="Millimeters" peak-error="0.043350545087385145" rms-error="0.021361900073652355"/>
                   </entry>
                </runout-compensation-lookup>
                <minimum-detail-size value="0.2" units="Millimeters"/>
@@ -2146,7 +2146,7 @@
                <runout-compensation-lookup class="java.util.HashMap">
                   <entry>
                      <string>NOZ1710829fd33a0170</string>
-                     <runout-compensation class="org.openpnp.machine.reference.ReferenceNozzleTipCalibration$ModelBasedRunoutCameraOffsetCompensation" center-x="0.23728817000000002" center-y="0.14367816666666666" radius="0.1317675354478649" phase-shift="-0.946953862778804" units="Millimeters" peak-error="0.07508643531520602" rms-error="0.04347323738523432"/>
+                     <runout-compensation class="org.openpnp.machine.reference.ReferenceNozzleTipCalibration$ModelBasedRunoutCameraOffsetCompensation" center-x="0.3474576775" center-y="0.16954023666666665" radius="0.14736776396210527" phase-shift="22.776945044201792" units="Millimeters" peak-error="0.08368905139552539" rms-error="0.03986025733201837"/>
                   </entry>
                </runout-compensation-lookup>
                <minimum-detail-size value="0.2" units="Millimeters"/>
