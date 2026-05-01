@@ -81,6 +81,11 @@ regardless of which KiCad library the footprint came from.
   accordingly — large/heavy parts that benefit from N2's nozzle tips should
   be placed in front-row feeders (LV08, RV08, RV16, DV08).
 
+- **Never disable bottom vision size checks.**
+  Always fix the footprint dimensions in packages.xml to match what the
+  vision actually detects. Adjust tolerance if needed, but keep size
+  checking enabled on all packages.
+
 ## Tape Defaults
 
 | Tape Width | Tape Type    | Part Pitch | Typical Components |

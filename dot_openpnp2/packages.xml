@@ -33,7 +33,7 @@
       </compatible-nozzle-tip-ids>
    </package>
    <package version="1.1" bottom-vision-id="BVS17a3c4dcc6dc7519" id="SO08-E3" description="SO-8 MOSFET" tape-specification="12mm" pick-vacuum-level="0.0" place-blow-off-level="0.0">
-      <footprint units="Millimeters" body-width="6.8" body-height="5.5" outer-dimension="7.38" inner-dimension="3.0" pad-count="8" pad-pitch="1.27" pad-across="0.58" pad-roundness="0.0">
+      <footprint units="Millimeters" body-width="4.5" body-height="6.2" outer-dimension="7.38" inner-dimension="3.0" pad-count="8" pad-pitch="1.27" pad-across="0.58" pad-roundness="0.0">
          <pad name="1" x="-2.5949999999999998" y="1.905" width="2.19" height="0.58" rotation="180.0" roundness="0.0"/>
          <pad name="2" x="-2.5949999999999998" y="0.635" width="2.19" height="0.58" rotation="180.0" roundness="0.0"/>
          <pad name="3" x="-2.5949999999999998" y="-0.635" width="2.19" height="0.58" rotation="180.0" roundness="0.0"/>
@@ -748,7 +748,7 @@
       </compatible-nozzle-tip-ids>
    </package>
    <package version="1.1" bottom-vision-id="BVS17a3c352742f3ca8" id="IND-6045" description="Inductor" tape-specification="16mm" pick-vacuum-level="0.0" place-blow-off-level="0.0">
-      <footprint units="Millimeters" body-width="6.0" body-height="4.5" outer-dimension="6.4" inner-dimension="1.8" pad-count="2" pad-pitch="0.0" pad-across="5.1" pad-roundness="0.0">
+      <footprint units="Millimeters" body-width="6.0" body-height="6.0" outer-dimension="6.4" inner-dimension="1.8" pad-count="2" pad-pitch="0.0" pad-across="5.1" pad-roundness="0.0">
          <pad name="1" x="-2.0500000000000003" y="0.0" width="2.3000000000000003" height="5.1" rotation="180.0" roundness="0.0"/>
          <pad name="2" x="2.0500000000000003" y="0.0" width="2.3000000000000003" height="5.1" rotation="0.0" roundness="0.0"/>
       </footprint>
@@ -840,7 +840,7 @@
       <compatible-nozzle-tip-ids class="java.util.ArrayList"/>
    </package>
    <package version="1.1" bottom-vision-id="BVS17a3c4dcc6dc7519" id="SOIC-8" description="8-Lead Plastic SOIC standard" tape-specification="12mm" pick-vacuum-level="0.0" place-blow-off-level="0.0">
-      <footprint units="Millimeters" body-width="4.0" body-height="5.0" outer-dimension="6.9" inner-dimension="3.0" pad-count="8" pad-pitch="1.27" pad-across="0.6" pad-roundness="1.0">
+      <footprint units="Millimeters" body-width="4.0" body-height="6.2" outer-dimension="6.9" inner-dimension="3.0" pad-count="8" pad-pitch="1.27" pad-across="0.6" pad-roundness="1.0">
          <pad name="1" x="-2.475" y="1.905" width="1.9500000000000002" height="0.6" rotation="180.0" roundness="1.0"/>
          <pad name="2" x="-2.475" y="0.635" width="1.9500000000000002" height="0.6" rotation="180.0" roundness="1.0"/>
          <pad name="3" x="-2.475" y="-0.635" width="1.9500000000000002" height="0.6" rotation="180.0" roundness="1.0"/>
@@ -858,7 +858,7 @@
       </compatible-nozzle-tip-ids>
    </package>
    <package version="1.1" bottom-vision-id="BVS17a3c4dcc6dc7519" id="SOIC-8-EP" description="8-Lead Plastic SOIC with Exposed Pad" tape-specification="12mm" pick-vacuum-level="0.0" place-blow-off-level="0.0">
-      <footprint units="Millimeters" body-width="3.9" body-height="4.9" outer-dimension="6.5" inner-dimension="3.5" pad-count="8" pad-pitch="1.27" pad-across="0.8" pad-roundness="0.0">
+      <footprint units="Millimeters" body-width="4.5" body-height="6.2" outer-dimension="6.5" inner-dimension="3.5" pad-count="8" pad-pitch="1.27" pad-across="0.8" pad-roundness="0.0">
          <pad name="1" x="-2.5" y="1.905" width="1.5" height="0.8" rotation="180.0" roundness="0.0"/>
          <pad name="2" x="-2.5" y="0.635" width="1.5" height="0.8" rotation="180.0" roundness="0.0"/>
          <pad name="3" x="-2.5" y="-0.635" width="1.5" height="0.8" rotation="180.0" roundness="0.0"/>
