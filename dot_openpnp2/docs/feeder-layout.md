@@ -73,6 +73,14 @@ Format: `{Package}-{Value}` — e.g. `C_0805-100n`, `R_0805-10K`, `SOT-23-2N7002
 Parts are shared across all projects. The package map ensures consistent naming
 regardless of which KiCad library the footprint came from.
 
+## Known Limitations
+
+- **N2 (right nozzle) cannot reach the rear feeder rows (LH08, RH12).**
+  The shared Y axis combined with the head geometry restricts N2's Y travel.
+  Only N1 (left nozzle) can pick from rear feeders. Plan part assignments
+  accordingly — large/heavy parts that benefit from N2's nozzle tips should
+  be placed in front-row feeders (LV08, RV08, RV16, DV08).
+
 ## Tape Defaults
 
 | Tape Width | Tape Type    | Part Pitch | Typical Components |
