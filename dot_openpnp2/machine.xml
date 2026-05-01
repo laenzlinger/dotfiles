@@ -762,7 +762,7 @@
          </feeder>
          <feeder class="org.openpnp.machine.reference.feeder.ReferenceStripFeeder" version="1.1" id="FDRf161f5c4a1ca4770" name="RV08-03" enabled="true" part-id="SOT-23-2N7002" retry-count="3" feed-retry-count="3" pick-retry-count="1" tape-type="ClearPlastic" standard-eia-481="true" vision-enabled="true" feed-count="0" max-feed-count="13">
             <location units="Millimeters" x="0.0" y="0.0" z="0.0" rotation="90.0"/>
-            <reference-hole-location units="Millimeters" x="295.422954" y="198.632821" z="8.742857" rotation="0.0"/>
+            <reference-hole-location units="Millimeters" x="295.422954" y="198.632821" z="8.8" rotation="0.0"/>
             <last-hole-location units="Millimeters" x="295.376353" y="194.622055" z="0.0" rotation="0.0"/>
             <part-pitch value="8.0" units="Millimeters"/>
             <tape-width value="8.0" units="Millimeters"/>
@@ -1268,7 +1268,7 @@
          </feeder>
          <feeder class="org.openpnp.machine.reference.feeder.ReferenceStripFeeder" version="1.1" id="FDRb5e34e2206354b5b" name="RV16-01" enabled="true" part-id="QFN-48-7x7-ASM1061" retry-count="3" feed-retry-count="3" pick-retry-count="1" tape-type="ClearPlastic" standard-eia-481="true" vision-enabled="true" feed-count="0" max-feed-count="8">
             <location units="Millimeters" x="0.0" y="0.0" z="0.0" rotation="0.0"/>
-            <reference-hole-location units="Millimeters" x="366.39522222222223" y="86.788" z="10.0" rotation="0.0"/>
+            <reference-hole-location units="Millimeters" x="366.39522222222223" y="86.788" z="8.8" rotation="0.0"/>
             <last-hole-location units="Millimeters" x="370.45244444444444" y="86.788" z="0.0" rotation="0.0"/>
             <part-pitch value="12.0" units="Millimeters"/>
             <tape-width value="16.0" units="Millimeters"/>
@@ -1290,7 +1290,7 @@
          </feeder>
          <feeder class="org.openpnp.machine.reference.feeder.ReferenceStripFeeder" version="1.1" id="FDR3ba0c76144744db7" name="RV16-02" enabled="true" part-id="IND-6045-SRN6045TA-3R3Y" retry-count="3" feed-retry-count="3" pick-retry-count="1" tape-type="ClearPlastic" standard-eia-481="true" vision-enabled="true" feed-count="0" max-feed-count="5">
             <location units="Millimeters" x="0.0" y="0.0" z="0.0" rotation="0.0"/>
-            <reference-hole-location units="Millimeters" x="366.39522222222223" y="105.18799999999999" z="10.0" rotation="0.0"/>
+            <reference-hole-location units="Millimeters" x="366.39522222222223" y="105.18799999999999" z="8.8" rotation="0.0"/>
             <last-hole-location units="Millimeters" x="370.45244444444444" y="105.18799999999999" z="0.0" rotation="0.0"/>
             <part-pitch value="16.0" units="Millimeters"/>
             <tape-width value="16.0" units="Millimeters"/>
@@ -1312,7 +1312,7 @@
          </feeder>
          <feeder class="org.openpnp.machine.reference.feeder.ReferenceStripFeeder" version="1.1" id="FDRa2b0e6b0b9b842a0" name="RV16-03" enabled="true" part-id="SW-PCM12-PCM12SMTR" retry-count="3" feed-retry-count="3" pick-retry-count="1" tape-type="WhitePaper" standard-eia-481="true" vision-enabled="true" feed-count="0" max-feed-count="0">
             <location units="Millimeters" x="0.0" y="0.0" z="0.0" rotation="0.0"/>
-            <reference-hole-location units="Millimeters" x="366.39522222222223" y="123.588" z="10.0" rotation="0.0"/>
+            <reference-hole-location units="Millimeters" x="366.39522222222223" y="123.588" z="8.8" rotation="0.0"/>
             <last-hole-location units="Millimeters" x="370.45244444444444" y="123.588" z="0.0" rotation="0.0"/>
             <part-pitch value="12.0" units="Millimeters"/>
             <tape-width value="16.0" units="Millimeters"/>
@@ -1334,7 +1334,7 @@
          </feeder>
          <feeder class="org.openpnp.machine.reference.feeder.ReferenceStripFeeder" version="1.1" id="FDR99e95cf23573496d" name="RV16-04" enabled="true" part-id="ECAP-6.3x7.7-100uF/25V" retry-count="3" feed-retry-count="3" pick-retry-count="1" tape-type="WhitePaper" standard-eia-481="true" vision-enabled="true" feed-count="0" max-feed-count="0">
             <location units="Millimeters" x="0.0" y="0.0" z="0.0" rotation="0.0"/>
-            <reference-hole-location units="Millimeters" x="366.39522222222223" y="141.988" z="10.0" rotation="0.0"/>
+            <reference-hole-location units="Millimeters" x="366.39522222222223" y="141.988" z="8.8" rotation="0.0"/>
             <last-hole-location units="Millimeters" x="370.45244444444444" y="141.988" z="0.0" rotation="0.0"/>
             <part-pitch value="12.0" units="Millimeters"/>
             <tape-width value="16.0" units="Millimeters"/>
@@ -1356,7 +1356,7 @@
          </feeder>
          <feeder class="org.openpnp.machine.reference.feeder.ReferenceStripFeeder" version="1.1" id="FDR9ebd33afd48541ff" name="RV16-05" enabled="true" part-id="CALIBRATION-DUMMY" retry-count="3" feed-retry-count="3" pick-retry-count="1" tape-type="WhitePaper" standard-eia-481="true" vision-enabled="true" feed-count="0" max-feed-count="0">
             <location units="Millimeters" x="0.0" y="0.0" z="0.0" rotation="0.0"/>
-            <reference-hole-location units="Millimeters" x="366.39522222222223" y="160.483" z="8.6" rotation="0.0"/>
+            <reference-hole-location units="Millimeters" x="366.39522222222223" y="160.483" z="8.8" rotation="0.0"/>
             <last-hole-location units="Millimeters" x="370.45244444444444" y="160.483" z="0.0" rotation="0.0"/>
             <part-pitch value="12.0" units="Millimeters"/>
             <tape-width value="16.0" units="Millimeters"/>
@@ -1378,7 +1378,7 @@
          </feeder>
          <feeder class="org.openpnp.machine.reference.feeder.ReferenceStripFeeder" version="1.1" id="FDR1f2b50427a7e4fb2" name="RV16-06" enabled="true" part-id="CALIBRATION-DUMMY" retry-count="3" feed-retry-count="3" pick-retry-count="1" tape-type="WhitePaper" standard-eia-481="true" vision-enabled="true" feed-count="0" max-feed-count="0">
             <location units="Millimeters" x="0.0" y="0.0" z="0.0" rotation="0.0"/>
-            <reference-hole-location units="Millimeters" x="366.39522222222223" y="186.465" z="8.6" rotation="0.0"/>
+            <reference-hole-location units="Millimeters" x="366.39522222222223" y="186.465" z="8.8" rotation="0.0"/>
             <last-hole-location units="Millimeters" x="370.45244444444444" y="186.465" z="0.0" rotation="0.0"/>
             <part-pitch value="12.0" units="Millimeters"/>
             <tape-width value="16.0" units="Millimeters"/>
