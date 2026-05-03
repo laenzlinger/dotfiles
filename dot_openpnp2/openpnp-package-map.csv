@@ -9,7 +9,7 @@ kicad_footprint,openpnp_package,height,tape_type,part_pitch,tape_width,nozzle_ti
 # Passives
 C_0805_2012Metric,C_0805,0.9,WhitePaper,4,8,NT1,90
 R_0805_2012Metric,R_0805,0.5,WhitePaper,4,8,NT1,90
-LED_0805_2012Metric,LED_0805,0.8,BlackPlastic,4,8,NT1,-90
+LED_0805_2012Metric,LED_0805,0.8,BlackPlastic,4,8,NT1,90
 # ICs
 SOT-223-3_TabPin2,SOT-223,1.6,BlackPlastic,8,12,TIP16cbc9505c3e1916,90
 SOT-23,SOT-23,1.1,BlackPlastic,4,8,NT1,0
