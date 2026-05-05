@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Generate wob colors from waybar colors.css (base16)
 set -euo pipefail
-src=~/.config/waybar/colors.css
+src="${1:-$HOME/.config/waybar/colors.css}"
 get() { sed -n "s/@define-color $1 #\(.*\);/\1/p" "$src"; }
 
 cat > ~/.config/wob/wob-colors.ini <<EOF

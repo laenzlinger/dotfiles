@@ -2,7 +2,7 @@
 set -euo pipefail
 command -v sed >/dev/null || exit 1
 
-WAYBAR_CSS="$HOME/.config/waybar/colors.css"
+WAYBAR_CSS="${1:-$HOME/.config/waybar/colors.css}"
 OUT="$HOME/.config/foot/colors.ini"
 
 [ -f "$WAYBAR_CSS" ] || exit 0

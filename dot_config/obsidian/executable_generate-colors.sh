@@ -3,7 +3,7 @@ set -euo pipefail
 
 command -v python3 >/dev/null || { echo "python3 required" >&2; exit 1; }
 
-colors_css=~/.config/waybar/colors.css
+colors_css="${1:-$HOME/.config/waybar/colors.css}"
 obsidian_json=~/.config/obsidian/obsidian.json
 
 # Parse base16 colors from waybar colors.css
