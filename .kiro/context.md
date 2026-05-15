@@ -105,5 +105,9 @@ Custom unit files in `dot_config/systemd/user/`, enabled via `run_onchange_enabl
 - **No focus guarantee**: Window focus may change before a watcher script runs — use metadata (e.g. MIME types) instead of focused window to identify event sources
 - **Test from sway**: Always verify scripts with `swaymsg exec 'script.sh 2>/tmp/debug.log'`, not just from a terminal
 
+## Resticprofile Pitfalls
+- **`check-battery: true` aborts mid-run**: It doesn't just check at start — it monitors during backup and sends SIGINT to restic if it detects battery. On USB-C docks, power state can briefly flicker during PD negotiation, causing false positives. Disable for profiles that only run when docked/on AC.
+- **Status file doesn't distinguish success/failure**: The "too recent" skip check uses `backup.time` regardless of `backup.success`. A failed backup blocks retries until the threshold (13h) passes.
+
 ## Shellcheck
 Pre-commit hooks enforce shellcheck - fix warnings before committing.
