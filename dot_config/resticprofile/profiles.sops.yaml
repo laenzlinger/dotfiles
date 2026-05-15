@@ -43,9 +43,10 @@ profiles:
             prune: true
     homeoffice:
         inherit: base
+        check-battery: false
         env:
-            DISK_UUID: ENC[AES256_GCM,data:y1S1I2ntHPqdYmCw51rM0gNaxagefZjwmqFWxWi6r2COS4rM,iv:s7eyhiv0MksY0CRb98j3hCRAs2TeiuWEPd7lrOu4uec=,tag:6MKiSJ6yuilyahv1pMPK3w==,type:str]
-        repository: ENC[AES256_GCM,data:d5MQYUVZKlQa3XFsSqWKU4e/d9sGKQsyfRhYHQMn1U2C5f1VWRI2rQ==,iv:+PCK10OP/XL59YDyiEruv46OzYtKrIkcS/WZfZh0M0o=,tag:PFP6b8hRz9PNSFK14PAZQQ==,type:str]
+            DISK_UUID: ENC[AES256_GCM,data:Ooh6vylSMKXxErWgoAU3MM5DP+I+GevLpd46fnF/Vu1WCqB6,iv:XM8mnO9FDnVdqawPVY3QbTrJsfTnf44cW4AlUZ1lKa8=,tag:6wOyU2ai2xIqf0/j26ojDQ==,type:str]
+        repository: ENC[AES256_GCM,data:v5M5kkYcALJyD8+18EuYiU684lfMHs5ifG1f7nUrpXAEQ6huGyY6Ow==,iv:7O+Ru8bR/g6AUxfUDIVxwOL9CnOCY0s+GewsOnyBYB8=,tag:dRblhWF7tf1JRj53zKBDPQ==,type:str]
         run-before:
             - |
               STATUS_FILE="/home/laenzi/.cache/resticprofile/status.json"
@@ -79,7 +80,7 @@ profiles:
               fi
     nas:
         inherit: base
-        repository-file: ENC[AES256_GCM,data:R5K0RWQy/MHPBV/sP8z9tWtEJdmVe4oWq29XRV3nZ2Wn,iv:6+QGxH9ICEZEh0595/l/JVs9CCxQ+ZQ2x/s7DMIqIl8=,tag:lON5XEy0YE9InWa0kcMbQw==,type:str]
+        repository-file: ENC[AES256_GCM,data:vc7Rlv85oIHGoGEWAq8IjHuM790z9GV/5szqz1NmtIZg,iv:Aev02JhXbgMkzbay2+ZSehddZep8ZINcrJM8cSzqt9k=,tag:V0YjxvxSxWi2jsbsVDXCMQ==,type:str]
         run-before:
             - |
               STATUS_FILE="/home/laenzi/.cache/resticprofile/status.json"
@@ -105,7 +106,7 @@ profiles:
     nas-term:
         inherit: nas
         password-command: secret-tool lookup restic gibson-home
-        repository: ENC[AES256_GCM,data:v31sA/4LHxfClqo+AywKiDWOCtUXtis4+QeoTA==,iv:Ea6kGHBq81Njl4DaQ65h5U9eBkFRhTHhYuhCvSIUPFA=,tag:GxKsMqF6AgXyfkAq0v1VIA==,type:str]
+        repository: ENC[AES256_GCM,data:MIsABFgr0znKnReg0IF/Ah9hV7lR5oPR6WyKLA==,iv:ZkY6Iwp/QJw5IUbDwQnv5QLCCSR+7xxtQj41T+JQYus=,tag:98oQKtsxnhTU+jOdRkvuWA==,type:str]
         repository-file: ""
 groups:
     rotating-backup:
@@ -122,19 +123,19 @@ groups:
                 systemd-drop-in-files:
                     - system-integration.conf
 sops:
-    lastmodified: "2026-04-03T09:39:40Z"
-    mac: ENC[AES256_GCM,data:hZCLHrNCB0rSpoyslTnIgoAl0epqxRQT0kIhM8lxxePpr4zFWv1cFPrF6AaICzeWAg/FvlqdKU9KpY0xHhv+mTjbWofn8ysZZuABI6jxqALs+6AFOthXPu/vN1BclAB+D+zjl7DJ55Z6k+bQZLOBbSW0JzdBpoM9wjsRj6twRw0=,iv:Ip94R7NS/eYe9VWAlPONDmaoziR8JRceAkdml+AgidQ=,tag:PIIZoOkw2twY2KgUhfTWrw==,type:str]
+    encrypted_regex: ^(DISK_UUID|repository|repository-file)$
+    lastmodified: "2026-05-15T07:48:37Z"
+    mac: ENC[AES256_GCM,data:34TsaZPrKRMqXhYmd+YA8VTAoz6JB6SinLH8kc3jWXsaXgGAFYbXUBTZI8KCTNcRLrNaeukAji1FIsScUXf+FK0LG9tHJD5wRXqMg6N9twUAs8aJ0+/gAc6LA/qssIPbLO5KI3E25oWG2K+jxRmmRw5q5rBRa2v6MftHNiE2u6Y=,iv:avmxLwHD5+ZJFH7qcgCYNEZtpGDStsgpSkpZSeWiu38=,tag:1pYVXI+C4WxgTZc1X57MKw==,type:str]
     pgp:
-        - created_at: "2026-04-03T09:39:40Z"
+        - created_at: "2026-05-15T07:48:37Z"
           enc: |-
             -----BEGIN PGP MESSAGE-----
 
-            hF4DW7dSlBr/UTcSAQdAqeCVqQ1GNJTYD3HEjLcIUdYtA8Nzzk7EV2vmIJgD+B4w
-            ykVpO2MPLXSO1/FqQDdlBqpO9TGqkD8TI73EaNUmBwo0BckwMor0LXcB4M2dmKpj
-            0l4BDeHWJtPDlUUA+okbixfwVCFT1U0PTv0L+ZJskSioKT5K7TFpU6QX3ByKVUz2
-            Z8UUcOHy+Lay2koh2TMjVNOWxkLpHQhMGmGtKmWzk8RAQTbVAXiN9zd33YcvDv2P
-            =TTqL
+            hF4DW7dSlBr/UTcSAQdAI6JDGWnR495FSkpD6S8rhXBCwd+C12GqxKgqGC1EE0sw
+            m5QHKcmvSj23WmuFRnupDXFCS5FSw1T3lbKDIDb1aPpAG2GhWW8B7IEMwrU9ZF54
+            0l4B8WWu59wJUWGywpemJRUMoU0mYViZGZqTEouSp3crZ7wNlS+U89jmZT8myhZ7
+            4sJSGGjP1aijUkiwWDANMbYnE4f3nVe8jkNWY3lQyMUvpNVA8O4gAdusv9t9QwRd
+            =8Y0W
             -----END PGP MESSAGE-----
           fp: 5D0F5C9123DC8E85027768E924B71D9642BACC8E
-    encrypted_regex: ^(DISK_UUID|repository|repository-file)$
-    version: 3.12.2
+    version: 3.13.0
