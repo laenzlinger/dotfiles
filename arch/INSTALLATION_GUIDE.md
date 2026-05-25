@@ -559,6 +559,19 @@ usermod -aG wheel laenzi
 # NetworkManager should already be enabled, verify:
 systemctl enable NetworkManager
 
+# Display manager
+systemctl enable ly
+
+# Create UWSM session entry for Sway
+cat > /usr/share/wayland-sessions/sway-uwsm.desktop << 'EOF'
+[Desktop Entry]
+Name=Sway (UWSM)
+Comment=Sway compositor managed by UWSM
+Exec=uwsm start -N "Sway" -D sway -- sway
+DesktopNames=sway
+Type=Application
+EOF
+
 # Enable other services as needed from your backup
 # Check what was enabled in your old system:
 # ls /root/etc-backup/etc/systemd/system/*.wants/
