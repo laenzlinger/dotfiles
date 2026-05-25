@@ -5,6 +5,7 @@ netbird.service
 NetworkManager-dispatcher.service
 NetworkManager-wait-online.service
 NetworkManager.service
+speakersafetyd.service
 systemd-boot-clear-sysfail.service
 systemd-boot-update.service
 systemd-resolved.service

@@ -10,6 +10,7 @@ asahi-fwextract
 asahi-meta
 asahi-scripts
 asciidoctor
+bankstown
 base
 base-devel
 bat
@@ -200,6 +201,7 @@ smartmontools
 snap-pac
 sof-firmware
 sops
+speakersafetyd
 sshuttle
 starship
 sudo
