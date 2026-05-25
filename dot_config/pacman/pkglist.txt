@@ -122,7 +122,6 @@ linux
 linux-firmware
 logrotate
 lrzsz
-lsd
 luarocks
 lvm2
 ly
