@@ -14,13 +14,7 @@ Dotfiles managed by [chezmoi](https://www.chezmoi.io/). Opinionated, personal, e
 
 ### Arch Linux
 
-See [arch/INSTALLATION_GUIDE.md](arch/INSTALLATION_GUIDE.md) for bare metal, or:
-
-```bash
-loadkeys de_CH-latin1
-curl https://raw.githubusercontent.com/laenzlinger/dotfiles/master/arch/setup-vmware.sh > setup-vmware.sh
-bash setup-vmware.sh
-```
+See [arch/INSTALLATION_GUIDE.md](arch/INSTALLATION_GUIDE.md) for bare metal installation.
 
 ### User setup (all platforms)
 
@@ -36,11 +30,11 @@ chezmoi cd
 ### Create user (Arch)
 
 ```bash
-arch-chroot /dev
+arch-chroot /mnt
 passwd
-useradd -m <username>
+useradd -m -G wheel -s /bin/zsh <username>
 passwd <username>
-visudo                  # <username>   ALL=(ALL) ALL
+EDITOR=vim visudo   # uncomment %wheel ALL=(ALL:ALL) ALL
 ```
 
 ### Testing in Docker

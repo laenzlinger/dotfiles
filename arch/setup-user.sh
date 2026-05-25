@@ -1,25 +1,23 @@
 #!/usr/bin/env bash
+set -euo pipefail
 
-PKG_LIST=~/.local/share/chezmoi/dot_config/pacman/
+PKG_LIST=~/.local/share/chezmoi/dot_config/pacman
 
-set -e
+# install official packages
+# shellcheck disable=SC2024
+sudo pacman -S --noconfirm --needed - < "${PKG_LIST}/pkglist.txt"
 
-# install packages
-sudo cat "${PKG_LIST}/pkglist.txt" | sudo pacman -S --noconfirm --needed -
-
-# install aura
-cd ~
-
-git clone https://aur.archlinux.org/aura-bin.git
-cd aura-bin
-makepkg
-sudo pacman -U --noconfirm aura-bin-*.pkg.tar.zst
-cd ~
-rm -rf ~/aura-bin
+# install yay
+if ! command -v yay &>/dev/null; then
+  git clone https://aur.archlinux.org/yay.git /tmp/yay
+  cd /tmp/yay
+  makepkg -si --noconfirm
+  rm -rf /tmp/yay
+fi
 
 # install AUR packages
-grep -v '\-debug$' ${PKG_LIST}/foreignpkglist.txt | \
-  grep -v '^aura-bin$' | \
-  sudo xargs aura --noconfirm -A
+grep -v '\-debug$' "${PKG_LIST}/foreignpkglist.txt" | \
+  grep -v '^yay$' | \
+  yay -S --noconfirm --needed -
 
 chezmoi apply

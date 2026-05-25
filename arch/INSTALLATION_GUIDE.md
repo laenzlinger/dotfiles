@@ -496,9 +496,12 @@ su - laenzi
 cd /tmp
 git clone https://aur.archlinux.org/yay.git
 cd yay
-makepkg -si
+makepkg -si --noconfirm
 cd ~
-yay -S --needed - < /home/laenzi/.local/share/chezmoi/dot_config/pacman/foreignpkglist.txt
+rm -rf /tmp/yay
+grep -v '\-debug$' ~/.local/share/chezmoi/dot_config/pacman/foreignpkglist.txt | \
+  grep -v '^yay$' | \
+  yay -S --noconfirm --needed -
 exit  # Back to root
 ```
 
