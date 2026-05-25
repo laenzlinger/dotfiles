@@ -1,4 +1,5 @@
 README.md
+secrets.sops.yaml
 arch/
 darwin/
 debian/
