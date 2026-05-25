@@ -1,0 +1,4 @@
+#optional dependencies
+cmake
+ninja
+python-pytest

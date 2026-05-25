@@ -1,16 +1,14 @@
 cups.path
-avahi-daemon.service
-bluetooth.service
 cups.service
 getty@.service
-linux-modules-cleanup.service
 netbird.service
 NetworkManager-dispatcher.service
 NetworkManager-wait-online.service
 NetworkManager.service
+systemd-boot-clear-sysfail.service
+systemd-boot-update.service
 systemd-resolved.service
 systemd-timesyncd.service
-avahi-daemon.socket
 cups.socket
 docker.socket
 pcscd.socket
@@ -18,7 +16,5 @@ systemd-resolved-monitor.socket
 systemd-resolved-varlink.socket
 systemd-userdbd.socket
 remote-fs.target
-fstrim.timer
-resticprofile-backup@profile-rotating-backup.timer
 snapper-cleanup.timer
 snapper-timeline.timer

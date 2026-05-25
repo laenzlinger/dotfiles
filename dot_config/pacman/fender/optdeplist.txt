@@ -1,5 +1,4 @@
 #optional dependencies
 cmake
-llvm21
+ninja
 python-pytest
-qt5-multimedia
