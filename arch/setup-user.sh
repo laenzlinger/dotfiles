@@ -3,9 +3,10 @@ set -euo pipefail
 
 PKG_LIST=~/.local/share/chezmoi/dot_config/pacman
 
-# install official packages (skip unavailable)
-comm -12 <(pacman -Slq | sort) <(sort "${PKG_LIST}/pkglist.txt") | \
-  sudo pacman -S --noconfirm --needed -
+# install official packages (skip failures)
+while IFS= read -r pkg; do
+  sudo pacman -S --noconfirm --needed "$pkg" 2>/dev/null || echo "SKIPPED: $pkg"
+done < <(comm -12 <(pacman -Slq | sort) <(sort "${PKG_LIST}/pkglist.txt"))
 
 # install yay
 if ! command -v yay &>/dev/null; then
