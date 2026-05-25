@@ -23,7 +23,7 @@ else
         IP=$(ip -4 addr show "$IFACE" 2>/dev/null | grep inet | awk '{print $2}')
         GW=$(ip route | grep default | awk '{print $3}' | head -1)
         LABEL="${CONN/Wired connection */Wired}"
-        NET_TEXT="󰄜 ${LABEL}"
+        NET_TEXT="󰈀 ${LABEL}"
         NET_TIP="${CONN}\n$IP\nGateway: $GW"
     else
         NET_TEXT="󰤭  Down"
