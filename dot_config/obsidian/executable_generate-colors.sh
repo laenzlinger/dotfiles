@@ -6,6 +6,8 @@ command -v python3 >/dev/null || { echo "python3 required" >&2; exit 1; }
 colors_css="${1:-$HOME/.config/waybar/colors.css}"
 obsidian_json=~/.config/obsidian/obsidian.json
 
+[[ -f "$obsidian_json" ]] || { echo "obsidian.json not found, skipping"; exit 0; }
+
 # Parse base16 colors from waybar colors.css
 declare -A c
 while IFS= read -r line; do
