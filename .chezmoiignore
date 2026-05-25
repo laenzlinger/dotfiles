@@ -2,6 +2,7 @@ README.md
 arch/
 darwin/
 debian/
+docs/
 
 {{- if eq .chezmoi.os "darwin" }}
 .config/i3
