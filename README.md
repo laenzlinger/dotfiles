@@ -19,12 +19,13 @@ See [arch/INSTALLATION_GUIDE.md](arch/INSTALLATION_GUIDE.md) for bare metal inst
 ### User setup (all platforms)
 
 ```bash
+# prerequisites (Arch)
+sudo pacman -S chezmoi git base-devel
+
 chezmoi init https://github.com/laenzlinger/dotfiles.git
 chezmoi cd
 # then run the platform setup script:
-#   arch/setup-user.sh
-#   darwin/setup-user.sh
-#   debian/setup-user.sh
+#   bash arch/setup-user.sh
 ```
 
 ### Create user (Arch)
