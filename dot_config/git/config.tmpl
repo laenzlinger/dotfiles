@@ -35,6 +35,7 @@
     defaultBranch = main
 [user]
     name = Christof Laenzlinger
+    email = 6319634+laenzlinger@users.noreply.github.com
     signingKey = {{ index (fromYaml (output "sops" "--decrypt" (joinPath .chezmoi.sourceDir "secrets.sops.yaml"))) "gpg_key_id" }}
 
 [pager]
