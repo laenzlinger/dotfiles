@@ -560,7 +560,7 @@ usermod -aG wheel laenzi
 systemctl enable NetworkManager
 
 # Display manager
-systemctl enable ly
+systemctl enable ly@tty2
 
 # Create UWSM session entry for Sway
 cat > /usr/share/wayland-sessions/sway-uwsm.desktop << 'EOF'
