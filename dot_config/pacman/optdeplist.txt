@@ -1,4 +1,5 @@
 #optional dependencies
 cmake
+llvm21
 python-pytest
 qt5-multimedia
