@@ -485,7 +485,7 @@ exit
 
 ```bash
 # Install packages from list
-arch-chroot /mnt pacman -S --needed - < /home/laenzi/.local/share/chezmoi/dot_config/pacman/pkglist.txt
+arch-chroot /mnt pacman -S --needed - < /home/laenzi/.local/share/chezmoi/dot_config/pacman/$(hostname)/pkglist.txt
 ```
 
 ### Install Yay (AUR Helper) and AUR Packages
@@ -499,7 +499,7 @@ cd yay
 makepkg -si --noconfirm
 cd ~
 rm -rf /tmp/yay
-grep -v '\-debug$' ~/.local/share/chezmoi/dot_config/pacman/foreignpkglist.txt | \
+grep -v '\-debug$' ~/.local/share/chezmoi/dot_config/pacman/$(hostname)/foreignpkglist.txt | \
   grep -v '^yay$' | \
   yay -S --noconfirm --needed -
 exit  # Back to root
