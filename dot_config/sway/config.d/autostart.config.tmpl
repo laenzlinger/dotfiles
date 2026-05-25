@@ -6,11 +6,15 @@ exec swayidle -w \
 exec ~/.config/sway/bin/output-flash.sh
 exec ~/.config/waybar/scripts/waybar-reload.sh
 
+{{ if eq .chezmoi.hostname "fender" -}}
+exec "gdbus wait --session org.freedesktop.Notifications && chromium"
+{{ else -}}
 exec "gdbus wait --session org.freedesktop.Notifications && vivaldi"
+{{ end -}}
 exec $terminal start --class main-terminal
 exec "sleep 3; keepassxc ~/data/pw/pw.kdbx"
 
 # Workspace assignments
-assign [app_id="vivaldi"] $ws1
+assign [app_id="{{ if eq .chezmoi.hostname "fender" }}chromium{{ else }}vivaldi{{ end }}"] $ws1
 assign [app_id="main-terminal"] $ws2
 assign [app_id="obsidian"] $ws3
