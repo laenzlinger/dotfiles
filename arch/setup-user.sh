@@ -16,6 +16,9 @@ if ! command -v yay &>/dev/null; then
   rm -rf /tmp/yay
 fi
 
+# initialize rust toolchain (needed for some AUR builds)
+rustup default stable
+
 # install AUR packages
 grep -v '\-debug$' "${PKG_LIST}/foreignpkglist.txt" | \
   grep -v '^yay$' | \
