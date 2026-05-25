@@ -3,9 +3,9 @@ set -euo pipefail
 
 PKG_LIST=~/.local/share/chezmoi/dot_config/pacman
 
-# install official packages
-# shellcheck disable=SC2024
-sudo pacman -S --noconfirm --needed - < "${PKG_LIST}/pkglist.txt"
+# install official packages (skip unavailable)
+comm -12 <(pacman -Slq | sort) <(sort "${PKG_LIST}/pkglist.txt") | \
+  sudo pacman -S --noconfirm --needed -
 
 # install yay
 if ! command -v yay &>/dev/null; then
