@@ -1,7 +1,7 @@
 cups.path
 avahi-daemon.service
 bluetooth.service
-chronyd.service
+systemd-timesyncd.service
 cups.service
 getty@.service
 linux-modules-cleanup.service

@@ -25,7 +25,6 @@ carla
 cgal
 chezmoi
 chromium
-chrony
 code
 composer
 compsize
