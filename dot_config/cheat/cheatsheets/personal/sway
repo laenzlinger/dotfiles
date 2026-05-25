@@ -54,6 +54,16 @@ Mod+v
 # Clear clipboard history
 Mod+c
 
+## Clipboard (CLI)
+# Copy file contents to clipboard
+wl-copy < file.txt
+
+# Copy image to clipboard
+wl-copy -t image/png < image.png
+
+# Paste clipboard to stdout
+wl-paste
+
 ## Window Management
 # Kill focused window
 Mod+Shift+q
