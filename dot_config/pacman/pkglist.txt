@@ -47,6 +47,7 @@ element-desktop
 emptty
 esptool
 exfatprogs
+eza
 f3d
 fd
 firefox
