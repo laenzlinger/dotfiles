@@ -28,6 +28,13 @@ chezmoi cd
 #   bash arch/setup-user.sh
 ```
 
+### Post-install (Arch)
+
+```bash
+# needed for AUR packages that build from source (e.g. tinty-git)
+rustup default stable
+```
+
 ### Create user (Arch)
 
 ```bash
