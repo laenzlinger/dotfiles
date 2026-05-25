@@ -42,7 +42,8 @@ units=(
 for unit in "${units[@]}"; do
   if ! systemctl --user is-enabled "$unit" &>/dev/null; then
     echo "Enabling $unit"
-    systemctl --user enable --now "$unit"
+    systemctl --user enable "$unit"
+    systemctl --user start "$unit" 2>/dev/null || echo "  (start deferred — no graphical session)"
   fi
 done
 {{- end -}}
