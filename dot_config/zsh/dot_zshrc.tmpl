@@ -79,8 +79,11 @@ alias open='xdg-open'
 alias cm='chezmoi'
 alias kiro='systemd-run --user --quiet --scope -p MemoryMax=4G kiro-cli'
 
-if command -v lsd &> /dev/null; then
-  alias ls='lsd'
+if command -v eza &> /dev/null; then
+  alias ls='eza --icons'
+  alias ll='eza --icons -l'
+  alias la='eza --icons -la'
+  alias lt='eza --icons --tree --level=3'
 fi
 
 if command -v btop &> /dev/null; then
