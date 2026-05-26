@@ -1,3 +1,4 @@
+{{- if and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.id "arch") -}}
 #!/usr/bin/env bash
 
 DIR=~/.local/share/chezmoi/dot_config/pacman/$(hostname)
@@ -11,3 +12,4 @@ comm -13 <(pacman -Qqdt | sort) <(pacman -Qqdtt | sort) >>$DIR/optdeplist.txt
 # systemd services
 systemctl list-unit-files --state=enabled --no-legend | awk '{print $1}' >$DIR/enabled_units.txt
 systemctl --user list-unit-files --state=enabled --no-legend | awk '{print $1}' >$DIR/enabled_user_units.txt
+{{- end -}}
