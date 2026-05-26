@@ -1,6 +1,6 @@
 # Arch Linux ARM Installation Guide - Fender (Apple Silicon)
 
-**Hardware:** Apple Silicon Mac
+**Hardware:** MacBook Pro M1 (2020/2021)
 **Configuration:** Asahi Linux (m1n1 + U-Boot), LUKS encryption, btrfs with subvolumes, systemd-boot
 
 ---
@@ -353,6 +353,6 @@ pacman -Q linux-asahi
 
 ---
 
-**Target Hardware:** Apple Silicon Mac
+**Target Hardware:** MacBook Pro M1
 **Base:** Arch Linux ARM (ALARM) via Asahi
 **Installation Date:** ___
