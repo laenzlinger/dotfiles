@@ -51,51 +51,61 @@ ROOT_PART=/dev/nvme0n1pX  # the btrfs one (large)
 
 ---
 
-## Phase 2: LUKS + Btrfs (from running minimal install)
+## Phase 2: LUKS + Btrfs + Full Install (single session from init=/bin/bash)
 
-### Install Tools
+### Reboot into bash
+
+Reboot, at GRUB menu press `e`, find the `linux` line, append `init=/bin/bash`, press `Ctrl+X`.
+
+### Step 1: Get Networking
 
 ```bash
-pacman -Sy arch-install-scripts btrfs-progs cryptsetup rsync
+mount -o remount,rw /
+
+# Find USB ethernet interface
+ip link
+# Look for enp*/eth* — NOT lo
+
+ETH=enXXXXX  # replace with actual interface name
+ip link set $ETH up
+dhcpcd $ETH
+# If dhcpcd not available:
+#   ip addr add 192.168.1.100/24 dev $ETH
+#   ip route add default via 192.168.1.1
+#   echo "nameserver 1.1.1.1" > /etc/resolv.conf
+
+# Verify
+ping -c1 archlinux.org
 ```
 
-### Pivot Root to RAM
-
-Since we need to wipe the running root partition, pivot to a tmpfs:
+### Step 2: Identify Partitions
 
 ```bash
-mkdir /tmp/tmproot
-mount -t tmpfs none /tmp/tmproot
-mkdir -p /tmp/tmproot/{usr,dev,proc,sys,run,tmp,mnt}
-
-# Copy userspace (Arch uses merged /usr)
-rsync -a /usr/ /tmp/tmproot/usr/
-ln -s usr/bin /tmp/tmproot/bin
-ln -s usr/lib /tmp/tmproot/lib
-ln -s usr/sbin /tmp/tmproot/sbin
-
-# Pivot
-mount --bind /dev /tmp/tmproot/dev
-mount --bind /proc /tmp/tmproot/proc
-mount --bind /sys /tmp/tmproot/sys
-
-pivot_root /tmp/tmproot /tmp/tmproot/mnt
-cd /
-
-# Unmount old root
-umount -l /mnt 2>/dev/null || true
+lsblk
+blkid
 ```
 
-### Format with LUKS
+Note the partition devices:
 
 ```bash
+EFI_PART=/dev/nvme0n1pX   # ~500MB vfat (EFI)
+ROOT_PART=/dev/nvme0n1pX  # large btrfs (current root)
+```
+
+### Step 3: Unmount and Format LUKS
+
+```bash
+# Unmount current root subvolumes
+umount /home 2>/dev/null
+mount -o remount,ro /
+
 cryptsetup luksFormat $ROOT_PART
-# Type 'YES' and enter passphrase
+# Type YES, enter passphrase
 
 cryptsetup open $ROOT_PART cryptroot
 ```
 
-### Create Btrfs with Subvolumes
+### Step 4: Btrfs + Subvolumes
 
 ```bash
 mkfs.btrfs /dev/mapper/cryptroot
@@ -108,7 +118,7 @@ btrfs subvolume create /mnt/@var_log
 umount /mnt
 ```
 
-### Mount Subvolumes
+### Step 5: Mount Everything
 
 ```bash
 mount -o noatime,compress=zstd:1,space_cache=v2,subvol=@ /dev/mapper/cryptroot /mnt
@@ -122,11 +132,15 @@ mount -o noatime,compress=zstd:1,space_cache=v2,subvol=@var_log /dev/mapper/cryp
 mount $EFI_PART /mnt/boot
 ```
 
----
+### Step 6: Initialize Pacman Keys
 
-## Phase 3: Install Base System
+```bash
+pacman-key --init
+pacman-key --populate archlinuxarm
+pacman-key --populate asahi
+```
 
-### Bootstrap
+### Step 7: Pacstrap
 
 ```bash
 pacstrap -K /mnt base linux-asahi linux-firmware m1n1 uboot-asahi \
@@ -135,83 +149,55 @@ pacstrap -K /mnt base linux-asahi linux-firmware m1n1 uboot-asahi \
     btrfs-progs cryptsetup networkmanager sudo git vim zsh base-devel
 ```
 
-### Generate Fstab
+### Step 8: Generate Fstab
 
 ```bash
 genfstab -U /mnt >> /mnt/etc/fstab
-cat /mnt/etc/fstab  # Verify
+cat /mnt/etc/fstab  # Verify entries look correct
 ```
 
-### Chroot
+### Step 9: Chroot and Configure
 
 ```bash
 arch-chroot /mnt
 ```
 
----
-
-## Phase 4: System Configuration
-
-### Timezone, Locale, Hostname
+Inside chroot:
 
 ```bash
+# Timezone + locale
 ln -sf /usr/share/zoneinfo/Europe/Zurich /etc/localtime
 hwclock --systohc
-
 echo "en_US.UTF-8 UTF-8" > /etc/locale.gen
 locale-gen
 echo "LANG=en_US.UTF-8" > /etc/locale.conf
 
+# Hostname
 echo "fender" > /etc/hostname
 cat > /etc/hosts << EOF
 127.0.0.1   localhost
 ::1         localhost
 127.0.1.1   fender.home fender
 EOF
-```
 
-### User Account
-
-```bash
+# User
 useradd -m -G wheel -s /bin/zsh laenzi
 passwd laenzi
-
 EDITOR=vim visudo
 # Uncomment: %wheel ALL=(ALL:ALL) ALL
-```
 
-### Configure mkinitcpio for LUKS
+# Root password
+passwd
 
-```bash
+# mkinitcpio — add encrypt hook
 vim /etc/mkinitcpio.conf
-```
-
-Set HOOKS:
-
-```
-HOOKS=(base udev autodetect microcode modconf kms keyboard keymap consolefont block encrypt filesystems fsck)
-```
-
-Regenerate:
-
-```bash
+# Set HOOKS:
+# HOOKS=(base udev autodetect microcode modconf kms keyboard keymap consolefont block encrypt filesystems fsck)
 mkinitcpio -P
-```
 
-### Bootloader (systemd-boot)
-
-```bash
+# Bootloader
 bootctl install
-```
 
-Get UUID of the LUKS partition:
-
-```bash
-blkid $ROOT_PART
-# Note the UUID (of the LUKS container, NOT /dev/mapper/cryptroot)
-```
-
-```bash
 cat > /boot/loader/loader.conf << EOF
 default arch.conf
 timeout 3
@@ -219,57 +205,44 @@ console-mode max
 editor no
 EOF
 
+# Get UUID of LUKS partition (NOT /dev/mapper/cryptroot)
+blkid $ROOT_PART
+# Copy the UUID value, use it below:
+
 cat > /boot/loader/entries/arch.conf << EOF
 title   Arch Linux ARM
 linux   /vmlinuz-linux-asahi
 initrd  /initramfs-linux-asahi.img
 options cryptdevice=UUID=<UUID>:cryptroot root=/dev/mapper/cryptroot rootflags=subvol=@ rw quiet
 EOF
-```
+# ^^^ REPLACE <UUID> with actual UUID
 
-**Replace `<UUID>`** with the actual UUID from `blkid`.
-
-### Enable Services
-
-```bash
+# Enable services
 systemctl enable NetworkManager
 systemctl enable speakersafetyd
 systemctl enable systemd-timesyncd
 systemctl enable systemd-resolved
 systemctl enable ly@tty2
-```
 
-### Root Password
-
-```bash
-passwd
-```
-
----
-
-## Phase 5: Swapfile
-
-No hibernation — just a small swap for memory pressure:
-
-```bash
+# Swapfile (8GB, no hibernation)
 truncate -s 0 /swapfile
 chattr +C /swapfile
 btrfs property set /swapfile compression none
-dd if=/dev/zero of=/swapfile bs=1M count=8192 status=progress  # 8GB
+dd if=/dev/zero of=/swapfile bs=1M count=8192 status=progress
 chmod 600 /swapfile
 mkswap /swapfile
 echo "/swapfile none swap defaults 0 0" >> /etc/fstab
+
+# Exit chroot
+exit
 ```
 
----
-
-## Phase 6: Exit and Reboot
+### Step 10: Reboot
 
 ```bash
-exit
 umount -R /mnt
 cryptsetup close cryptroot
-reboot
+reboot -f
 ```
 
 On reboot: LUKS passphrase prompt → systemd-boot → Arch Linux ARM.
@@ -316,11 +289,31 @@ Must use `linux-asahi` — generic `linux` won't work on Apple Silicon.
 
 **Always** keep `speakersafetyd` enabled. Without it, speakers can be physically destroyed.
 
-### Pivot Root Fails
+### No Networking in init=/bin/bash
 
-If `pivot_root` doesn't work (not enough RAM for tmpfs, processes won't release old root):
-- Rerun the installer from macOS choosing **"UEFI environment only"** — this gives just m1n1 + U-Boot + ESP with no root partition
-- Then create and format the root partition manually with `gdisk` from macOS recovery or another Linux system
+If `dhcpcd` is not available:
+```bash
+ip addr add 192.168.1.100/24 dev $ETH
+ip route add default via 192.168.1.1
+echo "nameserver 1.1.1.1" > /etc/resolv.conf
+```
+
+### Cannot Unmount Root for cryptsetup
+
+If `mount -o remount,ro /` fails (device busy), kill remaining processes:
+```bash
+fuser -km /home
+umount /home
+mount -o remount,ro /
+```
+
+### systemd-boot Not Found by U-Boot
+
+U-Boot looks for a specific EFI binary path. If it doesn't find systemd-boot:
+```bash
+# From chroot, ensure the EFI binary is where U-Boot expects it
+cp /boot/EFI/systemd/systemd-bootaa64.efi /boot/EFI/BOOT/BOOTAA64.EFI
+```
 
 ---
 
