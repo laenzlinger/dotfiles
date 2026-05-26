@@ -20,10 +20,12 @@ The Asahi installer handles Apple Silicon firmware and disk partitioning (UEFI s
 
 Before running the installer, shrink the APFS container in Disk Utility to the minimum (~70GB for macOS + recovery + firmware updates). This maximizes space for Linux.
 
-### Run the Asahi Installer
+### Run the Asahi ALARM Installer
+
+Follow the instructions at https://asahi-alarm.org
 
 ```bash
-curl https://alx.sh | sh
+curl https://asahi-alarm.org/installer.sh | sh
 ```
 
 - Choose **Arch Linux ARM (minimal)** — we only need the partition layout and firmware
