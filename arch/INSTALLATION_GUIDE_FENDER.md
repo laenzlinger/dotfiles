@@ -51,53 +51,53 @@ ROOT_PART=/dev/nvme0n1pX  # the btrfs one (large)
 
 ---
 
-## Phase 2: LUKS + Btrfs + Full Install (single session from init=/bin/bash)
+## Phase 2: LUKS + Btrfs + Full Install (via switch-root)
 
-### Reboot into bash
+### Step 1: Boot Normally and Get Networking
 
-Reboot, at GRUB menu press `e`, find the `linux` line, append `init=/bin/bash`, press `Ctrl+X`.
-
-### Step 1: Get Networking
+Boot into the minimal ALARM install, login as `root`/`root`. Networking with USB ethernet should work automatically.
 
 ```bash
-mount -o remount,rw /
-
-# Find USB ethernet interface
 ip link
-# Look for enp*/eth* — NOT lo
-
-ETH=enXXXXX  # replace with actual interface name
-ip link set $ETH up
-dhcpcd $ETH
-# If dhcpcd not available:
-#   ip addr add 192.168.1.100/24 dev $ETH
-#   ip route add default via 192.168.1.1
-#   echo "nameserver 1.1.1.1" > /etc/resolv.conf
-
-# Verify
 ping -c1 archlinux.org
 ```
 
-### Step 2: Identify Partitions
+### Step 2: Install Tools and Note Partitions
 
 ```bash
+pacman -Sy arch-install-scripts btrfs-progs cryptsetup
+
 lsblk
 blkid
 ```
 
-Note the partition devices:
+Note the device names:
 
 ```bash
 EFI_PART=/dev/nvme0n1pX   # ~500MB vfat (EFI)
 ROOT_PART=/dev/nvme0n1pX  # large btrfs (current root)
 ```
 
-### Step 3: Unmount and Format LUKS
+### Step 3: Create Rescue Environment and Switch Into It
 
 ```bash
-# Unmount current root subvolumes
-umount /home 2>/dev/null
-mount -o remount,ro /
+mkdir /run/rescue
+mount -t tmpfs -o size=4G tmpfs /run/rescue
+pacstrap -c /run/rescue base cryptsetup btrfs-progs arch-install-scripts
+
+systemctl switch-root /run/rescue /bin/bash
+```
+
+### Step 4: Unmount Old Root and Format LUKS
+
+```bash
+EFI_PART=/dev/nvme0n1pX   # same values as above
+ROOT_PART=/dev/nvme0n1pX
+
+# Verify old root is unmounted
+mount | grep nvme
+# If still mounted:
+umount -l $ROOT_PART 2>/dev/null
 
 cryptsetup luksFormat $ROOT_PART
 # Type YES, enter passphrase
@@ -105,7 +105,7 @@ cryptsetup luksFormat $ROOT_PART
 cryptsetup open $ROOT_PART cryptroot
 ```
 
-### Step 4: Btrfs + Subvolumes
+### Step 5: Btrfs + Subvolumes
 
 ```bash
 mkfs.btrfs /dev/mapper/cryptroot
@@ -118,7 +118,7 @@ btrfs subvolume create /mnt/@var_log
 umount /mnt
 ```
 
-### Step 5: Mount Everything
+### Step 6: Mount Everything
 
 ```bash
 mount -o noatime,compress=zstd:1,space_cache=v2,subvol=@ /dev/mapper/cryptroot /mnt
@@ -132,17 +132,12 @@ mount -o noatime,compress=zstd:1,space_cache=v2,subvol=@var_log /dev/mapper/cryp
 mount $EFI_PART /mnt/boot
 ```
 
-### Step 6: Initialize Pacman Keys
+### Step 7: Initialize Pacman Keys and Pacstrap
 
 ```bash
 pacman-key --init
 pacman-key --populate archlinuxarm
-pacman-key --populate asahi
-```
 
-### Step 7: Pacstrap
-
-```bash
 pacstrap -K /mnt base linux-asahi linux-firmware m1n1 uboot-asahi \
     asahi-scripts asahi-fwextract asahi-meta asahi-alarm-keyring \
     archlinuxarm-keyring speakersafetyd bankstown \
@@ -153,7 +148,7 @@ pacstrap -K /mnt base linux-asahi linux-firmware m1n1 uboot-asahi \
 
 ```bash
 genfstab -U /mnt >> /mnt/etc/fstab
-cat /mnt/etc/fstab  # Verify entries look correct
+cat /mnt/etc/fstab  # Verify
 ```
 
 ### Step 9: Chroot and Configure
@@ -288,15 +283,6 @@ Must use `linux-asahi` — generic `linux` won't work on Apple Silicon.
 ### Speaker Safety
 
 **Always** keep `speakersafetyd` enabled. Without it, speakers can be physically destroyed.
-
-### No Networking in init=/bin/bash
-
-If `dhcpcd` is not available:
-```bash
-ip addr add 192.168.1.100/24 dev $ETH
-ip route add default via 192.168.1.1
-echo "nameserver 1.1.1.1" > /etc/resolv.conf
-```
 
 ### Cannot Unmount Root for cryptsetup
 
