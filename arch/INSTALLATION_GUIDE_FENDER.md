@@ -1,7 +1,8 @@
 # Arch Linux ARM Installation Guide - Fender (Apple Silicon)
 
-**Hardware:** MacBook Pro M1 (2020/2021)
+**Hardware:** MacBook Pro 16" M1 (2021), 1TB SSD, 32GB RAM
 **Configuration:** Asahi Linux (m1n1 + U-Boot), LUKS encryption, btrfs with subvolumes, systemd-boot
+**Dual-boot:** Minimal macOS partition retained (firmware updates require macOS)
 
 ---
 
@@ -9,20 +10,24 @@
 
 The Asahi installer handles Apple Silicon firmware and disk partitioning (UEFI stub via m1n1 + U-Boot). After the minimal install, we wipe the root filesystem it created and rebuild it with LUKS + btrfs, matching the gibson setup.
 
-**Boot chain:** m1n1 → U-Boot → GRUB/systemd-boot → linux-asahi
+**Boot chain:** m1n1 → U-Boot → systemd-boot → linux-asahi
 
 ---
 
 ## Phase 1: Asahi Installer
 
-### Run the Asahi Installer from macOS
+### Shrink macOS from macOS
+
+Before running the installer, shrink the APFS container in Disk Utility to the minimum (~70GB for macOS + recovery + firmware updates). This maximizes space for Linux.
+
+### Run the Asahi Installer
 
 ```bash
 curl https://alx.sh | sh
 ```
 
 - Choose **Arch Linux ARM (minimal)** — we only need the partition layout and firmware
-- Allocate desired disk space when prompted
+- Allocate all remaining space (~900GB) to Linux
 - Let it finish and reboot into the minimal ALARM environment
 
 ### First Boot — Note Partition Layout
@@ -31,86 +36,67 @@ After booting into the minimal Asahi install:
 
 ```bash
 lsblk
+blkid
 ```
 
-Typical layout on NVMe (`/dev/nvme0n1`):
-
-| Partition | Type | Purpose |
-|-----------|------|---------|
-| nvme0n1p1 | Apple APFS | macOS |
-| nvme0n1p2 | Apple APFS | macOS Recovery |
-| nvme0n1p3 | EFI (FAT32) | Asahi EFI partition (m1n1 + U-Boot) |
-| nvme0n1p4 | Linux | Root (this is what we'll encrypt) |
-| nvme0n1p5 | Linux | (may vary — check your layout) |
-
-**Important:** Note which partition is the EFI partition and which is the Linux root. The EFI partition contains m1n1 and U-Boot — **never touch it**.
+Note:
+- **EFI partition** (vfat, ~500MB) — contains m1n1 + U-Boot, **never touch**
+- **Linux root partition** — this gets encrypted
 
 ```bash
-# Identify partitions
-blkid
-# Note the EFI partition (vfat) and the Linux root partition
+# Store for later use
+EFI_PART=/dev/nvme0n1pX   # the vfat one with EFI
+ROOT_PART=/dev/nvme0n1pX  # the ext4/linux one
 ```
 
 ---
 
-## Phase 2: Prepare LUKS + Btrfs from Live Environment
+## Phase 2: LUKS + Btrfs (from running minimal install)
 
-### Boot a Live USB (or use the running minimal install)
-
-You can do this from the running minimal Asahi install itself. Install required tools:
+### Install Tools
 
 ```bash
-pacman -Sy arch-install-scripts btrfs-progs cryptsetup
+pacman -Sy arch-install-scripts btrfs-progs cryptsetup rsync
 ```
 
-### Identify Target Partition
+### Pivot Root to RAM
 
-The Linux root partition created by Asahi (e.g., `/dev/nvme0n1p5` — **verify with lsblk**):
+Since we need to wipe the running root partition, pivot to a tmpfs:
 
 ```bash
-# Unmount if currently mounted
+# Create a minimal rootfs in RAM
+mkdir /tmp/tmproot
+mount -t tmpfs none /tmp/tmproot
+mkdir -p /tmp/tmproot/{bin,sbin,lib,usr,dev,proc,sys,run,tmp,mnt,boot-backup}
+
+# Copy essential binaries
+rsync -a /usr/ /tmp/tmproot/usr/
+rsync -a /bin/ /tmp/tmproot/bin/ 2>/dev/null || true
+rsync -a /sbin/ /tmp/tmproot/sbin/ 2>/dev/null || true
+rsync -a /lib/ /tmp/tmproot/lib/ 2>/dev/null || true
+
+# Back up boot files
+cp -a /boot/* /tmp/tmproot/boot-backup/
+
+# Pivot
+mount --bind /dev /tmp/tmproot/dev
+mount --bind /proc /tmp/tmproot/proc
+mount --bind /sys /tmp/tmproot/sys
+
+pivot_root /tmp/tmproot /tmp/tmproot/mnt
+cd /
+
+# Kill processes using old root, unmount it
+fuser -km /mnt 2>/dev/null || true
 umount -R /mnt 2>/dev/null || true
-
-# If running from the installed system, unmount root is not possible.
-# In that case, boot from USB or use a second partition.
-# Alternative: resize and create a new partition for LUKS.
-```
-
-**Recommended approach:** Boot from an Arch Linux ARM USB or use `arch-install-scripts` from another partition. If the minimal install is the only option, you'll need to pivot — see "In-Place Conversion" below.
-
-### In-Place Conversion (from running minimal Asahi install)
-
-Since Apple Silicon can't easily boot arbitrary USB images, the practical approach is:
-
-1. Back up the minimal install's boot files
-2. Create a second partition or use the existing one with a pivot
-
-**Simpler method — use Asahi's recovery:**
-
-```bash
-# From the running minimal install, note the root partition
-ROOT_PART=/dev/nvme0n1p5  # VERIFY THIS
-EFI_PART=/dev/nvme0n1p4   # VERIFY THIS - the one with m1n1/U-Boot
-
-# Back up /boot contents (kernel, initramfs)
-mkdir -p /tmp/boot-backup
-cp -a /boot/* /tmp/boot-backup/
-
-# Back up EFI contents
-mkdir -p /tmp/efi-backup
-mount $EFI_PART /mnt
-cp -a /mnt/* /tmp/efi-backup/
-umount /mnt
 ```
 
 ### Format with LUKS
 
 ```bash
-# VERIFY the correct partition — this destroys data
 cryptsetup luksFormat $ROOT_PART
 # Type 'YES' and enter passphrase
 
-# Open the encrypted partition
 cryptsetup open $ROOT_PART cryptroot
 ```
 
@@ -119,14 +105,11 @@ cryptsetup open $ROOT_PART cryptroot
 ```bash
 mkfs.btrfs /dev/mapper/cryptroot
 
-# Mount and create subvolumes
 mount /dev/mapper/cryptroot /mnt
-
 btrfs subvolume create /mnt/@
 btrfs subvolume create /mnt/@home
 btrfs subvolume create /mnt/@snapshots
 btrfs subvolume create /mnt/@var_log
-
 umount /mnt
 ```
 
@@ -141,7 +124,6 @@ mount -o noatime,compress=zstd:1,space_cache=v2,subvol=@home /dev/mapper/cryptro
 mount -o noatime,compress=zstd:1,space_cache=v2,subvol=@snapshots /dev/mapper/cryptroot /mnt/.snapshots
 mount -o noatime,compress=zstd:1,space_cache=v2,subvol=@var_log /dev/mapper/cryptroot /mnt/var/log
 
-# Mount EFI partition
 mount $EFI_PART /mnt/boot
 ```
 
@@ -149,12 +131,12 @@ mount $EFI_PART /mnt/boot
 
 ## Phase 3: Install Base System
 
-### Bootstrap Arch Linux ARM
+### Bootstrap
 
 ```bash
 pacstrap -K /mnt base linux-asahi linux-firmware m1n1 uboot-asahi \
     asahi-scripts asahi-fwextract asahi-meta asahi-alarm-keyring \
-    archlinuxarm-keyring speakersafetyd \
+    archlinuxarm-keyring speakersafetyd bankstown \
     btrfs-progs cryptsetup networkmanager sudo git vim zsh base-devel
 ```
 
@@ -231,7 +213,7 @@ Get UUID of the LUKS partition:
 
 ```bash
 blkid $ROOT_PART
-# Note the UUID (of the LUKS container, not /dev/mapper/cryptroot)
+# Note the UUID (of the LUKS container, NOT /dev/mapper/cryptroot)
 ```
 
 ```bash
@@ -259,6 +241,7 @@ systemctl enable NetworkManager
 systemctl enable speakersafetyd
 systemctl enable systemd-timesyncd
 systemctl enable systemd-resolved
+systemctl enable ly@tty2
 ```
 
 ### Root Password
@@ -269,19 +252,19 @@ passwd
 
 ---
 
-## Phase 5: Swapfile (Optional — for Hibernation)
+## Phase 5: Swapfile
+
+No hibernation — just a small swap for memory pressure:
 
 ```bash
 truncate -s 0 /swapfile
 chattr +C /swapfile
 btrfs property set /swapfile compression none
-dd if=/dev/zero of=/swapfile bs=1M count=16384 status=progress  # 16GB, adjust to RAM size
+dd if=/dev/zero of=/swapfile bs=1M count=8192 status=progress  # 8GB
 chmod 600 /swapfile
 mkswap /swapfile
 echo "/swapfile none swap defaults 0 0" >> /etc/fstab
 ```
-
-For hibernation, add `resume` hook and kernel parameters as in the gibson guide.
 
 ---
 
@@ -294,11 +277,11 @@ cryptsetup close cryptroot
 reboot
 ```
 
-On reboot, you should get the LUKS passphrase prompt, then boot into your encrypted btrfs system.
+On reboot: LUKS passphrase prompt → systemd-boot → Arch Linux ARM.
 
 ---
 
-## Phase 7: Post-Install (from fender)
+## Phase 7: Post-Install
 
 ### Connect to Network
 
@@ -309,18 +292,9 @@ nmtui
 ### Install Packages from Chezmoi Lists
 
 ```bash
-# Clone dotfiles
-git clone https://github.com/<your-user>/dotfiles.git ~/.local/share/chezmoi
+git clone https://github.com/laenzlinger/dotfiles.git ~/.local/share/chezmoi
 cd ~/.local/share/chezmoi
-
-# Run setup
 bash arch/setup-user.sh
-```
-
-### Display Manager
-
-```bash
-sudo systemctl enable ly@tty2
 ```
 
 ---
@@ -329,30 +303,30 @@ sudo systemctl enable ly@tty2
 
 ### Boot Chain Issues
 
-The Apple Silicon boot chain is: m1n1 → U-Boot → systemd-boot → kernel. If boot fails:
+m1n1 → U-Boot → systemd-boot → kernel. If boot fails:
 
-- Hold power button to enter DFU/recovery
-- m1n1 issues: re-run Asahi installer from macOS to reinstall firmware
-- systemd-boot issues: boot macOS, mount the EFI partition, fix entries
+- Hold power button for DFU/recovery
+- m1n1 issues: re-run Asahi installer from macOS
+- systemd-boot issues: boot macOS, mount EFI partition, fix entries
 
 ### LUKS Not Prompting
 
-Ensure `encrypt` hook is in mkinitcpio HOOKS before `filesystems`, and the `cryptdevice=` kernel parameter uses the correct UUID.
+Ensure `encrypt` hook is before `filesystems` in mkinitcpio HOOKS, and `cryptdevice=` uses the correct UUID.
 
 ### Kernel Panics
 
-Apple Silicon needs `linux-asahi` — the generic `linux` package won't work. Verify:
-
-```bash
-pacman -Q linux-asahi
-```
+Must use `linux-asahi` — generic `linux` won't work on Apple Silicon.
 
 ### Speaker Safety
 
-**Always** keep `speakersafetyd` enabled. Without it, the speakers can be physically damaged by the kernel driver.
+**Always** keep `speakersafetyd` enabled. Without it, speakers can be physically destroyed.
+
+### Pivot Root Fails
+
+If `pivot_root` doesn't work cleanly, alternative: boot macOS, use `diskutil` to identify the Linux partition, then boot back into Asahi recovery to do the conversion from there.
 
 ---
 
-**Target Hardware:** MacBook Pro M1
+**Hardware:** MacBook Pro 16" M1, 1TB SSD, 32GB RAM
 **Base:** Arch Linux ARM (ALARM) via Asahi
 **Installation Date:** ___
