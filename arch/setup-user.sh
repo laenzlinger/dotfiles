@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-PKG_LIST=~/.local/share/chezmoi/dot_config/pacman
+PKG_LIST=~/.local/share/chezmoi/dot_config/pacman/$(hostname)
 
 # install official packages (skip failures)
 while IFS= read -r pkg; do
