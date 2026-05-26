@@ -135,9 +135,6 @@ fi
 # macOS specific
 alias tinty='tinty --config=~/.config/tinted-theming/tinty/config.toml --data-dir=~/.local/share/tinted-theming/tinty'
 
-# iTerm integration
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-
 # Homebrew command-not-found
 HOMEBREW_COMMAND_NOT_FOUND_HANDLER="$(brew --repository)/Library/Homebrew/command-not-found/handler.sh"
 if [ -f "$HOMEBREW_COMMAND_NOT_FOUND_HANDLER" ]; then
