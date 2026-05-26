@@ -27,6 +27,7 @@ brew "ripgrep"
 brew "sops"
 brew "starship"
 brew "syncthing", restart_service: :changed
+brew "tree-sitter-cli"
 brew "zoxide"
 brew "tinted-theming/tinted/tinty"
 cask "font-meslo-lg-nerd-font"
