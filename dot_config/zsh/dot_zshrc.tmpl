@@ -1,8 +1,3 @@
-{{- if eq .chezmoi.os "darwin" }}
-# Amazon Q pre block. Keep at the top of this file.
-[[ -f "${HOME}/Library/Application Support/amazon-q/shell/zshrc.pre.zsh" ]] && builtin source "${HOME}/Library/Application Support/amazon-q/shell/zshrc.pre.zsh"
-{{- end }}
-
 # XDG Base Directory
 export XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-$HOME/.config}"
 export XDG_DATA_HOME="${XDG_DATA_HOME:-$HOME/.local/share}"
@@ -112,7 +107,7 @@ alias scs='systemctl status'
 alias scr='systemctl restart'
 {{- end }}
 
-{{- if eq .chezmoi.osRelease.id "arch" }}
+{{- if and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.id "arch") }}
 # Pacman aliases
 alias pacupg='sudo pacman -Syu'
 alias pacin='sudo pacman -S'
@@ -151,7 +146,7 @@ eval "$(mise activate zsh)"
 eval "$(zoxide init zsh)"
 
 # fzf integration
-{{- if eq .chezmoi.osRelease.id "arch" }}
+{{- if and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.id "arch") }}
 source /usr/share/fzf/key-bindings.zsh
 source /usr/share/fzf/completion.zsh
 {{- end }}
@@ -180,8 +175,7 @@ go env -w GOPATH=$HOME/.local/share/go
 export GOTESTS_TEMPLATE=testify
 
 {{- if eq .chezmoi.os "darwin" }}
-# Amazon Q post block. Keep at the bottom of this file.
-[[ -f "${HOME}/Library/Application Support/amazon-q/shell/zshrc.post.zsh" ]] && builtin source "${HOME}/Library/Application Support/amazon-q/shell/zshrc.post.zsh"
+[[ "$TERM_PROGRAM" == "kiro" ]] && . "$(kiro --locate-shell-integration-path zsh)"
 {{- end }}
 
 # Aliases

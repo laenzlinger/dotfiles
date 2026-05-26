@@ -15,7 +15,7 @@ docs/
 .config/homebrew
 .config/iterm2
 darwin
-{{- if eq .chezmoi.osRelease.id "debian" }}
+  {{- if eq .chezmoi.osRelease.id "debian" }}
 .config/pacman
-{{- end }}
+  {{- end }}
 {{- end }}
