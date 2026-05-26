@@ -1,5 +1,5 @@
 {{- if eq .chezmoi.os "darwin" -}}
-PATH={{ .brewprefix }}/bin:{{ .brewprefix }}/opt/coreutils/libexec/gnubin:{{ .brewprefix }}/opt/gnu-sed/libexec/gnubin:{{ .brewprefix }}/opt/grep/libexec/gnubin:{{ .brewprefix }}/opt/findutils/libexec/gnubin:{{ .brewprefix }}/opt/gawk/libexec/gnubin:${HOME}/.local/bin:${HOME}/.cargo/bin:${HOME}/.local/share/go/bin:${PATH}
+PATH={{ .brewprefix }}/bin:{{ .brewprefix }}/opt/coreutils/libexec/gnubin:{{ .brewprefix }}/opt/gnu-sed/libexec/gnubin:{{ .brewprefix }}/opt/grep/libexec/gnubin:{{ .brewprefix }}/opt/findutils/libexec/gnubin:{{ .brewprefix }}/opt/gawk/libexec/gnubin:{{ .brewprefix }}/opt/make/libexec/gnubin:${HOME}/.local/bin:${HOME}/.cargo/bin:${HOME}/.local/share/go/bin:${PATH}
 {{- else -}}
 PATH=${HOME}/.local/bin:${HOME}/.cargo/bin:${HOME}/.local/share/go/bin:${PATH}
 {{- end -}}
