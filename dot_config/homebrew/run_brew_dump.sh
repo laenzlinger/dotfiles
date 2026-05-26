@@ -4,4 +4,4 @@
 DIR=~/.local/share/chezmoi/dot_config/homebrew
 
 cd "$DIR" || exit
-brew bundle dump --force --no-upgrade
+brew bundle dump --force
