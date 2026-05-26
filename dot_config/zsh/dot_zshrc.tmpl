@@ -163,7 +163,9 @@ source $(brew --prefix)/opt/fzf/shell/completion.zsh
 LESSOPEN="|lesspipe.sh %s"; export LESSOPEN
 
 # Theming
-source $(tinty config --data-dir-path)/repos/tinted-fzf/sh/$(tinty current).sh
+if command -v tinty &>/dev/null && tinty current &>/dev/null; then
+  source "$(tinty config --data-dir-path)/repos/tinted-fzf/sh/$(tinty current).sh"
+fi
 
 # Native completions
 command -v kubectl &>/dev/null && source <(kubectl completion zsh)
