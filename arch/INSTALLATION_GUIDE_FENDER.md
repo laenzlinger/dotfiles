@@ -14,41 +14,39 @@ The Asahi installer handles Apple Silicon firmware and disk partitioning (UEFI s
 
 ---
 
-## Phase 1: Asahi Installer
+## Phase 1: Asahi ALARM Installer
 
 ### Shrink macOS from macOS
 
 Before running the installer, shrink the APFS container in Disk Utility to the minimum (~70GB for macOS + recovery + firmware updates). This maximizes space for Linux.
 
-### Run the Asahi ALARM Installer
-
-Follow the instructions at https://asahi-alarm.org
+### Run the Installer from macOS Terminal
 
 ```bash
-curl https://asahi-alarm.org/installer.sh | sh
+curl https://asahi-alarm.org/installer-bootstrap.sh | sh
 ```
 
-- Choose **Arch Linux ARM (minimal)** — we only need the partition layout and firmware
+- Choose **"Asahi Alarm Minimal (BTRFS)"**
 - Allocate all remaining space (~900GB) to Linux
 - Let it finish and reboot into the minimal ALARM environment
+- Login as `root`/`root`
 
-### First Boot — Note Partition Layout
+The installer creates two partitions:
+- **EFI** (500MB FAT32) — contains m1n1 + U-Boot firmware. **Never touch.**
+- **Root** (remaining space) — btrfs with `@` and `@home` subvolumes
 
-After booting into the minimal Asahi install:
+### First Boot — Identify Partitions
 
 ```bash
 lsblk
 blkid
 ```
 
-Note:
-- **EFI partition** (vfat, ~500MB) — contains m1n1 + U-Boot, **never touch**
-- **Linux root partition** — this gets encrypted
+Note the device names:
 
 ```bash
-# Store for later use
-EFI_PART=/dev/nvme0n1pX   # the vfat one with EFI
-ROOT_PART=/dev/nvme0n1pX  # the ext4/linux one
+EFI_PART=/dev/nvme0n1pX   # the vfat/EFI one (~500MB)
+ROOT_PART=/dev/nvme0n1pX  # the btrfs one (large)
 ```
 
 ---
@@ -66,19 +64,15 @@ pacman -Sy arch-install-scripts btrfs-progs cryptsetup rsync
 Since we need to wipe the running root partition, pivot to a tmpfs:
 
 ```bash
-# Create a minimal rootfs in RAM
 mkdir /tmp/tmproot
 mount -t tmpfs none /tmp/tmproot
-mkdir -p /tmp/tmproot/{bin,sbin,lib,usr,dev,proc,sys,run,tmp,mnt,boot-backup}
+mkdir -p /tmp/tmproot/{usr,dev,proc,sys,run,tmp,mnt}
 
-# Copy essential binaries
+# Copy userspace (Arch uses merged /usr)
 rsync -a /usr/ /tmp/tmproot/usr/
-rsync -a /bin/ /tmp/tmproot/bin/ 2>/dev/null || true
-rsync -a /sbin/ /tmp/tmproot/sbin/ 2>/dev/null || true
-rsync -a /lib/ /tmp/tmproot/lib/ 2>/dev/null || true
-
-# Back up boot files
-cp -a /boot/* /tmp/tmproot/boot-backup/
+ln -s usr/bin /tmp/tmproot/bin
+ln -s usr/lib /tmp/tmproot/lib
+ln -s usr/sbin /tmp/tmproot/sbin
 
 # Pivot
 mount --bind /dev /tmp/tmproot/dev
@@ -88,9 +82,8 @@ mount --bind /sys /tmp/tmproot/sys
 pivot_root /tmp/tmproot /tmp/tmproot/mnt
 cd /
 
-# Kill processes using old root, unmount it
-fuser -km /mnt 2>/dev/null || true
-umount -R /mnt 2>/dev/null || true
+# Unmount old root
+umount -l /mnt 2>/dev/null || true
 ```
 
 ### Format with LUKS
@@ -325,7 +318,9 @@ Must use `linux-asahi` — generic `linux` won't work on Apple Silicon.
 
 ### Pivot Root Fails
 
-If `pivot_root` doesn't work cleanly, alternative: boot macOS, use `diskutil` to identify the Linux partition, then boot back into Asahi recovery to do the conversion from there.
+If `pivot_root` doesn't work (not enough RAM for tmpfs, processes won't release old root):
+- Rerun the installer from macOS choosing **"UEFI environment only"** — this gives just m1n1 + U-Boot + ESP with no root partition
+- Then create and format the root partition manually with `gdisk` from macOS recovery or another Linux system
 
 ---
 
