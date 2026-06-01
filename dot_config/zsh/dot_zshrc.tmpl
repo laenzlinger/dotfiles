@@ -55,6 +55,10 @@ for conf in "$XDG_CONFIG_HOME/environment.d/"*.conf; do
 done
 {{- end }}
 
+# GPG agent needs TTY for pinentry (SSH auth, signing)
+export GPG_TTY=$(tty)
+gpg-connect-agent updatestartuptty /bye >/dev/null 2>&1
+
 # Vi key bindings
 bindkey -v
 autoload -Uz edit-command-line
