@@ -55,9 +55,11 @@ for conf in "$XDG_CONFIG_HOME/environment.d/"*.conf; do
 done
 {{- end }}
 
+{{- if eq .chezmoi.os "darwin" }}
 # GPG agent needs TTY for pinentry (SSH auth, signing)
 export GPG_TTY=$(tty)
 gpg-connect-agent updatestartuptty /bye >/dev/null 2>&1
+{{- end }}
 
 # Vi key bindings
 bindkey -v
