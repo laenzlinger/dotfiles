@@ -39,13 +39,15 @@ if [[ "$TERM" == foot* || -n "$WEZTERM_EXECUTABLE" ]]; then
   _osc_prompt_start() { printf '\e]133;A\e\\'; }
   _osc_command_start() { printf '\e]133;C\e\\'; }
   _osc7_cwd() { printf '\e]7;file://%s%s\e\\' "$HOST" "$PWD"; }
+  _osc_title_precmd() { printf '\e]0;%s\e\\' "${PWD/#$HOME/~}"; }
+  _osc_title_preexec() { printf '\e]0;%s — %s\e\\' "${PWD/#$HOME/~}" "$1"; }
   if [[ -d "$XDG_RUNTIME_DIR" ]]; then
     _foot_track_cwd() { echo "$PWD" > "$XDG_RUNTIME_DIR/foot-last-cwd"; }
-    precmd_functions+=(_osc_prompt_start _osc7_cwd _foot_track_cwd)
+    precmd_functions+=(_osc_prompt_start _osc7_cwd _osc_title_precmd _foot_track_cwd)
   else
-    precmd_functions+=(_osc_prompt_start _osc7_cwd)
+    precmd_functions+=(_osc_prompt_start _osc7_cwd _osc_title_precmd)
   fi
-  preexec_functions+=(_osc_command_start)
+  preexec_functions+=(_osc_command_start _osc_title_preexec)
 fi
 
 {{- if eq .chezmoi.os "darwin" }}
