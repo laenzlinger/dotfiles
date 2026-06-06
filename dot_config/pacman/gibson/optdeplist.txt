@@ -1,5 +1,8 @@
 #optional dependencies
 cmake
 llvm21
+python-httptools
 python-pytest
+python-uvloop
+python-websockets
 qt5-multimedia
