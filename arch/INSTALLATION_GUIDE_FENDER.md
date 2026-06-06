@@ -1,16 +1,21 @@
 # Arch Linux ARM Installation Guide - Fender (Apple Silicon)
 
 **Hardware:** MacBook Pro 16" M1 (2021), 1TB SSD, 32GB RAM
-**Configuration:** Asahi Linux (m1n1 + U-Boot), LUKS encryption, btrfs with subvolumes, systemd-boot
+**Configuration:** Asahi Linux (m1n1 + U-Boot + GRUB), LUKS encryption, btrfs with subvolumes
 **Dual-boot:** Minimal macOS partition retained (firmware updates require macOS)
 
 ---
 
 ## Overview
 
-The Asahi installer handles Apple Silicon firmware and disk partitioning (UEFI stub via m1n1 + U-Boot). After the minimal install, we wipe the root filesystem it created and rebuild it with LUKS + btrfs, matching the gibson setup.
+The Asahi installer handles Apple Silicon firmware and disk partitioning (UEFI stub via m1n1 + U-Boot).
+After the minimal install, we move `/boot` to the EFI partition (kernel + initramfs unencrypted),
+then encrypt the root partition **in-place** using `cryptsetup reencrypt`.
+The initramfs `encrypt` hook handles LUKS unlock at boot.
 
-**Boot chain:** m1n1 → U-Boot → systemd-boot → linux-asahi
+This matches the gibson (ThinkPad) setup: unencrypted `/boot` on EFI, encrypted root.
+
+**Boot chain:** m1n1 → U-Boot → GRUB → kernel (from EFI) → initramfs unlocks LUKS → root
 
 ---
 
@@ -18,7 +23,8 @@ The Asahi installer handles Apple Silicon firmware and disk partitioning (UEFI s
 
 ### Shrink macOS from macOS
 
-Before running the installer, shrink the APFS container in Disk Utility to the minimum (~70GB for macOS + recovery + firmware updates). This maximizes space for Linux.
+Before running the installer, shrink the APFS container in Disk Utility to the minimum
+(~70GB for macOS + recovery + firmware updates). This maximizes space for Linux.
 
 ### Run the Installer from macOS Terminal
 
@@ -27,12 +33,12 @@ curl https://asahi-alarm.org/installer-bootstrap.sh | sh
 ```
 
 - Choose **"Asahi Alarm Minimal (BTRFS)"**
-- Allocate all remaining space (~900GB) to Linux
+- Allocate all remaining space (max) to Linux
 - Let it finish and reboot into the minimal ALARM environment
 - Login as `root`/`root`
 
 The installer creates two partitions:
-- **EFI** (500MB FAT32) — contains m1n1 + U-Boot firmware. **Never touch.**
+- **EFI** (~500MB FAT32) — contains m1n1 + U-Boot + GRUB EFI binary
 - **Root** (remaining space) — btrfs with `@` and `@home` subvolumes
 
 ### First Boot — Identify Partitions
@@ -42,220 +48,197 @@ lsblk
 blkid
 ```
 
-Note the device names:
+Note the device names (example):
 
 ```bash
-EFI_PART=/dev/nvme0n1pX   # the vfat/EFI one (~500MB)
-ROOT_PART=/dev/nvme0n1pX  # the btrfs one (large)
+EFI_PART=/dev/nvme0n1p4   # the vfat/EFI one (~500MB)
+ROOT_PART=/dev/nvme0n1p5  # the btrfs one (large)
 ```
 
 ---
 
-## Phase 2: LUKS + Btrfs + Full Install (via switch-root)
+## Phase 2: Move /boot to EFI Partition
 
-### Step 1: Boot Normally and Get Networking
+We put the kernel, initramfs, and GRUB config on the unencrypted EFI partition.
+This way GRUB never needs to unlock LUKS — only the initramfs does (with reliable keyboard).
 
-Boot into the minimal ALARM install, login as `root`/`root`. Networking with USB ethernet should work automatically.
+### Step 1: Get Networking
 
 ```bash
 ip link
 ping -c1 archlinux.org
+# If wifi:
+# nmcli device wifi connect <SSID> password <password>
 ```
 
-### Step 2: Install Tools and Note Partitions
+### Step 2: Install Required Tools
 
 ```bash
-pacman -Sy arch-install-scripts btrfs-progs cryptsetup
-
-lsblk
-blkid
+pacman -Sy cryptsetup efibootmgr btrfs-progs
 ```
 
-Note the device names:
+### Step 3: Move /boot to EFI Partition
 
 ```bash
-EFI_PART=/dev/nvme0n1pX   # ~500MB vfat (EFI)
-ROOT_PART=/dev/nvme0n1pX  # large btrfs (current root)
-```
+# Check current EFI mount
+mount | grep efi
 
-### Step 3: Create Rescue Environment and Switch Into It
+# Unmount EFI from /boot/efi
+umount /boot/efi
 
-```bash
-mkdir /run/rescue
-mount -t tmpfs -o size=4G tmpfs /run/rescue
-pacstrap -c /run/rescue base cryptsetup btrfs-progs arch-install-scripts
-
-systemctl switch-root /run/rescue /bin/bash
-```
-
-After switch-root, networking is lost. Bring it back up manually:
-
-```bash
-ip link set eth0 up
-dhcpcd eth0
-# Verify:
-ping -c1 archlinux.org
-```
-
-### Step 4: Unmount Old Root and Format LUKS
-
-```bash
-EFI_PART=/dev/nvme0n1pX   # same values as above
-ROOT_PART=/dev/nvme0n1pX
-
-# Verify old root is unmounted
-mount | grep nvme
-# If still mounted:
-umount -l $ROOT_PART 2>/dev/null
-
-cryptsetup luksFormat $ROOT_PART
-# Type YES, enter passphrase
-
-cryptsetup open $ROOT_PART cryptroot
-```
-
-### Step 5: Btrfs + Subvolumes
-
-```bash
-mkfs.btrfs /dev/mapper/cryptroot
-
-mount /dev/mapper/cryptroot /mnt
-btrfs subvolume create /mnt/@
-btrfs subvolume create /mnt/@home
-btrfs subvolume create /mnt/@snapshots
-btrfs subvolume create /mnt/@var_log
+# Copy everything from /boot to EFI partition
+mount /dev/nvme0n1p4 /mnt
+cp -a /boot/* /mnt/
 umount /mnt
+
+# Remount EFI as /boot
+umount /boot 2>/dev/null
+mount /dev/nvme0n1p4 /boot
+
+# Update fstab: change EFI mount from /boot/efi to /boot
+vi /etc/fstab
+# Change the EFI partition mount point from /boot/efi to /boot
+# Remove any old /boot entry if present
 ```
 
-### Step 6: Mount Everything
+### Step 4: Reinstall GRUB on EFI Partition
 
 ```bash
-mount -o noatime,compress=zstd:1,space_cache=v2,subvol=@ /dev/mapper/cryptroot /mnt
-
-mkdir -p /mnt/{home,boot,.snapshots,var/log}
-
-mount -o noatime,compress=zstd:1,space_cache=v2,subvol=@home /dev/mapper/cryptroot /mnt/home
-mount -o noatime,compress=zstd:1,space_cache=v2,subvol=@snapshots /dev/mapper/cryptroot /mnt/.snapshots
-mount -o noatime,compress=zstd:1,space_cache=v2,subvol=@var_log /dev/mapper/cryptroot /mnt/var/log
-
-mount $EFI_PART /mnt/boot
+grub-install --target=arm64-efi --efi-directory=/boot
+cp /boot/EFI/arch/grubaa64.efi /boot/EFI/BOOT/BOOTAA64.EFI
+grub-mkconfig -o /boot/grub/grub.cfg
 ```
 
-### Step 7: Initialize Pacman Keys and Pacstrap
+### Step 5: Test Reboot
 
 ```bash
-pacman-key --init
-pacman-key --populate archlinuxarm
-
-pacstrap -K /mnt base linux-asahi linux-firmware m1n1 uboot-asahi \
-    asahi-scripts asahi-fwextract asahi-meta asahi-alarm-keyring \
-    archlinuxarm-keyring speakersafetyd bankstown \
-    btrfs-progs cryptsetup networkmanager sudo git vim zsh base-devel ly
+reboot
 ```
 
-### Step 8: Generate Fstab
-
-```bash
-genfstab -U /mnt >> /mnt/etc/fstab
-cat /mnt/etc/fstab  # Verify
-```
-
-### Step 9: Chroot and Configure
-
-```bash
-arch-chroot /mnt
-```
-
-Inside chroot:
-
-```bash
-# Timezone + locale
-ln -sf /usr/share/zoneinfo/Europe/Zurich /etc/localtime
-hwclock --systohc
-echo "en_US.UTF-8 UTF-8" > /etc/locale.gen
-locale-gen
-echo "LANG=en_US.UTF-8" > /etc/locale.conf
-
-# Hostname
-echo "fender" > /etc/hostname
-cat > /etc/hosts << EOF
-127.0.0.1   localhost
-::1         localhost
-127.0.1.1   fender.home fender
-EOF
-
-# User
-useradd -m -G wheel -s /bin/zsh laenzi
-passwd laenzi
-EDITOR=vim visudo
-# Uncomment: %wheel ALL=(ALL:ALL) ALL
-
-# Root password
-passwd
-
-# mkinitcpio — add encrypt hook
-vim /etc/mkinitcpio.conf
-# Set HOOKS:
-# HOOKS=(base udev autodetect microcode modconf kms keyboard keymap consolefont block encrypt filesystems fsck)
-mkinitcpio -P
-
-# Bootloader
-bootctl install
-mkdir -p /boot/EFI/BOOT
-cp /boot/EFI/systemd/systemd-bootaa64.efi /boot/EFI/BOOT/BOOTAA64.EFI
-
-cat > /boot/loader/loader.conf << EOF
-default arch.conf
-timeout 3
-console-mode max
-editor no
-EOF
-
-# Get UUID of LUKS partition (NOT /dev/mapper/cryptroot)
-blkid $ROOT_PART
-# Copy the UUID value, use it below:
-
-cat > /boot/loader/entries/arch.conf << EOF
-title   Arch Linux ARM
-linux   /vmlinuz-linux-asahi
-initrd  /initramfs-linux-asahi.img
-options cryptdevice=UUID=<UUID>:cryptroot root=/dev/mapper/cryptroot rootflags=subvol=@ rw quiet
-EOF
-# ^^^ REPLACE <UUID> with actual UUID
-
-# Enable services
-systemctl enable NetworkManager
-systemctl enable speakersafetyd
-systemctl enable systemd-timesyncd
-systemctl enable systemd-resolved
-systemctl enable ly@tty2
-
-# Swapfile (8GB, no hibernation)
-truncate -s 0 /swapfile
-chattr +C /swapfile
-btrfs property set /swapfile compression none
-dd if=/dev/zero of=/swapfile bs=1M count=8192 status=progress
-chmod 600 /swapfile
-mkswap /swapfile
-echo "/swapfile none swap defaults 0 0" >> /etc/fstab
-
-# Exit chroot
-exit
-```
-
-### Step 10: Reboot
-
-```bash
-umount -R /mnt
-cryptsetup close cryptroot
-reboot -f
-```
-
-On reboot: LUKS passphrase prompt → systemd-boot → Arch Linux ARM.
+**Verify the system boots normally before proceeding.** If it doesn't boot, fix GRUB
+from the GRUB rescue prompt: `set prefix=(hd0,gpt4)/grub` then `insmod normal` then `normal`.
 
 ---
 
-## Phase 3: Post-Install
+## Phase 3: In-Place LUKS Encryption
+
+### Step 1: Shrink Btrfs (make room for LUKS header)
+
+Shrink by **256 MiB** (generous margin — btrfs rounds internally):
+
+```bash
+btrfs filesystem show /
+btrfs filesystem resize 1:-256m /
+btrfs filesystem show /
+```
+
+**Verify the size actually decreased.**
+
+### Step 2: Add Encrypt Hook to Initramfs
+
+```bash
+sed -i 's/block filesystems/block encrypt filesystems/' /etc/mkinitcpio.conf
+grep ^HOOKS /etc/mkinitcpio.conf   # verify encrypt is before filesystems
+mkinitcpio -P
+```
+
+### Step 3: Add `break` to GRUB Boot Entry
+
+```bash
+sed -i '/^\s*linux \/vmlinuz/{/break/!s/$/ break/}' /boot/grub/grub.cfg
+grep 'break' /boot/grub/grub.cfg   # verify
+```
+
+### Step 4: Reboot into Initramfs Shell
+
+```bash
+reboot
+```
+
+You will land in a root shell (before root is mounted). The root partition is **not in use**.
+
+### Step 5: Encrypt the Partition In-Place
+
+```bash
+mkdir -p /tmp
+mount -t tmpfs tmpfs /tmp
+cd /tmp
+cryptsetup reencrypt --encrypt --reduce-device-size=32M --force-password /dev/nvme0n1p5
+```
+
+- Type `YES` when prompted
+- Enter and verify your LUKS passphrase
+- Wait for completion (~20-25 minutes for ~900GB)
+
+Uses argon2id by default (strongest KDF). GRUB doesn't need to unlock this — only the
+initramfs does, which has full argon2id support.
+
+---
+
+## Phase 4: Configure Boot for Encrypted Root
+
+Still in the initramfs shell after encryption completes.
+
+### Step 1: Open LUKS and Mount
+
+```bash
+cryptsetup open /dev/nvme0n1p5 cryptroot
+mkdir /mnt
+mount -o subvol=@ /dev/mapper/cryptroot /mnt
+mount /dev/nvme0n1p4 /mnt/boot
+```
+
+### Step 2: Chroot In
+
+```bash
+mount --bind /proc /mnt/proc
+mount --bind /sys /mnt/sys
+mount --bind /dev /mnt/dev
+chroot /mnt
+```
+
+### Step 3: Fix /etc/fstab
+
+```bash
+vi /etc/fstab
+```
+
+- Change the root (`/`) and `/home` lines: replace UUID with `/dev/mapper/cryptroot`
+- Remove `x-systemd.growfs` if present
+- Ensure `/boot` points to the EFI partition (should already be correct)
+
+### Step 4: Update GRUB Configuration
+
+```bash
+U=$(blkid -s UUID -o value /dev/nvme0n1p5)
+echo $U >> /etc/default/grub
+vi /etc/default/grub
+```
+
+In vim:
+- Delete the old `GRUB_CMDLINE_LINUX=""` line
+- Build the UUID line into: `GRUB_CMDLINE_LINUX="cryptdevice=UUID=<the-uuid>:cryptroot root=/dev/mapper/cryptroot rootflags=subvol=@"`
+
+Then regenerate:
+
+```bash
+grub-mkconfig -o /boot/grub/grub.cfg
+```
+
+### Step 5: Reboot
+
+```bash
+exit
+reboot -f
+```
+
+On reboot: GRUB loads kernel from EFI → initramfs asks for LUKS passphrase → root mounts.
+
+---
+
+## Phase 5: Post-Install Configuration
+
+After first successful encrypted boot, login as `root`/`root`.
 
 ### Connect to Network
 
@@ -263,9 +246,48 @@ On reboot: LUKS passphrase prompt → systemd-boot → Arch Linux ARM.
 nmtui
 ```
 
-### Install Packages from Chezmoi Lists
+### Add Missing Btrfs Subvolumes
 
 ```bash
+mount /dev/mapper/cryptroot /mnt
+btrfs subvolume create /mnt/@snapshots
+btrfs subvolume create /mnt/@var_log
+umount /mnt
+
+mkdir -p /.snapshots /var/log
+```
+
+Add to `/etc/fstab`:
+```
+/dev/mapper/cryptroot  /.snapshots  btrfs  rw,noatime,compress=zstd:1,space_cache=v2,subvol=@snapshots  0 0
+/dev/mapper/cryptroot  /var/log     btrfs  rw,noatime,compress=zstd:1,space_cache=v2,subvol=@var_log    0 0
+```
+
+Mount them:
+```bash
+mount /.snapshots
+mount /var/log
+```
+
+### Create User
+
+```bash
+useradd -m -G wheel -s /bin/zsh laenzi
+passwd laenzi
+EDITOR=vim visudo
+# Uncomment: %wheel ALL=(ALL:ALL) ALL
+```
+
+### Add Additional LUKS Passphrase
+
+```bash
+cryptsetup luksAddKey /dev/nvme0n1p5
+```
+
+### Install Packages from Chezmoi
+
+```bash
+pacman -S git base-devel
 git clone https://github.com/laenzlinger/dotfiles.git ~/.local/share/chezmoi
 cd ~/.local/share/chezmoi
 bash arch/setup-user.sh
@@ -273,19 +295,63 @@ bash arch/setup-user.sh
 
 ---
 
+## Deleting Asahi (for reinstall)
+
+If you need to start over, from macOS Terminal:
+
+```bash
+# Run installer to see disk info, note the Asahi APFS container disk number
+curl https://asahi-alarm.org/installer-bootstrap.sh | sh
+# Quit after seeing disk info
+
+# Delete APFS stub container (e.g. disk3)
+diskutil apfs deleteContainer disk3
+
+# Delete EFI and Linux partitions
+diskutil eraseVolume free free disk0s4
+diskutil eraseVolume free free disk0s5
+
+# Do NOT resize macOS — leave free space for reinstall
+
+# Reinstall
+curl https://asahi-alarm.org/installer-bootstrap.sh | sh
+```
+
+---
+
 ## Troubleshooting
+
+### GRUB Rescue / Cannot Find Modules
+
+GRUB modules and kernel must both be on the unencrypted EFI partition (`/boot`).
+If GRUB rescue appears: `set prefix=(hd0,gpt4)/grub`, `insmod normal`, `normal`.
+
+### Btrfs Size Mismatch After Encryption
+
+Error: "device total_bytes should be at most X but found Y"
+
+The btrfs filesystem was not shrunk enough before encryption. Btrfs rounds resize operations
+to internal chunk boundaries, so you need a large margin. Always shrink by **256 MiB**
+before using `--reduce-device-size=32M`. On a ~900GB disk this is negligible (0.03%).
+
+### Keyboard Unreliable at GRUB Prompt
+
+U-Boot keyboard handling on Apple Silicon can drop keystrokes. This is why we don't
+use `GRUB_ENABLE_CRYPTODISK` — typing a long passphrase at the GRUB stage is unreliable.
+The initramfs passphrase prompt (later in boot) has reliable keyboard input.
+
+### Console Font Too Small (HiDPI)
+
+At GRUB or early console, the font is tiny on Retina displays. Prefer editing configs
+from the running system rather than the GRUB editor.
 
 ### Boot Chain Issues
 
-m1n1 → U-Boot → systemd-boot → kernel. If boot fails:
+m1n1 → U-Boot → GRUB → kernel. If boot fails:
 
-- Hold power button for DFU/recovery
+- Hold power button → startup options → macOS
 - m1n1 issues: re-run Asahi installer from macOS
-- systemd-boot issues: boot macOS, mount EFI partition, fix entries
-
-### LUKS Not Prompting
-
-Ensure `encrypt` hook is before `filesystems` in mkinitcpio HOOKS, and `cryptdevice=` uses the correct UUID.
+- GRUB issues: mount EFI from macOS (`sudo diskutil mount disk0s4`)
 
 ### Kernel Panics
 
@@ -294,23 +360,6 @@ Must use `linux-asahi` — generic `linux` won't work on Apple Silicon.
 ### Speaker Safety
 
 **Always** keep `speakersafetyd` enabled. Without it, speakers can be physically destroyed.
-
-### Cannot Unmount Root for cryptsetup
-
-If `mount -o remount,ro /` fails (device busy), kill remaining processes:
-```bash
-fuser -km /home
-umount /home
-mount -o remount,ro /
-```
-
-### systemd-boot Not Found by U-Boot
-
-U-Boot looks for a specific EFI binary path. If it doesn't find systemd-boot:
-```bash
-# From chroot, ensure the EFI binary is where U-Boot expects it
-cp /boot/EFI/systemd/systemd-bootaa64.efi /boot/EFI/BOOT/BOOTAA64.EFI
-```
 
 ---
 
