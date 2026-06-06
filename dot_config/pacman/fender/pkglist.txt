@@ -245,7 +245,6 @@ wakeonlan
 waybar
 websocat
 wev
-wezterm
 wget
 which
 whois

@@ -1,0 +1,33 @@
+# Foot Terminal
+
+## Scrollback
+# Scroll up
+Shift+PageUp
+
+# Scroll down
+Shift+PageDown
+
+## Search
+# Search scrollback
+Ctrl+Shift+r
+
+## Copy/Paste
+# Copy selection
+Ctrl+Shift+c
+
+# Paste
+Ctrl+Shift+v
+
+## Font Size
+# Increase
+Ctrl++
+
+# Decrease
+Ctrl+-
+
+# Reset
+Ctrl+0
+
+## URLs
+# Open URL hint overlay
+Ctrl+Shift+u

@@ -11,7 +11,7 @@ exec "gdbus wait --session org.freedesktop.Notifications && chromium"
 {{ else -}}
 exec "gdbus wait --session org.freedesktop.Notifications && vivaldi"
 {{ end -}}
-exec $terminal start --class main-terminal
+exec $terminal --app-id=main-terminal
 exec "sleep 3; keepassxc ~/data/pw/pw.kdbx"
 
 # Workspace assignments

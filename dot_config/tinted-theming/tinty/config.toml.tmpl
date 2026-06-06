@@ -14,13 +14,6 @@ name = "tinted-fzf"
 themes-dir = "sh"
 hook = "source %f"
 
-[[items]]
-path = "https://github.com/tinted-theming/tinted-terminal"
-name = "tinted-terminal-wezterm"
-themes-dir = "themes/wezterm"
-hook = "cp -f %f ~/.config/wezterm/colors/tinted-theming.toml && touch ~/.config/wezterm/wezterm.lua"
-supported-systems = ["base16", "base24"]
-
 {{- if eq .chezmoi.os "linux" }} {{- if eq (printf "%.4s" .chezmoi.osRelease.id) "arch" }}
 
 [[items]]

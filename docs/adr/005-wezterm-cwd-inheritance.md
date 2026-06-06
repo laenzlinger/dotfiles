@@ -2,7 +2,7 @@
 
 **Date:** 2026-04-14
 
-**Status:** Accepted
+**Status:** Superseded (switched to foot terminal, June 2026)
 
 ## Context
 

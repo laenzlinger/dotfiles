@@ -12,7 +12,7 @@ font pango: Roboto 11
 titlebar_padding 6 1
 
 # Variables
-set $terminal wezterm
+set $terminal foot
 set $mod Mod4
 set $background-image ~/.config/sway/resources/background.jpg
 set $lock "swaylock -k -l -F -f --image $background-image"
@@ -36,7 +36,7 @@ output * bg $background-image fill
 floating_modifier $mod
 
 # Terminal (inherits cwd from last-used terminal)
-bindsym $mod+Return exec ~/.config/sway/bin/wezterm-spawn.sh
+bindsym $mod+Return exec ~/.config/sway/bin/foot-spawn.sh
 
 # Kill focused window
 bindsym $mod+Shift+q kill
