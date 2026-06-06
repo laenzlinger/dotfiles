@@ -74,7 +74,7 @@ ping -c1 archlinux.org
 ### Step 2: Install Required Tools
 
 ```bash
-pacman -Sy cryptsetup efibootmgr btrfs-progs
+pacman -Sy cryptsetup efibootmgr btrfs-progs inetutils git base-devel
 ```
 
 ### Step 3: Move /boot to EFI Partition
@@ -278,6 +278,13 @@ EDITOR=vim visudo
 # Uncomment: %wheel ALL=(ALL:ALL) ALL
 ```
 
+### Set Hostname
+
+```bash
+hostnamectl set-hostname fender
+echo "fender" > /etc/hostname
+```
+
 ### Add Additional LUKS Passphrase
 
 ```bash
@@ -287,7 +294,7 @@ cryptsetup luksAddKey /dev/nvme0n1p5
 ### Install Packages from Chezmoi
 
 ```bash
-pacman -S git base-devel
+su - laenzi
 git clone https://github.com/laenzlinger/dotfiles.git ~/.local/share/chezmoi
 cd ~/.local/share/chezmoi
 bash arch/setup-user.sh
