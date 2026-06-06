@@ -14,7 +14,10 @@ esac
 vol=$(wpctl get-volume @DEFAULT_AUDIO_SINK@)
 level=$(echo "$vol" | awk '{printf "%.0f", $2 * 100}')
 if echo "$vol" | grep -q MUTED; then
-    echo "$level MUTED"
+    output="$level MUTED"
 else
-    echo "$level"
+    output="$level"
 fi
+
+WOBSOCK="${XDG_RUNTIME_DIR}/wob.sock"
+[[ -p "$WOBSOCK" ]] && echo "$output" > "$WOBSOCK"

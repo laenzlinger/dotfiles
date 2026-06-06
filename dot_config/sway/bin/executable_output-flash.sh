@@ -9,6 +9,6 @@ last_output=""
 while read -r output; do
     if [ "$output" != "$last_output" ]; then
         last_output="$output"
-        echo "100 OUTPUT" > "$WOBSOCK"
+        [[ -p "$WOBSOCK" ]] && echo "100 OUTPUT" > "$WOBSOCK"
     fi
 done < <(swaymsg -t subscribe -m '["workspace"]' | jq --unbuffered -r '.current.output')
