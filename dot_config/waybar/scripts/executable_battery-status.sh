@@ -1,7 +1,11 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-bat="/sys/class/power_supply/BAT0"
+# Auto-detect battery (BAT0 on ThinkPad, macsmc-battery on Apple Silicon)
+for candidate in /sys/class/power_supply/BAT0 /sys/class/power_supply/macsmc-battery; do
+  [[ -d "$candidate" ]] && bat="$candidate" && break
+done
+[[ -z "${bat:-}" ]] && exit 0
 status=$(cat "$bat/status")
 capacity=$(cat "$bat/capacity")
 power_uw=$(cat "$bat/power_now" 2>/dev/null || echo 0)
@@ -58,16 +62,27 @@ fi
 # Tooltip: USB-C port details
 port_info=""
 for port_dir in /sys/class/typec/port[0-9]; do
+  [[ -d "$port_dir" ]] || continue
   port=$(basename "$port_dir")
   port_num=${port#port}
 
   # Determine what's connected
   if [[ -d "${port_dir}-partner" ]]; then
     partner_type=""
-    # Check corresponding UCSI power supply
-    psy="/sys/class/power_supply/ucsi-source-psy-USBC000:00$((port_num + 1))"
-    if [[ -d "$psy" ]]; then
-      psy_status=$(cat "$psy/status" 2>/dev/null || echo "")
+    # Find PSU sharing the same parent device as this port
+    port_dev=$(readlink -f "$port_dir/device" 2>/dev/null || true)
+    psy=""
+    if [[ -n "$port_dev" ]]; then
+      for p in /sys/class/power_supply/*-source-psy-*; do
+        [[ -d "$p" ]] || continue
+        psy_dev=$(readlink -f "$p/device" 2>/dev/null || true)
+        if [[ "$psy_dev" == "$port_dev" ]]; then
+          psy="$p"
+          break
+        fi
+      done
+    fi
+    if [[ -n "$psy" && -d "$psy" ]]; then
       psy_online=$(cat "$psy/online" 2>/dev/null || echo "0")
       psy_voltage_max=$(cat "$psy/voltage_max" 2>/dev/null || echo "0")
       psy_v_max=$(awk "BEGIN {printf \"%.0f\", $psy_voltage_max/1000000}")
@@ -75,8 +90,6 @@ for port_dir in /sys/class/typec/port[0-9]; do
 
       if [[ "$psy_online" == "1" ]]; then
         partner_type="⚡ Charger (${usb_type:-PD}, ${psy_v_max}V max)"
-      elif [[ "$psy_status" == "Discharging" ]]; then
-        partner_type="🔌 USB device"
       else
         partner_type="🔌 USB device"
       fi
