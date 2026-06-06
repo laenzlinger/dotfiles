@@ -88,6 +88,15 @@ pacstrap -c /run/rescue base cryptsetup btrfs-progs arch-install-scripts
 systemctl switch-root /run/rescue /bin/bash
 ```
 
+After switch-root, networking is lost. Bring it back up manually:
+
+```bash
+ip link set eth0 up
+dhcpcd eth0
+# Verify:
+ping -c1 archlinux.org
+```
+
 ### Step 4: Unmount Old Root and Format LUKS
 
 ```bash
@@ -141,7 +150,7 @@ pacman-key --populate archlinuxarm
 pacstrap -K /mnt base linux-asahi linux-firmware m1n1 uboot-asahi \
     asahi-scripts asahi-fwextract asahi-meta asahi-alarm-keyring \
     archlinuxarm-keyring speakersafetyd bankstown \
-    btrfs-progs cryptsetup networkmanager sudo git vim zsh base-devel
+    btrfs-progs cryptsetup networkmanager sudo git vim zsh base-devel ly
 ```
 
 ### Step 8: Generate Fstab
@@ -192,6 +201,8 @@ mkinitcpio -P
 
 # Bootloader
 bootctl install
+mkdir -p /boot/EFI/BOOT
+cp /boot/EFI/systemd/systemd-bootaa64.efi /boot/EFI/BOOT/BOOTAA64.EFI
 
 cat > /boot/loader/loader.conf << EOF
 default arch.conf
@@ -244,7 +255,7 @@ On reboot: LUKS passphrase prompt → systemd-boot → Arch Linux ARM.
 
 ---
 
-## Phase 7: Post-Install
+## Phase 3: Post-Install
 
 ### Connect to Network
 
