@@ -30,3 +30,6 @@ user_pref("widget.use-xdg-desktop-portal.mime-handler", 1);
 // --- Search ---
 user_pref("browser.search.defaultenginename", "DuckDuckGo");
 user_pref("browser.urlbar.placeholderName", "DuckDuckGo");
+
+// --- Sync ---
+user_pref("identity.sync.tokenserver.uri", "https://sync.laenzlinger.net/1.0/sync/1.5");
