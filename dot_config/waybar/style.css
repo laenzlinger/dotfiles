@@ -142,6 +142,10 @@ window#waybar.hidden {
     color: @base0B;
 }
 
+#custom-restic.running {
+    color: @base0D;
+}
+
 #custom-restic.warning {
     color: @base0A;
 }
