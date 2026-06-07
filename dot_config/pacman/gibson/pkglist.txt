@@ -262,7 +262,6 @@ usbutils
 uwsm
 vim
 vim-spell-de
-vivaldi
 vlc
 vscode-json-languageserver
 w3m
