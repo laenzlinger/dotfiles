@@ -3,6 +3,7 @@ set -euo pipefail
 
 STATUS_FILE="$HOME/.cache/resticprofile/status.json"
 ONE_DAY_SEC=86400
+THREE_DAYS_SEC=259200
 
 ICON_OK=󰪩
 ICON_STALE=󱘪
@@ -41,6 +42,10 @@ for profile in $profiles; do
   if [ "$success" != "true" ]; then
     status="❌"
     [ "$worst" != "error" ] && worst="error"
+  elif [ "$age" -gt "$THREE_DAYS_SEC" ]; then
+    days=$((age / ONE_DAY_SEC))
+    status="❌ ${days}d ago"
+    worst="error"
   elif [ "$age" -gt "$ONE_DAY_SEC" ]; then
     days=$((age / ONE_DAY_SEC))
     status="⚠ ${days}d ago"
