@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+# hash: {{ include "dot_config/firefox/user.js" | sha256sum }}
+
+src="$HOME/.config/firefox/user.js"
+profiles_dir="$HOME/.mozilla/firefox"
+
+[[ -d "$profiles_dir" ]] || exit 0
+[[ -f "$src" ]] || exit 0
+
+# Find the default-release profile
+profile=$(find "$profiles_dir" -maxdepth 1 -name "*.default-release" -type d | head -1)
+[[ -n "$profile" ]] || exit 0
+
+cp "$src" "$profile/user.js"
+echo "Deployed user.js to $profile"
