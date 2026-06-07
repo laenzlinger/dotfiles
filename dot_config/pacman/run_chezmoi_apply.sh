@@ -12,4 +12,6 @@ comm -13 <(pacman -Qqdt | sort) <(pacman -Qqdtt | sort) >>"$DIR/optdeplist.txt"
 
 # systemd services
 systemctl list-unit-files --state=enabled --no-legend | awk '{print $1}' >"$DIR/enabled_units.txt"
+export XDG_RUNTIME_DIR="${XDG_RUNTIME_DIR:-/run/user/$(id -u)}"
+export DBUS_SESSION_BUS_ADDRESS="${DBUS_SESSION_BUS_ADDRESS:-unix:path=$XDG_RUNTIME_DIR/bus}"
 systemctl --user list-unit-files --state=enabled --no-legend | awk '{print $1}' >"$DIR/enabled_user_units.txt"
