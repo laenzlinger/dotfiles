@@ -82,9 +82,9 @@ fi
 # Common aliases
 {{- if eq .chezmoi.os "linux" }}
 alias open='xdg-open'
+alias kiro='systemd-run --user --quiet --scope -p MemoryMax=8G kiro-cli'
 {{- end }}
 alias cm='chezmoi'
-alias kiro='systemd-run --user --quiet --scope -p MemoryMax=8G kiro-cli'
 
 if command -v eza &> /dev/null; then
   alias ls='eza --icons'
