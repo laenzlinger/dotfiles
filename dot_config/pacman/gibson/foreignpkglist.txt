@@ -28,4 +28,3 @@ ttf-pacifico
 universal-gcode-sender-bin
 ventoy-bin
 yay
-yay-debug
