@@ -35,6 +35,9 @@ Mod+Shift+m
 # Toggle Notifications
 Mod+Shift+n
 
+# TODO (nvim, toggle)
+Mod+Shift+t
+
 # USB unmount (rofi)
 Mod+Shift+u
 
