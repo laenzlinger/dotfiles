@@ -300,6 +300,81 @@ cd ~/.local/share/chezmoi
 bash arch/setup-user.sh
 ```
 
+### USB WiFi (MT7961 adapter)
+
+The onboard Broadcom WiFi/BT chip doesn't power on (PCIe bus issue). Use a MediaTek
+MT7961 USB adapter (`0e8d:7961`) instead. The `mt7921u` driver is not included in
+`linux-asahi` and must be built via DKMS.
+
+#### Build and install the driver
+
+```bash
+pacman -S --needed dkms linux-asahi-headers
+
+# Get kernel source for the mt76 driver
+cd /tmp
+git clone --depth 1 --branch linux-$(uname -r | cut -d. -f1-2).y \
+  https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git linux-mt76 --no-checkout
+cd linux-mt76
+git sparse-checkout set drivers/net/wireless/mediatek/mt76
+git checkout
+
+# Install as DKMS module
+sudo cp -r drivers/net/wireless/mediatek/mt76 /usr/src/mt76-1.0
+cat <<'EOF' | sudo tee /usr/src/mt76-1.0/dkms.conf
+PACKAGE_NAME="mt76"
+PACKAGE_VERSION="1.0"
+MAKE="make -C ${kernel_source_dir} M=${dkms_tree}/${PACKAGE_NAME}/${PACKAGE_VERSION}/build CONFIG_MT76=m CONFIG_MT76_USB=m CONFIG_MT76_CONNAC_LIB=m CONFIG_MT792x_LIB=m CONFIG_MT792x_USB=m CONFIG_MT7921_COMMON=m CONFIG_MT7921U=m modules"
+CLEAN="make -C ${kernel_source_dir} M=${dkms_tree}/${PACKAGE_NAME}/${PACKAGE_VERSION}/build clean"
+BUILT_MODULE_NAME[0]="mt76"
+BUILT_MODULE_LOCATION[0]=""
+DEST_MODULE_LOCATION[0]="/updates"
+BUILT_MODULE_NAME[1]="mt76-usb"
+BUILT_MODULE_LOCATION[1]=""
+DEST_MODULE_LOCATION[1]="/updates"
+BUILT_MODULE_NAME[2]="mt76-connac-lib"
+BUILT_MODULE_LOCATION[2]=""
+DEST_MODULE_LOCATION[2]="/updates"
+BUILT_MODULE_NAME[3]="mt792x-lib"
+BUILT_MODULE_LOCATION[3]=""
+DEST_MODULE_LOCATION[3]="/updates"
+BUILT_MODULE_NAME[4]="mt792x-usb"
+BUILT_MODULE_LOCATION[4]=""
+DEST_MODULE_LOCATION[4]="/updates"
+BUILT_MODULE_NAME[5]="mt7921-common"
+BUILT_MODULE_LOCATION[5]="mt7921/"
+DEST_MODULE_LOCATION[5]="/updates"
+BUILT_MODULE_NAME[6]="mt7921u"
+BUILT_MODULE_LOCATION[6]="mt7921/"
+DEST_MODULE_LOCATION[6]="/updates"
+AUTOINSTALL="yes"
+EOF
+
+sudo dkms add mt76/1.0
+sudo dkms build mt76/1.0
+sudo dkms install mt76/1.0
+rm -rf /tmp/linux-mt76
+```
+
+#### Autoload and NetworkManager config
+
+```bash
+# Load module on boot
+echo "mt7921u" | sudo tee /etc/modules-load.d/mt7921u.conf
+
+# Use wpa_supplicant (IWD has association issues with mt7921)
+cat <<'EOF' | sudo tee /etc/NetworkManager/conf.d/wifi_backend.conf
+[device]
+wifi.backend=wpa_supplicant
+EOF
+
+sudo systemctl disable iwd
+sudo systemctl restart NetworkManager
+```
+
+**Note:** On major kernel upgrades, DKMS will rebuild automatically. If the build fails
+due to API changes, re-clone a matching kernel source branch and update `/usr/src/mt76-1.0/`.
+
 ---
 
 ## Deleting Asahi (for reinstall)
