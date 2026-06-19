@@ -1,7 +1,6 @@
 7zip
 age
 alsa-scarlett-gui
-ansible-core
 ansible-lint
 arch-install-scripts
 archlinuxarm-keyring
@@ -37,6 +36,7 @@ cups-pdf
 darkman
 dex
 dhcpcd
+dkms
 dmenu
 docker
 docker-buildx
@@ -113,6 +113,7 @@ libva-utils
 lightdm
 lightdm-gtk-greeter
 linux-asahi
+linux-asahi-headers
 linux-firmware
 logrotate
 lrzsz
@@ -129,7 +130,6 @@ mc
 mermaid-cli
 mesa-utils
 minicom
-mise
 mitmproxy
 mpv
 mupdf
@@ -137,7 +137,6 @@ mupdf-tools
 musescore
 mutt
 nano
-nemo
 neomutt
 neovim
 net-tools
@@ -245,6 +244,7 @@ wakeonlan
 waybar
 websocat
 wev
+wezterm
 wget
 which
 whois

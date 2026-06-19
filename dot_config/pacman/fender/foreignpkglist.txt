@@ -5,6 +5,7 @@ f3
 flux-bin
 kiro-cli
 lsdesktopf
+mise
 mkinitcpio-firmware
 netbird
 networkmanager-dmenu-git
@@ -13,6 +14,7 @@ papirus-icon-theme-git
 pdfposter
 powerline-fonts-git
 resticprofile
+shikane
 tinty-git
 ttf-pacifico
 universal-gcode-sender-bin
