@@ -2,7 +2,8 @@
 set -euo pipefail
 
 src="${1:-$HOME/.config/waybar/colors.css}"
-profiles_dir="$HOME/.mozilla/firefox"
+profiles_dir="${HOME}/.mozilla/firefox"
+[[ -d "$profiles_dir" ]] || profiles_dir="${HOME}/.config/mozilla/firefox"
 
 [[ -f "$src" ]] || exit 0
 [[ -d "$profiles_dir" ]] || exit 0

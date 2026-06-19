@@ -5,6 +5,7 @@ set -euo pipefail
 
 src="$HOME/.config/firefox/user.js"
 profiles_dir="$HOME/.mozilla/firefox"
+[[ -d "$profiles_dir" ]] || profiles_dir="$HOME/.config/mozilla/firefox"
 
 [[ -d "$profiles_dir" ]] || exit 0
 [[ -f "$src" ]] || exit 0
