@@ -375,6 +375,20 @@ sudo systemctl restart NetworkManager
 **Note:** On major kernel upgrades, DKMS will rebuild automatically. If the build fails
 due to API changes, re-clone a matching kernel source branch and update `/usr/src/mt76-1.0/`.
 
+### Power Button Behavior
+
+The Touch ID button is easy to accidentally press. Override logind defaults:
+
+```bash
+sudo mkdir -p /etc/systemd/logind.conf.d
+cat <<'EOF' | sudo tee /etc/systemd/logind.conf.d/power-button.conf
+[Login]
+HandlePowerKey=lock
+HandlePowerKeyLongPress=poweroff
+EOF
+sudo systemctl restart systemd-logind
+```
+
 ---
 
 ## Deleting Asahi (for reinstall)
