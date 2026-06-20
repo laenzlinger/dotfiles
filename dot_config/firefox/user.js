@@ -22,6 +22,7 @@ user_pref("browser.startup.homepage", "about:blank");
 user_pref("browser.newtabpage.enabled", false);
 user_pref("browser.startup.page", 3);
 user_pref("browser.tabs.warnOnClose", false);
+user_pref("browser.tabs.closeWindowWithLastTab", false);
 user_pref("signon.rememberSignons", false);
 
 // --- Wayland / Desktop integration ---
