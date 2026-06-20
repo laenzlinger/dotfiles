@@ -81,9 +81,21 @@ fi
 
 # Common aliases
 {{- if eq .chezmoi.os "linux" }}
-alias open='xdg-open'
+alias o='xdg-open'
+{{- else }}
+alias o='open'
 {{- end }}
 alias cm='chezmoi'
+
+# Yazi with cwd sync
+function f() {
+  local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+  yazi "$@" --cwd-file="$tmp"
+  if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+    builtin cd -- "$cwd"
+  fi
+  rm -f -- "$tmp"
+}
 
 if command -v eza &> /dev/null; then
   alias ls='eza --icons'

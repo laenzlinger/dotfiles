@@ -1,0 +1,7 @@
+set pages-per-row 2
+set guioptions ""
+set statusbar-h-padding 0
+set statusbar-v-padding 0
+set page-padding 2
+
+map 0 adjust_window best-fit

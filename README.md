@@ -61,3 +61,4 @@ See [arch/Makefile](arch/Makefile)
 - [ADR 002](docs/adr/002-uwsm-for-sway-session-management.md) — UWSM for Sway session management
 - [ADR 007](docs/adr/007-dns-over-tls.md) — DNS-over-TLS via systemd-resolved
 - [ADR 008](docs/adr/008-network-hardening.md) — network hardening for roaming laptop
+- [ADR 009](docs/adr/009-floating-preview-apps.md) — floating preview apps with vim-style navigation

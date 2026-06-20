@@ -51,6 +51,7 @@ eza
 f3d
 fd
 firefox
+firewalld
 fish
 foot
 fprintd
@@ -81,7 +82,6 @@ hugo
 hyphen-de
 hyphen-en
 imagemagick
-imv
 inetutils
 intel-compute-runtime
 intel-gpu-tools
@@ -227,6 +227,7 @@ sudo
 sway
 swaybg
 swayidle
+swayimg
 swaylock
 swaync
 syncthing
@@ -262,7 +263,6 @@ usbutils
 uwsm
 vim
 vim-spell-de
-vlc
 vscode-json-languageserver
 w3m
 wakeonlan

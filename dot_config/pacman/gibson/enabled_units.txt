@@ -2,6 +2,7 @@ cups.path
 avahi-daemon.service
 bluetooth.service
 cups.service
+firewalld.service
 getty@.service
 linux-modules-cleanup.service
 netbird.service
