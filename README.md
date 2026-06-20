@@ -59,3 +59,4 @@ See [arch/Makefile](arch/Makefile)
 - [TODO](docs/todo.md) — open items
 - [ADR 001](docs/adr/001-migrate-from-oh-my-zsh-to-antidote.md) — oh-my-zsh → antidote migration
 - [ADR 002](docs/adr/002-uwsm-for-sway-session-management.md) — UWSM for Sway session management
+- [ADR 007](docs/adr/007-dns-over-tls.md) — DNS-over-TLS via systemd-resolved
