@@ -4,6 +4,8 @@ set -euo pipefail
 STATUS_FILE="$HOME/.cache/resticprofile/status.json"
 ONE_DAY_SEC=86400
 THREE_DAYS_SEC=259200
+FIVE_DAYS_SEC=432000
+SEVEN_DAYS_SEC=604800
 
 ICON_OK=󰪩
 ICON_STALE=󱘪
@@ -42,16 +44,27 @@ for profile in $profiles; do
   if [ "$success" != "true" ]; then
     status="❌"
     [ "$worst" != "error" ] && worst="error"
-  elif [ "$age" -gt "$THREE_DAYS_SEC" ]; then
-    days=$((age / ONE_DAY_SEC))
-    status="❌ ${days}d ago"
-    worst="error"
-  elif [ "$age" -gt "$ONE_DAY_SEC" ]; then
-    days=$((age / ONE_DAY_SEC))
-    status="⚠ ${days}d ago"
-    [ "$worst" = "ok" ] && worst="warning"
   else
-    status="✓"
+    # Relaxed thresholds for homeoffice
+    if [[ "$profile" == *homeoffice* ]]; then
+      warn_sec=$FIVE_DAYS_SEC
+      err_sec=$SEVEN_DAYS_SEC
+    else
+      warn_sec=$ONE_DAY_SEC
+      err_sec=$THREE_DAYS_SEC
+    fi
+
+    if [ "$age" -gt "$err_sec" ]; then
+      days=$((age / ONE_DAY_SEC))
+      status="❌ ${days}d ago"
+      worst="error"
+    elif [ "$age" -gt "$warn_sec" ]; then
+      days=$((age / ONE_DAY_SEC))
+      status="⚠ ${days}d ago"
+      [ "$worst" = "ok" ] && worst="warning"
+    else
+      status="✓"
+    fi
   fi
 
   time_fmt=$(date -d "$time_raw" "+%m-%d %H:%M" 2>/dev/null || echo "unknown")
