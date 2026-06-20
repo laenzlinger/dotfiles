@@ -6,3 +6,4 @@ python-pytest
 python-uvloop
 python-websockets
 qt5-multimedia
+rtkit
