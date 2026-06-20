@@ -11,7 +11,7 @@ profiles:
         ionice:
             class: idle
         lock-wait: 10m
-        check-battery: true
+        check-battery: false
         status-file: /home/laenzi/.cache/resticprofile/status.json
         password-command: cat ${CREDENTIALS_DIRECTORY}/restic-pass
         force-inactive-lock: true
@@ -127,8 +127,8 @@ groups:
                     - system-integration.conf
 sops:
     encrypted_regex: ^(DISK_UUID|repository|repository-file)$
-    lastmodified: "2026-06-07T22:54:38Z"
-    mac: ENC[AES256_GCM,data:6y5ZgaceFPXaw8k3Uc1okyeZoI4+tbayJlu9IPT2/3sVQ1Y4/swtYgNKhLwhyKSxjDqoYR2HyGqTEKI9AFjif2bWzbCA9GoVzAZAREuVEgEZz9hzSGDg1Z4WCUYNSevVxc0G5uJHiFviJX5rfxdHYwHDSgAu3Ia/bb0JRpI3Z94=,iv:cyAHN+SldknEa6xhIu+d6EqdrCTtbQIBBYsEAhIzjhs=,tag:WamOBkXfSgUo0vQsXXpPmw==,type:str]
+    lastmodified: "2026-06-20T11:16:34Z"
+    mac: ENC[AES256_GCM,data:Zl+22Zlyeq/4D3sF+PRk9Kmm4ewT6c/siEFg8z9qVq3PVdsih4au1aKZTFQlad0GQPWk9Iorf11MEVuZEbXl3lrTaRml6WBAW2cM9na5Cgesmn+T/77Srpx5PZKamD/AJNDRnQ4b9tbBfYEzdYfxVFTQA/xWW7AfrQIrXtxkKY8=,iv:hZe1Sl/+QkAnCR/2MHkxHm8INsGShMZK3WC+y2SJKD8=,tag:3lPgxlc6Nc7Oj2OpZF9R7Q==,type:str]
     pgp:
         - created_at: "2026-06-07T22:54:38Z"
           enc: |-
