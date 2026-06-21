@@ -22,6 +22,8 @@ user_pref("toolkit.telemetry.enabled", false);
 
 // --- UI ---
 user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
+user_pref("browser.uidensity", 1);
+user_pref("browser.compactmode.show", true);
 user_pref("browser.startup.homepage", "about:blank");
 user_pref("browser.newtabpage.enabled", true);
 user_pref("browser.startup.page", 3);

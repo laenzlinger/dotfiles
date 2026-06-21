@@ -133,6 +133,14 @@ menu[_moz-menuactive] {
 .urlbarView-row[selected] {
     background: $(get base02) !important;
 }
+
+/* Compact tabs */
+#tabbrowser-tabs {
+    --tab-min-height: 28px !important;
+}
+#TabsToolbar {
+    height: 28px !important;
+}
 "
 
 # Deploy to all profiles with chrome dir
