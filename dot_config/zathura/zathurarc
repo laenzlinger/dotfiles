@@ -5,3 +5,9 @@ set statusbar-v-padding 0
 set page-padding 2
 
 map 0 adjust_window best-fit
+
+# vim-style page navigation
+map l navigate next
+map h navigate previous
+map g goto top
+map G goto bottom
