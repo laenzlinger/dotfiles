@@ -4,3 +4,8 @@ zsh-users/zsh-autosuggestions
 
 # Transient prompt support
 olets/zsh-transient-prompt
+{{- if eq .chezmoi.os "darwin" }}
+
+# Swisscom proxy
+$HOME/dev/src/christof.laenzlinger/swisscom-proxy
+{{- end }}
