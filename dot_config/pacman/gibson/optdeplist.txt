@@ -1,5 +1,6 @@
 #optional dependencies
 cmake
+llvm
 llvm21
 python-httptools
 python-pytest

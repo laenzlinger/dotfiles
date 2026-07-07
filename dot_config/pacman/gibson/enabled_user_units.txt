@@ -17,3 +17,4 @@ p11-kit-server.socket
 pipewire-pulse.socket
 pipewire.socket
 wob.socket
+job-search.timer

@@ -1,4 +1,5 @@
 7zip
+aarch64-linux-gnu-gcc
 age
 alsa-scarlett-gui
 alsa-utils
