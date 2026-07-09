@@ -1,3 +1,6 @@
+-- Enable CLI access
+require("hs.ipc")
+
 -- Toggle app: bring to front or hide if already focused
 local function toggleApp(appName)
     local app = hs.application.find(appName)
