@@ -126,4 +126,24 @@ hs.hotkey.bind(modShift, "r", function()
     hs.reload()
 end)
 
+-- Workspace switching (Alt+1-9 → triggers Ctrl+1-9 for macOS Spaces)
+for i = 1, 9 do
+    hs.hotkey.bind(mod, tostring(i), function()
+        hs.eventtap.keyStroke({"ctrl"}, tostring(i))
+    end)
+end
+
+-- Move window to space (Alt+Shift+1-9)
+for i = 1, 9 do
+    hs.hotkey.bind(modShift, tostring(i), function()
+        local win = hs.window.focusedWindow()
+        if not win then return end
+        local spaces = hs.spaces.spacesForScreen(win:screen())
+        if spaces[i] then
+            hs.spaces.moveWindowToSpace(win, spaces[i])
+            hs.eventtap.keyStroke({"ctrl"}, tostring(i))
+        end
+    end)
+end
+
 hs.alert.show("Hammerspoon loaded")
