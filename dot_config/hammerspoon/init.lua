@@ -126,10 +126,13 @@ hs.hotkey.bind(modShift, "r", function()
     hs.reload()
 end)
 
--- Workspace switching (Alt+1-9 → triggers Ctrl+1-9 for macOS Spaces)
+-- Workspace switching (Alt+1-9 → switch to space via hs.spaces API)
 for i = 1, 9 do
     hs.hotkey.bind(mod, tostring(i), function()
-        hs.eventtap.keyStroke({"ctrl"}, tostring(i))
+        local spaces = hs.spaces.spacesForScreen(hs.screen.mainScreen())
+        if spaces[i] then
+            hs.spaces.gotoSpace(spaces[i])
+        end
     end)
 end
 
@@ -141,7 +144,7 @@ for i = 1, 9 do
         local spaces = hs.spaces.spacesForScreen(win:screen())
         if spaces[i] then
             hs.spaces.moveWindowToSpace(win, spaces[i])
-            hs.eventtap.keyStroke({"ctrl"}, tostring(i))
+            hs.spaces.gotoSpace(spaces[i])
         end
     end)
 end
