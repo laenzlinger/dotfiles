@@ -62,9 +62,14 @@ hs.hotkey.bind(mod, "f", function()
     if win then win:toggleFullScreen() end
 end)
 
--- Terminal
+-- Terminal (new window)
 hs.hotkey.bind(mod, "return", function()
-    hs.application.launchOrFocus("WezTerm")
+    local app = hs.application.find("WezTerm")
+    if app then
+        app:selectMenuItem({"Shell", "New Window"})
+    else
+        hs.application.launchOrFocus("WezTerm")
+    end
 end)
 
 -- Close window
