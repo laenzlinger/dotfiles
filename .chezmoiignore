@@ -13,6 +13,7 @@ docs/
 
 {{- if eq .chezmoi.os "linux" }}
 .config/homebrew
+.config/hammerspoon
 darwin
   {{- if eq .chezmoi.osRelease.id "debian" }}
 .config/pacman
