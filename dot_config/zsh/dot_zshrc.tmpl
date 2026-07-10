@@ -61,9 +61,6 @@ done
 # GPG agent needs TTY for pinentry (SSH auth, signing)
 export GPG_TTY=$(tty)
 gpg-connect-agent updatestartuptty /bye >/dev/null 2>&1
-
-# GitLab token from glab OAuth (avoids daily PAT creation)
-export GITLAB_PAT=$(glab config get token --host code.swisscom.com 2>/dev/null)
 {{- end }}
 
 # Vi key bindings

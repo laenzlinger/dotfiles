@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+# Refresh GitLab OAuth token for MCP server
+if command -v glab &>/dev/null; then
+    # Trigger a token refresh by making an API call
+    glab api /user --hostname code.swisscom.com &>/dev/null || true
+    export GITLAB_PAT=$(glab config get token --host code.swisscom.com 2>/dev/null)
+fi
+
+exec kiro-cli "$@"
