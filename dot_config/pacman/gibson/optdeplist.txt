@@ -2,6 +2,7 @@
 cmake
 llvm
 llvm21
+onnxruntime-cpu
 python-httptools
 python-pytest
 python-uvloop

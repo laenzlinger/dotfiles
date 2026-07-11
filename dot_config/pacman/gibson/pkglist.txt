@@ -216,6 +216,7 @@ screen
 screenfetch
 shellcheck
 shikane
+skopeo
 slurp
 smartmontools
 snap-pac
