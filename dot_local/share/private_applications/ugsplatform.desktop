@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=Universal G-Code Sender
+Comment=UGS in a Java based, cross platform G-Code sender, compatible with GRBL, TinyG, g2core and Smoothieware.
+Exec=env _JAVA_AWT_WM_NONREPARENTING=1 _JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel -Dswing.crossplatformlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel" /usr/share/java/ugsplatform/bin/ugsplatform --jdkhome /usr/lib/jvm/java-17-openjdk
+Icon=ugsplatform
+Terminal=false
+Type=Application
