@@ -1,8 +1,13 @@
 # Autostart applications
+{{ if eq .chezmoi.hostname "fender" -}}
+exec swayidle -w \
+    timeout 600 $lock
+{{ else -}}
 exec swayidle -w \
     timeout 600 $lock \
     timeout 300 'swaymsg "output * dpms off"' \
     resume 'swaymsg "output * dpms on"' before-sleep $lock
+{{ end -}}
 exec ~/.config/sway/bin/output-flash.sh
 exec ~/.config/waybar/scripts/waybar-reload.sh
 
