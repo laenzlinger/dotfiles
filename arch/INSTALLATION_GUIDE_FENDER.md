@@ -319,13 +319,47 @@ cd linux-mt76
 git sparse-checkout set drivers/net/wireless/mediatek/mt76
 git checkout
 
-# Install as DKMS module
-sudo cp -r drivers/net/wireless/mediatek/mt76 /usr/src/mt76-1.0
+# Install only needed files (top-level + mt7921 only)
+# Other subdirs (mt7603/mt7615/mt76x0/mt76x2/mt7915/mt7996/mt7925)
+# cause build failures on newer kernels due to API changes we don't need.
+sudo rm -rf /usr/src/mt76-1.0
+sudo mkdir -p /usr/src/mt76-1.0/mt7921
+sudo find drivers/net/wireless/mediatek/mt76 -maxdepth 1 -type f -exec cp {} /usr/src/mt76-1.0/ \;
+sudo cp drivers/net/wireless/mediatek/mt76/mt7921/* /usr/src/mt76-1.0/mt7921/
+
+# Write trimmed Makefile (only mt7921 subdirectory, no other chips)
+cat <<'EOF' | sudo tee /usr/src/mt76-1.0/Makefile
+# SPDX-License-Identifier: BSD-3-Clause-Clear
+obj-$(CONFIG_MT76) += mt76.o
+obj-$(CONFIG_MT76_USB) += mt76-usb.o
+obj-$(CONFIG_MT76_CONNAC_LIB) += mt76-connac-lib.o
+obj-$(CONFIG_MT792x_LIB) += mt792x-lib.o
+obj-$(CONFIG_MT792x_USB) += mt792x-usb.o
+obj-$(CONFIG_MT7921_COMMON) += mt7921/
+
+mt76-y := \
+	mmio.o util.o trace.o dma.o mac80211.o debugfs.o eeprom.o \
+	tx.o agg-rx.o mcu.o wed.o scan.o channel.o
+
+mt76-$(CONFIG_PCI) += pci.o
+
+mt76-usb-y := usb.o usb_trace.o
+
+CFLAGS_trace.o := -I$(src)
+CFLAGS_usb_trace.o := -I$(src)
+CFLAGS_mt792x_trace.o := -I$(src)
+
+mt76-connac-lib-y := mt76_connac_mcu.o mt76_connac_mac.o mt76_connac3_mac.o
+
+mt792x-lib-y := mt792x_core.o mt792x_mac.o mt792x_trace.o \
+		mt792x_debugfs.o mt792x_dma.o
+mt792x-usb-y := mt792x_usb.o
+EOF
+
 cat <<'EOF' | sudo tee /usr/src/mt76-1.0/dkms.conf
 PACKAGE_NAME="mt76"
 PACKAGE_VERSION="1.0"
 MAKE="make -C ${kernel_source_dir} M=${dkms_tree}/${PACKAGE_NAME}/${PACKAGE_VERSION}/build CONFIG_MT76=m CONFIG_MT76_USB=m CONFIG_MT76_CONNAC_LIB=m CONFIG_MT792x_LIB=m CONFIG_MT792x_USB=m CONFIG_MT7921_COMMON=m CONFIG_MT7921U=m modules"
-CLEAN="make -C ${kernel_source_dir} M=${dkms_tree}/${PACKAGE_NAME}/${PACKAGE_VERSION}/build clean"
 BUILT_MODULE_NAME[0]="mt76"
 BUILT_MODULE_LOCATION[0]=""
 DEST_MODULE_LOCATION[0]="/updates"
@@ -373,7 +407,13 @@ sudo systemctl restart NetworkManager
 ```
 
 **Note:** On major kernel upgrades, DKMS will rebuild automatically. If the build fails
-due to API changes, re-clone a matching kernel source branch and update `/usr/src/mt76-1.0/`.
+due to API changes, re-clone a matching kernel source branch and repeat the install steps above.
+Check `dkms status` after upgrade — it should show `installed`. If it shows only `added`,
+the build failed silently. Check the log with:
+
+```bash
+cat /var/lib/dkms/mt76/1.0/build/make.log
+```
 
 ### Power Button and Lid Behavior
 
