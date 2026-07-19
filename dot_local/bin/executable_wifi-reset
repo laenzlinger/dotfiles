@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+echo "=== Before reset ==="
+lsusb | grep -i mediatek || echo "No MediaTek USB device found"
+ip link | grep -E "wlan[0-9]" || echo "No wlan interface"
+
+echo "=== Rebinding USB controller ==="
+sudo sh -c 'echo xhci-hcd.3.auto > /sys/bus/platform/drivers/xhci-hcd/unbind && sleep 2 && echo xhci-hcd.3.auto > /sys/bus/platform/drivers/xhci-hcd/bind'
+
+echo "=== Waiting 5s for device ==="
+sleep 5
+
+echo "=== After reset ==="
+lsusb | grep -i mediatek || echo "No MediaTek USB device found"
+ip link | grep -E "wlan[0-9]" || echo "No wlan interface"
+dmesg | grep -i "mt7921\|wlan" | tail -5
