@@ -35,6 +35,7 @@ user_pref("signon.rememberSignons", false);
 // --- Wayland / Desktop integration ---
 user_pref("widget.use-xdg-desktop-portal.file-picker", 1);
 user_pref("widget.use-xdg-desktop-portal.mime-handler", 1);
+user_pref("network.dns.preferIPv4", true);
 
 // --- Search ---
 user_pref("browser.search.defaultenginename", "DuckDuckGo");
