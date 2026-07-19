@@ -1,7 +1,8 @@
 # Autostart applications
 {{ if eq .chezmoi.hostname "fender" -}}
 exec swayidle -w \
-    timeout 600 $lock
+    timeout 600 $lock \
+    before-sleep $lock
 {{ else -}}
 exec swayidle -w \
     timeout 600 $lock \

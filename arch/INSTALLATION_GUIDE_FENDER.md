@@ -417,8 +417,7 @@ cat /var/lib/dkms/mt76/1.0/build/make.log
 
 ### Power Button and Lid Behavior
 
-The Touch ID button is easy to accidentally press. Lid close should lock (not suspend)
-because s2idle suspend on Apple Silicon is unreliable — the system may not wake.
+The Touch ID button is easy to accidentally press. Override logind defaults:
 
 ```bash
 sudo mkdir -p /etc/systemd/logind.conf.d
@@ -432,15 +431,13 @@ EOF
 sudo systemctl restart systemd-logind
 ```
 
-### Disable Suspend Entirely
+### DPMS Off is Broken
 
-s2idle is the only available sleep mode on Apple Silicon, and resume is unreliable
-(system becomes completely unresponsive). Mask the targets to prevent anything from
-triggering suspend:
+`swaymsg "output * dpms off"` causes the display controller to not reinitialize —
+the system appears frozen (black screen, unresponsive). Suspend (s2idle) works fine.
 
-```bash
-sudo systemctl mask suspend.target sleep.target
-```
+The swayidle config in this repo already disables DPMS on fender (template-guarded).
+Do **not** add DPMS off commands to sway config on Apple Silicon.
 
 ---
 
@@ -470,17 +467,16 @@ curl https://asahi-alarm.org/installer-bootstrap.sh | sh
 
 ## Troubleshooting
 
-### System unresponsive after suspend (Apple Silicon)
+### Black screen / system appears frozen (Apple Silicon)
 
-s2idle is the only available sleep mode — real S3 suspend is not supported on Apple Silicon.
-Resume from s2idle is unreliable and the system may become completely unresponsive.
+**Cause:** `swaymsg "output * dpms off"` — the display controller does not recover
+from DPMS off on Apple Silicon. The system is actually still running but the display
+is permanently dark.
 
-**Fix:** Suspend is disabled via masked systemd targets and removed from the power menu.
-If something still triggers it, hard-reset (hold power 10s) and verify masks are active:
+Suspend (s2idle) works fine — wake with power button.
 
-```bash
-systemctl status suspend.target  # should show "masked"
-```
+**Fix:** DPMS off is disabled in swayidle config on fender (template-guarded in
+`autostart.config.tmpl`). Never use `output * dpms off` on this hardware.
 
 ### GRUB Rescue / Cannot Find Modules
 
