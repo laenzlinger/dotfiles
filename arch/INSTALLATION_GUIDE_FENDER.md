@@ -375,9 +375,10 @@ sudo systemctl restart NetworkManager
 **Note:** On major kernel upgrades, DKMS will rebuild automatically. If the build fails
 due to API changes, re-clone a matching kernel source branch and update `/usr/src/mt76-1.0/`.
 
-### Power Button Behavior
+### Power Button and Lid Behavior
 
-The Touch ID button is easy to accidentally press. Override logind defaults:
+The Touch ID button is easy to accidentally press. Lid close should lock (not suspend)
+because s2idle suspend on Apple Silicon is unreliable — the system may not wake.
 
 ```bash
 sudo mkdir -p /etc/systemd/logind.conf.d
@@ -385,8 +386,20 @@ cat <<'EOF' | sudo tee /etc/systemd/logind.conf.d/power-button.conf
 [Login]
 HandlePowerKey=lock
 HandlePowerKeyLongPress=poweroff
+HandleLidSwitch=lock
+HandleLidSwitchExternalPower=lock
 EOF
 sudo systemctl restart systemd-logind
+```
+
+### Disable Suspend Entirely
+
+s2idle is the only available sleep mode on Apple Silicon, and resume is unreliable
+(system becomes completely unresponsive). Mask the targets to prevent anything from
+triggering suspend:
+
+```bash
+sudo systemctl mask suspend.target sleep.target
 ```
 
 ---
@@ -416,6 +429,18 @@ curl https://asahi-alarm.org/installer-bootstrap.sh | sh
 ---
 
 ## Troubleshooting
+
+### System unresponsive after suspend (Apple Silicon)
+
+s2idle is the only available sleep mode — real S3 suspend is not supported on Apple Silicon.
+Resume from s2idle is unreliable and the system may become completely unresponsive.
+
+**Fix:** Suspend is disabled via masked systemd targets and removed from the power menu.
+If something still triggers it, hard-reset (hold power 10s) and verify masks are active:
+
+```bash
+systemctl status suspend.target  # should show "masked"
+```
 
 ### GRUB Rescue / Cannot Find Modules
 

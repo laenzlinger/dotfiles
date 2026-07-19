@@ -5,19 +5,27 @@ command -v rofi >/dev/null || exit 1
 
 BG="$HOME/.config/sway/resources/background.jpg"
 
+{{ if eq .chezmoi.hostname "fender" -}}
+choice=$(printf " Lock\n Logout\n󰶐 Screen Off\n Reboot\n Shutdown" | rofi -dmenu -i -p "Power" -theme-str 'listview { lines: 5; }')
+{{ else -}}
 choice=$(printf " Lock\n Logout\n⏾ Suspend\n Reboot\n Shutdown" | rofi -dmenu -i -p "Power" -theme-str 'listview { lines: 5; }')
-
+{{ end }}
 case "$choice" in
-  *Lock)     swaylock -k -l -F -f --image "$BG" ;;
-  *Logout|*Suspend|*Reboot|*Shutdown)
+  *Lock) swaylock -k -l -F -f --image "$BG" ;;
+{{ if eq .chezmoi.hostname "fender" }}  *Screen\ Off)
+    swaylock -k -l -F -f --image "$BG" &
+    sleep 0.5
+    swaymsg "output * dpms off"
+    ;;
+{{ end }}  *Logout{{ if ne .chezmoi.hostname "fender" }}|*Suspend{{ end }}|*Reboot|*Shutdown)
     if systemctl is-active --quiet resticprofile-backup@profile-rotating-backup.service; then
       confirm=$(printf "No, cancel\nYes, stop backup" | rofi -dmenu -i -p "⚠ Backup running!")
       [[ "$confirm" != "Yes, stop backup" ]] && exit 0
     fi
     case "$choice" in
       *Logout)   uwsm stop ;;
-      *Suspend)  systemctl suspend --check-inhibitors=yes ;;
-      *Reboot)   systemctl reboot --check-inhibitors=yes ;;
+{{ if ne .chezmoi.hostname "fender" }}      *Suspend)  systemctl suspend --check-inhibitors=yes ;;
+{{ end }}      *Reboot)   systemctl reboot --check-inhibitors=yes ;;
       *Shutdown) systemctl poweroff --check-inhibitors=yes ;;
     esac
     ;;
