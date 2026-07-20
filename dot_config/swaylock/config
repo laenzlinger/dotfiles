@@ -23,6 +23,7 @@ separator-color=00000000
 # Layout
 indicator-radius=100
 indicator-thickness=10
+indicator-idle-visible
 
 # Behavior
 show-keyboard-layout
