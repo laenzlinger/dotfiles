@@ -28,4 +28,5 @@ indicator-idle-visible
 # Behavior
 show-keyboard-layout
 show-failed-attempts
+indicator-caps-lock
 font-size=32
