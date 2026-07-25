@@ -11,7 +11,9 @@
     "execute_bash",
     "grep",
     "glob",
-    "code"
+    "code",
+    "web_fetch",
+    "web_search"
   ],
   "allowedTools": [
     "fs_read",
