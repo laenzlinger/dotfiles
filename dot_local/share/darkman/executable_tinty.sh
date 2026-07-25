@@ -12,8 +12,8 @@ if [[ -f "$PIDFILE" ]]; then
 fi
 
 case "$1" in
-dark) THEME=base16-darktooth ;;
-light) THEME=base16-gruvbox-light-medium ;;
+dark) THEME=base16-summerfruit-dark ;;
+light) THEME=base16-summerfruit-light ;;
 esac
 
 SWAYSOCK=$(find /run/user/"$(id -u)" -name 'sway-ipc.*.sock' -print -quit 2>/dev/null)

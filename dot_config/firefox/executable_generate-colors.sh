@@ -2,8 +2,13 @@
 set -euo pipefail
 
 tinty_repos="${HOME}/.local/share/tinted-theming/tinty/repos/base16-waybar/colors"
-dark_src="${tinty_repos}/base16-darktooth.css"
-light_src="${tinty_repos}/base16-gruvbox-light-medium.css"
+darkman_script="${HOME}/.local/share/darkman/tinty.sh"
+
+# Dynamically read theme names from darkman config
+dark_theme=$(sed -n 's/.*dark) THEME=\([^ ;]*\).*/\1/p' "$darkman_script")
+light_theme=$(sed -n 's/.*light) THEME=\([^ ;]*\).*/\1/p' "$darkman_script")
+dark_src="${tinty_repos}/${dark_theme}.css"
+light_src="${tinty_repos}/${light_theme}.css"
 profiles_dir="${HOME}/.mozilla/firefox"
 [[ -d "$profiles_dir" ]] || profiles_dir="${HOME}/.config/mozilla/firefox"
 
