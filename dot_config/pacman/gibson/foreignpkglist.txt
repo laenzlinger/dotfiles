@@ -4,7 +4,6 @@ btrfs-desktop-notification
 cheat-bin
 clipman
 f3
-flux-bin
 gnu-netcat
 gsender-bin
 kiro-cli
@@ -21,7 +20,6 @@ orca-slicer-bin
 papirus-icon-theme-git
 pdfposter
 powerline-fonts-git
-reiserfsprogs
 resticprofile
 rpiusbboot-git
 selectdefaultapplication-git
@@ -31,6 +29,5 @@ stm32cubemx
 stm32cubemx-jre
 tinty-git
 ttf-pacifico
-universal-gcode-sender-bin
 ventoy-bin
 yay
