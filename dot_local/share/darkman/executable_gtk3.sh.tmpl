@@ -16,3 +16,14 @@ fi
 gsettings set $gnome_schema gtk-theme "{{ .gtk.theme }}-$NEW_STATE"
 gsettings set $gnome_schema icon-theme "{{ .gtk.icon.theme }}-$NEW_STATE"
 gsettings set $gnome_schema font-name "{{ .gtk.font }}"
+
+# Keep settings.ini in sync so Java/Swing (GTKLookAndFeel) picks up the
+# correct theme — it reads the file directly rather than via the settings portal.
+GTK3_DIR="${XDG_CONFIG_HOME:-$HOME/.config}/gtk-3.0"
+mkdir -p "$GTK3_DIR"
+cat > "$GTK3_DIR/settings.ini" <<EOF
+[Settings]
+gtk-icon-theme-name = {{ .gtk.icon.theme }}-${NEW_STATE}
+gtk-theme-name = {{ .gtk.theme }}-${NEW_STATE}
+gtk-font-name = {{ .gtk.font }}
+EOF

@@ -1,5 +1,7 @@
 README.md
 secrets.sops.yaml
+# Managed by darkman's gtk3.sh hook so it always reflects the current dark/light mode
+.config/gtk-3.0/settings.ini
 arch/
 darwin/
 debian/
