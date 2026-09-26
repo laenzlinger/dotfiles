@@ -7,12 +7,12 @@
     "file://dot_openpnp2/openpnp-package-map.csv"
   ],
   "tools": [
-    "fs_read",
-    "fs_write",
-    "execute_bash",
-    "grep",
+    "code",
     "glob",
-    "code"
+    "grep",
+    "read",
+    "shell",
+    "write"
   ],
   "allowedTools": [
     "fs_read",
@@ -29,5 +29,23 @@
     "execute_bash": {
       "autoAllowReadonly": true
     }
+  },
+  "permissions": {
+    "rules": [
+      {
+        "capability": "fs_write",
+        "match": [
+          "dot_openpnp2/**"
+        ],
+        "effect": "allow"
+      },
+      {
+        "capability": "fs_read",
+        "effect": "allow"
+      }
+    ],
+    "policies": [
+      "read-only-shell"
+    ]
   }
 }

@@ -6,12 +6,12 @@
     "file://.kiro/context.md"
   ],
   "tools": [
-    "fs_read",
-    "fs_write",
-    "execute_bash",
-    "grep",
+    "code",
     "glob",
-    "code"
+    "grep",
+    "read",
+    "shell",
+    "write"
   ],
   "allowedTools": [
     "fs_read",
@@ -28,5 +28,23 @@
     "execute_bash": {
       "autoAllowReadonly": true
     }
+  },
+  "permissions": {
+    "rules": [
+      {
+        "capability": "fs_write",
+        "match": [
+          "~/.local/share/chezmoi/**"
+        ],
+        "effect": "allow"
+      },
+      {
+        "capability": "fs_read",
+        "effect": "allow"
+      }
+    ],
+    "policies": [
+      "read-only-shell"
+    ]
   }
 }
