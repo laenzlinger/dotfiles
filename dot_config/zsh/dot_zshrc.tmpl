@@ -87,6 +87,11 @@ alias o='open'
 {{- end }}
 alias cm='chezmoi'
 
+# yay without mise shims in PATH (avoids mise Python interfering with AUR builds)
+if command -v yay &> /dev/null; then
+  alias yayclean='PATH=$(echo "$PATH" | tr ":" "\n" | grep -v mise/shims | tr "\n" ":") yay'
+fi
+
 # Yazi with cwd sync
 function f() {
   local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
@@ -101,6 +106,7 @@ if command -v eza &> /dev/null; then
   alias ls='eza --icons'
   alias ll='eza --icons -l'
   alias la='eza --icons -la'
+  alias lart='eza --icons -la --time=modified --sort=modified'
   alias lt='eza --icons --tree --level=3'
 fi
 

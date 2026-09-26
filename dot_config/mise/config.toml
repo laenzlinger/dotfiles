@@ -1,5 +1,6 @@
 [tools]
 usage = "latest"
+python = "3.13.12"
 
 [settings]
 experimental = true
