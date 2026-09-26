@@ -14,4 +14,7 @@ comm -13 <(pacman -Qqdt | sort) <(pacman -Qqdtt | sort) >>"$DIR/optdeplist.txt"
 systemctl list-unit-files --state=enabled --no-legend | awk '{print $1}' >"$DIR/enabled_units.txt"
 export XDG_RUNTIME_DIR="${XDG_RUNTIME_DIR:-/run/user/$(id -u)}"
 export DBUS_SESSION_BUS_ADDRESS="${DBUS_SESSION_BUS_ADDRESS:-unix:path=$XDG_RUNTIME_DIR/bus}"
-systemctl --user list-unit-files --state=enabled --no-legend | awk '{print $1}' >"$DIR/enabled_user_units.txt"
+# Non-fatal: may fail when run from system service with no user D-Bus session available
+systemctl --user list-unit-files --state=enabled --no-legend 2>/dev/null \
+  | awk '{print $1}' >"$DIR/enabled_user_units.txt" \
+  || echo "Warning: could not list user units (no D-Bus session), skipping enabled_user_units.txt update"
